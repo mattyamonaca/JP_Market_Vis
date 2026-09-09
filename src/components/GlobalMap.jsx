@@ -10,6 +10,28 @@ export default function GlobalMap({ onSelectCompany }) {
   const fittedRef = useRef(null);
   const rotationDrag = useRef(null);
   const [rotationMode, setRotationMode] = useState(false);
+  // 回転モード中でも、ドラッグ・キー操作の間だけ再描画を回し、停止中は休止する（Issue #8）
+  const [interacting, setInteracting] = useState(false);
+  const idleTimer = useRef(null);
+  const wake = (ms = 400) => {
+    setInteracting(true);
+    clearTimeout(idleTimer.current);
+    idleTimer.current = setTimeout(() => setInteracting(false), ms);
+  };
+  useEffect(() => () => clearTimeout(idleTimer.current), []);
+  // 回転用オーバーレイのホイールを拡大縮小へ転送（React の onWheel は passive なので native で登録）
+  const surfaceRef = useRef(null);
+  useEffect(() => {
+    const el = surfaceRef.current;
+    if (!rotationMode || !el) return undefined;
+    const onWheel = (event) => {
+      event.preventDefault();
+      const fg = fgRef.current;
+      if (fg) fg.zoom(fg.zoom() * (event.deltaY < 0 ? 1.15 : 1 / 1.15), 150);
+    };
+    el.addEventListener('wheel', onWheel, { passive: false });
+    return () => el.removeEventListener('wheel', onWheel);
+  }, [rotationMode]);
   const [size, setSize] = useState({ w: 800, h: 600 });
   const [activeCategories, setActiveCategories] = useState(new Set(Object.keys(CATEGORY_JA)));
   const [minDegree, setMinDegree] = useState(1);
@@ -30,6 +52,25 @@ export default function GlobalMap({ onSelectCompany }) {
   });
   const nodeSize = (node) => Math.max(2, Math.sqrt(node.degree) * 1.4);
   const fit = () => fgRef.current?.zoomToFit(500, Math.min(60, size.w * .1));
+  const zoomBy = (factor) => fgRef.current?.zoom(fgRef.current.zoom() * factor, 250);
+  // 回転用オーバーレイ上の座標から、見た目どおりのノードを探す（回転後の位置で判定）
+  const nodeAt = (clientX, clientY) => {
+    const fg = fgRef.current;
+    const rect = wrapRef.current?.getBoundingClientRect();
+    if (!fg || !rect) return null;
+    const p = fg.screen2GraphCoords(clientX - rect.left, clientY - rect.top);
+    const scale = fg.zoom();
+    let best = null;
+    let bestD = Infinity;
+    for (const node of data.nodes) {
+      if (!Number.isFinite(node.x)) continue;
+      const d = Math.hypot(node.x - p.x, node.y - p.y);
+      const r = nodeSize(node) + 6 / scale;
+      if (d <= r && d < bestD) { best = node; bestD = d; }
+    }
+    return best;
+  };
+  const CLICK_SLOP = 5;
   return (
     <div className="map-view">
       <aside className="map-sidebar" aria-label="マップの検索とフィルタ">
@@ -65,13 +106,13 @@ export default function GlobalMap({ onSelectCompany }) {
         </details>
       </aside>
       <div ref={wrapRef} className="map-canvas" role="region" aria-label="上場企業間ネットワーク。企業検索からも各社の関係を確認できます。">
-        <div className="map-caption"><strong>上場企業間ネットワーク</strong><br />色：業種 ／ 円の大きさ：関係数<br />{rotationMode ? '左右にドラッグして回転 · ＋/−で拡大縮小' : 'ドラッグで移動 · スクロールで拡大 · 企業を選択して詳細へ'}</div>
+        <div className="map-caption"><strong>上場企業間ネットワーク</strong><br />色：業種 ／ 円の大きさ：関係数<br />{rotationMode ? '左右にドラッグして回転 · スクロール・＋/−で拡大縮小 · 企業をクリックで詳細へ · Escで移動モード' : 'ドラッグで移動 · スクロールで拡大 · 企業を選択して詳細へ'}</div>
         <ForceGraph2D ref={fgRef} width={size.w} height={size.h} graphData={data}
           backgroundColor="#0b1220" nodeId="id" nodeRelSize={1}
           nodeVal={(n) => nodeSize(n) ** 2 / 4} nodeColor={(n) => industryColor(n.industry)} nodeLabel={() => ''}
           linkColor={(l) => `${CATEGORY_COLORS[l.category] ?? '#475569'}55`} linkWidth={0.6}
           warmupTicks={50} cooldownTicks={rotationMode ? 0 : 90}
-          autoPauseRedraw={!rotationMode}
+          autoPauseRedraw={!(rotationMode && interacting)}
           enableNodeDrag={!rotationMode} enablePanInteraction={!rotationMode}
           onEngineStop={() => { if (fittedRef.current !== data && data.nodes.length) { fittedRef.current = data; fit(); } }}
           onNodeHover={(n) => { setHoverNode(n || null); if (wrapRef.current) wrapRef.current.style.cursor = n ? 'pointer' : 'grab'; }}
@@ -84,38 +125,62 @@ export default function GlobalMap({ onSelectCompany }) {
           }}
         />
         {rotationMode && <div className="rotation-surface"
-          tabIndex={0} role="group" aria-label="ドラッグでマップ全体を回転。左右の矢印キーでも回転できます。"
+          tabIndex={0} role="group" aria-label="ドラッグでマップ全体を回転。左右の矢印キーでも回転できます。企業をクリックすると詳細を開きます。"
+          ref={surfaceRef}
           onPointerDown={(event) => {
             if (!event.isPrimary || event.button !== 0) return;
             event.preventDefault();
             event.currentTarget.focus();
             event.currentTarget.setPointerCapture(event.pointerId);
-            rotationDrag.current = { id: event.pointerId, x: event.clientX };
+            rotationDrag.current = { id: event.pointerId, x: event.clientX, startX: event.clientX, startY: event.clientY, moved: false };
+            wake(1000);
           }}
           onPointerMove={(event) => {
             const drag = rotationDrag.current;
-            if (!drag || drag.id !== event.pointerId) return;
+            if (!drag || drag.id !== event.pointerId) {
+              // ドラッグしていない間は通常モードと同じくホバーで企業名を表示
+              if (!drag && event.pointerType !== 'touch') {
+                const node = nodeAt(event.clientX, event.clientY);
+                if (node !== hoverNode) { setHoverNode(node); wake(300); }
+                event.currentTarget.style.cursor = node ? 'pointer' : 'ew-resize';
+              }
+              return;
+            }
+            if (!drag.moved && Math.hypot(event.clientX - drag.startX, event.clientY - drag.startY) < CLICK_SLOP) return;
+            if (hoverNode) setHoverNode(null);
+            drag.moved = true;
             rotateNodes(data.nodes, (event.clientX - drag.x) * Math.PI / 360);
             drag.x = event.clientX;
+            wake(600);
           }}
           onPointerUp={(event) => {
-            if (rotationDrag.current?.id !== event.pointerId) return;
+            const drag = rotationDrag.current;
+            if (drag?.id !== event.pointerId) return;
             rotationDrag.current = null;
             if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+            wake(300);
+            // 動かしていなければクリック扱い: 見た目の位置にある企業を開く（ドラッグ終了では開かない）
+            if (!drag.moved) {
+              const node = nodeAt(event.clientX, event.clientY);
+              if (node) onSelectCompany(node.id);
+            }
           }}
-          onPointerCancel={() => { rotationDrag.current = null; }}
+          onPointerCancel={() => { rotationDrag.current = null; wake(300); }}
           onLostPointerCapture={() => { rotationDrag.current = null; }}
           onKeyDown={(event) => {
             if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
               event.preventDefault();
               rotateNodes(data.nodes, (event.key === 'ArrowRight' ? 1 : -1) * Math.PI / 12);
+              wake(500);
             }
+            if (event.key === '+' || event.key === '=') zoomBy(1.4);
+            if (event.key === '-') zoomBy(1 / 1.4);
             if (event.key === 'Escape') setRotationMode(false);
           }}
         />}
         {!data.nodes.length && <div className="map-empty" role="status"><strong>表示できる企業がありません</strong><span>カテゴリを選択するか、最小関係数を下げてください。</span></div>}
         {hoverNode && <div className="map-hover"><strong>{hoverNode.name}</strong><small>{hoverNode.id} · {hoverNode.industry}</small><small>選択カテゴリ内 {hoverNode.degree}関係</small></div>}
-        <div className="map-tools"><button aria-pressed={rotationMode} onClick={() => setRotationMode((active) => !active)}>{rotationMode ? '↻ 回転中' : '↻ 回転'}</button><button onClick={() => fgRef.current?.zoom(fgRef.current.zoom() * 1.4, 250)} aria-label="拡大">＋</button><button onClick={() => fgRef.current?.zoom(fgRef.current.zoom() / 1.4, 250)} aria-label="縮小">−</button><button onClick={fit}>全体を表示</button></div>
+        <div className="map-tools"><button aria-pressed={rotationMode} onClick={() => { setRotationMode((active) => !active); wake(300); }}>{rotationMode ? '↻ 回転中' : '↻ 回転'}</button><button onClick={() => zoomBy(1.4)} aria-label="拡大">＋</button><button onClick={() => zoomBy(1 / 1.4)} aria-label="縮小">−</button><button onClick={fit}>全体を表示</button></div>
       </div>
     </div>
   );
