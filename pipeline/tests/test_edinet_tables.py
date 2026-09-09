@@ -164,6 +164,30 @@ class SyntheticCases(unittest.TestCase):
         self.assertTrue(rows[0]["owned_by_counterparty"])
         self.assertEqual(rows[0]["counterparty_name"], "ソフトバンクグループ株式会社")
 
+    def test_explicit_own_marker_overrides_inherited_parent_classification(self):
+        # 親会社行の後に続く行が「所有100.0」と明示している場合、継承した親会社分類で方向を反転しない
+        html = ('<table><tr><th>名称</th><th>議決権の所有(被所有)割合</th></tr>'
+                '<tr><td>（親会社）親玉株式会社</td><td>被所有51.5</td></tr>'
+                '<tr><td>傘下株式会社</td><td>所有100.0</td></tr></table>')
+        rows = et.extract_affiliated(et.parse_block(html))
+        parent, sub = rows
+        self.assertEqual(parent["classification"], "親会社")
+        self.assertTrue(parent["owned_by_counterparty"])
+        self.assertFalse(sub["owned_by_counterparty"])
+        self.assertEqual(sub["direction_source"], "cell")
+        self.assertIsNone(sub["classification"])  # 継承分類と矛盾 → 不明に戻す
+        self.assertTrue(sub["direction_conflict"])
+
+    def test_explicit_owned_marker_overrides_inherited_subsidiary_classification(self):
+        html = ('<h4>(1) 連結子会社</h4><table><tr><th>名称</th><th>議決権の所有(被所有)割合</th></tr>'
+                '<tr><td>子会社A</td><td>所有100.0</td></tr>'
+                '<tr><td>大株主B</td><td>被所有30.0</td></tr></table>')
+        rows = et.extract_affiliated(et.parse_block(html))
+        self.assertEqual(rows[0]["classification"], "連結子会社")
+        self.assertTrue(rows[1]["owned_by_counterparty"])
+        self.assertIsNone(rows[1]["classification"])
+        self.assertTrue(rows[1]["direction_conflict"])
+
     def test_unknown_classification_stays_unknown(self):
         html = ('<h3>４【関係会社の状況】</h3><table><tr><th>名称</th><th>議決権の所有割合</th></tr>'
                 '<tr><td>某社</td><td>100</td></tr></table>')
