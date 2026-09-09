@@ -160,6 +160,9 @@ def syntactic_direction(quote: str, cp: str | None, rel_type: str, cue: str | No
     if re.match(_PARTICLE_AGENT, after):
         return "in"
     if re.match(_PARTICLE_RECIPIENT, after):
+        # 「X社への譲渡／売却」は X が取得側（in）
+        if rel_type in ("merger_acquisition", "ownership") and re.search(r"譲渡|売却", q):
+            return "in"
         return "out"
     if re.match(_PARTICLE_SOURCE, after):
         # 「Xから受注」は X が顧客（out）、「Xから出資を受け／購入」は X が主体（in）、「Xから買収／譲受」は提出会社が主体（out）
