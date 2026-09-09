@@ -3,6 +3,7 @@ import { Background, Controls, MiniMap, ReactFlow } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
 import {
+  CATEGORY_AVAILABILITY,
   CATEGORY_COLORS,
   CATEGORY_JA,
   COMPANIES,
@@ -59,14 +60,19 @@ function CategoryFilterBar({ activeCategories, toggle }) {
       }}
     >
       {Object.entries(CATEGORY_JA).map(([key, ja]) => {
-        const active = activeCategories.has(key);
+        const unavailable = (CATEGORY_AVAILABILITY[key]?.total ?? 0) === 0;
+        const active = activeCategories.has(key) && !unavailable;
         const color = CATEGORY_COLORS[key];
         return (
           <button
             aria-pressed={active}
+            aria-disabled={unavailable}
+            disabled={unavailable}
+            title={unavailable ? 'このカテゴリは現在のデータに収録されていません（関係がないことを意味しません）' : `${(CATEGORY_AVAILABILITY[key]?.total ?? 0).toLocaleString()}件`}
             key={key}
             onClick={() => toggle(key)}
             style={{
+              opacity: unavailable ? 0.55 : 1,
               padding: '4px 12px',
               borderRadius: 999,
               fontSize: 12,
@@ -74,10 +80,10 @@ function CategoryFilterBar({ activeCategories, toggle }) {
               cursor: 'pointer',
               background: active ? `${color}22` : 'transparent',
               border: `1px solid ${active ? color : '#334155'}`,
-              color: active ? color : '#64748b',
+              color: active ? color : '#94a3b8',
             }}
           >
-            {ja}
+            {ja}{unavailable && <small style={{ marginLeft: 4, fontSize: 10, color: '#94a3b8' }}>未収録</small>}
           </button>
         );
       })}
@@ -262,7 +268,7 @@ function GraphView({ centerCode, setCenterCode, onShowInTable }) {
               justifyContent: 'center',
               zIndex: 5,
               pointerEvents: 'none',
-              color: '#64748b',
+              color: '#94a3b8',
               fontSize: 14,
             }}
           >
