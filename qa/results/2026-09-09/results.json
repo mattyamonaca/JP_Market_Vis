@@ -1,6 +1,6 @@
 {
  "date": "2026-09-09",
- "commit": "31c65899c64b69646b662e09fe56e0ed1a42d159",
+ "commit": "faf737467342b36b47808478e8e94d2f520f8f2a",
  "url": "http://localhost:5184/JP_Market_Vis/",
  "browser": "Chrome 152.0.7977.83 (headless, Playwright)",
  "device": "darwin arm64",
@@ -9,7 +9,7 @@
    "scenario": "PC初回",
    "item": "初回表示（マップ描画まで）",
    "ok": true,
-   "detail": "1120 ms"
+   "detail": "1341 ms"
   },
   {
    "scenario": "PC初回",
@@ -39,7 +39,7 @@
    "scenario": "操作",
    "item": "回転中のホイール拡大",
    "ok": true,
-   "detail": "0.2008097916841507 -> 0.23093125224113464"
+   "detail": "0.20268428325653076 -> 0.23308692872524261"
   },
   {
    "scenario": "操作",
@@ -51,7 +51,7 @@
    "scenario": "負荷",
    "item": "回転ドラッグ中の再描画回数（約0.6秒）",
    "ok": true,
-   "detail": "63"
+   "detail": "62"
   },
   {
    "scenario": "負荷",
@@ -93,7 +93,7 @@
    "scenario": "フィルタ",
    "item": "閾値20で表示線なし件数を表示",
    "ok": true,
-   "detail": "30 表示中の企業 うち表示線なし 19社 7 表示中の関係 上場企業間 4,997件中"
+   "detail": "30 表示中の企業 うち表示線なし 19社 7 表示中の関係 上場企業間 4,996件中"
   },
   {
    "scenario": "フィルタ",
@@ -153,7 +153,7 @@
    "scenario": "キーボード",
    "item": "Tabで検索欄に到達",
    "ok": true,
-   "detail": "BUTTON:全体マップ, BUTTON:関係グラフ, BUTTON:関係一覧, BUTTON:統計・データ, A:GitHub ↗, INPUT:map-search, BUTTON:資本4,259, BUTTON:取引656, BUTTON:提携81, BUTTON:グループ1, INPUT:min-degree, SUMMARY:業種の凡例, BUTTON:↻ 回転, BUTTON:拡大, BUTTON:縮小, BUTTON:全体を表示, BODY:◉JP MARKET V"
+   "detail": "BUTTON:全体マップ, BUTTON:関係グラフ, BUTTON:関係一覧, BUTTON:統計・データ, A:GitHub ↗, INPUT:map-search, BUTTON:資本4,259, BUTTON:取引656, BUTTON:提携80, BUTTON:グループ1, INPUT:min-degree, SUMMARY:業種の凡例, BUTTON:↻ 回転, BUTTON:拡大, BUTTON:縮小, BUTTON:全体を表示, BODY:◉JP MARKET V"
   },
   {
    "scenario": "キーボード",
