@@ -1,0 +1,518 @@
+[
+ {
+  "source_contains": "ソウルドアウト",
+  "target_contains": "リンカーズ",
+  "verdict": "correct",
+  "note": "大株主の状況 1.03%（2025-07-31現在）と一致"
+ },
+ {
+  "source_contains": "みずほ銀行",
+  "target_contains": "澁澤倉庫",
+  "verdict": "correct_stale",
+  "note": "大株主の注記に写された2016-10-14の大量保有報告書（4.93%）。抽出は正しいが時点が古い。property=large_holding_report・基準日で区別"
+ },
+ {
+  "source_contains": "国分グループ本社",
+  "target_contains": "かどや製油",
+  "verdict": "correct",
+  "note": "大株主の状況 3.03% と一致"
+ },
+ {
+  "source_contains": "AVANTIA",
+  "target_contains": "五朋建設",
+  "verdict": "correct",
+  "note": "連結子会社 100.0% と一致"
+ },
+ {
+  "source_contains": "三好",
+  "target_contains": "アグレ都市デザイン",
+  "verdict": "correct",
+  "note": "大株主（個人）0.83%。個人株主もエンティティになる仕様"
+ },
+ {
+  "source_contains": "CCIグループ",
+  "target_contains": "CC イノベーション",
+  "verdict": "correct",
+  "note": "連結子会社 100.00%"
+ },
+ {
+  "source_contains": "SDSホールディングス",
+  "target_contains": "東セン貿",
+  "verdict": "correct",
+  "note": "主要な顧客 103,268千円"
+ },
+ {
+  "source_contains": "メタルアート",
+  "target_contains": "ダイハツ工業",
+  "verdict": "correct",
+  "note": "主要な顧客 11,881百万円"
+ },
+ {
+  "source_contains": "ホーブ",
+  "target_contains": "トーワ物産",
+  "verdict": "correct",
+  "note": "主要な顧客 336,444千円"
+ },
+ {
+  "source_contains": "ミラティブ",
+  "target_contains": "Google",
+  "verdict": "correct",
+  "note": "主要な顧客 1,017,344千円"
+ },
+ {
+  "source_contains": "旭化学工業",
+  "target_contains": "マキタ",
+  "verdict": "correct",
+  "note": "主要な顧客 954,497千円（上場のマキタへ名寄せ）"
+ },
+ {
+  "source_contains": "名古屋電機工業",
+  "target_contains": "東日本高速道路",
+  "verdict": "correct",
+  "note": "主要な顧客 2,109,068千円"
+ },
+ {
+  "source_contains": "ニデックアドバンス",
+  "target_contains": "テクノホライゾン",
+  "verdict": "correct",
+  "note": "開発協業。同じ根拠文が5つのURLに付いているのはクローラーの引用付与の問題（関係自体は正しい）"
+ },
+ {
+  "source_contains": "アイシン",
+  "target_contains": "東邦瓦斯",
+  "verdict": "correct",
+  "note": "公式公表で確認済み（corrections）"
+ },
+ {
+  "source_contains": "Old City",
+  "target_contains": "マツモト",
+  "verdict": "correct",
+  "note": "基本合意書（MOU）。deal_status=agreed"
+ },
+ {
+  "source_contains": "MINIEYE",
+  "target_contains": "イクヨ",
+  "verdict": "correct",
+  "note": "業務提携の検討に関する基本合意書。agreed 段階"
+ },
+ {
+  "source_contains": "VI-grade",
+  "target_contains": "SOLIZE",
+  "verdict": "correct",
+  "note": "協業開始の記述あり"
+ },
+ {
+  "source_contains": "イヤサカ",
+  "target_contains": "シイエム・シイ",
+  "verdict": "correct",
+  "note": "業務提携基本契約書（2021-06-22）"
+ },
+ {
+  "source_contains": "ネスレ日本",
+  "target_contains": "キッコーマン",
+  "verdict": "correct",
+  "note": "連携した海上輸送"
+ },
+ {
+  "source_contains": "イクヨ",
+  "target_contains": "ムラキ",
+  "verdict": "correct",
+  "note": "協業に向けた検討開始（agreed 段階）"
+ },
+ {
+  "source_contains": "TBSホールディングス",
+  "target_contains": "CJ ENM",
+  "verdict": "correct",
+  "note": "合弁会社 StudioMonowa 設立"
+ },
+ {
+  "source_contains": "TBSホールディングス",
+  "target_contains": "StudioMonowa",
+  "verdict": "correct",
+  "note": "出資者→合弁会社（タイプ定義どおり）"
+ },
+ {
+  "source_contains": "TBSホールディングス",
+  "target_contains": "U-NEXT",
+  "verdict": "correct",
+  "note": "合弁会社 StudioMonowa の共同出資者"
+ },
+ {
+  "source_contains": "東邦瓦斯",
+  "target_contains": "Shizen Connect",
+  "verdict": "correct",
+  "note": "出資しました"
+ },
+ {
+  "source_contains": "ストライダーズ",
+  "target_contains": "AME",
+  "verdict": "correct",
+  "note": "出資しました"
+ },
+ {
+  "source_contains": "松屋フーズ",
+  "target_contains": "亀製麺",
+  "verdict": "correct",
+  "note": "全株式取得・完全子会社化"
+ },
+ {
+  "source_contains": "Arent",
+  "target_contains": "アサクラソフト",
+  "verdict": "unverifiable",
+  "note": "関係（株式取得）は妥当だが、出所URLが YouTube プレイリストで原本に到達できない（クローラーのURL付与誤り）"
+ },
+ {
+  "source_contains": "Arent",
+  "target_contains": "構造ソフト",
+  "verdict": "unverifiable",
+  "note": "同上（YouTube プレイリストURL）"
+ },
+ {
+  "source_contains": "J.フロント",
+  "target_contains": "Sally",
+  "verdict": "correct",
+  "note": "CVC の出資。同じ根拠文が無関係なPDF 4件にも付いている（引用付与の問題）"
+ },
+ {
+  "source_contains": "J.フロント",
+  "target_contains": "TableCheck",
+  "verdict": "correct",
+  "note": "CVC の出資（引用付与の問題あり）"
+ },
+ {
+  "source_contains": "J.フロント",
+  "target_contains": "ヒューリックみなとみらい",
+  "verdict": "wrong_counterparty",
+  "note": "「ヒューリックみなとみらい」は取得対象の不動産で法人ではない。出資先は特別目的会社"
+ },
+ {
+  "source_contains": "マザーサン",
+  "target_contains": "ユタカ技研",
+  "verdict": "correct",
+  "note": "公開買付け（相手→提出会社の方向で正しい）"
+ },
+ {
+  "source_contains": "アクアライン",
+  "target_contains": "SAIAS",
+  "verdict": "wrong_direction",
+  "note": "SAIAS によるアクアライン株式の取得なので SAIAS→アクアライン。修正後は相手→提出会社に判定される"
+ },
+ {
+  "source_contains": "SAIAS",
+  "target_contains": "アクアライン",
+  "verdict": "correct",
+  "note": "修正後: SAIAS→アクアライン（相手が主体の株式取得）"
+ },
+ {
+  "source_contains": "スコヒアファーマ",
+  "target_contains": "FRONTEO",
+  "verdict": "wrong_direction",
+  "note": "FRONTEO がスコヒアの第三者割当増資を引き受けた側。修正後は FRONTEO→スコヒア に判定される"
+ },
+ {
+  "source_contains": "FRONTEO",
+  "target_contains": "スコヒアファーマ",
+  "verdict": "correct",
+  "note": "修正後: 提出会社が第三者割当増資を引き受けて出資"
+ },
+ {
+  "source_contains": "RCA社",
+  "target_contains": "リケンNPR",
+  "verdict": "wrong_counterparty",
+  "note": "根拠文は「子会社であるRCA社による Hastings 株式の取得」。相手は Hastings であるべき。修正後は counterparty_is_own_subsidiary で要確認へ"
+ },
+ {
+  "source_contains": "エンバイオ",
+  "target_contains": "Mulya",
+  "verdict": "wrong_counterparty",
+  "note": "根拠文の出資先は AR社（49%）で、MEL社は AR社の投資先。間接的な連鎖を直接の出資として抽出"
+ },
+ {
+  "source_contains": "ニデック",
+  "target_contains": "GPM",
+  "verdict": "correct",
+  "note": "GPM の買収"
+ },
+ {
+  "source_contains": "SFPホールディングス",
+  "target_contains": "クリエイト・レストランツ",
+  "verdict": "wrong_direction",
+  "note": "合併契約。存続側が根拠文から分からず方向不明。修正後は direction_unclear で要確認へ"
+ },
+ {
+  "source_contains": "太平洋セメント",
+  "target_contains": "Vulcan",
+  "verdict": "correct",
+  "note": "資産等の買収完了（会社ではなく事業用資産。タイプは merger_acquisition のまま）"
+ },
+ {
+  "source_contains": "ツルハホールディングス",
+  "target_contains": "Welcia",
+  "verdict": "wrong_direction",
+  "note": "経営統合で方向を確定できない。修正後は direction_unclear で要確認へ"
+ },
+ {
+  "source_contains": "ソトー",
+  "target_contains": "G-STAGE",
+  "verdict": "wrong_counterparty",
+  "note": "ジェノを存続会社とする吸収合併で G-STAGE が解散。提出会社は当事者ではない。修正後は third_party_statement で要確認へ"
+ },
+ {
+  "source_contains": "ネクセラファーマ",
+  "target_contains": "Lilly",
+  "verdict": "wrong_counterparty",
+  "note": "「Centessa社をLilly社が買収」で提出会社は当事者でない。修正後は third_party_statement で要確認へ"
+ },
+ {
+  "source_contains": "リミックスポイント",
+  "target_contains": "Siiibo",
+  "verdict": "wrong_counterparty",
+  "note": "記事（coinpost）の内容で、取得したのはメタプラネット。提出会社は当事者でない。修正後は third_party_statement で要確認へ"
+ },
+ {
+  "source_contains": "東京窯業",
+  "target_contains": "明智セラミックス",
+  "verdict": "wrong_counterparty",
+  "note": "明智セラミックスによる KC カーボンセラミックス事業の譲受で、東京窯業との関係は根拠文から分からない"
+ },
+ {
+  "source_contains": "塩野義製薬",
+  "target_contains": "田辺ファーマ",
+  "verdict": "correct",
+  "note": "田辺ファーマからのエダラボン事業の買収"
+ },
+ {
+  "source_contains": "豊和工業",
+  "target_contains": "英和",
+  "verdict": "correct",
+  "note": "共同事業展開（合弁会社の設立ではなく共同事業。タイプは弱い）"
+ },
+ {
+  "source_contains": "fonfun",
+  "target_contains": "イー・クラウドサービス",
+  "verdict": "correct",
+  "note": "株式譲受（M&A実績ページ）"
+ },
+ {
+  "source_contains": "fonfun",
+  "target_contains": "ディグロス",
+  "verdict": "correct",
+  "note": "事業譲受（M&A実績ページ）"
+ },
+ {
+  "source_contains": "fonfun",
+  "target_contains": "インバウンドテクノロジー",
+  "verdict": "correct",
+  "note": "事業譲受（M&A実績ページ）"
+ },
+ {
+  "source_contains": "アステラス製薬",
+  "target_contains": "Iveric",
+  "verdict": "correct",
+  "note": "買収しました"
+ },
+ {
+  "source_contains": "丸紅",
+  "target_contains": "TiAuto",
+  "verdict": "correct",
+  "note": "公式公表で確認済み（agreed）"
+ },
+ {
+  "source_contains": "丸紅",
+  "target_contains": "B-Quik",
+  "verdict": "correct",
+  "note": "2006年の買収の沿革（event_year=2006、公表日不明として区別）"
+ },
+ {
+  "source_contains": "高見沢サイバネティックス",
+  "target_contains": "警察庁",
+  "verdict": "correct",
+  "note": "納入。相手は官公庁"
+ },
+ {
+  "source_contains": "レゾナック",
+  "target_contains": "ローム",
+  "verdict": "correct",
+  "note": "長期供給契約（2021）"
+ },
+ {
+  "source_contains": "ハンモック",
+  "target_contains": "京王百貨店",
+  "verdict": "correct",
+  "note": "主要取引先の掲載"
+ },
+ {
+  "source_contains": "ハンモック",
+  "target_contains": "奥村組",
+  "verdict": "correct",
+  "note": "主要取引先の掲載"
+ },
+ {
+  "source_contains": "ハンモック",
+  "target_contains": "不二家システムセンター",
+  "verdict": "correct",
+  "note": "主要取引先の掲載"
+ },
+ {
+  "source_contains": "グリーンエナジー",
+  "target_contains": "日本郵便",
+  "verdict": "correct",
+  "note": "受注および完工"
+ },
+ {
+  "source_contains": "川崎重工業",
+  "target_contains": "MODUS",
+  "verdict": "correct",
+  "note": "MODUS社から受注"
+ },
+ {
+  "source_contains": "住友商事",
+  "target_contains": "日本郵船",
+  "verdict": "correct",
+  "note": "納入予定（agreed 段階）"
+ },
+ {
+  "source_contains": "ソニーグループ",
+  "target_contains": "ソニーフィナンシャルグループ",
+  "verdict": "correct",
+  "note": "原本確認済みの訂正（16.40%・2025-10-01）"
+ },
+ {
+  "source_contains": "ソニーグループ",
+  "target_contains": "ソニー・ミュージック・インディア",
+  "verdict": "correct",
+  "note": "Wikidata P1830"
+ },
+ {
+  "source_contains": "ちゅうぎん",
+  "target_contains": "中国銀行",
+  "verdict": "correct",
+  "note": "Wikidata P1830。持株会社と銀行"
+ },
+ {
+  "source_contains": "キヤノン",
+  "target_contains": "Canon Computer",
+  "verdict": "correct_stale",
+  "note": "Wikidata P355。現存しない可能性のある子会社で時点不明"
+ },
+ {
+  "source_contains": "ブシロード",
+  "target_contains": "新日本プロレス",
+  "verdict": "correct",
+  "note": "Wikidata P355"
+ },
+ {
+  "source_contains": "本田技研工業",
+  "target_contains": "ホンダマニュファクチャリングUK",
+  "verdict": "correct_stale",
+  "note": "Wikidata P355。2021年に生産終了した拠点で時点不明"
+ },
+ {
+  "source_contains": "京セラ",
+  "target_contains": "Kyocera (United States)",
+  "verdict": "correct",
+  "note": "Wikidata P355"
+ },
+ {
+  "source_contains": "東急不動産ホールディングス",
+  "target_contains": "東急不動産",
+  "verdict": "correct",
+  "note": "Wikidata P355"
+ },
+ {
+  "source_contains": "ソフトバンクグループ",
+  "target_contains": "SB Group US",
+  "verdict": "correct",
+  "note": "Wikidata P355"
+ },
+ {
+  "source_contains": "住友グループ",
+  "target_contains": "日本板硝子",
+  "verdict": "wrong_type",
+  "note": "Wikidata P127（所有者）だが住友グループは企業集団で株主ではない。corporate_group が妥当"
+ },
+ {
+  "source_contains": "東北新社",
+  "target_contains": "東北新社グループ",
+  "verdict": "correct",
+  "note": "Wikidata P463"
+ },
+ {
+  "source_contains": "ユナイテッド・スーパーマーケット",
+  "target_contains": "イオングループ",
+  "verdict": "correct",
+  "note": "Wikidata P463"
+ },
+ {
+  "source_contains": "名古屋鉄道",
+  "target_contains": "名鉄グループ",
+  "verdict": "correct",
+  "note": "Wikidata P463"
+ },
+ {
+  "source_contains": "西日本鉄道",
+  "target_contains": "西鉄グループ",
+  "verdict": "correct",
+  "note": "Wikidata P463"
+ },
+ {
+  "source_contains": "GMOペパボ",
+  "target_contains": "GMOインターネットグループ",
+  "verdict": "correct",
+  "note": "Wikidata P463"
+ },
+ {
+  "source_contains": "ANAホールディングス",
+  "target_contains": "ANAグループ",
+  "verdict": "correct",
+  "note": "Wikidata P463"
+ },
+ {
+  "source_contains": "NTT",
+  "target_contains": "NTTグループ",
+  "verdict": "correct",
+  "note": "Wikidata P463"
+ },
+ {
+  "source_contains": "ヒューマンホールディングス",
+  "target_contains": "ヒューマングループ",
+  "verdict": "correct",
+  "note": "Wikidata P463"
+ },
+ {
+  "source_contains": "KADOKAWA",
+  "target_contains": "SOZO",
+  "verdict": "correct",
+  "note": "株式取得・子会社化（2025-11）"
+ },
+ {
+  "source_contains": "マイポックス",
+  "target_contains": "ミスミ化学",
+  "verdict": "correct",
+  "note": "株式取得（子会社化）"
+ },
+ {
+  "source_contains": "THEグローバル",
+  "target_contains": "中央日本土地建物",
+  "verdict": "correct",
+  "note": "共同事業協定書の締結（合弁会社ではなく共同事業。タイプは弱い）"
+ },
+ {
+  "source_contains": "山形證券",
+  "target_contains": "岡三証券グループ",
+  "verdict": "wrong_direction",
+  "note": "証券ジャパン（岡三の子会社）による山形證券の株式取得。岡三→山形證券が正しく、根拠文だけでは主体が岡三側と分からない例"
+ },
+ {
+  "source_contains": "富士電機",
+  "target_contains": "フツパー",
+  "verdict": "correct",
+  "note": "出資しました"
+ },
+ {
+  "source_contains": "マイポックス",
+  "target_contains": "大久保鉄工所",
+  "verdict": "correct",
+  "note": "全株式の取得（子会社化）"
+ }
+]

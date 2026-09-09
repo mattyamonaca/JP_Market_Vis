@@ -275,6 +275,8 @@ def clean_name(raw: str) -> str:
     s = _NOTE_RE.sub("", s)
     s = re.sub(r"\s+", " ", s).strip(" ・,、")
     s = _TRAILING_MARK_RE.sub("", s).strip()
+    # 法人格の後ろに付く補足（「みずほ証券(株) (株式売却収入)」）は名称ではないので除く
+    s = re.sub(r"(?<=[)）])\s*[（(][^（）()]{2,20}[）)]\s*$", "", s).strip()
     return s
 
 
