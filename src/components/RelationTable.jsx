@@ -105,6 +105,12 @@ export default function RelationTable({ request = null }) {
             placeholder="企業名・証券コードで検索"
             style={{ ...selectStyle, width: 220 }}
           />
+          {companyCode && (
+            <span className="company-filter-chip" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 12, padding: '4px 8px', borderRadius: 999, border: '1px solid #38bdf8', color: '#7dd3fc' }}>
+              企業: {COMPANIES[companyCode]?.name ?? companyCode}（{companyCode}）
+              <button type="button" aria-label="企業の絞り込みを解除" onClick={() => setCompanyCode(null)} style={{ background: 'none', border: 'none', color: '#7dd3fc', cursor: 'pointer', padding: 0, fontSize: 12 }}>✕</button>
+            </span>
+          )}
           <span style={{ fontSize: 12, color: '#64748b' }}>
             {filtered.length.toLocaleString()} 件
           </span>
