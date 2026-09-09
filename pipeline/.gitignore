@@ -1,0 +1,8 @@
+data_raw/edinet_blocks/
+data_raw/edinet_relations.json
+data_raw/edinet_relations.json.gz
+data_processed/
+.venv/
+__pycache__/
+ir_crawl/data/crawl_progress.json
+ir_crawl/node_modules/

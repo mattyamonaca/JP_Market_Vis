@@ -75,4 +75,4 @@ npm run preview
 
 `public/M4_companies.json` と `public/M5_company_relations.json` を同じスナップショットの組で置き換え、`npm test` と `npm run build` を実行します。READMEの件数・生成日も更新してください。
 
-元データ生成元は `persona_project/persona_api/scripts/build_company_relations/`。収集環境・認証情報はこの公開リポジトリに含めていません。
+データ生成パイプラインは [`pipeline/`](pipeline/README.md) にあります（元は別プロジェクト `persona_project` にあったものを移管）。EDINET の再取得には API キーが必要です。認証情報はこのリポジトリに含めていません。

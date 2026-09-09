@@ -1,0 +1,335 @@
+{
+ "sample": 6,
+ "ir_found": 6,
+ "relations": 32,
+ "total_tokens": 25281,
+ "total_ms": 114868,
+ "per_company": [
+  {
+   "code": "8031",
+   "name": "三井物産",
+   "url": "https://www.mitsui.com/jp/ja",
+   "ir_page": "https://www.mitsui.com/jp/ja/release/index.html",
+   "releases_total": 224,
+   "releases_matched": 3,
+   "relations": [
+    {
+     "counterparty": "曽田香料株式会社",
+     "relation_type": "ownership",
+     "date": "2026-05-29",
+     "evidence_quote": "三井物産株式会社（本社：東京都千代田区、社長：堀 健一、以下「三井物産」）は、香料・香料関連製品の製造及び販売事業を展開する曽田香料株式会社 （本社：東京都中央区、社長：加藤 昌史、以下「曽田香料」）の株式34％を保有しています。",
+     "source_url": "https://www.mitsui.com/jp/ja/release/2026/1253589_15330.html",
+     "release_title": "曽田香料株式会社の株式譲渡について 2026.5.29 リリース"
+    },
+    {
+     "counterparty": "東レ株式会社",
+     "relation_type": "ownership",
+     "date": "2026-05-29",
+     "evidence_quote": "曽田香料の株式の66％を保有する東レ株式会社（本社：東京都中央区、社長：大矢 光雄、以下「東レ」）と共に、曽田香料の全株式を韓国・サムヤンコーポレーション（Samyang Corporation）の子会社である三養社日本（Samyang Corporation Japan, Inc.）に売却（以下「本売却」）することを本日決定し、株式譲渡契約を締結しました。",
+     "source_url": "https://www.mitsui.com/jp/ja/release/2026/1253589_15330.html",
+     "release_title": "曽田香料株式会社の株式譲渡について 2026.5.29 リリース"
+    },
+    {
+     "counterparty": "Samyang Corporation",
+     "relation_type": "ownership",
+     "date": "2026-05-29",
+     "evidence_quote": "曽田香料の全株式を韓国・サムヤンコーポレーション（Samyang Corporation）の子会社である三養社日本（Samyang Corporation Japan, Inc.）に売却（以下「本売却」）することを本日決定し、株式譲渡契約を締結しました。",
+     "source_url": "https://www.mitsui.com/jp/ja/release/2026/1253589_15330.html",
+     "release_title": "曽田香料株式会社の株式譲渡について 2026.5.29 リリース"
+    },
+    {
+     "counterparty": "Ceva Santé Animale SA",
+     "relation_type": "joint_venture",
+     "date": "2026-05-08",
+     "evidence_quote": "三井物産株式会社は、Ceva Santé Animale SAと日本の動物用医薬品市場において、物産アニマルヘルス株式会社にCeva Japanを統合した合弁会社「セバ物産アニマルヘルス」を設立します。",
+     "source_url": "https://www.mitsui.com/jp/ja/release/2026/1253452_15330.html",
+     "release_title": "日本における動物用医薬品事業の合弁会社「セバ物産アニマルヘルス」を設立 — 仏アニマルヘルス企業Ceva Santé Animale社との戦略的協業を一層強化 —"
+    },
+    {
+     "counterparty": "Ceva Santé Animale SA",
+     "relation_type": "ownership",
+     "date": null,
+     "evidence_quote": "三井物産はBAHにおける保有株式の60％をCevaに譲渡し、三井物産とCevaは、日本の動物用医薬品市場における成長を推進する戦略的パートナーとして、今後も協業を進めていきます。",
+     "source_url": "https://www.mitsui.com/jp/ja/release/2026/1253452_15330.html",
+     "release_title": "日本における動物用医薬品事業の合弁会社「セバ物産アニマルヘルス」を設立 — 仏アニマルヘルス企業Ceva Santé Animale社との戦略的協業を一層強化 —"
+    },
+    {
+     "counterparty": "Ceva Santé Animale SA",
+     "relation_type": "business_alliance",
+     "date": null,
+     "evidence_quote": "三井物産とCevaは、動物用医薬品分野において、三井物産の広範なグローバルネットワークとCevaが有する売上高世界第5位の動物用医薬品企業としてのグローバルな専門性を融合させた、長期的な戦略的パートナーシップを築いてきました。",
+     "source_url": "https://www.mitsui.com/jp/ja/release/2026/1253452_15330.html",
+     "release_title": "日本における動物用医薬品事業の合弁会社「セバ物産アニマルヘルス」を設立 — 仏アニマルヘルス企業Ceva Santé Animale社との戦略的協業を一層強化 —"
+    },
+    {
+     "counterparty": "Armada Systems Inc.",
+     "relation_type": "ownership",
+     "date": "2026-05-20",
+     "evidence_quote": "三井物産株式会社（本社：東京都千代田区、社長：堀 健一、以下「三井物産」）は、石油・ガス採掘等の産業現場におけるAI活用を、独自のインフラで支援する米国Armada Systems Inc.（アルマダ、以下「Armada社」）に参画しました。",
+     "source_url": "https://www.mitsui.com/jp/ja/topics/2026/1253538_15334.html",
+     "release_title": "産業現場でのAIインフラ事業を展開する米Armada社への出資参画"
+    }
+   ],
+   "tokens": 8941,
+   "ms": 32234
+  },
+  {
+   "code": "8001",
+   "name": "伊藤忠商事",
+   "url": "https://www.itochu.co.jp",
+   "ir_page": "https://www.itochu.co.jp/ja/news/press/index.html",
+   "releases_total": 135,
+   "releases_matched": 16,
+   "relations": [
+    {
+     "counterparty": "株式会社アイチコーポレーション",
+     "relation_type": "capital_alliance",
+     "date": "2026-04-30",
+     "evidence_quote": "株式会社アイチコーポレーションの株式の追加取得を2026年4月末日までに完了しました。",
+     "source_url": "https://www.itochu.co.jp/ja/news/press/2026/260602.html",
+     "release_title": "株式会社アイチコーポレーション株式の追加取得完了および両社協業のさらなる推進について"
+    },
+    {
+     "counterparty": "株式会社アイチコーポレーション",
+     "relation_type": "business_alliance",
+     "date": null,
+     "evidence_quote": "これは2025年5月に締結した資本業務提携以来、両社が協力して進めてきた事業連携をさらに加速させ、アイチコーポレーションの中長期的な企業価値向上を目指す取組みの一環です。",
+     "source_url": "https://www.itochu.co.jp/ja/news/press/2026/260602.html",
+     "release_title": "株式会社アイチコーポレーション株式の追加取得完了および両社協業のさらなる推進について"
+    },
+    {
+     "counterparty": "いすゞユーマックス",
+     "relation_type": "business_alliance",
+     "date": null,
+     "evidence_quote": "提携以降、2025年9月には高所作業車のメンテナンスリース事業を開始し、同年11月には伊藤忠商事出資のオークション事業会社「いすゞユーマックス」を活用した中古車流通網の構築など、具体的な成果を挙げてきました。",
+     "source_url": "https://www.itochu.co.jp/ja/news/press/2026/260602.html",
+     "release_title": "株式会社アイチコーポレーション株式の追加取得完了および両社協業のさらなる推進について"
+    },
+    {
+     "counterparty": "三菱地所株式会社",
+     "relation_type": "business_alliance",
+     "date": null,
+     "evidence_quote": "三菱地所株式会社（本社：東京都千代田区、代表執行役 執行役社長：中島 篤、以下「三菱地所」）と共同で、福岡県朝倉郡筑前町において系統用蓄電所（定格出力67MW／定格容量230.1MWh、以下「本プロジェクト」）の建設に着手いたしました。",
+     "source_url": "https://www.itochu.co.jp/ja/news/press/2026/260601.html",
+     "release_title": "福岡県筑前町における系統用蓄電所事業の共同推進について"
+    },
+    {
+     "counterparty": "東京センチュリー株式会社",
+     "relation_type": "business_alliance",
+     "date": null,
+     "evidence_quote": "東京センチュリー株式会社（本社：東京都千代田区、代表取締役社長CEO：藤原 弘治、以下「東京センチュリー」）と共同で、福岡県朝倉郡筑前町において系統用蓄電所（定格出力67MW／定格容量230.1MWh、以下「本プロジェクト」）の建設に着手いたしました。",
+     "source_url": "https://www.itochu.co.jp/ja/news/press/2026/260601.html",
+     "release_title": "福岡県筑前町における系統用蓄電所事業の共同推進について"
+    },
+    {
+     "counterparty": "日清食品ホールディングス株式会社",
+     "relation_type": "capital_alliance",
+     "date": "2026-05-07",
+     "evidence_quote": "日清食品ホールディングス株式会社の子会社である日清食品有限公司と、香港・中国地域の食品卸事業を統括するNMS社に対する共同増資を実施致しました。",
+     "source_url": "https://www.itochu.co.jp/ja/news/press/2026/260507.html",
+     "release_title": "香港・中国における日清食品グループの食品卸事業への出資について"
+    },
+    {
+     "counterparty": "Nissin Marketing and Sales (H.K.) Limited",
+     "relation_type": "capital_alliance",
+     "date": "2026-05-07",
+     "evidence_quote": "日清食品有限公司と、香港・中国地域の食品卸事業を統括するNMS社に対する共同増資を実施致しました。",
+     "source_url": "https://www.itochu.co.jp/ja/news/press/2026/260507.html",
+     "release_title": "香港・中国における日清食品グループの食品卸事業への出資について"
+    }
+   ],
+   "tokens": 5453,
+   "ms": 25934
+  },
+  {
+   "code": "8058",
+   "name": "三菱商事",
+   "url": "http://www.mitsubishicorp.com/",
+   "ir_page": "https://www.mitsubishicorp.com/jp/en/news/",
+   "releases_total": 112,
+   "releases_matched": 0,
+   "relations": [],
+   "tokens": 0,
+   "ms": 4400
+  },
+  {
+   "code": "8053",
+   "name": "住友商事",
+   "url": "https://www.sumitomocorp.co.jp/",
+   "ir_page": "https://www.sumitomocorp.com/ja/jp/news",
+   "releases_total": 90,
+   "releases_matched": 3,
+   "relations": [
+    {
+     "counterparty": "Graphyte, Inc.",
+     "relation_type": "joint_venture",
+     "date": "2026-06-04",
+     "evidence_quote": "米国Graphyte社と合弁会社を設立し、CO2除去（CDR）事業へ参画",
+     "source_url": "https://www.sumitomocorp.com/ja/jp/news/release/2026/group/21320",
+     "release_title": "2026年06月04日 米国Graphyte社と合弁会社を設立し、CO2除去（CDR）事業へ参画"
+    },
+    {
+     "counterparty": "Graphyte, Inc.",
+     "relation_type": "business_alliance",
+     "date": "2026-06-04",
+     "evidence_quote": "Graphyte社と共同でCDRクレジット事業を推進します",
+     "source_url": "https://www.sumitomocorp.com/ja/jp/news/release/2026/group/21320",
+     "release_title": "2026年06月04日 米国Graphyte社と合弁会社を設立し、CO2除去（CDR）事業へ参画"
+    },
+    {
+     "counterparty": "日本郵船株式会社",
+     "relation_type": "major_customer",
+     "date": null,
+     "evidence_quote": "日本郵船株式会社を含む顧客へのCDRクレジット納入も予定しています",
+     "source_url": "https://www.sumitomocorp.com/ja/jp/news/release/2026/group/21320",
+     "release_title": "2026年06月04日 米国Graphyte社と合弁会社を設立し、CO2除去（CDR）事業へ参画"
+    },
+    {
+     "counterparty": "Gresham House Energy Storage Fund plc",
+     "relation_type": "joint_venture",
+     "date": "2026-05-27",
+     "evidence_quote": "英国最大級の蓄電事業者であるGresham House Energy Storage Fund plc（以下「GRID」）が開発を進める複数の新規大型蓄電池プロジェクト（以下「本プロジェクト」）に出資参画しました。",
+     "source_url": "https://www.sumitomocorp.com/ja/jp/news/release/2026/group/21010",
+     "release_title": "2026年05月27日 欧州最大級の蓄電事業者Gresham Houseと新規大型蓄電池プロジェクトを共同開発"
+    },
+    {
+     "counterparty": "Gresham House Limited",
+     "relation_type": "business_alliance",
+     "date": "2026-05-27",
+     "evidence_quote": "GRIDを運営するGresham House Limited（以下「GH」）と、蓄電事業に関する戦略的パートナーシップを締結します。",
+     "source_url": "https://www.sumitomocorp.com/ja/jp/news/release/2026/group/21010",
+     "release_title": "2026年05月27日 欧州最大級の蓄電事業者Gresham Houseと新規大型蓄電池プロジェクトを共同開発"
+    },
+    {
+     "counterparty": "TPK Holding Co.,Ltd.",
+     "relation_type": "ownership",
+     "date": "2026-05-27",
+     "evidence_quote": "TPK Holding Co.,Ltd.（本社：台湾・台北市、Chairman：Michael Chao-Juei Chiang、以下「TPK」）と設立し、住友商事が過半数出資する合弁会社Summit Transition Partners Limited（以下「STP」）を通じ、",
+     "source_url": "https://www.sumitomocorp.com/ja/jp/news/release/2026/group/21010",
+     "release_title": "2026年05月27日 欧州最大級の蓄電事業者Gresham Houseと新規大型蓄電池プロジェクトを共同開発"
+    },
+    {
+     "counterparty": "川崎汽船株式会社",
+     "relation_type": "business_alliance",
+     "date": "2026-03-23",
+     "evidence_quote": "住友商事株式会社、川崎汽船株式会社、日本郵船株式会社が共同で申請した",
+     "source_url": "https://www.sumitomocorp.com/ja/jp/news/important/group/20260423",
+     "release_title": "2026年04月23日 シンガポールにおける船舶向け燃料アンモニア供給に関する実証事業が、経済産業省が日アセアン経済産業協力委員会（AMEICC）に拠出して行われる令和6年度補正グローバルサウス未来志向型共創等事業費補助金（大型実証 ASEAN加盟国）に採択"
+    },
+    {
+     "counterparty": "日本郵船株式会社",
+     "relation_type": "business_alliance",
+     "date": "2026-03-23",
+     "evidence_quote": "住友商事株式会社、川崎汽船株式会社、日本郵船株式会社が共同で申請した",
+     "source_url": "https://www.sumitomocorp.com/ja/jp/news/important/group/20260423",
+     "release_title": "2026年04月23日 シンガポールにおける船舶向け燃料アンモニア供給に関する実証事業が、経済産業省が日アセアン経済産業協力委員会（AMEICC）に拠出して行われる令和6年度補正グローバルサウス未来志向型共創等事業費補助金（大型実証 ASEAN加盟国）に採択"
+    }
+   ],
+   "tokens": 5744,
+   "ms": 21766
+  },
+  {
+   "code": "8002",
+   "name": "丸紅",
+   "url": "https://www.marubeni.com/",
+   "ir_page": "https://www.marubeni.com/en/news/2026/release/00025.html",
+   "releases_total": 142,
+   "releases_matched": 0,
+   "relations": [],
+   "tokens": 0,
+   "ms": 5822
+  },
+  {
+   "code": "7259",
+   "name": "アイシン",
+   "url": "https://www.aisin.com/jp/",
+   "ir_page": "https://www.aisin.com/jp/news/",
+   "releases_total": 108,
+   "releases_matched": 7,
+   "relations": [
+    {
+     "counterparty": "株式会社BluE Nexus",
+     "relation_type": "joint_venture",
+     "date": "2026-05-13",
+     "evidence_quote": "ダイハツ初の量産軽商用BEVバン「e-ハイゼット カーゴ」「e-アトレー」にeAxle採用 ※株式会社BluE Nexus、株式会社デンソーとの共同リリースです。",
+     "source_url": "https://www.aisin.com/jp/sustainability/report/pdf/aisin_ar2025_a3.pdf",
+     "release_title": "統合報告書2025"
+    },
+    {
+     "counterparty": "株式会社デンソー",
+     "relation_type": "joint_venture",
+     "date": "2026-05-13",
+     "evidence_quote": "ダイハツ初の量産軽商用BEVバン「e-ハイゼット カーゴ」「e-アトレー」にeAxle採用 ※株式会社BluE Nexus、株式会社デンソーとの共同リリースです。",
+     "source_url": "https://www.aisin.com/jp/sustainability/report/pdf/aisin_ar2025_a3.pdf",
+     "release_title": "統合報告書2025"
+    },
+    {
+     "counterparty": "東邦ガス株式会社",
+     "relation_type": "joint_venture",
+     "date": "2026-03-24",
+     "evidence_quote": "国内初、「地域CO2循環型e-メタン供給」の共同実証を開始※東邦ガス株式会社、株式会社デンソーとの共同リリースです。",
+     "source_url": "https://www.aisin.com/jp/sustainability/report/pdf/aisin_ar2025_a3.pdf",
+     "release_title": "統合報告書2025"
+    },
+    {
+     "counterparty": "MTG",
+     "relation_type": "business_alliance",
+     "date": "2026-02-27",
+     "evidence_quote": "アイシン×MTG 戦略的パートナーシップを締結 ～世界初技術「ハイドレイド」を美容へ応用 「ReFa HYDRAID」共同開発で誕生～",
+     "source_url": "https://www.aisin.com/jp/sustainability/report/pdf/aisin_ar2025_a3.pdf",
+     "release_title": "統合報告書2025"
+    },
+    {
+     "counterparty": "豊田通商株式会社",
+     "relation_type": "joint_venture",
+     "date": "2026-02-05",
+     "evidence_quote": "アイシン、豊田通商、Minth、北米でアルミボデー骨格部品の生産を行う合弁会社を設立 ※豊田通商株式会社、Minth Group Limitedとの共同リリースです。",
+     "source_url": "https://www.aisin.com/jp/sustainability/report/pdf/aisin_ar2025_a3.pdf",
+     "release_title": "統合報告書2025"
+    },
+    {
+     "counterparty": "Minth Group Limited",
+     "relation_type": "joint_venture",
+     "date": "2026-02-05",
+     "evidence_quote": "アイシン、豊田通商、Minth、北米でアルミボデー骨格部品の生産を行う合弁会社を設立 ※豊田通商株式会社、Minth Group Limitedとの共同リリースです。",
+     "source_url": "https://www.aisin.com/jp/sustainability/report/pdf/aisin_ar2025_a3.pdf",
+     "release_title": "統合報告書2025"
+    },
+    {
+     "counterparty": "株式会社BluE Nexus",
+     "relation_type": "business_alliance",
+     "date": "2026-05-13",
+     "evidence_quote": "株式会社BluE Nexus、株式会社アイシン、株式会社デンソーが共同開発したeAxleが、ダイハツ初の量産BEVである軽商用車「e-ハイゼット カーゴ」・「e-アトレー」に搭載されました。",
+     "source_url": "https://www.aisin.com/jp/news/2026/010620.html",
+     "release_title": "2026.05.13 事業展開 ダイハツ初の量産軽商用BEVバン「e-ハイゼット カーゴ」「e-アトレー」にeAxle採用※株式会社BluE Nexus、株式会社デンソーとの共同リリースです。"
+    },
+    {
+     "counterparty": "株式会社デンソー",
+     "relation_type": "business_alliance",
+     "date": "2026-05-13",
+     "evidence_quote": "株式会社BluE Nexus、株式会社アイシン、株式会社デンソーが共同開発したeAxleが、ダイハツ初の量産BEVである軽商用車「e-ハイゼット カーゴ」・「e-アトレー」に搭載されました。",
+     "source_url": "https://www.aisin.com/jp/news/2026/010620.html",
+     "release_title": "2026.05.13 事業展開 ダイハツ初の量産軽商用BEVバン「e-ハイゼット カーゴ」「e-アトレー」にeAxle採用※株式会社BluE Nexus、株式会社デンソーとの共同リリースです。"
+    },
+    {
+     "counterparty": "東邦ガス株式会社",
+     "relation_type": "joint_research",
+     "date": "2026-03-24",
+     "evidence_quote": "地域CO2循環型e-メタン供給の共同実証を開始",
+     "source_url": "https://www.aisin.com/jp/news/2026/010556.html",
+     "release_title": "2026.03.24 サステナビリティ 国内初、「地域CO2循環型e-メタン供給」の共同実証を開始※東邦ガス株式会社、株式会社デンソーとの共同リリースです。"
+    },
+    {
+     "counterparty": "株式会社デンソー",
+     "relation_type": "joint_research",
+     "date": "2026-03-24",
+     "evidence_quote": "地域CO2循環型e-メタン供給の共同実証を開始",
+     "source_url": "https://www.aisin.com/jp/news/2026/010556.html",
+     "release_title": "2026.03.24 サステナビリティ 国内初、「地域CO2循環型e-メタン供給」の共同実証を開始※東邦ガス株式会社、株式会社デンソーとの共同リリースです。"
+    }
+   ],
+   "tokens": 5143,
+   "ms": 24180
+  }
+ ]
+}
