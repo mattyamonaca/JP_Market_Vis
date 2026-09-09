@@ -320,7 +320,15 @@ def candidate_sort_key(c: dict) -> tuple:
         KIND_ORDER.get(c.get("kind"), 9),
         c.get("status") != "executed",
         "" if c.get("doc_id") is None else "~" + c.get("doc_id"),
+        # 以下は決定性のためだけの順序（同順位の競合は finalize_attributes で未確定にする）
+        c.get("raw") or "",
+        c.get("value") if c.get("value") is not None else -1,
     )
+
+
+def _same_rank(a: dict, b: dict) -> bool:
+    """同じ意味・同じ時点・同じ書類・同じ検証状態の候補か（この場合は値の優劣を決められない）。"""
+    return candidate_sort_key(a)[:6] == candidate_sort_key(b)[:6]
 
 
 def _date_int(d: str | None) -> int:
@@ -341,6 +349,15 @@ def finalize_attributes(attrs: dict) -> None:
                 continue
             current = dict(cands[0])
             hist = [dict(c) for c in cands[1:]]
+            # 同順位（同じ意味・時点・書類）で値が食い違う候補があれば、投入順で片方を選ばず現在値を未確定にする
+            tied = [c for c in cands[1:] if _same_rank(c, cands[0]) and c.get("value") is not None
+                    and current.get("value") is not None and abs(c["value"] - current["value"]) > 0.001]
+            if tied:
+                hist = [dict(c) for c in cands]
+                current = {k: v for k, v in cands[0].items() if k not in ("value", "direct", "indirect", "raw")}
+                current["value"] = None
+                current["scope"] = "unresolved"
+                current["conflicting_values"] = sorted({c["value"] for c in [cands[0], *tied]})
             # 現在値と意味（kind）が異なる候補や基準日が異なる候補があることを明示
             if hist:
                 current["history"] = hist
@@ -702,12 +719,36 @@ def apply_corrections(builder: RelationBuilder, corrections: dict) -> list[dict]
             s, t = rel["source"], rel["target"]
             if c.get("swap"):
                 s, t = t, s
-            del builder.relations[key]
             meta = RELATION_TYPES[new_type]
-            rel.update({"relation_type": new_type, "category": meta["category"], "directed": meta["directed"],
-                        "source": s, "target": t, "status": c.get("status", "confirmed"), "verification": verification})
-            rel["evidence"].append(ver_evidence)
-            builder.relations[(s["type"], s["key"], t["type"], t["key"], new_type)] = rel
+            if not meta["directed"] and (s["type"], s["key"]) > (t["type"], t["key"]):
+                s, t = t, s
+            del builder.relations[key]
+            new_key = (s["type"], s["key"], t["type"], t["key"], new_type)
+            existing = builder.relations.get(new_key)
+            if existing is not None:
+                # 訂正先に既に関係がある（誤った親子関係と正しい関連会社関係が重複している典型）:
+                # 双方の evidence・比率候補・要確認理由を保持して統合する
+                for ev in rel["evidence"]:
+                    if not any(_same_evidence(e, ev) for e in existing["evidence"]):
+                        existing["evidence"].append(ev)
+                for k2, v2 in rel["attributes"].items():
+                    if isinstance(v2, dict) and "candidates" in v2:
+                        for cand in v2["candidates"]:
+                            merge_attributes(existing["attributes"], {k2: cand}, ver_evidence)
+                    elif existing["attributes"].get(k2) is None:
+                        existing["attributes"][k2] = v2
+                for r2 in rel.get("review_reasons", []):
+                    if r2 not in existing["review_reasons"]:
+                        existing["review_reasons"].append(r2)
+                existing["status"] = c.get("status", "confirmed")
+                existing["verification"] = verification
+                existing["evidence"].append(ver_evidence)
+                rel = existing
+            else:
+                rel.update({"relation_type": new_type, "category": meta["category"], "directed": meta["directed"],
+                            "source": s, "target": t, "status": c.get("status", "confirmed"), "verification": verification})
+                rel["evidence"].append(ver_evidence)
+                builder.relations[new_key] = rel
         elif action == "set_ratio":
             new_ratio = dict(c["ownership_ratio"])
             new_ratio.setdefault("as_of", c.get("as_of"))
