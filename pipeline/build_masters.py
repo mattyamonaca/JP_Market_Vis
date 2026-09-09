@@ -619,14 +619,20 @@ IR_DIRECTION = {
 
 
 def add_ir_relations(builder: RelationBuilder, ir_rows: list[dict], retrieved: str | None) -> None:
+    """IR 抽出行の投入（Issue #6）。根拠文の検証（ir_validate）に通った行だけ confirmed にし、
+    根拠が不足する行は needs_review として理由を残す。"""
+    import edinet_tables as et
+    from ir_validate import validate
+
     n = 0
     by_type: dict[str, int] = {}
+    by_status: dict[str, int] = {}
+    n_retyped = 0
     for row in ir_rows:
         filer_code = row.get("filer_sec_code")
         rel_type = row.get("relation_type")
         if filer_code not in builder.companies or rel_type not in RELATION_TYPES:
             continue
-        import edinet_tables as et
         problem = et.name_problem(row.get("counterparty_name"))
         if problem:
             builder.reject(row, f"name:{problem}", "ir")
@@ -634,18 +640,32 @@ def add_ir_relations(builder: RelationBuilder, ir_rows: list[dict], retrieved: s
         counterparty = builder.resolve_node(name=row.get("counterparty_name"))
         if counterparty is None:
             continue
+        filer = builder.companies[filer_code]
+        filer_names = [filer.get("name"), filer.get("name_edinet"), *(filer.get("aliases") or [])]
+        verdict = validate(row, [x for x in filer_names if x])
+        rel_type = verdict.get("resolved_type") or rel_type
         filer_node = {"type": "listed", "key": filer_code}
-        direction = IR_DIRECTION.get(rel_type, "out")
-        source, target = (filer_node, counterparty) if direction == "out" else (counterparty, filer_node)
+        # 方向: 根拠文の手がかり（in = 相手が主体）> LLM の direction > 既定（提出会社が主体）
+        direction = verdict.get("direction") or row.get("direction") or IR_DIRECTION.get(rel_type, "out")
+        source, target = (filer_node, counterparty) if direction != "in" else (counterparty, filer_node)
         published = valid_date(row.get("date"))
         quote = row.get("evidence_quote") or None
-        deal = deal_status(quote)
+        deal = row.get("status") if row.get("status") in ("agreed", "executed") else deal_status(quote)
         event_year = historical_year(quote, published)
         evidence = {
             "source": "ir_disclosure", "source_tier": "llm_extraction", "url": row.get("source_url"),
             "quote": quote, "as_of": published, "published": published,
             "retrieved": retrieved, "confidence": "low", "filer_sec_code": filer_code,
+            "extraction": {
+                "cue": verdict.get("cue"), "reasons": verdict.get("reasons") or [],
+                "llm_type": row.get("relation_type"),
+            },
         }
+        if verdict.get("retyped_from"):
+            evidence["extraction"]["retyped_from"] = verdict["retyped_from"]
+            n_retyped += 1
+        if verdict.get("suggested_type"):
+            evidence["extraction"]["suggested_type"] = verdict["suggested_type"]
         if deal:
             evidence["deal_status"] = deal
         if event_year:
@@ -656,10 +676,13 @@ def add_ir_relations(builder: RelationBuilder, ir_rows: list[dict], retrieved: s
             attrs["deal_status"] = deal
         if event_year:
             attrs["event_year"] = event_year
-        builder.add(source, target, rel_type, attrs, evidence)
+        status = verdict["status"]
+        reasons = [f"ir:{r}" for r in verdict.get("reasons") or []]
+        builder.add(source, target, rel_type, attrs, evidence, status=status, reasons=reasons)
         n += 1
         by_type[rel_type] = by_type.get(rel_type, 0) + 1
-    print(f"IR 由来エッジ投入: {n} 行（{by_type}）")
+        by_status[status] = by_status.get(status, 0) + 1
+    print(f"IR 由来エッジ投入: {n} 行（{by_type}） 判定 {by_status} / 根拠に基づく読み替え {n_retyped}")
 
 
 # ---------------------------------------------------------------------------

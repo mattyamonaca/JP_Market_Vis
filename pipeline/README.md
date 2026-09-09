@@ -94,3 +94,19 @@ python make_viz_data.py                                                # public/
   原文名と理由）。
 - 検索: M4 の `aliases` と `name_kana`（EDINET コードリストのヨミ）を `src/data/search.js` が索引にし、
   「東邦ガス」「とよた」「７２０３」で意図した企業に一致する。
+
+## IR 抽出の根拠判定（Issue #6）
+
+- `ir_validate.py` が LLM 抽出行の根拠文（evidence_quote）を検査し、「相手が根拠文に出ている」「関係タイプの
+  手がかり語がある」「方向のあるタイプでは主体が分かる」場合だけ `confirmed` にする。共同登場だけ、製品が他社技術を
+  ベースにしているだけ（`tech_basis_only`）、商標・PDF 注記・受賞・イベント（`noise_context`）、提出会社が当事者でない
+  記述（`third_party_statement`）は `needs_review` にし、理由を `evidence.extraction.reasons` と
+  `review_reasons` に残す。関係が現実にないという断定ではなく「この根拠では確定できない」という判定。
+- 根拠文が別の無向タイプ（共同研究・提携・合弁）を明示している場合は、提出会社が当事者として出ていることを条件に
+  そのタイプへ読み替える（`extraction.retyped_from`）。方向のあるタイプへの読み替えはせず `suggested_type` に留める。
+- 「Xによる…公開買付け」は X が主体。X が当社（子会社）なら提出会社→相手、相手なら相手→提出会社。
+- 固定評価セット `fixtures/ir_eval.json`（実データから人手ラベル 29 件。アイシン／デンソー共同実証・三井物産／Ceva・
+  丸紅／TiAuto などの正例、日本車輌／JR東海・商標注記・列挙のみ・第三者記述などの負例）で
+  `python ir_validate.py --eval`、全件の判定分布は `--stats`。
+- `ir_crawl/crawl.mjs` のプロンプトも同じ方針（両社名と関係語を含む一文のみ、direction / status / event_date）に更新。
+  既存の 3,642 行は再クロールせず、検証器で判定している。
