@@ -48,7 +48,7 @@ export default function SearchSidebar({ selectedCode, onSelect }) {
             outline: 'none',
           }}
         />
-        <div style={{ fontSize: 12, color: '#64748b', marginTop: 8 }}>
+        <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 8 }}>
           {query.trim() ? `検索結果 ${results.length} 件` : '関係数ランキング（上位40社）'}
         </div>
       </div>
@@ -64,7 +64,7 @@ export default function SearchSidebar({ selectedCode, onSelect }) {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
               <span style={{ fontSize: 14, fontWeight: 600, color: '#f1f5f9' }}>
                 {!query.trim() && (
-                  <span style={{ color: '#64748b', marginRight: 6, fontSize: 12 }}>{i + 1}.</span>
+                  <span style={{ color: '#94a3b8', marginRight: 6, fontSize: 12 }}>{i + 1}.</span>
                 )}
                 {company.name}
               </span>
@@ -80,7 +80,7 @@ export default function SearchSidebar({ selectedCode, onSelect }) {
           </button>
         ))}
         {results.length === 0 && (
-          <div style={{ padding: 16, color: '#64748b', fontSize: 12, textAlign: 'center' }}>
+          <div style={{ padding: 16, color: '#94a3b8', fontSize: 12, textAlign: 'center' }}>
             該当する企業がありません
           </div>
         )}

@@ -1,6 +1,9 @@
 import React, { useMemo, useRef, useState, useEffect } from 'react';
 import ForceGraph2D from 'react-force-graph-2d';
-import { CATEGORY_COLORS, CATEGORY_JA, GLOBAL_GRAPH, INDUSTRY_COLORS, industryColor, searchCompanies } from '../data/graph.js';
+import { CATEGORY_AVAILABILITY, CATEGORY_COLORS, CATEGORY_JA, GLOBAL_GRAPH, INDUSTRY_COLORS, industryColor, searchCompanies } from '../data/graph.js';
+
+// 収録のあるカテゴリだけを初期選択にする（未収録カテゴリは選択できない）
+const AVAILABLE_CATEGORIES = Object.keys(CATEGORY_JA).filter((key) => CATEGORY_AVAILABILITY[key]?.listed > 0);
 import { rotateNodes } from '../data/rotateNodes.js';
 import { filterGlobalGraph } from '../data/filterGlobalGraph.js';
 
@@ -33,7 +36,7 @@ export default function GlobalMap({ onSelectCompany }) {
     return () => el.removeEventListener('wheel', onWheel);
   }, [rotationMode]);
   const [size, setSize] = useState({ w: 800, h: 600 });
-  const [activeCategories, setActiveCategories] = useState(new Set(Object.keys(CATEGORY_JA)));
+  const [activeCategories, setActiveCategories] = useState(new Set(AVAILABLE_CATEGORIES));
   const [minDegree, setMinDegree] = useState(1);
   const [hoverNode, setHoverNode] = useState(null);
   const [query, setQuery] = useState('');
@@ -50,6 +53,7 @@ export default function GlobalMap({ onSelectCompany }) {
   const toggleCategory = (key) => setActiveCategories((prev) => {
     const next = new Set(prev); if (next.has(key)) next.delete(key); else next.add(key); return next;
   });
+  const resetFilters = () => { setActiveCategories(new Set(AVAILABLE_CATEGORIES)); setMinDegree(1); };
   const nodeSize = (node) => Math.max(2, Math.sqrt(node.degree) * 1.4);
   const fit = () => fgRef.current?.zoomToFit(500, Math.min(60, size.w * .1));
   const zoomBy = (factor) => fgRef.current?.zoom(fgRef.current.zoom() * factor, 250);
@@ -77,8 +81,8 @@ export default function GlobalMap({ onSelectCompany }) {
         <h2>企業のつながりを探る</h2>
         <p>資本・取引・提携から、日本の企業ネットワークを俯瞰。</p>
         <div className="map-totals" aria-live="polite">
-          <div><strong>{data.nodes.length.toLocaleString()}</strong><span>表示中の企業</span></div>
-          <div><strong>{data.links.length.toLocaleString()}</strong><span>表示中の関係</span></div>
+          <div><strong>{data.nodes.length.toLocaleString()}</strong><span>表示中の企業{data.isolated > 0 && <><br />うち表示線なし {data.isolated.toLocaleString()}社</>}</span></div>
+          <div><strong>{data.links.length.toLocaleString()}</strong><span>表示中の関係<br />上場企業間 {GLOBAL_GRAPH.links.length.toLocaleString()}件中</span></div>
         </div>
         <section className="control-section">
           <label htmlFor="map-search">企業を検索</label>
@@ -91,14 +95,21 @@ export default function GlobalMap({ onSelectCompany }) {
         <section className="control-section">
           <h3>関係のカテゴリ</h3>
           <div className="category-pills">{Object.entries(CATEGORY_JA).map(([key, label]) => {
-            const active = activeCategories.has(key), color = CATEGORY_COLORS[key];
-            return <button key={key} aria-pressed={active} onClick={() => toggleCategory(key)} style={{ color: active ? color : '#94a3b8', border: `1px solid ${active ? color + '88' : '#334155'}`, background: active ? color + '18' : 'transparent' }}>{label}</button>;
+            const avail = CATEGORY_AVAILABILITY[key] ?? { total: 0, listed: 0 };
+            const unavailable = avail.listed === 0;
+            const active = activeCategories.has(key) && !unavailable, color = CATEGORY_COLORS[key];
+            const title = unavailable
+              ? (avail.total === 0 ? 'このカテゴリは現在のデータに収録されていません（関係がないことを意味しません）' : '上場企業同士の関係が収録されていないため全体マップでは選べません')
+              : `上場企業間 ${avail.listed.toLocaleString()}件（全体 ${avail.total.toLocaleString()}件）`;
+            return <button key={key} aria-pressed={active} aria-disabled={unavailable} disabled={unavailable} title={title} onClick={() => toggleCategory(key)} style={{ color: active ? color : '#94a3b8', border: `1px solid ${active ? color + '88' : '#334155'}`, background: active ? color + '18' : 'transparent', opacity: unavailable ? 0.55 : 1, cursor: unavailable ? 'not-allowed' : 'pointer' }}>{label}<small>{unavailable ? '未収録' : avail.listed.toLocaleString()}</small></button>;
           })}</div>
+          {AVAILABLE_CATEGORIES.length < Object.keys(CATEGORY_JA).length && <p className="control-note">「未収録」は収集していないカテゴリです。関係がないことを意味しません。</p>}
         </section>
         <section className="control-section">
           <label className="range-caption" htmlFor="min-degree">最小関係数 <strong>{minDegree}</strong></label>
           <input id="min-degree" type="range" min="1" max="20" value={minDegree} onChange={(e) => setMinDegree(Number(e.target.value))} />
-          <p>選択カテゴリ内の関係数で絞り込みます。</p>
+          <p>選択カテゴリで、その企業が上場企業と持つ関係数（非表示の企業との関係を含む）が {minDegree} 以上の企業を表示します。線は表示中の企業同士の関係だけなので、相手が非表示の企業は「表示線なし」になります。円の大きさも同じ関係数です。</p>
+          {(data.nodes.length === 0 || activeCategories.size === 0) && <button type="button" className="reset-button" onClick={resetFilters}>カテゴリと最小関係数を初期状態に戻す</button>}
         </section>
         <details className="legend-details" open>
           <summary>業種の凡例</summary>
@@ -178,8 +189,8 @@ export default function GlobalMap({ onSelectCompany }) {
             if (event.key === 'Escape') setRotationMode(false);
           }}
         />}
-        {!data.nodes.length && <div className="map-empty" role="status"><strong>表示できる企業がありません</strong><span>カテゴリを選択するか、最小関係数を下げてください。</span></div>}
-        {hoverNode && <div className="map-hover"><strong>{hoverNode.name}</strong><small>{hoverNode.id} · {hoverNode.industry}</small><small>選択カテゴリ内 {hoverNode.degree}関係</small></div>}
+        {!data.nodes.length && <div className="map-empty" role="status"><strong>表示できる企業がありません</strong><span>カテゴリを選択するか、最小関係数を下げてください。</span><button type="button" className="reset-button" style={{ pointerEvents: 'auto' }} onClick={resetFilters}>初期状態に戻す</button></div>}
+        {hoverNode && <div className="map-hover"><strong>{hoverNode.name}</strong><small>{hoverNode.id} · {hoverNode.industry}</small><small>選択カテゴリで上場企業と {hoverNode.degree}関係（非表示の相手を含む）</small></div>}
         <div className="map-tools"><button aria-pressed={rotationMode} onClick={() => { setRotationMode((active) => !active); wake(300); }}>{rotationMode ? '↻ 回転中' : '↻ 回転'}</button><button onClick={() => zoomBy(1.4)} aria-label="拡大">＋</button><button onClick={() => zoomBy(1 / 1.4)} aria-label="縮小">−</button><button onClick={fit}>全体を表示</button></div>
       </div>
     </div>
