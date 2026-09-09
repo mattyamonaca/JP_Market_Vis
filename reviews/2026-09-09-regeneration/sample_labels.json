@@ -514,5 +514,83 @@
   "target_contains": "大久保鉄工所",
   "verdict": "correct",
   "note": "全株式の取得（子会社化）"
+ },
+ {
+  "source_contains": "国分グループ本社",
+  "target_contains": "久世",
+  "verdict": "correct",
+  "note": "その他の関係会社（被所有19.9%）→ 国分→久世 関連会社"
+ },
+ {
+  "source_contains": "AVANTIA",
+  "target_contains": "宇戸平工務店",
+  "verdict": "correct",
+  "note": "連結子会社 100.0%"
+ },
+ {
+  "source_contains": "三好",
+  "target_contains": "ファンペップ",
+  "verdict": "correct",
+  "note": "大株主（個人）2.77%"
+ },
+ {
+  "source_contains": "CCIグループ",
+  "target_contains": "QR インベストメント",
+  "verdict": "correct",
+  "note": "連結子会社 100.00%"
+ },
+ {
+  "source_contains": "日本精密",
+  "target_contains": "クロスフォー",
+  "verdict": "correct",
+  "note": "業務提携の発表"
+ },
+ {
+  "source_contains": "テレビ東京",
+  "target_contains": "Minto",
+  "verdict": "correct",
+  "note": "戦略的出資"
+ },
+ {
+  "source_contains": "マイポックス",
+  "target_contains": "thomas",
+  "verdict": "correct",
+  "note": "出資"
+ },
+ {
+  "source_contains": "レノ",
+  "target_contains": "養命酒",
+  "verdict": "correct",
+  "note": "レノによる公開買付け（相手が主体）"
+ },
+ {
+  "source_contains": "リケンNPR",
+  "target_contains": "Hastings",
+  "verdict": "correct",
+  "note": "子会社 RCA 経由の Hastings 株式取得（修正後は正しい相手が確定に残る）"
+ },
+ {
+  "source_contains": "ニプロ",
+  "target_contains": "三笠製薬",
+  "verdict": "wrong_direction",
+  "note": "工場の三笠製薬への譲渡なので取得側は三笠。修正後は「への譲渡」を取得側と判定して in になる"
+ },
+ {
+  "source_contains": "三笠製薬",
+  "target_contains": "ニプロ",
+  "verdict": "correct",
+  "note": "修正後: 三笠製薬（取得側）→ニプロ"
+ },
+ {
+  "source_contains": "島津製作所",
+  "target_contains": "Plasmion",
+  "verdict": "correct",
+  "note": "発行済株式の75%を取得し子会社化"
+ },
+ {
+  "source_contains": "fonfun",
+  "target_contains": "ゼロワン",
+  "verdict": "correct",
+  "note": "事業譲受（M&A実績ページ）"
  }
 ]
