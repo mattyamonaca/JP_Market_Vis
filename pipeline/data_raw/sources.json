@@ -1,0 +1,10 @@
+{
+ "_comment": "各入力ファイルの取得日（persona_project から移管したスナップショット）。再取得したら更新する。",
+ "jpx_listed.json": {"retrieved": "2026-06-13", "source": "JPX 東証上場銘柄一覧 data_j.xls"},
+ "edinet_codes.json": {"retrieved": "2026-06-13", "source": "EDINET コードリスト Edinetcode.zip"},
+ "wikidata_mapping.json": {"retrieved": "2026-06-13", "source": "Wikidata SPARQL"},
+ "wikidata_relations.json": {"retrieved": "2026-06-13", "source": "Wikidata SPARQL"},
+ "wikidata_personnel.json": {"retrieved": "2026-06-13", "source": "Wikidata SPARQL"},
+ "ir_crawl/data/ir_relations.json": {"retrieved": "2026-06-13", "source": "各社IRサイト（Playwright + moonshot-v1-32k 抽出）"},
+ "edinet_blocks": {"retrieved": "2026-09-09", "source": "EDINET API v2（有価証券報告書 2025-06-14〜2026-06-13 提出分）"}
+}
