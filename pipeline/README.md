@@ -110,3 +110,17 @@ python make_viz_data.py                                                # public/
   `python ir_validate.py --eval`、全件の判定分布は `--stats`。
 - `ir_crawl/crawl.mjs` のプロンプトも同じ方針（両社名と関係語を含む一文のみ、direction / status / event_date）に更新。
   既存の 3,642 行は再クロールせず、検証器で判定している。
+
+## 出所・時点・検証状態の保持と公開（Issue #5）
+
+- evidence: `source`（edinet / wikidata / ir_disclosure / official_release）、`source_tier`（primary / secondary /
+  llm_extraction。出所の種別で抽出の正しさとは別）、`as_of`（基準日。有報は期末、大株主は「…現在」の日付、IR は公表日）、
+  `published`（提出日・公表日）、`retrieved`（取得日）、`url`（EDINET 閲覧画面 / Wikidata / リリース）、`doc_id`、
+  `classification` と `classification_source`、`direction_source`、`raw_name`、`quote`（切り詰めない）、`extraction`。
+  不明な項目は null のまま公開し、UI が「不明」と表示する。
+- 関係: `status`（confirmed / needs_review / historical）、`review_reasons`、`verification`（corrections.json で
+  原本照合したものだけ verified）。
+- `make_viz_data.py` は本体 `public/M5_company_relations.json`（evidence は出所・種別・基準日の要約）と
+  `public/evidence/<shard>.json`（関係 1,000 件ごとの全文と比率の履歴）に分ける。詳細パネルが必要なシャードだけ取得する。
+- 大株主の状況の注記に写された大量保有報告書の表は `property: large_holding_report`（比率 kind
+  `share_large_holding`）として大株主本表と区別する。
