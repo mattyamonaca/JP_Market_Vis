@@ -490,6 +490,146 @@
    "expected": {
     "status": "needs_review"
    }
+  },
+  {
+   "id": "license_reverse_direction",
+   "row": {
+    "filer_sec_code": "0000",
+    "counterparty_name": "乙社",
+    "relation_type": "technology_license",
+    "date": null,
+    "evidence_quote": "乙社が当社に技術を供与しました。",
+    "filer_names": [
+     "甲社"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "direction": "in",
+    "type": "technology_license"
+   }
+  },
+  {
+   "id": "license_negated",
+   "row": {
+    "filer_sec_code": "0000",
+    "counterparty_name": "乙社",
+    "relation_type": "technology_license",
+    "date": null,
+    "evidence_quote": "当社は乙社への技術供与を行いません。",
+    "filer_names": [
+     "甲社"
+    ]
+   },
+   "expected": {
+    "status": "needs_review"
+   }
+  },
+  {
+   "id": "license_grant_out",
+   "row": {
+    "filer_sec_code": "0000",
+    "counterparty_name": "乙社",
+    "relation_type": "technology_license",
+    "date": null,
+    "evidence_quote": "当社は乙社に技術を供与しました。",
+    "filer_names": [
+     "甲社"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "direction": "out",
+    "type": "technology_license"
+   }
+  },
+  {
+   "id": "license_received_in",
+   "row": {
+    "filer_sec_code": "0000",
+    "counterparty_name": "乙社",
+    "relation_type": "technology_license",
+    "date": null,
+    "evidence_quote": "当社は乙社から技術供与を受けました。",
+    "filer_names": [
+     "甲社"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "direction": "in",
+    "type": "technology_license"
+   }
+  },
+  {
+   "id": "alliance_dissolved",
+   "row": {
+    "filer_sec_code": "0000",
+    "counterparty_name": "乙社",
+    "relation_type": "capital_alliance",
+    "date": null,
+    "evidence_quote": "乙社との資本業務提携を解消しました。",
+    "filer_names": [
+     "甲社"
+    ]
+   },
+   "expected": {
+    "status": "needs_review"
+   }
+  },
+  {
+   "id": "investment_received_in",
+   "row": {
+    "filer_sec_code": "0000",
+    "counterparty_name": "乙社",
+    "relation_type": "ownership",
+    "date": null,
+    "evidence_quote": "当社は乙社から出資を受けました。",
+    "filer_names": [
+     "甲社"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "direction": "in",
+    "type": "ownership"
+   }
+  },
+  {
+   "id": "acquired_by_counterparty_in",
+   "row": {
+    "filer_sec_code": "0000",
+    "counterparty_name": "乙社",
+    "relation_type": "merger_acquisition",
+    "date": null,
+    "evidence_quote": "当社は乙社に買収されました。",
+    "filer_names": [
+     "甲社"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "direction": "in",
+    "type": "merger_acquisition"
+   }
+  },
+  {
+   "id": "english_supply_to",
+   "row": {
+    "filer_sec_code": "0000",
+    "counterparty_name": "ROHM Co., Ltd.",
+    "relation_type": "major_customer",
+    "date": null,
+    "evidence_quote": "Showa Denko Concludes Long-Term Contract to Supply SiC Epitaxial Wafers for ROHM Co., Ltd.",
+    "filer_names": [
+     "レゾナック"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "direction": "out",
+    "type": "major_customer"
+   }
   }
  ]
 }

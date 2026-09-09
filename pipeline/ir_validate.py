@@ -118,6 +118,63 @@ def filer_mentioned(quote: str, filer_names: list[str] | None) -> bool:
     return any(mentions(quote, n) for n in (filer_names or []) if n)
 
 
+NEGATION_RE = re.compile(
+    r"行いません|いたしません|しません|ではありません|はありません|ございません|否定|撤回|白紙|解消|終了|中止|見送|取りやめ|"
+    r"取り止め|断念|破談|解除|失効|\bnot\b|\bno longer\b|terminat|cancel|withdraw|den(y|ied)|abandon|rescind", re.I)
+_PARTICLE_AGENT = r"(が|は|による|により|によって|側が|側は)"
+_PARTICLE_RECIPIENT = r"(に|へ|に対し|に対する|向け|宛て)"
+_PARTICLE_SOURCE = r"(から|より)"
+
+
+def syntactic_direction(quote: str, cp: str | None, rel_type: str, cue: str | None) -> str | None:
+    """相手の直後の助詞（が／に／から）や英語の前置詞から、相手が主体か受け手かを判定する。
+    戻り値: 'in'（相手が主体）/ 'out'（提出会社が主体）/ None（判定できない）。"""
+    if not cp:
+        return None
+    base = re.sub(r"\s+", "", _norm(base_name(cp)))
+    q = quote
+    idx = -1
+    for cand in (base, _norm(cp), re.sub(r"\s+", " ", base_name(cp))):
+        idx = q.find(cand)
+        if idx >= 0:
+            after = q[idx + len(cand): idx + len(cand) + 12]
+            before = q[max(0, idx - 8): idx]
+            break
+    else:
+        # 「（以下、X）」の略称
+        m = re.search(r"以下[、,]?\s*「?([^」）)]{1,12})」?\s*[）)]", q)
+        if m and match_key(m.group(1)) and match_key(m.group(1)) in match_key(cp):
+            short = m.group(1)
+            pos = [i for i in range(len(q)) if q.startswith(short, i)]
+            pos = [i for i in pos if i > m.end() - 1]
+            if not pos:
+                return None
+            idx = pos[0]
+            after = q[idx + len(short): idx + len(short) + 12]
+            before = q[max(0, idx - 8): idx]
+        else:
+            return None
+    after = re.sub(r"^[\s、）)」]*(株式会社|\(株\)|㈱|社|Inc\.?|Co\.,? ?Ltd\.?|Corporation|Ltd\.?)?[\s）)」]*", "", after)
+    if re.match(_PARTICLE_AGENT, after):
+        return "in"
+    if re.match(_PARTICLE_RECIPIENT, after):
+        return "out"
+    if re.match(_PARTICLE_SOURCE, after):
+        # 「Xから受注」は X が顧客（out）、「Xから出資を受け／購入」は X が主体（in）、「Xから買収／譲受」は提出会社が主体（out）
+        if rel_type == "major_customer":
+            return "out" if re.search(r"受注|注文", q) else "in"
+        if rel_type in ("ownership", "technology_license"):
+            return "in"
+        return "out"
+    if re.search(r"\bby\s*$", before, re.I):
+        return "in"
+    if re.search(r"\b(to|for|into)\s*$", before, re.I):
+        return "out"
+    if re.search(r"\bfrom\s*$", before, re.I):
+        return "out" if rel_type in ("merger_acquisition",) else "in"
+    return None
+
+
 def validate(row: dict, filer_names: list[str] | None = None) -> dict:
     quote = _norm(row.get("evidence_quote"))
     rel_type = row.get("relation_type")
@@ -171,6 +228,19 @@ def validate(row: dict, filer_names: list[str] | None = None) -> dict:
                 reasons.append("no_relation_cue")
         elif "out" in spec and direction is None:
             reasons.append("direction_unclear")
+        # 方向のあるタイプは、手がかり語ではなく相手の助詞（が／に／から、by／to／from）で主体を決め直す
+        if cue and "out" in spec:
+            syn = syntactic_direction(quote, cp, rel_type, cue)
+            if syn:
+                # 受動態（「乙社に買収されました」）は主体が入れ替わる。採用され・選定され は相手が顧客なので反転しない
+                if re.search(r"(買収|取得|供与|出資|譲渡|吸収)され", quote):
+                    syn = "out" if syn == "in" else "in"
+                direction = syn
+                if "direction_unclear" in reasons:
+                    reasons.remove("direction_unclear")
+        # 否定・撤回・解消の記述は存在する関係として確定しない
+        if NEGATION_RE.search(quote):
+            reasons.append("negated_or_terminated")
         # 「X社とY社が設立した合弁会社」のように、提出会社が当事者でない記述
         if cue and THIRD_PARTY_RE.search(quote) and not filer_mentioned(quote, filer_names):
             reasons.append("third_party_statement")
