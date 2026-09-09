@@ -252,16 +252,32 @@ class RelationBuilder:
         self.quarantine.append({"stage": stage, "reason": reason, "row": row})
 
     def finalize(self) -> tuple[dict, list[dict]]:
+        """ID を投入順に依存しない形で確定する（再取得順序が変わっても同じ出力になる）。"""
+        # 参照されている entity だけを、正規化名→法人番号→QID の順で並べ直して ID を振り直す
+        used = {r["key"] for rel in self.relations.values() for r in (rel["source"], rel["target"])
+                if r["type"] == "entity"}
+        ordered_ents = sorted(
+            (k for k in self.entities if k in used),
+            key=lambda k: (normalize_name(self.entities[k]["name"] or ""), self.entities[k].get("corporate_number") or "",
+                           self.entities[k].get("wikidata_qid") or "", self.entities[k]["name"] or ""))
+        remap = {old: f"ENT{i:06d}" for i, old in enumerate(ordered_ents, start=1)}
+        entities = {remap[k]: self.entities[k] for k in ordered_ents}
+
+        def node(ref: dict) -> dict:
+            return {"type": "entity", "key": remap[ref["key"]]} if ref["type"] == "entity" else ref
+
         rels = []
         for rel in self.relations.values():
+            rel["source"] = node(rel["source"])
+            rel["target"] = node(rel["target"])
             if rel["status"] == "confirmed":
                 rel["review_reasons"] = []
+            finalize_attributes(rel["attributes"])
+            rel["evidence"].sort(key=evidence_sort_key)
         ordered = sorted(self.relations.values(), key=lambda r: (
             r["source"]["type"], r["source"]["key"], r["target"]["type"], r["target"]["key"], r["relation_type"]))
         for i, rel in enumerate(ordered, start=1):
             rels.append({"relation_id": f"R{i:07d}", **rel})
-        used = {r["key"] for rel in rels for r in (rel["source"], rel["target"]) if r["type"] == "entity"}
-        entities = {k: v for k, v in self.entities.items() if k in used}
         return entities, rels
 
 
@@ -270,30 +286,92 @@ def _same_evidence(a: dict, b: dict) -> bool:
     return all(a.get(k) == b.get(k) for k in keys)
 
 
+TIER_ORDER = {"primary": 0, "secondary": 1, "llm_extraction": 2}
+KIND_ORDER = {"voting": 0, "share": 1, "sales_share": 0}
+
+
 def merge_attributes(attrs: dict, new: dict, evidence: dict) -> None:
-    """属性の統合。旧実装は「最初に見つかった値を残す」だったが、基準日の新しい値を現在値にし、
-    それ以外は history に保持する（Issue #2 で拡張）。"""
+    """属性の統合（Issue #2）。旧実装は「最初に見つかった値を残す」だったが、意味付きの値
+    （{"value", "kind", "as_of", ...}）はすべて候補として保持し、finalize_attributes で
+    投入順に依存しない規則で現在値を選ぶ。"""
     for k, v in new.items():
         if v is None:
             continue
         if isinstance(v, dict) and "value" in v:
-            cur = attrs.get(k)
-            if cur is None or _newer(v, cur):
-                if cur is not None:
-                    v.setdefault("history", []).extend([_strip_history(cur)] + cur.get("history", []))
-                attrs[k] = v
-            else:
-                cur.setdefault("history", []).append(_strip_history(v))
+            cands = attrs.setdefault(k, {"candidates": []})
+            if isinstance(cands, dict) and "candidates" in cands:
+                if not any(_same_candidate(c, v) for c in cands["candidates"]):
+                    cands["candidates"].append(dict(v))
         elif attrs.get(k) is None:
             attrs[k] = v
 
 
-def _strip_history(v: dict) -> dict:
-    return {kk: vv for kk, vv in v.items() if kk != "history"}
+def _same_candidate(a: dict, b: dict) -> bool:
+    return all(a.get(k) == b.get(k) for k in ("value", "kind", "indirect", "as_of", "doc_id", "raw"))
 
 
-def _newer(a: dict, b: dict) -> bool:
-    return (a.get("as_of") or "") > (b.get("as_of") or "")
+def candidate_sort_key(c: dict) -> tuple:
+    """現在値の選択順: 基準日の新しい順 → 合計が読めているもの → 議決権 > 株式数 → 書類IDの新しい順。
+    同じ意味（kind）・同じ時点の値だけが実質的に比較される。"""
+    return (
+        -(_date_int(c.get("as_of"))),
+        0 if c.get("value") is not None else 1,
+        0 if c.get("verified") else 1,
+        KIND_ORDER.get(c.get("kind"), 9),
+        c.get("status") != "executed",
+        "" if c.get("doc_id") is None else "~" + c.get("doc_id"),
+        # 以下は決定性のためだけの順序（同順位の競合は finalize_attributes で未確定にする）
+        c.get("raw") or "",
+        c.get("value") if c.get("value") is not None else -1,
+    )
+
+
+def _same_rank(a: dict, b: dict) -> bool:
+    """同じ意味・同じ時点・同じ書類・同じ検証状態の候補か（この場合は値の優劣を決められない）。"""
+    return candidate_sort_key(a)[:6] == candidate_sort_key(b)[:6]
+
+
+def _date_int(d: str | None) -> int:
+    if not d:
+        return 0
+    try:
+        return int(d.replace("-", "")[:8])
+    except ValueError:
+        return 0
+
+
+def finalize_attributes(attrs: dict) -> None:
+    for k, v in list(attrs.items()):
+        if isinstance(v, dict) and "candidates" in v:
+            cands = sorted(v["candidates"], key=candidate_sort_key)
+            if not cands:
+                del attrs[k]
+                continue
+            current = dict(cands[0])
+            hist = [dict(c) for c in cands[1:]]
+            # 同順位（同じ意味・時点・書類）で値が食い違う候補があれば、投入順で片方を選ばず現在値を未確定にする
+            tied = [c for c in cands[1:] if _same_rank(c, cands[0]) and c.get("value") is not None
+                    and current.get("value") is not None and abs(c["value"] - current["value"]) > 0.001]
+            if tied:
+                hist = [dict(c) for c in cands]
+                current = {k: v for k, v in cands[0].items() if k not in ("value", "direct", "indirect", "raw")}
+                current["value"] = None
+                current["scope"] = "unresolved"
+                current["conflicting_values"] = sorted({c["value"] for c in [cands[0], *tied]})
+            # 現在値と意味（kind）が異なる候補や基準日が異なる候補があることを明示
+            if hist:
+                current["history"] = hist
+                if any((h.get("as_of") != current.get("as_of")) for h in hist):
+                    current["has_older_values"] = True
+                if any(h.get("value") is not None and h.get("as_of") == current.get("as_of")
+                       and h.get("kind") == current.get("kind") and h.get("value") != current.get("value")
+                       for h in hist):
+                    current["conflict_same_period"] = True
+            attrs[k] = current
+
+
+def evidence_sort_key(e: dict) -> tuple:
+    return (-(_date_int(e.get("as_of"))), TIER_ORDER.get(e.get("source_tier"), 9), e.get("doc_id") or "", e.get("url") or "")
 
 
 # ---------------------------------------------------------------------------
@@ -376,17 +454,23 @@ def edinet_evidence(row: dict, retrieved: str | None, extra: dict) -> dict:
 def ratio_attribute(row: dict, kind: str) -> dict | None:
     """比率を意味付きの構造にする（Issue #2）。
     kind: 'voting'（議決権所有割合）/ 'share'（発行済株式に対する所有株式数の割合）"""
-    if row.get("ratio_total") is None and row.get("ratio_indirect") is None:
+    total = row.get("ratio_total")
+    indirect = row.get("ratio_indirect")
+    if total is None and indirect is None:
         return None
-    return {
-        "value": row.get("ratio_total"),
+    attr = {
+        # value は「合計（直接＋間接）」。括弧内の間接だけしか読めなかった場合は合計不明として value=None
+        "value": total,
         "kind": kind,
-        "scope": "total" if row.get("ratio_total") is not None else "indirect_only",
-        "indirect": row.get("ratio_indirect"),
+        "scope": "total" if total is not None else "indirect_only",
+        "indirect": indirect,
         "raw": row.get("ratio_raw"),
         "as_of": row.get("as_of") or row.get("period_end"),
         "doc_id": row.get("doc_id"),
     }
+    if total is not None and indirect is not None and indirect <= total:
+        attr["direct"] = round(total - indirect, 4)
+    return attr
 
 
 def add_edinet_relations(builder: RelationBuilder, edinet_rows: list[dict], retrieved: str | None) -> None:
@@ -466,6 +550,48 @@ def add_edinet_relations(builder: RelationBuilder, edinet_rows: list[dict], retr
           f"分類不明・矛盾→要確認 {n_unclassified}")
 
 
+_AGREED_RE = re.compile(r"agreed to|agreement to|will (acquire|establish|form)|plans? to|intends? to|予定|合意|"
+                        r"締結(し|いた)|決議|方針|基本合意|MOU|覚書", re.I)
+_COMPLETED_RE = re.compile(r"completed|has acquired|acquired (in|on)|established (in|on)|完了|取得(し|いた)しました|"
+                           r"買収(し|いた)しました|設立(し|いた)しました|子会社化(し|いた)しました|開始(し|いた)しました", re.I)
+_YEAR_RE = re.compile(r"(?<!\d)(19[89]\d|20[0-3]\d)(?=年|\b)")
+
+
+def valid_date(d: str | None) -> str | None:
+    if not d or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", d):
+        return None
+    try:
+        dt.date.fromisoformat(d)
+    except ValueError:
+        return None
+    if d > GENERATED_AT:
+        return None  # 未来日は抽出誤り
+    return d
+
+
+def deal_status(quote: str | None) -> str | None:
+    """公表文から 合意（agreed）／実行済み（executed）を推定。判定できなければ None。"""
+    if not quote:
+        return None
+    if _COMPLETED_RE.search(quote):
+        return "executed"
+    if _AGREED_RE.search(quote):
+        return "agreed"
+    return None
+
+
+def historical_year(quote: str | None, published: str | None) -> int | None:
+    """公表文が 2 年以上前の年に言及していれば、その年（沿革の言及）を返す。"""
+    if not quote:
+        return None
+    years = [int(y) for y in _YEAR_RE.findall(quote)]
+    if not years:
+        return None
+    ref = int(published[:4]) if published else int(GENERATED_AT[:4])
+    old = [y for y in years if ref - y >= 2]
+    return min(old) if old else None
+
+
 IR_DIRECTION = {
     "ownership": "out", "major_customer": "out", "merger_acquisition": "out", "technology_license": "out",
     "business_alliance": "out", "capital_alliance": "out", "joint_venture": "out", "joint_research": "out",
@@ -491,15 +617,193 @@ def add_ir_relations(builder: RelationBuilder, ir_rows: list[dict], retrieved: s
         filer_node = {"type": "listed", "key": filer_code}
         direction = IR_DIRECTION.get(rel_type, "out")
         source, target = (filer_node, counterparty) if direction == "out" else (counterparty, filer_node)
+        published = valid_date(row.get("date"))
+        quote = row.get("evidence_quote") or None
+        deal = deal_status(quote)
+        event_year = historical_year(quote, published)
         evidence = {
             "source": "ir_disclosure", "source_tier": "llm_extraction", "url": row.get("source_url"),
-            "quote": row.get("evidence_quote") or None, "as_of": row.get("date"), "published": row.get("date"),
+            "quote": quote, "as_of": published, "published": published,
             "retrieved": retrieved, "confidence": "low", "filer_sec_code": filer_code,
         }
-        builder.add(source, target, rel_type, {}, evidence)
+        if deal:
+            evidence["deal_status"] = deal
+        if event_year:
+            evidence["event_year"] = event_year
+            evidence["note"] = f"公表文は{event_year}年の出来事に言及（公表日と時点が異なる）"
+        attrs = {}
+        if deal:
+            attrs["deal_status"] = deal
+        if event_year:
+            attrs["event_year"] = event_year
+        builder.add(source, target, rel_type, attrs, evidence)
         n += 1
         by_type[rel_type] = by_type.get(rel_type, 0) + 1
     print(f"IR 由来エッジ投入: {n} 行（{by_type}）")
+
+
+# ---------------------------------------------------------------------------
+# 確認済み訂正（corrections.json）
+# ---------------------------------------------------------------------------
+
+CORRECTIONS_PATH = BASE_DIR / "corrections.json"
+
+
+def _match_ref(builder: RelationBuilder, spec: str) -> dict | None:
+    """'listed:7203' / 'name:○○' を node 参照に解決する。"""
+    kind, _, val = spec.partition(":")
+    if kind == "listed":
+        return {"type": "listed", "key": val} if val in builder.companies else None
+    if kind == "entity":
+        return {"type": "entity", "key": val} if val in builder.entities else None
+    if kind == "name":
+        code = builder.resolve_listed(name=val)
+        if code:
+            return {"type": "listed", "key": code}
+        ent = builder._entity_index.get(normalize_name(val))
+        return {"type": "entity", "key": ent} if ent else None
+    return None
+
+
+def _find_relation(builder: RelationBuilder, match: dict) -> tuple[tuple | None, dict | None]:
+    s = _match_ref(builder, match["source"])
+    t = _match_ref(builder, match["target"])
+    if s is None or t is None:
+        return None, None
+    key = (s["type"], s["key"], t["type"], t["key"], match["relation_type"])
+    return key, builder.relations.get(key)
+
+
+def apply_corrections(builder: RelationBuilder, corrections: dict) -> list[dict]:
+    """原本で確認した訂正を適用する。適用結果（前後の状態）を返し、レポート用に保存する。
+
+    action:
+      set_status   : status / review_reasons を変更（要確認への隔離、確認済みへの昇格）
+      retype       : relation_type と方向（swap）を変更。元の evidence は保持し、検証 evidence を追加
+      set_ratio    : 比率の現在値を検証済み値にし、抽出値は history に残す
+      supersede    : 旧関係を status=historical（valid_until=as_of）にし、新関係を追加
+      remove       : 関係を削除し quarantine に記録
+    いずれも relation.verification に {status, on, by, source, note} を残す。
+    """
+    log: list[dict] = []
+    for c in corrections.get("relations", []):
+        key, rel = _find_relation(builder, c["match"])
+        entry = {"id": c.get("id"), "action": c["action"], "match": c["match"], "applied": False}
+        if rel is None:
+            entry["note"] = "対象の関係が見つからない（再生成で消えたか名寄せ失敗）"
+            log.append(entry)
+            continue
+        verification = {
+            "status": "verified", "on": c.get("verified_on"), "by": c.get("verified_by", "manual"),
+            "source": c.get("source"), "as_of": c.get("as_of"), "note": c.get("reason"),
+        }
+        ver_evidence = {
+            "source": "official_release", "source_tier": "primary", "confidence": "high",
+            "url": (c.get("source") or {}).get("url"), "as_of": c.get("as_of"),
+            "published": (c.get("source") or {}).get("published"), "retrieved": c.get("verified_on"),
+            "note": c.get("reason"), "verification": "verified",
+        }
+        before = {"relation_type": rel["relation_type"], "status": rel["status"],
+                  "source": rel["source"], "target": rel["target"],
+                  "ownership_ratio": _strip_hist(rel["attributes"].get("ownership_ratio"))}
+        action = c["action"]
+        if action == "set_status":
+            rel["status"] = c["status"]
+            for r in c.get("review_reasons", []):
+                if r not in rel["review_reasons"]:
+                    rel["review_reasons"].append(r)
+            rel["verification"] = verification
+            rel["evidence"].append(ver_evidence)
+        elif action == "retype":
+            new_type = c.get("relation_type", rel["relation_type"])
+            s, t = rel["source"], rel["target"]
+            if c.get("swap"):
+                s, t = t, s
+            meta = RELATION_TYPES[new_type]
+            if not meta["directed"] and (s["type"], s["key"]) > (t["type"], t["key"]):
+                s, t = t, s
+            del builder.relations[key]
+            new_key = (s["type"], s["key"], t["type"], t["key"], new_type)
+            existing = builder.relations.get(new_key)
+            if existing is not None:
+                # 訂正先に既に関係がある（誤った親子関係と正しい関連会社関係が重複している典型）:
+                # 双方の evidence・比率候補・要確認理由を保持して統合する
+                for ev in rel["evidence"]:
+                    if not any(_same_evidence(e, ev) for e in existing["evidence"]):
+                        existing["evidence"].append(ev)
+                for k2, v2 in rel["attributes"].items():
+                    if isinstance(v2, dict) and "candidates" in v2:
+                        for cand in v2["candidates"]:
+                            merge_attributes(existing["attributes"], {k2: cand}, ver_evidence)
+                    elif existing["attributes"].get(k2) is None:
+                        existing["attributes"][k2] = v2
+                for r2 in rel.get("review_reasons", []):
+                    if r2 not in existing["review_reasons"]:
+                        existing["review_reasons"].append(r2)
+                existing["status"] = c.get("status", "confirmed")
+                existing["verification"] = verification
+                existing["evidence"].append(ver_evidence)
+                rel = existing
+            else:
+                rel.update({"relation_type": new_type, "category": meta["category"], "directed": meta["directed"],
+                            "source": s, "target": t, "status": c.get("status", "confirmed"), "verification": verification})
+                rel["evidence"].append(ver_evidence)
+                builder.relations[new_key] = rel
+        elif action == "set_ratio":
+            new_ratio = dict(c["ownership_ratio"])
+            new_ratio.setdefault("as_of", c.get("as_of"))
+            new_ratio.setdefault("status", "executed")
+            new_ratio["verified"] = True
+            merge_attributes(rel["attributes"], {"ownership_ratio": new_ratio}, ver_evidence)
+            rel["verification"] = verification
+            rel["evidence"].append(ver_evidence)
+        elif action == "supersede":
+            rel["status"] = "historical"
+            rel["valid_until"] = c.get("as_of")
+            rel["verification"] = verification
+            rel["evidence"].append(ver_evidence)
+            new = c.get("new")
+            if new:
+                s, t = rel["source"], rel["target"]
+                if new.get("swap"):
+                    s, t = t, s
+                attrs = {}
+                if new.get("ownership_ratio"):
+                    attrs["ownership_ratio"] = {**new["ownership_ratio"], "as_of": new["ownership_ratio"].get("as_of", c.get("as_of")),
+                                                "status": new["ownership_ratio"].get("status", "executed"), "verified": True}
+                created = builder.add(s, t, new["relation_type"], attrs, dict(ver_evidence), status="confirmed")
+                if created is not None:
+                    created["verification"] = verification
+                    rel["superseded_by"] = (s["type"], s["key"], t["type"], t["key"], new["relation_type"])
+        elif action == "remove":
+            del builder.relations[key]
+            builder.reject({"relation": before, "correction": c.get("id")}, f"correction:{c.get('reason')}", "corrections")
+        else:
+            entry["note"] = f"未知の action: {action}"
+            log.append(entry)
+            continue
+        entry.update({"applied": True, "before": before, "after": {
+            "relation_type": rel["relation_type"], "status": rel["status"], "source": rel["source"], "target": rel["target"],
+            "ownership_ratio": _strip_hist(rel["attributes"].get("ownership_ratio"))}})
+        log.append(entry)
+    return log
+
+
+def _strip_hist(v):
+    if isinstance(v, dict):
+        return {k: vv for k, vv in v.items() if k not in ("history", "candidates")} | (
+            {"candidates": len(v["candidates"])} if "candidates" in v else {})
+    return v
+
+
+def resolve_superseded_refs(relations: list[dict]) -> None:
+    """finalize 後に superseded_by のキーを relation_id に置き換える。"""
+    by_key = {(r["source"]["type"], r["source"]["key"], r["target"]["type"], r["target"]["key"], r["relation_type"]): r["relation_id"]
+              for r in relations}
+    for r in relations:
+        k = r.get("superseded_by")
+        if isinstance(k, (list, tuple)):
+            r["superseded_by"] = by_key.get(tuple(k))
 
 
 # ---------------------------------------------------------------------------
@@ -522,7 +826,14 @@ def main() -> int:
     add_personnel_relations(builder, personnel, d("wikidata_personnel.json"))
     add_edinet_relations(builder, edinet_rows, d("edinet_blocks"))
     add_ir_relations(builder, ir_rows, d("ir_crawl/data/ir_relations.json"))
+    corrections = json.loads(CORRECTIONS_PATH.read_text(encoding="utf-8")) if CORRECTIONS_PATH.exists() else {}
+    correction_log = apply_corrections(builder, corrections)
+    print(f"訂正適用: {sum(1 for c in correction_log if c['applied'])}/{len(correction_log)} 件")
+    for c in correction_log:
+        if not c["applied"]:
+            print(f"   WARN 未適用 {c.get('id')}: {c.get('note')}", file=sys.stderr)
     entities, relations = builder.finalize()
+    resolve_superseded_refs(relations)
 
     m5 = {
         "master_id": "M5_company_relations",
@@ -536,6 +847,7 @@ def main() -> int:
         "status_values": {
             "confirmed": "出所の記載どおりに抽出できた関係（内容の真偽を保証するものではない）",
             "needs_review": "分類不明・方向の矛盾など、出所の記載から関係タイプを確定できない関係",
+            "historical": "確認済みの後続開示により過去の状態となった関係（valid_until まで有効）",
         },
         "relation_types": RELATION_TYPES,
         "entities": entities,
@@ -545,6 +857,8 @@ def main() -> int:
     MASTERS_DIR.mkdir(parents=True, exist_ok=True)
     (MASTERS_DIR / "M4_companies.json").write_text(json.dumps(m4, ensure_ascii=False, indent=1), encoding="utf-8")
     (MASTERS_DIR / "M5_company_relations.json").write_text(json.dumps(m5, ensure_ascii=False, indent=1), encoding="utf-8")
+    (MASTERS_DIR / "corrections_applied.json").write_text(
+        json.dumps({"generated_at": GENERATED_AT, "log": correction_log}, ensure_ascii=False, indent=1), encoding="utf-8")
     (MASTERS_DIR / "quarantine.json").write_text(
         json.dumps({"generated_at": GENERATED_AT, "count": len(builder.quarantine), "rows": builder.quarantine},
                    ensure_ascii=False, indent=1), encoding="utf-8")
