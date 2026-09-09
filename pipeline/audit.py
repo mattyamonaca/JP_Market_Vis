@@ -63,7 +63,21 @@ def key_of(ref: dict, m4: dict, m5: dict) -> str:
     return "entity:" + match_key(m5["entities"].get(ref["key"], {}).get("name", ref["key"]))
 
 
-def audit(m4: dict, m5: dict, old_m4: dict | None, old_m5: dict | None, sample_n: int, seed: int) -> dict:
+def evidence_detail(pub: Path | None, m5: dict, relation_id: str) -> list[dict]:
+    """シャードから evidence 全文を読む（分類など要約にない項目用）。"""
+    shards = m5.get("evidence_shards")
+    if not pub or not shards:
+        return []
+    shard = f"{int(relation_id[1:]) // shards['size']:04d}"
+    cache = evidence_detail.__dict__.setdefault("cache", {})
+    if shard not in cache:
+        p = pub / shards["path"].replace("{shard}", shard)
+        cache[shard] = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+    return cache[shard].get(relation_id, {}).get("evidence", [])
+
+
+def audit(m4: dict, m5: dict, old_m4: dict | None, old_m5: dict | None, sample_n: int, seed: int,
+          pub: Path | None = None) -> dict:
     rels = m5["relations"]
     ents = m5["entities"]
     companies = m4["companies"]
@@ -121,7 +135,7 @@ def audit(m4: dict, m5: dict, old_m4: dict | None, old_m5: dict | None, sample_n
             continue
         v = r.get("attributes", {}).get("ownership_ratio")
         if v is not None and v <= 0.5:
-            cls = next((e.get("classification") for e in r["evidence"] if e.get("classification")), None)
+            cls = next((e.get("classification") for e in evidence_detail(pub, m5, r["relation_id"]) if e.get("classification")), None)
             srcs = tuple(sorted({e["source"] for e in r["evidence"]}))
             by_kind[(cls or "(分類なし)", srcs)] += 1
             low.append(r["relation_id"])
@@ -210,7 +224,7 @@ def main() -> int:
     m5 = load(pub / "M5_company_relations.json")
     old_m5 = load(Path(args.old)) if args.old else None
     old_m4 = load(Path(args.old_m4)) if args.old_m4 else None
-    report = audit(m4, m5, old_m4, old_m5, args.sample, args.seed)
+    report = audit(m4, m5, old_m4, old_m5, args.sample, args.seed, pub)
     id_map = report.pop("_id_map", None)
     out = Path(args.out) if args.out else None
     if out:
