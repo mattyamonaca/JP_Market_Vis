@@ -85,6 +85,16 @@ class ClassificationDirection(unittest.TestCase):
         self.assertIsNotNone(rel)
         self.assertEqual(rel["status"], "confirmed")
 
+    def test_conflicting_marker_row_is_quarantined_not_reversed(self):
+        # 継承分類（親会社）と明示マーカー（所有）が矛盾 → 分類不明・方向は表記どおり・要確認
+        r = row("4661", "傘下株式会社", None, False, 1.0, direction_conflict=True)
+        r["direction_source"] = "cell"
+        ents, rels = build([r])
+        self.assertIsNone(find(rels, "ENT000001", "4661", "parent_subsidiary"))
+        rel = find(rels, "4661", "ENT000001", "ownership")
+        self.assertEqual(rel["status"], "needs_review")
+        self.assertIn("direction_conflict", rel["review_reasons"])
+
     def test_bad_names_are_quarantined(self):
         b = bm.RelationBuilder(COMPANIES)
         bm.add_edinet_relations(b, [row("4661", "(87.74)", "連結子会社", False, None, name_problem="numeric_only")], None)
@@ -123,6 +133,28 @@ class RatioSemantics(unittest.TestCase):
                              ["S_B", "S_A"])
         self.assertEqual(results[0], results[1])
         self.assertEqual(results[0][0], 0.95)
+
+    def test_same_rank_conflicting_values_are_left_unresolved_regardless_of_order(self):
+        a = {"value": 0.2, "kind": "voting", "scope": "total", "as_of": "2025-03-31", "doc_id": "S100TEST", "raw": "20"}
+        b = {"value": 0.3, "kind": "voting", "scope": "total", "as_of": "2025-03-31", "doc_id": "S100TEST", "raw": "30"}
+        results = []
+        for order in ((a, b), (b, a)):
+            attrs = {}
+            for c in order:
+                bm.merge_attributes(attrs, {"ownership_ratio": dict(c)}, {})
+            bm.finalize_attributes(attrs)
+            results.append(attrs["ownership_ratio"])
+        self.assertEqual(results[0], results[1])
+        self.assertIsNone(results[0]["value"])
+        self.assertEqual(results[0]["scope"], "unresolved")
+        self.assertEqual(results[0]["conflicting_values"], [0.2, 0.3])
+        self.assertEqual(len(results[0]["history"]), 2)
+        # 検証済み値があれば同順位にならず、それが現在値になる
+        attrs = {}
+        for c in (a, b, {**b, "value": 0.25, "verified": True}):
+            bm.merge_attributes(attrs, {"ownership_ratio": dict(c)}, {})
+        bm.finalize_attributes(attrs)
+        self.assertAlmostEqual(attrs["ownership_ratio"]["value"], 0.25)
 
     def test_voting_and_share_ratios_are_kept_apart(self):
         vote = row("4661", "某社", None, False, 0.3, doc="S_A")
@@ -213,6 +245,39 @@ class Corrections(unittest.TestCase):
         self.assertAlmostEqual(attr["value"], 0.99)
         self.assertTrue(attr["verified"])
         self.assertEqual(attr["history"][0]["value"], 1.0)
+
+    def test_retype_merges_into_existing_relation_instead_of_overwriting(self):
+        b = bm.RelationBuilder(COMPANIES)
+        # (1) Wikidata 由来の誤った親子関係 と (2) EDINET 由来の正しい関連会社関係（比率あり）が重複
+        wd = {"type": "listed", "key": "9009"}; olc = {"type": "listed", "key": "4661"}
+        b.add(wd, olc, "parent_subsidiary", {}, {"source": "wikidata", "source_tier": "secondary", "property": "P749",
+                                                "confidence": "medium", "as_of": None})
+        bm.add_edinet_relations(b, [row("4661", "京成電鉄", "その他の関係会社", True, 0.2014, 0.0007)], "2026-09-09")
+        log = bm.apply_corrections(b, {"relations": [{
+            "id": "x", "match": {"source": "listed:9009", "target": "listed:4661", "relation_type": "parent_subsidiary"},
+            "action": "retype", "relation_type": "affiliate", "as_of": "2025-03-31",
+            "source": {"url": "https://example.com/olc"}, "reason": "その他の関係会社", "verified_on": "2026-09-09"}]})
+        self.assertTrue(log[0]["applied"])
+        ents, rels = b.finalize()
+        self.assertIsNone(find(rels, "9009", "4661", "parent_subsidiary"))
+        aff = find(rels, "9009", "4661", "affiliate")
+        self.assertEqual(sorted({e["source"] for e in aff["evidence"]}), ["edinet", "official_release", "wikidata"])
+        self.assertAlmostEqual(aff["attributes"]["ownership_ratio"]["value"], 0.2014)
+        self.assertEqual(aff["verification"]["status"], "verified")
+
+    def test_retype_to_undirected_normalizes_key(self):
+        b = bm.RelationBuilder(COMPANIES)
+        b.add({"type": "listed", "key": "9009"}, {"type": "listed", "key": "4661"}, "ownership", {},
+              {"source": "wikidata", "source_tier": "secondary", "property": "P1830", "confidence": "medium"})
+        b.add({"type": "listed", "key": "4661"}, {"type": "listed", "key": "9009"}, "business_alliance", {},
+              {"source": "ir_disclosure", "source_tier": "llm_extraction", "url": "https://example.com/a", "confidence": "low"})
+        bm.apply_corrections(b, {"relations": [{
+            "id": "y", "match": {"source": "listed:9009", "target": "listed:4661", "relation_type": "ownership"},
+            "action": "retype", "relation_type": "business_alliance", "reason": "r", "verified_on": "2026-09-09"}]})
+        ents, rels = b.finalize()
+        self.assertEqual(len(rels), 1)
+        self.assertEqual(rels[0]["source"]["key"], "4661")  # 無向は辞書順に正規化
+        self.assertEqual(sorted({e["source"] for e in rels[0]["evidence"]}), ["ir_disclosure", "official_release", "wikidata"])
 
     def test_missing_target_is_reported_not_silently_ignored(self):
         b = self._builder()
