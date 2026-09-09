@@ -79,3 +79,18 @@ python make_viz_data.py                                                # public/
   `data_processed/masters/corrections_applied.json` に前後の状態を記録する。
   `supersede` は旧関係を `status: "historical"`（`valid_until` 付き）にして新関係を追加するので、
   変更前後を区別できる。50% 以下という理由だけで親子関係を削除する処理はない。
+
+## 名寄せと別名（Issue #4）
+
+- `aliases.py` の `match_key` で照合する: NFKC → 旧字体・異体字の置換（`aliases.json` の `kanji_variants`）→
+  法人格の除去（株式会社・㈱・Inc.・Co., Ltd.・S.A.・有限公司・欧文名＋「社」等）→ 空白・記号除去 → 小文字化。
+  「ホールディングス」「グループ」は法人の同一性に関わるので除かない（旧実装は除いていた）。
+- 上場企業は 証券コード／法人番号／QID → 公式名（JPX 名・EDINET 提出者名・英文名）→ 別名 の順で解決する。
+  EDINET 提出者名は JPX 名と互換（片方がもう片方を含む）な場合だけ索引に加える（「サッポロホールディングス」に
+  「サッポロビール株式会社」を紐づけない）。
+- `aliases.json` の `listed` は確認済みの通称・略称・旧商号。法人格のない別名（「ソニー」）は法人格のない原文名にだけ
+  一致させ、「ソニー株式会社」（事業会社）を親会社に統合しない。`entities` は非上場法人の表記ゆれ（Ceva 等）。
+- 統合の記録は `data_processed/masters/entity_merges.json`（上場企業へ解決した原文名と方法、entity に統合された
+  原文名と理由）。
+- 検索: M4 の `aliases` と `name_kana`（EDINET コードリストのヨミ）を `src/data/search.js` が索引にし、
+  「東邦ガス」「とよた」「７２０３」で意図した企業に一致する。
