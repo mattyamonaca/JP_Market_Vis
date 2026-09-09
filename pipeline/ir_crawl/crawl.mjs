@@ -29,12 +29,22 @@ const VALID_TYPES = new Set([
   'joint_research', 'merger_acquisition', 'ownership', 'major_customer',
 ]);
 
+// Issue #6: 根拠文に「主体・相手・関係タイプ・方向」が明示されている関係だけを抽出させる。
+// 抽出後も pipeline/ir_validate.py が根拠文を検査し、手がかりのない行は needs_review にする。
 const EXTRACT_PROMPT = (filerName, title, body) => `あなたは企業のプレスリリースから企業間の関係を抽出する専門家です。
 発表企業は「${filerName}」です。以下のリリースから、発表企業と「他の実在企業」との関係をJSON配列のみで返してください。
 関係がなければ [] を返す。推測や本文にない情報は禁止。発表企業自身や個人・行政・団体は対象外、企業のみ。
 
-各要素: {"counterparty":"相手企業の正式名称","relation_type":"<enum>","date":"YYYY-MM-DD or null","evidence_quote":"根拠となる本文の一文(60字以内)"}
-relation_type: business_alliance(業務提携) / capital_alliance(資本業務提携) / joint_venture(合弁設立) / technology_license(技術提携・ライセンス) / joint_research(共同研究) / merger_acquisition(買収・合併) / ownership(出資・株式取得) / major_customer(主要顧客・大口取引)
+抽出してよいのは、本文の一文の中に「発表企業（または当社）」「相手企業」「関係の内容を示す語（提携・合弁・共同研究・出資・買収・納入 など）」がそろっている関係だけです。
+次のものは関係として抽出しない: 会社名が並んでいるだけの文、商標・PDF閲覧・受賞・掲載・イベント告知などの注記、
+製品が他社技術をベースにしている／準拠しているという記述（ライセンス供与の明示がない）、発表企業が当事者でない他社同士の記述、
+発表企業と相手のどちらが主体か本文から分からない関係。
+方向がある関係（出資・買収・納入・技術供与）は "direction" に、発表企業が主体なら "out"、相手が主体（相手が発表企業に出資・発表企業を買収 等）なら "in" を入れる。
+関係の状態は "status" に、合意・予定・締結の段階なら "agreed"、完了・実行済みなら "executed"、不明なら null を入れる。
+本文が過去の出来事（沿革）に触れている場合は "event_date" にその年月日（分かる範囲。例 "2006"）を入れる。
+
+各要素: {"counterparty":"相手企業の正式名称","relation_type":"<enum>","direction":"out|in|null","status":"agreed|executed|null","date":"発表日 YYYY-MM-DD or null","event_date":"出来事の時点 or null","evidence_quote":"根拠となる本文の一文（両社名と関係の語を含めて120字以内）"}
+relation_type: business_alliance(業務提携) / capital_alliance(資本業務提携) / joint_venture(合弁設立) / technology_license(技術提携・ライセンス供与) / joint_research(共同研究・共同開発) / merger_acquisition(買収・合併) / ownership(出資・株式取得) / major_customer(主要顧客・納入先)
 
 見出し: ${title}
 本文: ${body.slice(0, 5000)}
@@ -161,7 +171,10 @@ async function crawlCompany(ctx, co, budget) {
             counterparty_name: r.counterparty,
             relation_type: r.relation_type,
             date: r.date || null,
-            evidence_quote: (r.evidence_quote || '').slice(0, 120),
+            evidence_quote: (r.evidence_quote || '').slice(0, 200),
+            direction: r.direction || null,
+            status: r.status || null,
+            event_date: r.event_date || null,
             source_url: rel.href,
           });
         }

@@ -1,0 +1,635 @@
+{
+ "_comment": "IR 抽出の固定評価セット（Issue #6）。実データの行を人手でラベル付け。expected.status は根拠文だけで確定してよいか、type は根拠が支持する関係タイプ、direction は out=提出会社が主体 / in=相手が主体。",
+ "cases": [
+  {
+   "id": "aisin_denso_joint_research",
+   "row": {
+    "filer_sec_code": "7259",
+    "counterparty_name": "株式会社デンソー",
+    "relation_type": "joint_research",
+    "date": "2026-03-24",
+    "evidence_quote": "アイシン、東邦ガス、デンソーの3社は、2022年から地域CO2循環に関する検討を共同で進め",
+    "filer_names": [
+     "アイシン"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "type": "joint_research"
+   }
+  },
+  {
+   "id": "aisin_tohogas_joint_research",
+   "row": {
+    "filer_sec_code": "7259",
+    "counterparty_name": "東邦ガス株式会社",
+    "relation_type": "joint_research",
+    "date": "2026-03-24",
+    "evidence_quote": "国内初、「地域CO2循環型e-メタン供給」の共同実証を開始※東邦ガス株式会社、株式会社デンソーとの共同リリースです。",
+    "filer_names": [
+     "アイシン"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "type": "joint_research"
+   }
+  },
+  {
+   "id": "aisin_denso_codeveloped_relabel",
+   "row": {
+    "filer_sec_code": "7259",
+    "counterparty_name": "株式会社デンソー",
+    "relation_type": "business_alliance",
+    "date": "2026-05-13",
+    "evidence_quote": "株式会社BluE Nexus、当社、株式会社デンソーが共同開発したeAxleが、ダイハツ初の量産BEVである軽商用車「e-ハイゼット カーゴ」・「e-アトレー」に搭載されました。",
+    "filer_names": [
+     "アイシン"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "type": "joint_research"
+   }
+  },
+  {
+   "id": "mitsui_ceva_jv",
+   "row": {
+    "filer_sec_code": "8031",
+    "counterparty_name": "Ceva Santé Animale SA",
+    "relation_type": "joint_venture",
+    "date": "2026-05-08",
+    "evidence_quote": "日本の動物用医薬品市場において、物産アニマルヘルス株式会社（本社：大阪市中央区、社長：梅田 明人、以下「BAH」）にCeva Japan（本社：横浜市鶴見区、社長：大橋 忠洋）を統合した合弁会社「セバ物産アニマルヘルス（以下、「セバ物産」）",
+    "filer_names": [
+     "三井物産"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "type": "joint_venture"
+   }
+  },
+  {
+   "id": "mitsui_ceva_alliance",
+   "row": {
+    "filer_sec_code": "8031",
+    "counterparty_name": "Ceva Santé Animale社",
+    "relation_type": "business_alliance",
+    "date": "2026-05-08",
+    "evidence_quote": "三井物産とCevaは、日本の動物用医薬品市場における成長を推進する戦略的パートナーとして、今後も協業を進めていきます。",
+    "filer_names": [
+     "三井物産"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "type": "business_alliance"
+   }
+  },
+  {
+   "id": "marubeni_tiauto_agreed",
+   "row": {
+    "filer_sec_code": "8002",
+    "counterparty_name": "TiAuto Investments Pty Ltd",
+    "relation_type": "merger_acquisition",
+    "date": "2026-06-10",
+    "evidence_quote": "Marubeni Corporation has agreed to acquire TiAuto Investments Pty Ltd",
+    "filer_names": [
+     "丸紅",
+     "Marubeni"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "type": "merger_acquisition",
+    "direction": "out"
+   }
+  },
+  {
+   "id": "sompo_aspen_completed",
+   "row": {
+    "filer_sec_code": "8630",
+    "counterparty_name": "Aspen Insurance Holdings Limited",
+    "relation_type": "merger_acquisition",
+    "date": "2026-02-24",
+    "evidence_quote": "Aspen Insurance Holdings Limited 買収手続き完了のお知らせ",
+    "filer_names": [
+     "SOMPOホールディングス"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "type": "merger_acquisition",
+    "direction": "out"
+   }
+  },
+  {
+   "id": "maxell_jaxa",
+   "row": {
+    "filer_sec_code": "6810",
+    "counterparty_name": "JAXA",
+    "relation_type": "joint_research",
+    "date": "2026-06-04",
+    "evidence_quote": "マクセル、JAXAと全固体電池の共同研究を開始",
+    "filer_names": [
+     "マクセル"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "type": "joint_research"
+   }
+  },
+  {
+   "id": "nagoya_denki_pxp",
+   "row": {
+    "filer_sec_code": "6797",
+    "counterparty_name": "株式会社PXP",
+    "relation_type": "capital_alliance",
+    "date": "2026-05-12",
+    "evidence_quote": "名古屋電機工業株式会社は、株式会社PXPと資本業務提携契約を締結しました。",
+    "filer_names": [
+     "名古屋電機工業"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "type": "capital_alliance"
+   }
+  },
+  {
+   "id": "takara_toyota_relabel_to_research",
+   "row": {
+    "filer_sec_code": "4974",
+    "counterparty_name": "トヨタ自動車株式会社",
+    "relation_type": "joint_venture",
+    "date": "2025-10-27",
+    "evidence_quote": "タカラバイオ株式会社とトヨタ自動車株式会社（以下、トヨタ社）は、トヨタ社が保有するGRAS-Di®技術を用いた次世代シーケンス用試薬を共同で開発することに合意し、2025年10月27日付で共同開発契約を締結しました。",
+    "filer_names": [
+     "タカラバイオ"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "type": "joint_research"
+   }
+  },
+  {
+   "id": "dainichi_tokyogas_supply",
+   "row": {
+    "filer_sec_code": "5951",
+    "counterparty_name": "東京ガス株式会社",
+    "relation_type": "major_customer",
+    "date": "2022-11-07",
+    "evidence_quote": "新たな発電ユニットも京セラブランドとして東京ガスに供給し、東京ガスは熱源機を組み合わせて2023年1月26日より販売を開始します。",
+    "filer_names": [
+     "ダイニチ工業"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "type": "major_customer",
+    "direction": "out"
+   }
+  },
+  {
+   "id": "dainichi_tokyogas_adopted",
+   "row": {
+    "filer_sec_code": "5951",
+    "counterparty_name": "東京ガス株式会社",
+    "relation_type": "major_customer",
+    "date": "2019-10-10",
+    "evidence_quote": "「燃料電池ユニット(貯湯タンク内蔵)」を東京ガスに採用されました。",
+    "filer_names": [
+     "ダイニチ工業"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "type": "major_customer",
+    "direction": "out"
+   }
+  },
+  {
+   "id": "sompo_nougyou_tob_out",
+   "row": {
+    "filer_sec_code": "8630",
+    "counterparty_name": "株式会社農業総合研究所",
+    "relation_type": "ownership",
+    "date": "2026-02-17",
+    "evidence_quote": "当社子会社のＳＯＭＰＯ Ｌｉｇｈｔ Ｖｏｒｔｅｘ株式会社による株式会社農業総合研究所株券等（証券コード：3541）に対する公開買付けの結果及び子会社の異動に関するお知らせ",
+    "filer_names": [
+     "SOMPOホールディングス"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "type": "ownership",
+    "direction": "out"
+   }
+  },
+  {
+   "id": "yutaka_motherson_tob_in",
+   "row": {
+    "filer_sec_code": "7229",
+    "counterparty_name": "マザーサングローバルインベストメンツビーブイ",
+    "relation_type": "ownership",
+    "date": "2026-03-11",
+    "evidence_quote": "マザーサングローバルインベストメンツビーブイによる当社株式に対する公開買付けの結果に関するお知らせ",
+    "filer_names": [
+     "ユタカ技研"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "type": "ownership",
+    "direction": "in"
+   }
+  },
+  {
+   "id": "inpex_pertamina_mou",
+   "row": {
+    "filer_sec_code": "1605",
+    "counterparty_name": "PT Pertamina Hulu Energi",
+    "relation_type": "business_alliance",
+    "date": null,
+    "evidence_quote": "PT Pertamina Hulu Energi（以下、PHE）と同国および東南アジアにおける上流事業での協業に関するMOUを締結いたしました",
+    "filer_names": [
+     "INPEX"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "type": "business_alliance"
+   }
+  },
+  {
+   "id": "nsg_shochiku_jointly_operated",
+   "row": {
+    "filer_sec_code": "5202",
+    "counterparty_name": "松竹",
+    "relation_type": "joint_venture",
+    "date": "2024-07-29",
+    "evidence_quote": "日本板硝子と松竹が共同で運営する透明LEDビジョン 銀座松竹スクエアにて8月1日より試験放映開始",
+    "filer_names": [
+     "日本板硝子"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "type": "joint_venture"
+   }
+  },
+  {
+   "id": "digital_asset_investment",
+   "row": {
+    "filer_sec_code": "8306",
+    "counterparty_name": "米国Digital Asset社",
+    "relation_type": "ownership",
+    "date": "2026-01-01",
+    "evidence_quote": "Canton Networkを開発した米国Digital Asset社への追加出資に関するお知らせ",
+    "filer_names": [
+     "三菱UFJフィナンシャル・グループ"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "type": "ownership",
+    "direction": "out"
+   }
+  },
+  {
+   "id": "nsharyo_jrtokai_based_on",
+   "row": {
+    "filer_sec_code": "7102",
+    "counterparty_name": "東海旅客鉄道株式会社",
+    "relation_type": "technology_license",
+    "date": null,
+    "evidence_quote": "完成した車両は、東海旅客鉄道株式会社の最新型新幹線車両「N700S」をベースとしています",
+    "filer_names": [
+     "日本車輌製造"
+    ]
+   },
+   "expected": {
+    "status": "needs_review"
+   }
+  },
+  {
+   "id": "adobe_reader_notice",
+   "row": {
+    "filer_sec_code": "4284",
+    "counterparty_name": "Adobe Systems Incorporated",
+    "relation_type": "technology_license",
+    "date": null,
+    "evidence_quote": "PDF形式のファイルをご覧になるには、Adobe Systems Incorporated （アドビシステムズ社）のAdobe Acrobat Readerが必要です。",
+    "filer_names": [
+     "ソルクシーズ"
+    ]
+   },
+   "expected": {
+    "status": "needs_review"
+   }
+  },
+  {
+   "id": "salesforce_trademark",
+   "row": {
+    "filer_sec_code": "9360",
+    "counterparty_name": "Salesforce,Inc.",
+    "relation_type": "ownership",
+    "date": null,
+    "evidence_quote": "Salesforce®、Sales Cloud、及びその他はSalesforce,Inc.の商標です。",
+    "filer_names": [
+     "鈴与シンワート"
+    ]
+   },
+   "expected": {
+    "status": "needs_review"
+   }
+  },
+  {
+   "id": "tokyu_railways_list_only",
+   "row": {
+    "filer_sec_code": "9005",
+    "counterparty_name": "京成電鉄株式会社",
+    "relation_type": "ownership",
+    "date": "2026-03-02",
+    "evidence_quote": "小田急電鉄株式会社、京王電鉄株式会社、京成電鉄株式会社、京浜急行電鉄株式会社、西武鉄道株式会社、相鉄クリーンエナジー株式会社、東急電鉄株式会社および東武鉄道株式会社",
+    "filer_names": [
+     "東急"
+    ]
+   },
+   "expected": {
+    "status": "needs_review"
+   }
+  },
+  {
+   "id": "technohorizon_meta_introduced",
+   "row": {
+    "filer_sec_code": "6629",
+    "counterparty_name": "株式会社MeTa",
+    "relation_type": "merger_acquisition",
+    "date": null,
+    "evidence_quote": "当社グループのM&A事例（株式会社MeTa）が紹介されました。",
+    "filer_names": [
+     "テクノホライゾン"
+    ]
+   },
+   "expected": {
+    "status": "needs_review"
+   }
+  },
+  {
+   "id": "guardian_rating",
+   "row": {
+    "filer_sec_code": "9983",
+    "counterparty_name": "英国The Guardian紙",
+    "relation_type": "major_customer",
+    "date": null,
+    "evidence_quote": "さらに、英国『The Guardian』紙による五つ星評価をはじめ、国際的に高い評価を得ています。",
+    "filer_names": [
+     "ファーストリテイリング"
+    ]
+   },
+   "expected": {
+    "status": "needs_review"
+   }
+  },
+  {
+   "id": "bcorsairs_official_partner",
+   "row": {
+    "filer_sec_code": "4681",
+    "counterparty_name": "横浜ビー・コルセアーズ",
+    "relation_type": "major_customer",
+    "date": null,
+    "evidence_quote": "リゾートトラストグループは、国内男子プロバスケットボールB.LEAGUEに所属する横浜ビー・コルセアーズのオフィシャルパートナー",
+    "filer_names": [
+     "リゾートトラスト"
+    ]
+   },
+   "expected": {
+    "status": "needs_review"
+   }
+  },
+  {
+   "id": "kajima_sojitz_third_party_jv",
+   "row": {
+    "filer_sec_code": "1812",
+    "counterparty_name": "双日株式会社",
+    "relation_type": "ownership",
+    "date": null,
+    "evidence_quote": "ESM社は、双日株式会社および米国の森林投資管理会社であるEFM社が設立した合弁会社です。",
+    "filer_names": [
+     "鹿島建設",
+     "鹿島"
+    ]
+   },
+   "expected": {
+    "status": "needs_review"
+   }
+  },
+  {
+   "id": "nsharyo_hitachi_order_as_alliance",
+   "row": {
+    "filer_sec_code": "7102",
+    "counterparty_name": "株式会社日立製作所",
+    "relation_type": "business_alliance",
+    "date": null,
+    "evidence_quote": "株式会社日立製作所（以下、日立）より受注した台湾向け新型高速鉄道車両",
+    "filer_names": [
+     "日本車輌製造"
+    ]
+   },
+   "expected": {
+    "status": "needs_review"
+   }
+  },
+  {
+   "id": "empty_quote",
+   "row": {
+    "filer_sec_code": "7203",
+    "counterparty_name": "某社",
+    "relation_type": "business_alliance",
+    "date": null,
+    "evidence_quote": "",
+    "filer_names": [
+     "トヨタ自動車"
+    ]
+   },
+   "expected": {
+    "status": "needs_review"
+   }
+  },
+  {
+   "id": "counterparty_missing",
+   "row": {
+    "filer_sec_code": "7203",
+    "counterparty_name": "某社",
+    "relation_type": "business_alliance",
+    "date": null,
+    "evidence_quote": "当社は業務提携契約を締結しました。",
+    "filer_names": [
+     "トヨタ自動車"
+    ]
+   },
+   "expected": {
+    "status": "needs_review"
+   }
+  },
+  {
+   "id": "shinwart_salesforce_event",
+   "row": {
+    "filer_sec_code": "505A",
+    "counterparty_name": "株式会社カプコン",
+    "relation_type": "business_alliance",
+    "date": "2026-05-26",
+    "evidence_quote": "株式会社ギークリーは、2026年6月6日（土）、7日（日）の2日間、渋谷のShibuya Sakura Stageにて、株式会社カプコン（所在地：大阪府大阪市、代表取締役社長：辻本 春弘）の『ストリートファイター6』とコラボレーションしたオリジナルイベントを開催",
+    "filer_names": [
+     "ギークリー"
+    ]
+   },
+   "expected": {
+    "status": "needs_review"
+   }
+  },
+  {
+   "id": "license_reverse_direction",
+   "row": {
+    "filer_sec_code": "0000",
+    "counterparty_name": "乙社",
+    "relation_type": "technology_license",
+    "date": null,
+    "evidence_quote": "乙社が当社に技術を供与しました。",
+    "filer_names": [
+     "甲社"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "direction": "in",
+    "type": "technology_license"
+   }
+  },
+  {
+   "id": "license_negated",
+   "row": {
+    "filer_sec_code": "0000",
+    "counterparty_name": "乙社",
+    "relation_type": "technology_license",
+    "date": null,
+    "evidence_quote": "当社は乙社への技術供与を行いません。",
+    "filer_names": [
+     "甲社"
+    ]
+   },
+   "expected": {
+    "status": "needs_review"
+   }
+  },
+  {
+   "id": "license_grant_out",
+   "row": {
+    "filer_sec_code": "0000",
+    "counterparty_name": "乙社",
+    "relation_type": "technology_license",
+    "date": null,
+    "evidence_quote": "当社は乙社に技術を供与しました。",
+    "filer_names": [
+     "甲社"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "direction": "out",
+    "type": "technology_license"
+   }
+  },
+  {
+   "id": "license_received_in",
+   "row": {
+    "filer_sec_code": "0000",
+    "counterparty_name": "乙社",
+    "relation_type": "technology_license",
+    "date": null,
+    "evidence_quote": "当社は乙社から技術供与を受けました。",
+    "filer_names": [
+     "甲社"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "direction": "in",
+    "type": "technology_license"
+   }
+  },
+  {
+   "id": "alliance_dissolved",
+   "row": {
+    "filer_sec_code": "0000",
+    "counterparty_name": "乙社",
+    "relation_type": "capital_alliance",
+    "date": null,
+    "evidence_quote": "乙社との資本業務提携を解消しました。",
+    "filer_names": [
+     "甲社"
+    ]
+   },
+   "expected": {
+    "status": "needs_review"
+   }
+  },
+  {
+   "id": "investment_received_in",
+   "row": {
+    "filer_sec_code": "0000",
+    "counterparty_name": "乙社",
+    "relation_type": "ownership",
+    "date": null,
+    "evidence_quote": "当社は乙社から出資を受けました。",
+    "filer_names": [
+     "甲社"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "direction": "in",
+    "type": "ownership"
+   }
+  },
+  {
+   "id": "acquired_by_counterparty_in",
+   "row": {
+    "filer_sec_code": "0000",
+    "counterparty_name": "乙社",
+    "relation_type": "merger_acquisition",
+    "date": null,
+    "evidence_quote": "当社は乙社に買収されました。",
+    "filer_names": [
+     "甲社"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "direction": "in",
+    "type": "merger_acquisition"
+   }
+  },
+  {
+   "id": "english_supply_to",
+   "row": {
+    "filer_sec_code": "0000",
+    "counterparty_name": "ROHM Co., Ltd.",
+    "relation_type": "major_customer",
+    "date": null,
+    "evidence_quote": "Showa Denko Concludes Long-Term Contract to Supply SiC Epitaxial Wafers for ROHM Co., Ltd.",
+    "filer_names": [
+     "レゾナック"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "direction": "out",
+    "type": "major_customer"
+   }
+  }
+ ]
+}
