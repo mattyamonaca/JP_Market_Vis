@@ -6,6 +6,7 @@ const originalFetch = globalThis.fetch;
 globalThis.fetch = async (url) => ({ ok: true, json: async () => JSON.parse(await readFile(new URL(`../public${url}`, import.meta.url), 'utf8')) });
 const graph = await import('../src/data/graph.js');
 const { buildEgoNetwork } = await import('../src/flow/egoNetwork.js');
+const { filterRelations } = await import('../src/data/relationFilter.js');
 globalThis.fetch = originalFetch;
 
 test('every relation has valid endpoints, a unique ID and provenance', () => {
@@ -58,4 +59,21 @@ test('global filtering excludes disabled categories and copies simulation object
   assert.ok(graph.GLOBAL_GRAPH.nodes.every((node) => node.x === undefined));
   assert.ok(graph.GLOBAL_GRAPH.links.every((link) => typeof link.source === 'string'));
   assert.deepEqual(filterGlobalGraph(graph.GLOBAL_GRAPH, new Set(), 1), { nodes: [], links: [] });
+});
+
+test('company filter from the ego graph matches exactly the company relations, not entity ids containing the code', () => {
+  const code = '7203';
+  const expected = graph.neighborsOf({ type: 'listed', key: code }).length;
+  const byCompany = filterRelations(graph.RELATIONS, { companyCode: code });
+  assert.equal(byCompany.length, expected);
+  assert.ok(byCompany.every((rel) => (rel.source.type === 'listed' && rel.source.key === code) || (rel.target.type === 'listed' && rel.target.key === code)));
+  // 自由入力の部分一致は entity の ID には一致させない（名称か上場企業のコードのみ）
+  for (const rel of filterRelations(graph.RELATIONS, { query: code })) {
+    const names = graph.nodeName(rel.source) + graph.nodeName(rel.target);
+    const listedCode = (rel.source.type === 'listed' && rel.source.key.includes(code)) || (rel.target.type === 'listed' && rel.target.key.includes(code));
+    assert.ok(names.includes(code) || listedCode, rel.relation_id);
+  }
+  // 企業フィルタと自由入力は同時に効く
+  const both = filterRelations(graph.RELATIONS, { companyCode: code, query: 'デンソー' });
+  assert.ok(both.length > 0 && both.length < expected);
 });

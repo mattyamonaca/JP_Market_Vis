@@ -115,7 +115,7 @@ function BackBar({ history, onBack }) {
   );
 }
 
-function GraphView({ centerCode, setCenterCode }) {
+function GraphView({ centerCode, setCenterCode, onShowInTable }) {
   const [selection, setSelection] = useState(null);
   const [history, setHistory] = useState([]);
   const [hoveredNodeId, setHoveredNodeId] = useState(null);
@@ -242,7 +242,14 @@ function GraphView({ centerCode, setCenterCode }) {
               padding: '6px 10px',
             }}
           >
-            関係先が多いため {truncated} 社・団体を省略表示中（カテゴリ比例で関係先を抽出）。全件は「関係テーブル」で確認できます
+            関係先が多いため {truncated} 社・団体を省略表示中（カテゴリ比例で関係先を抽出）。
+            <button
+              type="button"
+              onClick={() => onShowInTable(centerCode)}
+              style={{ marginLeft: 6, background: 'transparent', border: '1px solid #475569', borderRadius: 6, color: '#7dd3fc', padding: '2px 8px', fontSize: 12 }}
+            >
+              {COMPANIES[centerCode]?.name ?? centerCode} の関係を一覧で見る →
+            </button>
           </div>
         )}
         {edges.length === 0 && (
@@ -295,22 +302,45 @@ function GraphView({ centerCode, setCenterCode }) {
   );
 }
 
+// 非表示のビューはレイアウト上のサイズを保ったまま見えなくする（display:none だと ResizeObserver が
+// 0 サイズを拾い、復帰時にズーム・位置がずれる）
+function ViewPane({ active, children }) {
+  return (
+    <div className={`view-pane${active ? '' : ' view-pane-hidden'}`} aria-hidden={!active} inert={active ? undefined : ''}>
+      {children}
+    </div>
+  );
+}
+
 export default function App() {
   const [view, setView] = useState('map');
   const [centerCode, setCenterCode] = useState(DEFAULT_CODE);
+  // 一覧への絞り込み依頼（企業コード）。nonce で同じ企業の再依頼も反映する
+  const [tableRequest, setTableRequest] = useState(null);
+  // 一度表示したビューはアンマウントせず非表示にする（検索・フィルタ・回転モード・描画位置・ズーム・
+  // 一覧のページ位置を往復後も保持するため。Issue #7）
+  const [visited, setVisited] = useState(() => new Set(['map']));
+  const showView = useCallback((key) => {
+    setVisited((prev) => (prev.has(key) ? prev : new Set([...prev, key])));
+    setView(key);
+  }, []);
 
   const selectAndShowGraph = useCallback((code) => {
     setCenterCode(code);
-    setView('graph');
-  }, []);
+    showView('graph');
+  }, [showView]);
+  const showInTable = useCallback((code) => {
+    setTableRequest({ code, nonce: Date.now() });
+    showView('table');
+  }, [showView]);
 
   return (
     <div className="app-shell" style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%' }}>
-      <Header view={view} setView={setView} />
-      {view === 'map' && <GlobalMap onSelectCompany={selectAndShowGraph} />}
-      {view === 'graph' && <GraphView centerCode={centerCode} setCenterCode={setCenterCode} />}
-      {view === 'table' && <RelationTable />}
-      {view === 'stats' && <StatsView onSelectCompany={selectAndShowGraph} />}
+      <Header view={view} setView={showView} />
+      <ViewPane active={view === 'map'}><GlobalMap onSelectCompany={selectAndShowGraph} /></ViewPane>
+      {visited.has('graph') && <ViewPane active={view === 'graph'}><GraphView centerCode={centerCode} setCenterCode={setCenterCode} onShowInTable={showInTable} /></ViewPane>}
+      {visited.has('table') && <ViewPane active={view === 'table'}><RelationTable request={tableRequest} /></ViewPane>}
+      {visited.has('stats') && <ViewPane active={view === 'stats'}><StatsView onSelectCompany={selectAndShowGraph} /></ViewPane>}
       <footer className="app-footer"><span>収録 {STATS.companies.toLocaleString()}社 · 確定 {STATS.relations.toLocaleString()}関係{STATS.byStatus.needs_review ? ` · 要確認 ${STATS.byStatus.needs_review.toLocaleString()}` : ''}</span><span>データ生成 {META.generatedAt} · 自動抽出を含む／最新の上場状況・関係を保証しません</span></footer>
     </div>
   );

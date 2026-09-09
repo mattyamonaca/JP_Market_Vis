@@ -2,12 +2,14 @@ import React, { useMemo, useState, useEffect } from 'react';
 import {
   CATEGORY_COLORS,
   CATEGORY_JA,
+  COMPANIES,
   RELATIONS,
   RELATION_TYPES,
   STATUS_JA,
   nodeName,
   relationStatus,
 } from '../data/graph.js';
+import { filterRelations } from '../data/relationFilter.js';
 
 const STATUS_COLOR = { confirmed: '#4ade80', needs_review: '#facc15', historical: '#94a3b8' };
 import { RelationDetail } from './DetailPanel.jsx';
@@ -24,36 +26,37 @@ const selectStyle = {
   outline: 'none',
 };
 
-const normalize = (s) => (s ?? '').normalize('NFKC').toLowerCase().replace(/[\s　]+/g, '');
 
-export default function RelationTable() {
+export default function RelationTable({ request = null }) {
   const [category, setCategory] = useState('all');
   const [relType, setRelType] = useState('all');
   const [status, setStatus] = useState('all');
   const [query, setQuery] = useState('');
+  // 企業コードによる絞り込み（導線から来たとき）。自由入力の部分一致検索とは別に、端点の完全一致で適用する
+  const [companyCode, setCompanyCode] = useState(null);
   const [page, setPage] = useState(0);
-  useEffect(() => { setPage(0); setSelected(null); }, [category, relType, status, query]);
   const [selected, setSelected] = useState(null);
+  // 検索条件が変わったらページ位置と選択を先頭に戻す
+  useEffect(() => { setPage(0); setSelected(null); }, [category, relType, status, query, companyCode]);
+  // 個別グラフの省略案内などから「この企業で絞る」依頼が来たら条件を引き継ぐ
+  useEffect(() => {
+    if (!request?.code) return;
+    setCategory('all');
+    setRelType('all');
+    setStatus('all');
+    setQuery('');
+    setCompanyCode(request.code);
+  }, [request]);
 
   const typeOptions = useMemo(() => {
     const types = Object.entries(RELATION_TYPES);
     return category === 'all' ? types : types.filter(([, t]) => t.category === category);
   }, [category]);
 
-  const filtered = useMemo(() => {
-    const q = normalize(query);
-    return RELATIONS.filter((rel) => {
-      if (category !== 'all' && rel.category !== category) return false;
-      if (relType !== 'all' && rel.relation_type !== relType) return false;
-      if (status !== 'all' && relationStatus(rel) !== status) return false;
-      if (q) {
-        const s = normalize(nodeName(rel.source));
-        const t = normalize(nodeName(rel.target));
-        if (!s.includes(q) && !t.includes(q) && !rel.source.key.toLowerCase().includes(q) && !rel.target.key.toLowerCase().includes(q)) return false;
-      }
-      return true;
-    });
-  }, [category, relType, status, query]);
+  const filtered = useMemo(
+    () => filterRelations(RELATIONS, { category, relType, status, query, companyCode }),
+    [category, relType, status, query, companyCode],
+  );
 
   return (
     <div className="table-view" style={{ display: 'flex', flex: 1, minHeight: 0 }}>
@@ -96,6 +99,12 @@ export default function RelationTable() {
             placeholder="企業名・証券コードで検索"
             style={{ ...selectStyle, width: 220 }}
           />
+          {companyCode && (
+            <span className="company-filter-chip" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 12, padding: '4px 8px', borderRadius: 999, border: '1px solid #38bdf8', color: '#7dd3fc' }}>
+              企業: {COMPANIES[companyCode]?.name ?? companyCode}（{companyCode}）
+              <button type="button" aria-label="企業の絞り込みを解除" onClick={() => setCompanyCode(null)} style={{ background: 'none', border: 'none', color: '#7dd3fc', cursor: 'pointer', padding: 0, fontSize: 12 }}>✕</button>
+            </span>
+          )}
           <span style={{ fontSize: 12, color: '#64748b' }}>
             {filtered.length.toLocaleString()} 件
           </span>

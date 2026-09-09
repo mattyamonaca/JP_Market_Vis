@@ -9,3 +9,4 @@
 .rotation-surface { position: absolute; inset: 0; z-index: 1; cursor: ew-resize; touch-action: none; }
 .map-tools button[aria-pressed="true"] { color: #7dd3fc; border-color: #38bdf8; background: #173349; }
 .map-caption { z-index: 2; }
+.app-shell{position:relative}.view-pane{display:flex;flex:1;min-height:0;flex-direction:column;position:relative}.view-pane>*{flex:1;min-height:0}.view-pane-hidden{position:absolute;inset:0;visibility:hidden;pointer-events:none;overflow:hidden}
