@@ -24,6 +24,7 @@ import sys
 import unicodedata
 from typing import Any
 
+from aliases import AliasIndex, base_name, compatible_official_names, load_aliases, match_key
 from config import (BASE_DIR, DATA_RAW, EDINET_DOC_VIEW_URL, MASTERS_DIR, RELATION_TYPES, VERSION)
 
 GENERATED_AT = dt.date.today().isoformat()
@@ -53,18 +54,12 @@ CLASSIFICATION_MAP = {
     "その他の関係会社": ("affiliate", True),
 }
 
-_LEGAL_RE = re.compile(
-    r"株式会社|（株）|\(株\)|㈱|合同会社|有限会社|（有）|\(有\)|㈲|ホールディングス|Holdings|HD|, ?Inc\.?|Co\., ?Ltd\.?|Corporation|Corp\.?|Ltd\.?|Limited|LLC",
-    re.I,
-)
 _NOMINEE_RE = re.compile(r"信託口|カストディ|マスタートラスト|資産管理サービス信託|常任代理人|証券決済|CLEARING|NOMINEE|Nominee|Custody|CUSTODY")
 
 
 def normalize_name(name: str) -> str:
-    n = unicodedata.normalize("NFKC", name or "")
-    n = _LEGAL_RE.sub("", n)
-    n = re.sub(r"[\s　・･\-－—–]+", "", n)
-    return n.lower()
+    """名寄せ用キー（aliases.match_key）。旧字体・法人格・空白を畳み込む。ホールディングス等は残す。"""
+    return match_key(name)
 
 
 def is_nominee_holder(name: str | None) -> bool:
@@ -129,12 +124,20 @@ def build_m4(jpx: list[dict], edinet: dict[str, dict], wd_mapping: list[dict]) -
                 qid_assign[code] = qid
                 used_qids.add(qid)
 
+    alias_dict = load_aliases()
     companies: dict[str, dict] = {}
     for rec in jpx:
         code = rec["securities_code"]
         ed = edinet.get(code, {})
+        aliases = list((alias_dict["listed"].get(code) or {}).get("aliases", []))
+        name_edinet = ed.get("name")
+        if name_edinet and base_name(name_edinet) != base_name(rec["name"]) and compatible_official_names(rec["name"], name_edinet):
+            aliases.append(base_name(name_edinet))
         companies[code] = {
             "name": rec["name"],
+            "name_edinet": name_edinet if compatible_official_names(rec["name"], name_edinet) else None,
+            "name_kana": ed.get("name_kana") if compatible_official_names(rec["name"], name_edinet) else None,
+            "aliases": aliases,
             "name_en": ed.get("name_en"),
             "securities_code": code,
             "corporate_number": ed.get("corporate_number"),
@@ -168,15 +171,18 @@ def build_m4(jpx: list[dict], edinet: dict[str, dict], wd_mapping: list[dict]) -
 class RelationBuilder:
     """エッジの名寄せ・重複マージ・隔離を担うビルダー。"""
 
-    def __init__(self, companies: dict[str, dict]):
+    def __init__(self, companies: dict[str, dict], aliases: dict | None = None):
         self.companies = companies
         self.by_cn = {c["corporate_number"]: code for code, c in companies.items() if c.get("corporate_number")}
         self.by_qid = {c["wikidata_qid"]: code for code, c in companies.items() if c.get("wikidata_qid")}
-        self.by_name = {normalize_name(c["name"]): code for code, c in companies.items() if c.get("name")}
+        self.alias_index = AliasIndex(companies, aliases)
         self.entities: dict[str, dict] = {}
         self._entity_index: dict[str, str] = {}
         self.relations: dict[tuple, dict] = {}
         self.quarantine: list[dict] = []
+        # 名寄せの記録: 上場企業へ解決した名称と方法 / entity に統合された原文名
+        self.listed_resolutions: dict[str, dict[str, str]] = {}
+        self.entity_merges: dict[str, dict[str, str]] = {}
 
     # -- 名寄せ
     def resolve_listed(self, *, qid: str | None = None, cn: str | None = None,
@@ -185,8 +191,11 @@ class RelationBuilder:
             return self.by_qid[qid]
         if cn and cn in self.by_cn:
             return self.by_cn[cn]
-        if name and normalize_name(name) in self.by_name:
-            return self.by_name[normalize_name(name)]
+        if name:
+            code, how = self.alias_index.resolve_listed(name)
+            if code:
+                self.listed_resolutions.setdefault(code, {})[name] = how
+                return code
         return None
 
     def resolve_node(self, *, qid: str | None = None, cn: str | None = None,
@@ -196,21 +205,27 @@ class RelationBuilder:
             return {"type": "listed", "key": code}
         if not name and not qid:
             return None
-        for k in (qid, cn, name and normalize_name(name)):
+        canon, reason = self.alias_index.canonical_entity_name(name) if name else (name, None)
+        name_key = normalize_name(canon) if canon else None
+        for k, how in ((qid, "same_wikidata_qid"), (cn, "same_corporate_number"), (name_key, "normalized_name")):
             if k and k in self._entity_index:
                 ent_key = self._entity_index[k]
+                if reason is None:
+                    reason = how
                 break
         else:
             ent_key = f"ENT{len(self.entities) + 1:06d}"
             self.entities[ent_key] = {
-                "name": name or qid,
+                "name": canon or qid,
                 "corporate_number": cn,
                 "wikidata_qid": qid,
                 "listed": False,
             }
-            for k in (qid, cn, name and normalize_name(name)):
+            for k in (qid, cn, name_key):
                 if k:
                     self._entity_index[k] = ent_key
+        if name and name != self.entities[ent_key]["name"]:
+            self.entity_merges.setdefault(ent_key, {})[name] = reason or "normalized_name"
         return {"type": "entity", "key": ent_key}
 
     # -- 追加
@@ -262,6 +277,11 @@ class RelationBuilder:
                            self.entities[k].get("wikidata_qid") or "", self.entities[k]["name"] or ""))
         remap = {old: f"ENT{i:06d}" for i, old in enumerate(ordered_ents, start=1)}
         entities = {remap[k]: self.entities[k] for k in ordered_ents}
+        self.merge_report = {
+            "listed": {code: names for code, names in sorted(self.listed_resolutions.items())},
+            "entities": {remap[k]: {"name": self.entities[k]["name"], "merged_names": names}
+                         for k, names in self.entity_merges.items() if k in remap},
+        }
 
         def node(ref: dict) -> dict:
             return {"type": "entity", "key": remap[ref["key"]]} if ref["type"] == "entity" else ref
@@ -857,6 +877,8 @@ def main() -> int:
     MASTERS_DIR.mkdir(parents=True, exist_ok=True)
     (MASTERS_DIR / "M4_companies.json").write_text(json.dumps(m4, ensure_ascii=False, indent=1), encoding="utf-8")
     (MASTERS_DIR / "M5_company_relations.json").write_text(json.dumps(m5, ensure_ascii=False, indent=1), encoding="utf-8")
+    (MASTERS_DIR / "entity_merges.json").write_text(
+        json.dumps({"generated_at": GENERATED_AT, **builder.merge_report}, ensure_ascii=False, indent=1), encoding="utf-8")
     (MASTERS_DIR / "corrections_applied.json").write_text(
         json.dumps({"generated_at": GENERATED_AT, "log": correction_log}, ensure_ascii=False, indent=1), encoding="utf-8")
     (MASTERS_DIR / "quarantine.json").write_text(
