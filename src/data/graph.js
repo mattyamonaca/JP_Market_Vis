@@ -20,7 +20,45 @@ export const META = {
   m4Version: m4.version,
   m5Version: m5.version,
   generatedAt: m5.generated_at,
+  statusValues: m5.status_values ?? null,
+  evidenceShards: m5.evidence_shards ?? null,
 };
+
+// 関係の状態（Issue #3/#5）。旧データには status がないため confirmed 扱い
+export const STATUS_JA = {
+  confirmed: '確定',
+  needs_review: '要確認',
+  historical: '過去',
+};
+export const relationStatus = (rel) => rel.status ?? 'confirmed';
+// 全体マップ・ランキング・統計の「確定関係」= status が confirmed のもの
+export const CURRENT_RELATIONS = RELATIONS.filter((rel) => relationStatus(rel) === 'confirmed');
+
+// 出所の種別（一次開示／二次情報／LLM抽出）と、抽出内容の検証状態は別の情報として扱う
+export const TIER_JA = {
+  primary: '一次開示',
+  secondary: '二次情報',
+  llm_extraction: 'LLM抽出',
+};
+export const evidenceTier = (ev) => ev.tier ?? ev.source_tier ?? ({ edinet: 'primary', official_release: 'primary', wikidata: 'secondary', ir_disclosure: 'llm_extraction' }[ev.source] ?? null);
+
+// エビデンス全文（基準日・原本URL・抽出根拠・引用・比率の履歴）は関係IDごとのシャードに分けて配信する。
+// 詳細パネルを開いたときだけ取得し、メモリにキャッシュする。旧データ（シャードなし）は本体の evidence をそのまま返す。
+const shardCache = new Map();
+export async function loadRelationDetail(relation) {
+  const shards = META.evidenceShards;
+  if (!shards) return { evidence: relation.evidence, ownership: relation.attributes?.ownership ?? null };
+  const n = Number(relation.relation_id.slice(1));
+  const shard = String(Math.floor(n / shards.size)).padStart(4, '0');
+  if (!shardCache.has(shard)) {
+    shardCache.set(shard, readData(shards.path.replace('{shard}', shard)).catch((err) => {
+      shardCache.delete(shard);
+      throw err;
+    }));
+  }
+  const payload = await shardCache.get(shard);
+  return payload[relation.relation_id] ?? null;
+}
 
 export const CATEGORY_COLORS = {
   capital: '#38bdf8',
@@ -76,42 +114,58 @@ export function degreeOf(ref) {
   return neighborsOf(ref).length;
 }
 
-// エッジを持つ上場企業の次数ランキング（降順）
+export function currentDegreeOf(ref) {
+  return neighborsOf(ref).filter((n) => relationStatus(n.relation) === 'confirmed').length;
+}
+
+// エッジを持つ上場企業の次数ランキング（降順）。確定関係のみを数える
 export const HUB_RANKING = Object.keys(COMPANIES)
   .map((code) => ({
     code,
     company: COMPANIES[code],
-    degree: degreeOf({ type: 'listed', key: code }),
+    degree: currentDegreeOf({ type: 'listed', key: code }),
   }))
   .filter((r) => r.degree > 0)
   .sort((a, b) => b.degree - a.degree);
 
-// 統計集計
+// 統計集計。関係数の内訳は確定関係、状態別は全関係を数える
 export const STATS = (() => {
   const byType = {};
   const byCategory = {};
   const bySource = {};
-  const byConfidence = {};
+  const byTier = {};
+  const byStatus = {};
   let listedToListed = 0;
+  let verified = 0;
+  let withAsOf = 0;
   for (const rel of RELATIONS) {
+    byStatus[relationStatus(rel)] = (byStatus[relationStatus(rel)] ?? 0) + 1;
+    if (rel.verification?.status === 'verified') verified += 1;
+    if (rel.evidence.some((ev) => ev.as_of)) withAsOf += 1;
+    if (relationStatus(rel) !== 'confirmed') continue;
     byType[rel.relation_type] = (byType[rel.relation_type] ?? 0) + 1;
     byCategory[rel.category] = (byCategory[rel.category] ?? 0) + 1;
     if (rel.source.type === 'listed' && rel.target.type === 'listed') listedToListed += 1;
     for (const ev of rel.evidence) {
       bySource[ev.source] = (bySource[ev.source] ?? 0) + 1;
-      byConfidence[ev.confidence] = (byConfidence[ev.confidence] ?? 0) + 1;
+      const tier = evidenceTier(ev) ?? 'unknown';
+      byTier[tier] = (byTier[tier] ?? 0) + 1;
     }
   }
   return {
     companies: Object.keys(COMPANIES).length,
-    relations: RELATIONS.length,
+    relations: CURRENT_RELATIONS.length,
+    relationsAll: RELATIONS.length,
     entities: Object.keys(ENTITIES).length,
     listedToListed,
     companiesWithEdges: HUB_RANKING.length,
+    verified,
+    withAsOf,
     byType,
     byCategory,
     bySource,
-    byConfidence,
+    byTier,
+    byStatus,
   };
 })();
 
@@ -149,7 +203,7 @@ export function industryColor(industry17) {
 export const GLOBAL_GRAPH = (() => {
   const deg = new Map();
   const links = [];
-  for (const rel of RELATIONS) {
+  for (const rel of CURRENT_RELATIONS) {
     if (rel.source.type !== 'listed' || rel.target.type !== 'listed') continue;
     const s = rel.source.key;
     const t = rel.target.key;

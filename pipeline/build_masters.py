@@ -307,7 +307,7 @@ def _same_evidence(a: dict, b: dict) -> bool:
 
 
 TIER_ORDER = {"primary": 0, "secondary": 1, "llm_extraction": 2}
-KIND_ORDER = {"voting": 0, "share": 1, "sales_share": 0}
+KIND_ORDER = {"voting": 0, "share": 1, "share_large_holding": 2, "sales_share": 0}
 
 
 def merge_attributes(attrs: dict, new: dict, evidence: dict) -> None:
@@ -383,8 +383,10 @@ def finalize_attributes(attrs: dict) -> None:
                 current["history"] = hist
                 if any((h.get("as_of") != current.get("as_of")) for h in hist):
                     current["has_older_values"] = True
-                if any(h.get("value") is not None and h.get("as_of") == current.get("as_of")
-                       and h.get("kind") == current.get("kind") and h.get("value") != current.get("value")
+                # 同じ意味・同じ時点で値が食い違う候補（丸め差 0.1pt 以内は同一とみなす）
+                if any(h.get("value") is not None and current.get("value") is not None
+                       and h.get("as_of") == current.get("as_of") and h.get("kind") == current.get("kind")
+                       and abs(h["value"] - current["value"]) > 0.001
                        for h in hist):
                     current["conflict_same_period"] = True
             attrs[k] = current
@@ -549,8 +551,13 @@ def add_edinet_relations(builder: RelationBuilder, edinet_rows: list[dict], retr
                         ev, status=status, reasons=reasons)
         elif kind == "shareholder":
             rel_type = "ownership"
-            ev = edinet_evidence(row, retrieved, {})
-            builder.add(counterparty, filer_node, rel_type, {"ownership_ratio": ratio_attribute(row, "share")}, ev)
+            large = row.get("report_kind") == "large_holding_report"
+            ev = edinet_evidence(row, retrieved, {
+                "property": "large_holding_report" if large else "shareholder",
+                "note": "大株主の状況の注記に記載された大量保有報告書の写し（株券等保有割合）" if large else None,
+            })
+            builder.add(counterparty, filer_node, rel_type,
+                        {"ownership_ratio": ratio_attribute(row, "share_large_holding" if large else "share")}, ev)
         elif kind == "customer":
             rel_type = "major_customer"
             ev = edinet_evidence(row, retrieved, {})

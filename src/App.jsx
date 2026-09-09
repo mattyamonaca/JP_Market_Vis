@@ -311,7 +311,7 @@ export default function App() {
       {view === 'graph' && <GraphView centerCode={centerCode} setCenterCode={setCenterCode} />}
       {view === 'table' && <RelationTable />}
       {view === 'stats' && <StatsView onSelectCompany={selectAndShowGraph} />}
-      <footer className="app-footer"><span>収録 {STATS.companies.toLocaleString()}社 · {STATS.relations.toLocaleString()}関係</span><span>データ生成 {META.generatedAt} · 自動抽出を含む／最新の上場状況・関係を保証しません</span></footer>
+      <footer className="app-footer"><span>収録 {STATS.companies.toLocaleString()}社 · 確定 {STATS.relations.toLocaleString()}関係{STATS.byStatus.needs_review ? ` · 要確認 ${STATS.byStatus.needs_review.toLocaleString()}` : ''}</span><span>データ生成 {META.generatedAt} · 自動抽出を含む／最新の上場状況・関係を保証しません</span></footer>
     </div>
   );
 }
