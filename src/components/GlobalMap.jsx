@@ -22,11 +22,13 @@ export default function GlobalMap({ onSelectCompany }) {
     idleTimer.current = setTimeout(() => setInteracting(false), ms);
   };
   useEffect(() => () => clearTimeout(idleTimer.current), []);
-  // 回転用オーバーレイのホイールを拡大縮小へ転送（React の onWheel は passive なので native で登録）
+  // 回転用オーバーレイのホイールを拡大縮小へ転送（React の onWheel は passive なので native で登録）。
+  // キーボードで回転を ON にした場合に矢印キーが効くよう、ON になったらオーバーレイへフォーカスを移す
   const surfaceRef = useRef(null);
   useEffect(() => {
     const el = surfaceRef.current;
     if (!rotationMode || !el) return undefined;
+    if (document.activeElement && document.activeElement.closest('.map-tools')) el.focus({ preventScroll: true });
     const onWheel = (event) => {
       event.preventDefault();
       const fg = fgRef.current;
