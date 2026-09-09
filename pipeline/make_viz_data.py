@@ -29,7 +29,7 @@ EVIDENCE_KEYS = (
     "person", "verification", "note", "deal_status", "event_year", "extraction", "filer_sec_code",
 )
 RATIO_KEYS = ("value", "kind", "scope", "direct", "indirect", "raw", "as_of", "doc_id", "status", "note", "verified",
-              "has_older_values", "conflict_same_period")
+              "has_older_values", "conflict_same_period", "conflicting_values")
 
 
 def full_evidence(ev: dict) -> dict:
@@ -79,7 +79,7 @@ def main() -> int:
             if own.get("value") is not None:
                 attrs["ownership_ratio"] = own["value"]
             attrs["ownership"] = {k: own[k] for k in ("kind", "scope", "as_of", "verified", "has_older_values",
-                                                       "conflict_same_period") if own.get(k) is not None}
+                                                       "conflict_same_period", "conflicting_values") if own.get(k) is not None}
             detail["ownership"] = slim_ratio(own, with_history=True)
         elif own is not None:
             attrs["ownership_ratio"] = own
