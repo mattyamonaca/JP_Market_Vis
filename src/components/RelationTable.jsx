@@ -26,14 +26,23 @@ const selectStyle = {
 
 const normalize = (s) => (s ?? '').normalize('NFKC').toLowerCase().replace(/[\s　]+/g, '');
 
-export default function RelationTable() {
+export default function RelationTable({ request = null }) {
   const [category, setCategory] = useState('all');
   const [relType, setRelType] = useState('all');
   const [status, setStatus] = useState('all');
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(0);
-  useEffect(() => { setPage(0); setSelected(null); }, [category, relType, status, query]);
   const [selected, setSelected] = useState(null);
+  // 検索条件が変わったらページ位置と選択を先頭に戻す
+  useEffect(() => { setPage(0); setSelected(null); }, [category, relType, status, query]);
+  // 個別グラフの省略案内などから「この企業で絞る」依頼が来たら条件を引き継ぐ
+  useEffect(() => {
+    if (!request?.code) return;
+    setCategory('all');
+    setRelType('all');
+    setStatus('all');
+    setQuery(request.code);
+  }, [request]);
 
   const typeOptions = useMemo(() => {
     const types = Object.entries(RELATION_TYPES);
