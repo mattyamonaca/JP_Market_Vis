@@ -528,13 +528,14 @@ def extract_affiliated(tables: list[TableGrid], text: str = "") -> list[dict]:
                     and ratio["total"] is None and ratio["indirect"] is None:
                 ratio = owned_ratio
                 ratio["owned_marker"] = True
-            # 所有方向: セル内マーカー > 分類 > 列見出し > 既定（提出会社が所有）
+            # 所有方向: セル内の明示マーカー（所有／被所有）> 分類 > 列見出し > 既定（提出会社が所有）
+            # 明示マーカーは継承した分類より優先し、矛盾があれば分類を不明に戻して要確認にする
             if ratio["owned_marker"]:
                 owned, dsrc = True, "cell"
-            elif cls in ("親会社", "その他の関係会社"):
-                owned, dsrc = True, "classification"
             elif ratio["direct_marker"]:
                 owned, dsrc = False, "cell"
+            elif cls in ("親会社", "その他の関係会社"):
+                owned, dsrc = True, "classification"
             elif header_direction == "owned":
                 owned, dsrc = True, "header"
             elif header_direction == "owning":
@@ -548,7 +549,9 @@ def extract_affiliated(tables: list[TableGrid], text: str = "") -> list[dict]:
                 cls_owned = cls in ("親会社", "その他の関係会社")
                 if cls_owned != owned:
                     conflict = True
-                    if cls_src in ("row", "section", "note"):
+                    # 継承した分類（ラベル行・節見出し・注記・見出しセル・区分列）は捨てる。
+                    # 同じ行に書かれた行頭の分類（prefix）は残し、矛盾として要確認にする
+                    if cls_src in ("row", "section", "note", "column"):
                         cls, cls_src = None, None
             if header_direction == "owned" and cls in ("連結子会社", "非連結子会社", "子会社", "持分法適用非連結子会社"):
                 conflict = True
