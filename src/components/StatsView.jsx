@@ -24,7 +24,7 @@ function Card({ label, value, sub, accent = '#38bdf8' }) {
     >
       <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 6 }}>{label}</div>
       <div style={{ fontSize: 26, fontWeight: 700, color: accent }}>{value.toLocaleString()}</div>
-      {sub && <div style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>{sub}</div>}
+      {sub && <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 4 }}>{sub}</div>}
     </div>
   );
 }
@@ -134,7 +134,7 @@ export default function StatsView({ onSelectCompany }) {
                   style={{
                     textAlign: 'left',
                     padding: '6px 10px',
-                    color: '#64748b',
+                    color: '#94a3b8',
                     borderBottom: '1px solid #334155',
                   }}
                 >
@@ -153,7 +153,7 @@ export default function StatsView({ onSelectCompany }) {
                 style={{ cursor: 'pointer' }}
                 title="クリックで関係グラフを表示"
               >
-                <td style={{ padding: '6px 10px', color: '#64748b', borderBottom: '1px solid #0f172a' }}>{i + 1}</td>
+                <td style={{ padding: '6px 10px', color: '#94a3b8', borderBottom: '1px solid #0f172a' }}>{i + 1}</td>
                 <td style={{ padding: '6px 10px', color: '#38bdf8', borderBottom: '1px solid #0f172a' }}>
                   {company.name}
                 </td>

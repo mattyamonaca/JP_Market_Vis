@@ -58,7 +58,16 @@ test('global filtering excludes disabled categories and copies simulation object
   data.links[0].source = data.nodes[0];
   assert.ok(graph.GLOBAL_GRAPH.nodes.every((node) => node.x === undefined));
   assert.ok(graph.GLOBAL_GRAPH.links.every((link) => typeof link.source === 'string'));
-  assert.deepEqual(filterGlobalGraph(graph.GLOBAL_GRAPH, new Set(), 1), { nodes: [], links: [] });
+  assert.deepEqual(filterGlobalGraph(graph.GLOBAL_GRAPH, new Set(), 1), { nodes: [], links: [], isolated: 0 });
+});
+test('threshold keeps nodes whose only partners are hidden and reports them as isolated', () => {
+  const g = { nodes: [{ id: 'a' }, { id: 'b' }, { id: 'c' }], links: [
+    { source: 'a', target: 'b', category: 'capital' }, { source: 'a', target: 'c', category: 'capital' },
+  ] };
+  const data = filterGlobalGraph(g, new Set(['capital']), 2);
+  assert.deepEqual(data.nodes.map((n) => n.id), ['a']);
+  assert.equal(data.links.length, 0);
+  assert.equal(data.isolated, 1);
 });
 
 test('company filter from the ego graph matches exactly the company relations, not entity ids containing the code', () => {

@@ -105,7 +105,7 @@ export default function RelationTable({ request = null }) {
               <button type="button" aria-label="企業の絞り込みを解除" onClick={() => setCompanyCode(null)} style={{ background: 'none', border: 'none', color: '#7dd3fc', cursor: 'pointer', padding: 0, fontSize: 12 }}>✕</button>
             </span>
           )}
-          <span style={{ fontSize: 12, color: '#64748b' }}>
+          <span style={{ fontSize: 12, color: '#94a3b8' }}>
             {filtered.length.toLocaleString()} 件
           </span>
         </div>
@@ -119,7 +119,7 @@ export default function RelationTable({ request = null }) {
                     style={{
                       textAlign: 'left',
                       padding: '8px 10px',
-                      color: '#64748b',
+                      color: '#94a3b8',
                       borderBottom: '1px solid #334155',
                       fontWeight: 600,
                       whiteSpace: 'nowrap',
@@ -146,13 +146,13 @@ export default function RelationTable({ request = null }) {
                       background: isSel ? 'rgba(250, 204, 21, 0.08)' : 'transparent',
                     }}
                   >
-                    <td style={{ padding: '7px 10px', color: '#64748b', borderBottom: '1px solid #1e293b' }}>
+                    <td style={{ padding: '7px 10px', color: '#94a3b8', borderBottom: '1px solid #1e293b' }}>
                       {rel.relation_id}
                     </td>
                     <td style={{ padding: '7px 10px', color: '#f1f5f9', borderBottom: '1px solid #1e293b' }}>
                       {nodeName(rel.source)}
                       {rel.source.type === 'listed' && (
-                        <span style={{ color: '#64748b', marginLeft: 4 }}>({rel.source.key})</span>
+                        <span style={{ color: '#94a3b8', marginLeft: 4 }}>({rel.source.key})</span>
                       )}
                     </td>
                     <td style={{ padding: '7px 10px', borderBottom: '1px solid #1e293b', whiteSpace: 'nowrap' }}>
@@ -173,7 +173,7 @@ export default function RelationTable({ request = null }) {
                     <td style={{ padding: '7px 10px', color: '#f1f5f9', borderBottom: '1px solid #1e293b' }}>
                       {nodeName(rel.target)}
                       {rel.target.type === 'listed' && (
-                        <span style={{ color: '#64748b', marginLeft: 4 }}>({rel.target.key})</span>
+                        <span style={{ color: '#94a3b8', marginLeft: 4 }}>({rel.target.key})</span>
                       )}
                     </td>
                     <td style={{ padding: '7px 10px', color: '#cbd5e1', borderBottom: '1px solid #1e293b' }}>

@@ -217,6 +217,8 @@ export const GLOBAL_GRAPH = (() => {
       relationId: rel.relation_id,
     });
   }
+  const byCategory = {};
+  for (const link of links) byCategory[link.category] = (byCategory[link.category] ?? 0) + 1;
   const nodes = [];
   for (const [code, d] of deg) {
     const c = COMPANIES[code];
@@ -229,5 +231,11 @@ export const GLOBAL_GRAPH = (() => {
       degree: d,
     });
   }
-  return { nodes, links };
+  return { nodes, links, byCategory };
 })();
+
+// カテゴリの収録状況: 全関係（確定）の件数と、全体マップ（上場企業間）の件数。0 件は「未収録」として区別する
+export const CATEGORY_AVAILABILITY = Object.fromEntries(Object.keys(CATEGORY_JA).map((key) => [key, {
+  total: STATS.byCategory[key] ?? 0,
+  listed: GLOBAL_GRAPH.byCategory[key] ?? 0,
+}]));

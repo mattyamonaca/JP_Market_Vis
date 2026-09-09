@@ -78,7 +78,7 @@ export function EntityNode({ data }) {
       <Handle type="target" position={Position.Top} style={{ opacity: 0 }} />
       <Handle type="source" position={Position.Bottom} style={{ opacity: 0 }} />
       <div style={{ fontSize: 12, fontWeight: 500, color: '#cbd5e1' }}>{data.label}</div>
-      <div style={{ fontSize: 12, color: '#64748b', marginTop: 2 }}>非上場</div>
+      <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 2 }}>非上場</div>
     </div>
   );
 }
