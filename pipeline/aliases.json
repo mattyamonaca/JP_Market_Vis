@@ -1,0 +1,215 @@
+{
+ "_comment": "確認済みの別名辞書（Issue #4）。名寄せ（build_masters.py）と検索（M4 の aliases/name_kana）で同じ辞書を使う。listed の aliases は法人格を除いた原文名との完全一致でだけ照合する（「ソニー」は一致するが「ソニー株式会社」は別法人として扱う）。類似名だけの自動統合はしない。",
+ "kanji_variants": {
+  "_comment": "名寄せ・検索の照合用にだけ適用する旧字体・異体字→常用表記。表示名には使わない。",
+  "瓦斯": "ガス",
+  "氣": "気",
+  "會": "会",
+  "澤": "沢",
+  "濱": "浜",
+  "齋": "斎",
+  "齊": "斉",
+  "髙": "高",
+  "﨑": "崎",
+  "國": "国",
+  "學": "学",
+  "藥": "薬",
+  "鐵": "鉄",
+  "櫻": "桜",
+  "壽": "寿",
+  "廣": "広",
+  "邊": "辺",
+  "邉": "辺",
+  "德": "徳",
+  "惠": "恵",
+  "戶": "戸",
+  "步": "歩",
+  "兩": "両",
+  "榮": "栄",
+  "圓": "円",
+  "眞": "真",
+  "續": "続",
+  "讀": "読",
+  "點": "点",
+  "燈": "灯",
+  "體": "体",
+  "萬": "万",
+  "醫": "医",
+  "藝": "芸",
+  "寶": "宝",
+  "傳": "伝",
+  "應": "応",
+  "縣": "県",
+  "產": "産",
+  "峯": "峰",
+  "嶋": "島",
+  "嶌": "島",
+  "槇": "槙",
+  "舘": "館",
+  "冨": "富",
+  "澁": "渋",
+  "瀨": "瀬",
+  "塚": "塚",
+  "礦": "鉱",
+  "鑛": "鉱",
+  "麥": "麦",
+  "淺": "浅",
+  "靜": "静",
+  "龍": "竜"
+ },
+ "listed": {
+  "_comment": "証券コード → 確認済みの通称・略称・旧字体表記。source は確認に使った公式ページ。",
+  "9533": {
+   "aliases": [
+    "東邦ガス"
+   ],
+   "reason": "登記名「東邦瓦斯」の新字体・通称。公式サイトの表記",
+   "source": "https://www.tohogas.co.jp/"
+  },
+  "7203": {
+   "aliases": [
+    "トヨタ"
+   ],
+   "reason": "通称。プレスリリースで単独表記される",
+   "source": "https://global.toyota/jp/"
+  },
+  "6758": {
+   "aliases": [
+    "ソニー"
+   ],
+   "reason": "通称。事業会社「ソニー株式会社」は別法人なので、法人格付きの名称は照合しない（完全一致規則）",
+   "source": "https://www.sony.com/ja/SonyInfo/"
+  },
+  "9984": {
+   "aliases": [
+    "SBG"
+   ],
+   "reason": "略称",
+   "source": "https://group.softbank/"
+  },
+  "8306": {
+   "aliases": [
+    "MUFG",
+    "三菱UFJ"
+   ],
+   "reason": "略称",
+   "source": "https://www.mufg.jp/"
+  },
+  "8316": {
+   "aliases": [
+    "SMFG",
+    "三井住友FG"
+   ],
+   "reason": "略称",
+   "source": "https://www.smfg.co.jp/"
+  },
+  "8411": {
+   "aliases": [
+    "みずほFG"
+   ],
+   "reason": "略称",
+   "source": "https://www.mizuho-fg.co.jp/"
+  },
+  "9432": {
+   "aliases": [
+    "NTT",
+    "日本電信電話株式会社",
+    "日本電信電話"
+   ],
+   "reason": "略称・旧商号（2025-07 に「NTT株式会社」へ商号変更。旧商号は法人格付きでも同一法人）",
+   "source": "https://group.ntt/jp/"
+  },
+  "9020": {
+   "aliases": [
+    "JR東日本"
+   ],
+   "reason": "通称",
+   "source": "https://www.jreast.co.jp/"
+  },
+  "9022": {
+   "aliases": [
+    "JR東海"
+   ],
+   "reason": "通称",
+   "source": "https://jr-central.co.jp/"
+  },
+  "9021": {
+   "aliases": [
+    "JR西日本"
+   ],
+   "reason": "通称",
+   "source": "https://www.westjr.co.jp/"
+  },
+  "9042": {
+   "aliases": [
+    "阪急阪神HD"
+   ],
+   "reason": "略称",
+   "source": "https://www.hankyu-hanshin.co.jp/"
+  },
+  "4661": {
+   "aliases": [
+    "OLC"
+   ],
+   "reason": "略称",
+   "source": "https://www.olc.co.jp/"
+  },
+  "2413": {
+   "aliases": [
+    "M3"
+   ],
+   "reason": "英字表記",
+   "source": "https://corporate.m3.com/"
+  },
+  "7267": {
+   "aliases": [
+    "ホンダ",
+    "本田技研"
+   ],
+   "reason": "通称",
+   "source": "https://global.honda/jp/"
+  },
+  "7201": {
+   "aliases": [
+    "日産"
+   ],
+   "reason": "通称",
+   "source": "https://www.nissan.co.jp/"
+  },
+  "6501": {
+   "aliases": [
+    "日立"
+   ],
+   "reason": "通称",
+   "source": "https://www.hitachi.co.jp/"
+  },
+  "6752": {
+   "aliases": [
+    "パナソニック"
+   ],
+   "reason": "通称（持株会社）",
+   "source": "https://holdings.panasonic/jp/"
+  },
+  "4502": {
+   "aliases": [
+    "武田"
+   ],
+   "reason": "通称",
+   "source": "https://www.takeda.com/ja-jp/"
+  }
+ },
+ "entities": [
+  {
+   "canonical": "Ceva Santé Animale",
+   "aliases": [
+    "Ceva Santé Animale SA",
+    "Ceva Santé Animale S.A.",
+    "Ceva Santé Animale社",
+    "Ceva Sante Animale",
+    "セバ・サンテ・アニマル"
+   ],
+   "reason": "同一法人の法人格表記ゆれ（三井物産の公表で SA と 社 が併用）",
+   "source": "https://www.mitsui.com/jp/ja/release/2026/1253452_15330.html"
+  }
+ ]
+}
