@@ -672,10 +672,10 @@ def find_as_of(text: str) -> str | None:
     """「2025年３月31日現在」→ '2025-03-31'。"""
     if not text:
         return None
-    m = _ASOF_RE.search(unicodedata.normalize("NFKC", text))
-    if not m:
+    ms = _ASOF_RE.findall(unicodedata.normalize("NFKC", text))
+    if not ms:
         return None
-    y, mo, d = (int(x) for x in m.groups())
+    y, mo, d = (int(x) for x in ms[-1])  # 表に最も近い（末尾側の）「…現在」を採用
     return f"{y:04d}-{mo:02d}-{d:02d}"
 
 
@@ -687,6 +687,10 @@ def extract_shareholders(tables: list[TableGrid], block_text: str = "") -> list[
         header_end, roles = find_header(grid, SHAREHOLDER_HEADER)
         if "ratio" not in roles:
             continue
+        # 注記に添えられる大量保有報告書の写し（基準日・分母が大株主の状況と異なる）を区別する
+        ctx_tail = unicodedata.normalize("NFKC", grid.context)[-400:]
+        header_text = "".join(c.text for r in grid.rows[: header_end + 1] for c in r)
+        large_holding = bool(re.search(r"大量保有|変更報告書|株券等保有割合", ctx_tail + header_text))
         name_col = roles.get("name", 0)
         ratio_col = roles["ratio"]
         for r in range(header_end + 1, len(grid.rows)):
@@ -710,6 +714,7 @@ def extract_shareholders(tables: list[TableGrid], block_text: str = "") -> list[
                 "ratio_total": ratio["total"],
                 "ratio_raw": ratio["raw"],
                 "as_of": ctx_as_of,
+                "report_kind": "large_holding_report" if large_holding else "major_shareholders",
                 "table_index": ti,
                 "row_index": r,
             })

@@ -4,8 +4,12 @@ import {
   CATEGORY_JA,
   RELATIONS,
   RELATION_TYPES,
+  STATUS_JA,
   nodeName,
+  relationStatus,
 } from '../data/graph.js';
+
+const STATUS_COLOR = { confirmed: '#4ade80', needs_review: '#facc15', historical: '#94a3b8' };
 import { RelationDetail } from './DetailPanel.jsx';
 
 const MAX_ROWS = 300;
@@ -25,9 +29,10 @@ const normalize = (s) => (s ?? '').normalize('NFKC').toLowerCase().replace(/[\s�
 export default function RelationTable() {
   const [category, setCategory] = useState('all');
   const [relType, setRelType] = useState('all');
+  const [status, setStatus] = useState('all');
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(0);
-  useEffect(() => { setPage(0); setSelected(null); }, [category, relType, query]);
+  useEffect(() => { setPage(0); setSelected(null); }, [category, relType, status, query]);
   const [selected, setSelected] = useState(null);
 
   const typeOptions = useMemo(() => {
@@ -40,6 +45,7 @@ export default function RelationTable() {
     return RELATIONS.filter((rel) => {
       if (category !== 'all' && rel.category !== category) return false;
       if (relType !== 'all' && rel.relation_type !== relType) return false;
+      if (status !== 'all' && relationStatus(rel) !== status) return false;
       if (q) {
         const s = normalize(nodeName(rel.source));
         const t = normalize(nodeName(rel.target));
@@ -47,7 +53,7 @@ export default function RelationTable() {
       }
       return true;
     });
-  }, [category, relType, query]);
+  }, [category, relType, status, query]);
 
   return (
     <div className="table-view" style={{ display: 'flex', flex: 1, minHeight: 0 }}>
@@ -77,6 +83,12 @@ export default function RelationTable() {
               </option>
             ))}
           </select>
+          <select aria-label="関係の状態" value={status} onChange={(e) => setStatus(e.target.value)} style={selectStyle}>
+            <option value="all">全状態</option>
+            {Object.entries(STATUS_JA).map(([k, ja]) => (
+              <option key={k} value={k}>{ja}</option>
+            ))}
+          </select>
           <input
             aria-label="企業名・証券コードで関係を検索"
             value={query}
@@ -92,7 +104,7 @@ export default function RelationTable() {
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
             <thead>
               <tr style={{ position: 'sticky', top: 0, background: '#0f172a', zIndex: 1 }}>
-                {['ID', 'From（source）', '関係タイプ', 'To（target）', '比率', '出所'].map((h) => (
+                {['ID', 'From（source）', '関係タイプ', 'To（target）', '比率', '状態', '出所'].map((h) => (
                   <th
                     key={h}
                     style={{
@@ -158,8 +170,13 @@ export default function RelationTable() {
                     <td style={{ padding: '7px 10px', color: '#cbd5e1', borderBottom: '1px solid #1e293b' }}>
                       {ratio != null ? `${(ratio * 100).toFixed(1)}%` : '—'}
                     </td>
+                    <td style={{ padding: '7px 10px', borderBottom: '1px solid #1e293b', whiteSpace: 'nowrap' }}>
+                      <span style={{ color: STATUS_COLOR[relationStatus(rel)] ?? '#94a3b8' }}>{STATUS_JA[relationStatus(rel)] ?? relationStatus(rel)}</span>
+                      {rel.verification?.status === 'verified' && <span title="原本で検証済み" style={{ color: '#4ade80', marginLeft: 4 }}>✓</span>}
+                    </td>
                     <td style={{ padding: '7px 10px', color: '#94a3b8', borderBottom: '1px solid #1e293b' }}>
-                      {rel.evidence.map((e) => e.source).join(', ')}
+                      {[...new Set(rel.evidence.map((e) => e.source))].join(', ')}
+                      {rel.evidence.some((e) => e.as_of) && <span style={{ marginLeft: 4, color: '#a8b7cb' }}>{rel.evidence.map((e) => e.as_of).filter(Boolean).sort().at(-1)}</span>}
                     </td>
                   </tr>
                 );
