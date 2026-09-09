@@ -7,6 +7,8 @@ import {
   RELATION_TYPES,
   SEGMENT_JA,
   STATS,
+  STATUS_JA,
+  TIER_JA,
 } from '../data/graph.js';
 
 function Card({ label, value, sub, accent = '#38bdf8' }) {
@@ -61,13 +63,15 @@ export default function StatsView({ onSelectCompany }) {
   const typeItems = Object.entries(STATS.byType).sort((a, b) => b[1] - a[1]);
   const categoryItems = Object.entries(STATS.byCategory).sort((a, b) => b[1] - a[1]);
   const sourceItems = Object.entries(STATS.bySource).sort((a, b) => b[1] - a[1]);
-  const confidenceItems = Object.entries(STATS.byConfidence).sort((a, b) => b[1] - a[1]);
+  const tierItems = Object.entries(STATS.byTier).sort((a, b) => b[1] - a[1]);
+  const statusItems = ['confirmed', 'needs_review', 'historical'].filter((k) => STATS.byStatus[k]).map((k) => [k, STATS.byStatus[k]]);
 
   return (
     <div style={{ flex: 1, minHeight: 0, overflowY: 'auto', padding: 20 }}>
       <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 20 }}>
         <Card label="収録上場企業" value={STATS.companies} sub="東証内国株式" accent="#facc15" />
-        <Card label="収録関係" value={STATS.relations} sub={`うち上場間 ${STATS.listedToListed} 件`} />
+        <Card label="確定関係" value={STATS.relations} sub={`うち上場間 ${STATS.listedToListed.toLocaleString()} 件 · 要確認・過去を除く`} />
+        <Card label="要確認の関係" value={STATS.byStatus.needs_review ?? 0} sub="出所から関係タイプ・方向を確定できない" accent="#facc15" />
         <Card label="非上場エンティティ" value={STATS.entities} sub="子会社・グループ等" accent="#94a3b8" />
         <Card
           label="関係を持つ上場企業"
@@ -98,16 +102,22 @@ export default function StatsView({ onSelectCompany }) {
           labelOf={(k) => CATEGORY_JA[k] ?? k}
         />
         <BarList
-          title="エビデンス出所"
+          title="エビデンス出所（確定関係）"
           items={sourceItems}
           colorOf={() => '#38bdf8'}
-          labelOf={(k) => ({ wikidata: 'Wikidata（二次情報）', edinet: 'EDINET 有報', ir_disclosure: '企業IR（LLM抽出）' }[k] ?? k)}
+          labelOf={(k) => ({ wikidata: 'Wikidata', edinet: 'EDINET 有報', ir_disclosure: '企業IR（LLM抽出）', official_release: '公式開示（原本確認）' }[k] ?? k)}
         />
         <BarList
-          title="信頼度"
-          items={confidenceItems}
-          colorOf={(k) => ({ high: '#4ade80', medium: '#facc15', low: '#f87171' }[k] ?? '#64748b')}
-          labelOf={(k) => ({ high: 'high', medium: 'medium', low: 'low' }[k] ?? k)}
+          title="出所の種別（抽出の正しさとは別）"
+          items={tierItems}
+          colorOf={(k) => ({ primary: '#7dd3fc', secondary: '#c4b5fd', llm_extraction: '#fdba74' }[k] ?? '#64748b')}
+          labelOf={(k) => TIER_JA[k] ?? k}
+        />
+        <BarList
+          title="関係の状態（全関係）"
+          items={statusItems}
+          colorOf={(k) => ({ confirmed: '#4ade80', needs_review: '#facc15', historical: '#94a3b8' }[k] ?? '#64748b')}
+          labelOf={(k) => STATUS_JA[k] ?? k}
         />
       </div>
 
@@ -166,7 +176,7 @@ export default function StatsView({ onSelectCompany }) {
         <p>生成日 {META.generatedAt}。東証プライム・スタンダード・グロースの内国株式を対象にした収録データです。地方単独上場・ETF・REIT等は対象外です。</p>
         <p>全体マップは上場企業同士の関係のみを表示します。個別グラフと関係一覧には非上場の関係先も含みます。円の大きさは収録関係数で、株価や時価総額ではありません。位置・距離に地理的な意味はありません。</p>
         <p>出所：<a href="https://www.jpx.co.jp/markets/statistics-equities/misc/01.html" target="_blank" rel="noreferrer">JPX 東証上場銘柄一覧</a>、<a href="https://disclosure2.edinet-fsa.go.jp/" target="_blank" rel="noreferrer">金融庁 EDINET</a>、<a href="https://www.wikidata.org/" target="_blank" rel="noreferrer">Wikidata</a>、企業IR開示。出所別・信頼度別はエビデンス件数で、関係数とは一致しません。</p>
-        <p>自動抽出・名寄せおよびLLMによるIR情報抽出を含み、誤り・欠落・古い関係が残る可能性があります。信頼度は収録時の評価で、内容の正しさを保証するものではありません。各関係の詳細と企業の最新開示を確認してください。</p>
+        <p>自動抽出・名寄せおよびLLMによるIR情報抽出を含み、誤り・欠落・古い関係が残る可能性があります。「一次開示」は出所の種別であり、抽出内容の正しさを保証するものではありません。人手で原本と照合した関係は {STATS.verified.toLocaleString()} 件で、詳細に「原本で検証済み」と表示します。基準日のある関係は {STATS.withAsOf.toLocaleString()} 件、それ以外は基準日不明として表示します。各関係の詳細と企業の最新開示を確認してください。</p>
       </div>
     </div>
   );
