@@ -24,7 +24,7 @@ const TIER_COLOR = { primary: '#7dd3fc', secondary: '#c4b5fd', llm_extraction: '
 const STATUS_COLOR = { confirmed: '#4ade80', needs_review: '#facc15', historical: '#94a3b8' };
 
 const RATIO_KIND_JA = { voting: '議決権', share: '株式数', share_large_holding: '株券等保有割合（大量保有報告）', sales_share: '売上' };
-const SCOPE_JA = { total: '合計', indirect_only: '間接のみ（合計不明）' };
+const SCOPE_JA = { total: '合計', indirect_only: '間接のみ（合計不明）', unresolved: '同じ時点の記載が食い違い（未確定）' };
 const REASON_JA = {
   unclassified: '関係会社の分類が原本で不明',
   direction_conflict: '分類と所有方向の記載が矛盾',
@@ -109,11 +109,21 @@ function CompanyDetail({ info, refObj }) {
   );
 }
 
+// 比率の表示用に、本体の要約（意味・基準日・数値）とシャードの内訳（直接／間接・原文・履歴）を合成する。
+// シャード取得前・失敗時も本体の既知の数値を表示し、間接のみ／未確定の本当に合計不明な値は不明のまま残す。
+export function mergeRatio(summary, detail, fallback) {
+  if (!summary && !detail && fallback == null) return null;
+  const merged = { ...(summary ?? {}), ...(detail ?? {}) };
+  if (merged.value == null && fallback != null && !['indirect_only', 'unresolved'].includes(merged.scope)) {
+    merged.value = fallback;
+  }
+  return merged;
+}
+
 // 比率の内訳（意味・直接／間接・基準日・出所・履歴）
 function RatioDetail({ label, summary, detail, fallback }) {
-  const r = detail ?? summary;
-  if (!r && fallback == null) return null;
-  if (!r) return <Field label={label} value={pct(fallback)} />;
+  const r = mergeRatio(summary, detail, fallback);
+  if (!r) return null;
   const kind = RATIO_KIND_JA[r.kind] ?? '';
   const main = r.value != null ? `${kind}${kind ? ' ' : ''}${pct(r.value)}` : `合計不明（${SCOPE_JA[r.scope] ?? r.scope ?? '—'}）`;
   return (
@@ -125,6 +135,7 @@ function RatioDetail({ label, summary, detail, fallback }) {
       <Field label="基準日" value={dateOrUnknown(r.as_of)} />
       {r.raw && <Field label="原文" value={r.raw} />}
       {r.verified && <Field label="検証" value="原本で確認済みの値" />}
+      {r.conflicting_values?.length > 0 && <Field label="競合する値" value={r.conflicting_values.map((v) => pct(v)).join(' ／ ')} />}
       {r.conflict_same_period && <Field label="注意" value="同じ時点で異なる値の記載があります（履歴を確認してください）" />}
       {r.history?.length > 0 && (
         <details style={{ fontSize: 12, marginTop: 4 }}>
