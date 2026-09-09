@@ -721,7 +721,14 @@ def _find_relation(builder: RelationBuilder, match: dict) -> tuple[tuple | None,
     if s is None or t is None:
         return None, None
     key = (s["type"], s["key"], t["type"], t["key"], match["relation_type"])
-    return key, builder.relations.get(key)
+    if key in builder.relations:
+        return key, builder.relations[key]
+    # 無向タイプはノードキーの辞書順で格納されているため、逆順も探す
+    if not RELATION_TYPES.get(match["relation_type"], {}).get("directed", True):
+        rkey = (t["type"], t["key"], s["type"], s["key"], match["relation_type"])
+        if rkey in builder.relations:
+            return rkey, builder.relations[rkey]
+    return key, None
 
 
 def apply_corrections(builder: RelationBuilder, corrections: dict) -> list[dict]:
@@ -740,7 +747,9 @@ def apply_corrections(builder: RelationBuilder, corrections: dict) -> list[dict]
         key, rel = _find_relation(builder, c["match"])
         entry = {"id": c.get("id"), "action": c["action"], "match": c["match"], "applied": False}
         if rel is None:
-            entry["note"] = "対象の関係が見つからない（再生成で消えたか名寄せ失敗）"
+            entry["note"] = ("対象なし（旧データの誤りが再生成で生成されなかった。想定どおり）" if c.get("optional")
+                             else "対象の関係が見つからない（再生成で消えたか名寄せ失敗）")
+            entry["optional"] = bool(c.get("optional"))
             log.append(entry)
             continue
         verification = {
@@ -880,8 +889,10 @@ def main() -> int:
     correction_log = apply_corrections(builder, corrections)
     print(f"訂正適用: {sum(1 for c in correction_log if c['applied'])}/{len(correction_log)} 件")
     for c in correction_log:
-        if not c["applied"]:
+        if not c["applied"] and not c.get("optional"):
             print(f"   WARN 未適用 {c.get('id')}: {c.get('note')}", file=sys.stderr)
+        elif not c["applied"]:
+            print(f"   （対象なし・想定どおり）{c.get('id')}")
     entities, relations = builder.finalize()
     resolve_superseded_refs(relations)
 

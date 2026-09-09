@@ -1,0 +1,368 @@
+{
+ "_comment": "原本で確認した訂正・検証（Issue #3）。build_masters.py が統合後に適用し、data_processed/masters/corrections_applied.json に前後の状態を記録する。match の name: は法人格を除いた正規化名で照合。action: set_status / retype / set_ratio / supersede / remove。",
+ "relations": [
+  {
+   "id": "sony-sfg-spinoff-2025-10-01",
+   "match": {
+    "source": "listed:6758",
+    "target": "name:ソニーフィナンシャルグループ",
+    "relation_type": "parent_subsidiary"
+   },
+   "action": "supersede",
+   "as_of": "2025-10-01",
+   "new": {
+    "relation_type": "affiliate",
+    "ownership_ratio": {
+     "value": 0.164,
+     "kind": "share",
+     "scope": "total",
+     "status": "executed"
+    }
+   },
+   "source": {
+    "url": "https://www.sony.com/ja/SonyInfo/IR/news/20251001_J.pdf",
+    "title": "ソニーグループ スピンオフ実行完了のお知らせ（2025-10-01）",
+    "published": "2025-10-01"
+   },
+   "reason": "2025年3月期有報では100%連結子会社だが、2025-10-01のスピンオフ実行により持分16.40%の持分法適用関連会社へ移行。旧関係は2025-10-01まで有効の過去の状態として残す",
+   "verified_by": "manual",
+   "verified_on": "2026-09-09"
+  },
+  {
+   "id": "mitsubishi-life-ratio-2026-04-09",
+   "match": {
+    "source": "listed:8058",
+    "target": "listed:8194",
+    "relation_type": "affiliate"
+   },
+   "action": "set_ratio",
+   "as_of": "2026-04-09",
+   "ownership_ratio": {
+    "value": 0.2556,
+    "direct": 0.2439,
+    "indirect": 0.0117,
+    "kind": "voting",
+    "scope": "total",
+    "status": "executed"
+   },
+   "source": {
+    "url": "https://www.lifecorp.jp/vc-files/pdf/ir/news/20260409-1.pdf",
+    "title": "ライフコーポレーション 支配株主等に関する事項について（2026-04-09）",
+    "published": "2026-04-09"
+   },
+   "reason": "旧データの「三菱商事→ライフ 100%子会社」は誤り。公式開示は直接24.39%・合算1.17%・合計25.56%の持分法適用関連会社（その他の関係会社）",
+   "verified_by": "manual",
+   "verified_on": "2026-09-09"
+  },
+  {
+   "id": "mitsubishi-life-not-parent",
+   "match": {
+    "source": "listed:8058",
+    "target": "listed:8194",
+    "relation_type": "parent_subsidiary"
+   },
+   "action": "remove",
+   "as_of": "2026-04-09",
+   "source": {
+    "url": "https://www.lifecorp.jp/vc-files/pdf/ir/news/20260409-1.pdf",
+    "title": "ライフコーポレーション 支配株主等に関する事項について（2026-04-09）",
+    "published": "2026-04-09"
+   },
+   "reason": "議決権25.56%の持分法適用関連会社であり親子関係ではない（有報・公式開示で確認）",
+   "verified_by": "manual",
+   "verified_on": "2026-09-09",
+   "optional": true
+  },
+  {
+   "id": "life-mitsubishi-reverse-not-parent",
+   "match": {
+    "source": "listed:8194",
+    "target": "listed:8058",
+    "relation_type": "parent_subsidiary"
+   },
+   "action": "remove",
+   "as_of": "2026-04-09",
+   "source": {
+    "url": "https://www.lifecorp.jp/vc-files/pdf/ir/news/20260409-1.pdf",
+    "title": "ライフコーポレーション 支配株主等に関する事項について（2026-04-09）",
+    "published": "2026-04-09"
+   },
+   "reason": "旧データの逆向き親子関係（ライフ→三菱商事）は誤り",
+   "verified_by": "manual",
+   "verified_on": "2026-09-09",
+   "optional": true
+  },
+  {
+   "id": "keisei-olc-affiliate-verified",
+   "match": {
+    "source": "listed:9009",
+    "target": "listed:4661",
+    "relation_type": "affiliate"
+   },
+   "action": "set_status",
+   "status": "confirmed",
+   "as_of": "2025-03-31",
+   "source": {
+    "url": "https://data.swcms.net/file/olc-corp/dam/jcr:73e1beec-a607-4b30-8db3-3e1776dfb872/S100VY55.pdf#page=9",
+    "title": "オリエンタルランド 2025年3月期有価証券報告書 9ページ（関係会社の状況）",
+    "published": "2025-06-26"
+   },
+   "reason": "京成電鉄はOLCの「その他の関係会社」（被所有20.14%、うち間接0.07%）。旧データの「OLC→京成 親会社-子会社」は方向・分類とも誤り",
+   "verified_by": "manual",
+   "verified_on": "2026-09-09"
+  },
+  {
+   "id": "keisei-olc-wikidata-parent-not-control",
+   "match": {
+    "source": "listed:9009",
+    "target": "listed:4661",
+    "relation_type": "parent_subsidiary"
+   },
+   "action": "set_status",
+   "status": "needs_review",
+   "review_reasons": [
+    "wikidata_parent_below_control"
+   ],
+   "as_of": "2025-03-31",
+   "source": {
+    "url": "https://data.swcms.net/file/olc-corp/dam/jcr:73e1beec-a607-4b30-8db3-3e1776dfb872/S100VY55.pdf#page=9",
+    "title": "オリエンタルランド 2025年3月期有価証券報告書 9ページ",
+    "published": "2025-06-26"
+   },
+   "reason": "Wikidata の親組織（P749）由来。有報では京成は議決権20.14%のその他の関係会社で、親会社ではない",
+   "verified_by": "manual",
+   "verified_on": "2026-09-09"
+  },
+  {
+   "id": "olc-keisei-not-parent",
+   "match": {
+    "source": "listed:4661",
+    "target": "listed:9009",
+    "relation_type": "parent_subsidiary"
+   },
+   "action": "remove",
+   "as_of": "2025-03-31",
+   "source": {
+    "url": "https://data.swcms.net/file/olc-corp/dam/jcr:73e1beec-a607-4b30-8db3-3e1776dfb872/S100VY55.pdf#page=9",
+    "title": "オリエンタルランド 2025年3月期有価証券報告書 9ページ",
+    "published": "2025-06-26"
+   },
+   "reason": "旧データ R0044475 の逆転関係。再生成では生成されないはずだが、生成された場合は削除する",
+   "verified_by": "manual",
+   "verified_on": "2026-09-09",
+   "optional": true
+  },
+  {
+   "id": "sbg-zozo-parent-verified",
+   "match": {
+    "source": "listed:9984",
+    "target": "listed:3092",
+    "relation_type": "parent_subsidiary"
+   },
+   "action": "set_status",
+   "status": "confirmed",
+   "as_of": "2026-03-31",
+   "source": {
+    "url": "https://corp.zozo.com/ir-info/files/pdf/9e1bc063e389da205d8d5f30b34a14bca6444e36.pdf",
+    "title": "ZOZO 支配株主等に関する事項について（2025-06-26）",
+    "published": "2025-06-26"
+   },
+   "reason": "ソフトバンクグループはZOZOの間接的な親会社（議決権51.9%、全て間接）。旧データ R0003946 の「ZOZO→SBG」は方向が逆",
+   "verified_by": "manual",
+   "verified_on": "2026-09-09"
+  },
+  {
+   "id": "zozo-sbg-not-parent",
+   "match": {
+    "source": "listed:3092",
+    "target": "listed:9984",
+    "relation_type": "parent_subsidiary"
+   },
+   "action": "remove",
+   "as_of": "2026-03-31",
+   "source": {
+    "url": "https://corp.zozo.com/ir-info/files/pdf/9e1bc063e389da205d8d5f30b34a14bca6444e36.pdf",
+    "title": "ZOZO 支配株主等に関する事項について（2025-06-26）",
+    "published": "2025-06-26"
+   },
+   "reason": "旧データの逆転関係。生成された場合は削除する",
+   "verified_by": "manual",
+   "verified_on": "2026-09-09",
+   "optional": true
+  },
+  {
+   "id": "sony-m3-affiliate-verified",
+   "match": {
+    "source": "listed:6758",
+    "target": "listed:2413",
+    "relation_type": "affiliate"
+   },
+   "action": "set_status",
+   "status": "confirmed",
+   "as_of": "2025-03-31",
+   "source": {
+    "url": "https://corporate.m3.com/assets.ctfassets.net/1pwj74siywcy/6GPm0JnjRttAQMNiT0UiI/889e683ead0b8bc31c7000bf8323313a/20250625_FY24Q4_yuho_J.pdf",
+    "title": "エムスリー 2025年3月期有価証券報告書（関係会社の状況）",
+    "published": "2025-06-25"
+   },
+   "reason": "ソニーグループはエムスリーの「その他の関係会社」（被所有33.9%）。旧データの「エムスリー→ソニー 親会社」は方向が逆",
+   "verified_by": "manual",
+   "verified_on": "2026-09-09"
+  },
+  {
+   "id": "m3-sony-not-parent",
+   "match": {
+    "source": "listed:2413",
+    "target": "listed:6758",
+    "relation_type": "parent_subsidiary"
+   },
+   "action": "remove",
+   "as_of": "2025-03-31",
+   "source": {
+    "url": "https://corporate.m3.com/assets.ctfassets.net/1pwj74siywcy/6GPm0JnjRttAQMNiT0UiI/889e683ead0b8bc31c7000bf8323313a/20250625_FY24Q4_yuho_J.pdf",
+    "title": "エムスリー 2025年3月期有価証券報告書",
+    "published": "2025-06-25"
+   },
+   "reason": "旧データの逆転関係。生成された場合は削除する",
+   "verified_by": "manual",
+   "verified_on": "2026-09-09",
+   "optional": true
+  },
+  {
+   "id": "aeon-aeon-hokkaido-verified",
+   "match": {
+    "source": "listed:8267",
+    "target": "listed:7512",
+    "relation_type": "parent_subsidiary"
+   },
+   "action": "set_status",
+   "status": "confirmed",
+   "as_of": "2026-02-28",
+   "source": {
+    "url": "https://www.aeon-hokkaido.jp/control-panel/wp-content/uploads/2025/05/b9175e903b84a18ad189d1abb6cd8e25.pdf",
+    "title": "イオン北海道 支配株主等に関する事項について（2025-05-26）",
+    "published": "2025-05-26"
+   },
+   "reason": "旧データの1.55%は合算対象分のみ。公式開示は直接65.59%・合算1.55%・合計67.14%（2025-05時点）。2026年2月期有報では合計67.2%・間接1.6%",
+   "verified_by": "manual",
+   "verified_on": "2026-09-09"
+  },
+  {
+   "id": "marubeni-tiauto-agreed",
+   "match": {
+    "source": "listed:8002",
+    "target": "name:TiAuto Investments Pty Ltd",
+    "relation_type": "merger_acquisition"
+   },
+   "action": "set_status",
+   "status": "confirmed",
+   "as_of": "2026-06-10",
+   "source": {
+    "url": "https://www.marubeni.com/en/news/2026/release/00025.html",
+    "title": "Marubeni: Acquisition of TiAuto Investments（2026-06-10）",
+    "published": "2026-06-10"
+   },
+   "reason": "公表時点では買収に合意した段階（agreed）。実行完了の公表は未確認",
+   "verified_by": "manual",
+   "verified_on": "2026-09-09"
+  },
+  {
+   "id": "marubeni-bquik-historical",
+   "match": {
+    "source": "listed:8002",
+    "target": "name:B-Quik Co., Ltd",
+    "relation_type": "merger_acquisition"
+   },
+   "action": "set_status",
+   "status": "confirmed",
+   "as_of": null,
+   "source": {
+    "url": "https://www.marubeni.com/en/news/2026/release/00025.html",
+    "title": "Marubeni: Acquisition of TiAuto Investments（2026-06-10）",
+    "published": "2026-06-10"
+   },
+   "reason": "2006年の買収の沿革として言及。公表日（2026-06-10）と出来事の時点（2006年）が異なる",
+   "verified_by": "manual",
+   "verified_on": "2026-09-09"
+  },
+  {
+   "id": "aisin-tohogas-joint-research",
+   "match": {
+    "source": "listed:7259",
+    "target": "listed:9533",
+    "relation_type": "joint_research"
+   },
+   "action": "set_status",
+   "status": "confirmed",
+   "as_of": "2026-03-24",
+   "source": {
+    "url": "https://www.aisin.com/jp/news/2026/010556.html",
+    "title": "アイシン・東邦ガス・デンソー 地域CO2循環型e-メタン供給の共同実証（2026-03-24）",
+    "published": "2026-03-24"
+   },
+   "reason": "3社の共同実証・共同検討を公式公表で確認。旧データでは東邦ガスが非上場エンティティに分裂していたが 9533 へ名寄せ",
+   "verified_by": "manual",
+   "verified_on": "2026-09-09"
+  },
+  {
+   "id": "aisin-denso-joint-research",
+   "match": {
+    "source": "listed:7259",
+    "target": "name:デンソー",
+    "relation_type": "joint_research"
+   },
+   "action": "set_status",
+   "status": "confirmed",
+   "as_of": "2026-03-24",
+   "source": {
+    "url": "https://www.aisin.com/jp/news/2026/010556.html",
+    "title": "アイシン・東邦ガス・デンソー 地域CO2循環型e-メタン供給の共同実証（2026-03-24）",
+    "published": "2026-03-24"
+   },
+   "reason": "3社の共同実証・共同検討を公式公表で確認",
+   "verified_by": "manual",
+   "verified_on": "2026-09-09"
+  },
+  {
+   "id": "mitsui-ceva-joint-venture",
+   "match": {
+    "source": "listed:8031",
+    "target": "name:Ceva Santé Animale",
+    "relation_type": "joint_venture"
+   },
+   "action": "set_status",
+   "status": "confirmed",
+   "as_of": "2026-05-08",
+   "source": {
+    "url": "https://www.mitsui.com/jp/ja/release/2026/1253452_15330.html",
+    "title": "三井物産 セバ物産アニマルヘルス設立（2026-05-08）",
+    "published": "2026-05-08"
+   },
+   "reason": "合弁会社セバ物産アニマルヘルスの設立を公式公表で確認。旧データの「Ceva Santé Animale SA」「Ceva Santé Animale社」は同一法人として統合",
+   "verified_by": "manual",
+   "verified_on": "2026-09-09"
+  },
+  {
+   "id": "nsharyo-jrtokai-license-insufficient",
+   "match": {
+    "source": "listed:7102",
+    "target": "listed:9022",
+    "relation_type": "technology_license"
+   },
+   "action": "set_status",
+   "status": "needs_review",
+   "review_reasons": [
+    "insufficient_evidence"
+   ],
+   "as_of": null,
+   "source": {
+    "url": "https://www.n-sharyo.co.jp/business/tetsudo/topics/tp260519.html",
+    "title": "日本車輌製造 台湾向け新型高速鉄道車両の出荷（2026-05-19）",
+    "published": "2026-05-19"
+   },
+   "reason": "公表は「N700Sをベースに製造」の説明で、日本車輌→JR東海という方向のライセンス供与を支えない。関係がないという断定ではなく根拠不足",
+   "verified_by": "manual",
+   "verified_on": "2026-09-09"
+  }
+ ]
+}
