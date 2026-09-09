@@ -1,3 +1,5 @@
+import { createSearcher } from './search.js';
+
 // M4/M5 の読み込みとグラフインデックス構築（モジュールロード時に一度だけ実行）
 // データは大きい（M5 ~32MB）ためバンドルせず public/ から実行時 fetch する。
 // top-level await でモジュール解決をデータ取得まで待たせ、以降は同期的に参照できる。
@@ -113,24 +115,8 @@ export const STATS = (() => {
   };
 })();
 
-// 企業検索（名称・読み・証券コードの部分一致、NFKC正規化）
-const normalize = (s) => (s ?? '').normalize('NFKC').toLowerCase().replace(/[\s　]+/g, '');
-
-export function searchCompanies(query, limit = 30) {
-  const q = normalize(query);
-  if (!q) return [];
-  const hits = [];
-  for (const [code, c] of Object.entries(COMPANIES)) {
-    if (
-      code.toLowerCase().includes(q) ||
-      normalize(c.name).includes(q) ||
-      normalize(c.name_en).includes(q)
-    ) {
-      hits.push({ code, company: c, degree: degreeOf({ type: 'listed', key: code }) });
-    }
-  }
-  return hits.sort((a, b) => b.degree - a.degree).slice(0, limit);
-}
+// 企業検索（名称・英文名・別名・ヨミ・証券コードの部分一致）。索引の作り方は search.js
+export const searchCompanies = createSearcher(COMPANIES, (code) => degreeOf({ type: 'listed', key: code }));
 
 // 17業種 → 色（全体マップのノード配色）
 export const INDUSTRY_COLORS = {

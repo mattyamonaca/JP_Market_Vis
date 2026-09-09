@@ -48,6 +48,7 @@ def parse(csv_text: str) -> dict[str, dict]:
             "edinet_code": (row.get("ＥＤＩＮＥＴコード") or "").strip() or None,
             "corporate_number": cn,
             "name": (row.get("提出者名") or "").strip() or None,
+            "name_kana": (row.get("提出者名（ヨミ）") or "").strip() or None,
             "name_en": (row.get("提出者名（英字）") or "").strip() or None,
             "address": (row.get("所在地") or "").strip() or None,
             "industry_edinet": (row.get("提出者業種") or "").strip() or None,
