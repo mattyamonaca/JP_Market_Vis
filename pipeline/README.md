@@ -63,3 +63,19 @@ python make_viz_data.py                                                # public/
 
 `data_raw/edinet_docs.json` は 2025-06-14〜2026-06-13 提出の有価証券報告書（証券コードあり）3,939 件。
 同一企業の 2 期分が含まれる場合、基準日の新しい方を現在値にし、古い方は history に残す。
+
+## 比率・時点・訂正の扱い（Issue #2）
+
+- `attributes.ownership_ratio` は `{value, kind, scope, direct, indirect, raw, as_of, doc_id, history}`。
+  `value` は合計（直接＋間接）、`indirect` は括弧内の間接所有（内数）、`direct` はその差。
+  `kind` は `voting`（議決権所有割合。関係会社の状況）／`share`（発行済株式に対する所有株式数の割合。大株主の状況）。
+  括弧内しか読めない場合は `value: null, scope: "indirect_only"` とし、部分比率を合計として表示しない。
+- 複数の書類で値が異なる場合、候補をすべて保持し、`基準日の新しい順 → 合計あり → 検証済み → 議決権 > 株式数 → 書類ID`
+  の順で現在値を選ぶ。取得順には依存しない。それ以外は `history` に残し、`has_older_values` /
+  `conflict_same_period` で状況を示す。
+- IR 抽出は公表文から `deal_status`（`agreed` = 合意・予定、`executed` = 実行済み）と、2 年以上前の年への
+  言及 `event_year`（沿革の記述）を推定する。日付が不正・未来のものは不明（null）にする。
+- `corrections.json` に原本で確認した訂正を書くと `build_masters.py` が適用し、
+  `data_processed/masters/corrections_applied.json` に前後の状態を記録する。
+  `supersede` は旧関係を `status: "historical"`（`valid_until` 付き）にして新関係を追加するので、
+  変更前後を区別できる。50% 以下という理由だけで親子関係を削除する処理はない。
