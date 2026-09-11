@@ -1,6 +1,6 @@
 {
- "date": "2026-09-09",
- "commit": "faf737467342b36b47808478e8e94d2f520f8f2a",
+ "date": "2026-09-11",
+ "commit": "f47c7637eae5702b6efedbbf76c3b9862f481c8b",
  "url": "http://localhost:5184/JP_Market_Vis/",
  "browser": "Chrome 152.0.7977.83 (headless, Playwright)",
  "device": "darwin arm64",
@@ -9,7 +9,7 @@
    "scenario": "PC初回",
    "item": "初回表示（マップ描画まで）",
    "ok": true,
-   "detail": "1341 ms"
+   "detail": "1062 ms"
   },
   {
    "scenario": "PC初回",
@@ -51,7 +51,7 @@
    "scenario": "負荷",
    "item": "回転ドラッグ中の再描画回数（約0.6秒）",
    "ok": true,
-   "detail": "62"
+   "detail": "61"
   },
   {
    "scenario": "負荷",
