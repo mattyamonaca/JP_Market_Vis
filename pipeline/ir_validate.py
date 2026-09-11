@@ -50,7 +50,7 @@ CUES = {
     },
     "ownership": {
         "in": r"(から|より)(の)?出資(を受け|を受け入れ)|第三者割当|割当先|出資を受け|株式を.{0,20}に譲渡|investment from|"
-              r"(による|からの).{0,40}公開買付け|(による|からの).{0,40}株式.{0,10}取得|(による|からの).{0,40}TOB",
+              r"(による|からの).{0,40}公開買付け|(による|からの).{0,60}株式.{0,25}取得|(による|からの).{0,40}TOB",
         "out": r"出資(?!を受|金)|株式.{0,20}(取得|引受|譲受|買い増し|買い付け)|持分.{0,8}取得|公開買付|TOB|増資を引き受け|資本参加|"
                r"acquire[sd]? .{0,40}(stake|shares|interest|equity)|invest(ed|s|ment)? in|subscri(be|ption)|株主とな",
     },
@@ -62,8 +62,10 @@ CUES = {
     },
     "merger_acquisition": {
         "in": r"(に|による|によって)(買収|吸収)|acquired by|(に|へ)(の)?(譲渡|売却)|(に|へ)株式を譲渡|(の)?完全子会社(となり|化され)",
-        "out": r"買収|(全株式|株式|持分)(を|の)?(取得|譲受)|子会社化|吸収合併|合併|経営統合|統合|acqui(re|red|sition)|merge[rd]?|take ?over|"
+        "out": r"買収|(全株式|株式|持分)(を|の)?(取得|譲受)|子会社化|吸収合併|acqui(re|red|sition)|take ?over|"
                r"株式譲渡契約|譲受|公開買付|TOB|株式交換|share exchange",
+        # 対等な合併・経営統合は存続側が根拠文から分からないため方向不明として要確認にする
+        "any": r"合併|経営統合|統合|merge[rd]?|merged management",
     },
 }
 _CUES = {t: {k: re.compile(v, re.I) for k, v in spec.items()} for t, spec in CUES.items()}
@@ -109,7 +111,7 @@ _GENERIC_TOKENS = {"group", "holdings", "holding", "international", "global", "j
                    "technology", "technologies", "systems", "solutions", "industries", "company", "corporation"}
 
 
-THIRD_PARTY_RE = re.compile(r"(が|により|によって)(設立|出資|保有|買収|運営)(した|する|している|され)")
+THIRD_PARTY_RE = re.compile(r"(が|により|によって|を存続会社とする)(設立|出資|保有|買収|運営|取得|吸収合併)(した|する|している|され|を|$|。|、|\s)")
 
 
 def filer_mentioned(quote: str, filer_names: list[str] | None) -> bool:
@@ -158,6 +160,9 @@ def syntactic_direction(quote: str, cp: str | None, rel_type: str, cue: str | No
     if re.match(_PARTICLE_AGENT, after):
         return "in"
     if re.match(_PARTICLE_RECIPIENT, after):
+        # 「X社への譲渡／売却」は X が取得側（in）
+        if rel_type in ("merger_acquisition", "ownership") and re.search(r"譲渡|売却", q):
+            return "in"
         return "out"
     if re.match(_PARTICLE_SOURCE, after):
         # 「Xから受注」は X が顧客（out）、「Xから出資を受け／購入」は X が主体（in）、「Xから買収／譲受」は提出会社が主体（out）
@@ -241,13 +246,28 @@ def validate(row: dict, filer_names: list[str] | None = None) -> dict:
         # 否定・撤回・解消の記述は存在する関係として確定しない
         if NEGATION_RE.search(quote):
             reasons.append("negated_or_terminated")
+        # 「子会社であるX社による…」のように、相手が提出会社自身の子会社として記述されている場合は
+        # 相手が第三者との取引主体であり、抽出された関係タイプ（出資・買収）は成り立たない
+        m_sub = re.search(r"(子会社|グループ会社)(である|の|、)\s*([^、。（）()]{2,40}?)(による|は|が|を|と)", quote)
+        if m_sub and mentions(m_sub.group(3), cp):
+            reasons.append("counterparty_is_own_subsidiary")
         # 「X社とY社が設立した合弁会社」のように、提出会社が当事者でない記述
         if cue and THIRD_PARTY_RE.search(quote) and not filer_mentioned(quote, filer_names):
+            reasons.append("third_party_statement")
+        # 「第三者割当増資を引き受け」「への出資を行い」は提出会社が投資側（out）
+        if direction == "in" and re.search(r"引き?受け(?!入れ)|への出資|出資を行", quote) and not re.search(r"出資を受け", quote):
+            direction = "out"
+        # 「Xは…を取得／買収」の主語 X が当社でも相手でもない（第三者の出来事を伝える記事等）
+        m_subj = re.search(r"(?:^|[、。\s])([^、。\s（）()]{2,30}?)(は|が)[^。]{0,120}?(取得|買収|子会社化|設立|出資|合併)", quote)
+        if m_subj and not SELF_RE.search(m_subj.group(1)) and not filer_mentioned(m_subj.group(1), filer_names) \
+                and not mentions(m_subj.group(1), cp) and not re.search(r"子会社|グループ", m_subj.group(1)) \
+                and "third_party_statement" not in reasons and filer_names and not filer_mentioned(quote, filer_names):
             reasons.append("third_party_statement")
         # 「Xによる…公開買付け／取得」は X が主体。X が当社（子会社）なら out、相手なら in
         if direction == "in":
             m = re.search(r"([^、。]{2,60}?)による", quote)
-            if m and SELF_RE.search(m.group(1)) and not mentions(m.group(1), cp):
+            if m and (SELF_RE.search(m.group(1)) or re.search(r"子会社|グループ会社|当社グループ", m.group(1))) \
+                    and not mentions(m.group(1), cp):
                 direction = "out"
     status = "confirmed" if not reasons else "needs_review"
     out = {"status": status, "reasons": reasons, "cue": cue, "direction": direction,

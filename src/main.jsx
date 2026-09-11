@@ -22,7 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Suspense fallback={<main className="loading-screen" role="status">
       <span className="brand-kicker">JP MARKET VIS</span>
       <h1>日本の企業のつながりを、ひとつの地図に。</h1>
-      <p>企業・関係データを読み込んでいます。初回は圧縮転送で数MB（展開後 約35MB）のデータを読み込みます。</p>
+      <p>企業・関係データを読み込んでいます。初回は圧縮転送で約2.3MB（展開後 約40MB）のデータを読み込みます。</p>
       <div className="loading-line" />
     </main>}><App /></Suspense>
   </ErrorBoundary></React.StrictMode>,
