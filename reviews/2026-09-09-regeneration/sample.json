@@ -54,18 +54,18 @@
   {
    "relation_id": "R0076182",
    "stratum": "edinet/capital",
-   "source": "ＡＶＡＮＴＩＡ",
-   "target": "株式会社 宇戸平工務店",
+   "source": "毎日コムネット",
+   "target": "(株)ワークス・ジャパン",
    "relation_type": "parent_subsidiary",
-   "ratio": 1.0,
+   "ratio": 0.87,
    "evidence": [
     {
      "source": "edinet",
-     "as_of": "2025-08-31"
+     "as_of": "2025-05-31"
     }
    ],
    "verdict": "correct",
-   "note": "連結子会社 100.0%"
+   "note": "関係会社の状況（S100WKTA、2025-05-31）連結子会社・議決権所有 87.0% と一致"
   },
   {
    "relation_id": "R0017138",
@@ -87,7 +87,7 @@
    "relation_id": "R0066401",
    "stratum": "edinet/capital",
    "source": "ＣＣＩグループ",
-   "target": "株式会社QR インベストメント",
+   "target": "株式会社ハニー ビースポーツ",
    "relation_type": "parent_subsidiary",
    "ratio": 1.0,
    "evidence": [
@@ -97,7 +97,7 @@
     }
    ],
    "verdict": "correct",
-   "note": "連結子会社 100.00%"
+   "note": "関係会社の状況（S100YAOX、2026-03-31）連結子会社・議決権所有 100.00%（間接 100.00）と一致"
   },
   {
    "relation_id": "R0036387",
@@ -164,7 +164,7 @@
    "note": "主要な顧客 1,017,344千円"
   },
   {
-   "relation_id": "R0069317",
+   "relation_id": "R0069314",
    "stratum": "edinet/transaction",
    "source": "旭化学工業",
    "target": "マキタ",
@@ -212,7 +212,7 @@
    "note": "連携した海上輸送"
   },
   {
-   "relation_id": "R0068226",
+   "relation_id": "R0068223",
    "stratum": "ir_disclosure/alliance",
    "source": "日本精密",
    "target": "クロスフォー",
@@ -312,7 +312,7 @@
    "note": "業務提携基本契約書（2021-06-22）"
   },
   {
-   "relation_id": "R0080124",
+   "relation_id": "R0080121",
    "stratum": "ir_disclosure/capital",
    "source": "テレビ東京ホールディングス",
    "target": "Minto",
@@ -480,7 +480,7 @@
    "note": "株式取得（子会社化）"
   },
   {
-   "relation_id": "R0067543",
+   "relation_id": "R0067540",
    "stratum": "ir_disclosure/group",
    "source": "島津製作所",
    "target": "Plasmion GmbH",
@@ -560,7 +560,7 @@
    "note": "資産等の買収完了（会社ではなく事業用資産。タイプは merger_acquisition のまま）"
   },
   {
-   "relation_id": "R0070263",
+   "relation_id": "R0070260",
    "stratum": "ir_disclosure/group",
    "source": "丸紅",
    "target": "TiAuto Investments Pty Ltd",
@@ -752,7 +752,7 @@
    "note": "Wikidata P1830。持株会社と銀行"
   },
   {
-   "relation_id": "R0068021",
+   "relation_id": "R0068018",
    "stratum": "wikidata/capital",
    "source": "キヤノン",
    "target": "Canon Computer Systems",
@@ -768,7 +768,7 @@
    "note": "Wikidata P355。現存しない可能性のある子会社で時点不明"
   },
   {
-   "relation_id": "R0068336",
+   "relation_id": "R0068333",
    "stratum": "wikidata/capital",
    "source": "ブシロード",
    "target": "新日本プロレス",
@@ -784,7 +784,7 @@
    "note": "Wikidata P355"
   },
   {
-   "relation_id": "R0065544",
+   "relation_id": "R0065541",
    "stratum": "wikidata/capital",
    "source": "本田技研工業",
    "target": "ホンダマニュファクチャリングUK",
@@ -848,7 +848,7 @@
    "note": "Wikidata P463"
   },
   {
-   "relation_id": "R0077321",
+   "relation_id": "R0077318",
    "stratum": "wikidata/group",
    "source": "名古屋鉄道",
    "target": "名鉄グループ",
@@ -864,7 +864,7 @@
    "note": "Wikidata P463"
   },
   {
-   "relation_id": "R0077032",
+   "relation_id": "R0077029",
    "stratum": "wikidata/group",
    "source": "西日本鉄道",
    "target": "西鉄グループ",
@@ -896,7 +896,7 @@
    "note": "Wikidata P463"
   },
   {
-   "relation_id": "R0079049",
+   "relation_id": "R0079046",
    "stratum": "wikidata/group",
    "source": "ＡＮＡホールディングス",
    "target": "ANAグループ",

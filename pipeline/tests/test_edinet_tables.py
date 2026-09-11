@@ -220,6 +220,27 @@ class SyntheticCases(unittest.TestCase):
         self.assertEqual(et.clean_name("イオン(株)１"), "イオン(株)")
         self.assertEqual(et.clean_name("トヨタ モーター\nクレジット㈱ ＊１＊２"), "トヨタ モーター クレジット(株)")
         self.assertEqual(et.clean_name("（連結子会社）\n㈱ZOZO NEXT"), "(株)ZOZO NEXT")
+        # 実書類の脚注番号: 法人格・閉じ括弧の直後（S100W1PN / S100W27M / S100W4G1 / S100XTTY / S100XU8Z）
+        self.assertEqual(et.clean_name("三菱電機株式会社 (注)３ ６"), "三菱電機株式会社")
+        self.assertEqual(et.clean_name("(連結子会社) J-netレンタリース 株式会社 4"), "J-netレンタリース 株式会社")
+        self.assertEqual(et.clean_name("Red Planet Holdings (Philippines) Limited （注）１ ４"), "Red Planet Holdings (Philippines) Limited")
+        self.assertEqual(et.clean_name("(株)エヌビー社 3"), "(株)エヌビー社")
+        self.assertEqual(et.clean_name("有限会社よし平 （株）５、８"), "有限会社よし平 (株)")
+
+    def test_clean_name_keeps_digits_that_belong_to_the_name(self):
+        # 数字を社名に含む法人（S100W2DE / S100XS2Y / S100XHR6）。数字を除くと法人格しか残らない
+        self.assertEqual(et.clean_name("株式会社８８"), "株式会社88")
+        self.assertEqual(et.clean_name("株式会社５８"), "株式会社58")
+        self.assertEqual(et.clean_name("株式会社28"), "株式会社28")
+        self.assertEqual(et.clean_name("(株)88"), "(株)88")
+        # 法人格ではない語に続く数字は脚注と断定できない（S100XZF3）
+        self.assertEqual(et.clean_name("LIB Material Investment Fund 1"), "LIB Material Investment Fund 1")
+        for name in ["株式会社88", "株式会社28", "LIB Material Investment Fund 1"]:
+            self.assertIsNone(et.name_problem(name), name)
+
+    def test_legal_form_only_names_are_flagged(self):
+        for bad in ["株式会社", "(株)", "㈱", "有限会社", "Ltd."]:
+            self.assertEqual(et.name_problem(bad), "legal_form_only", bad)
 
     def test_ratio_cell_variants(self):
         self.assertEqual(et.parse_ratio_cell("20.14\n(0.07)")["total"], 0.2014)
