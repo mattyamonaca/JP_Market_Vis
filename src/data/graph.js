@@ -60,13 +60,24 @@ export async function loadRelationDetail(relation) {
   return payload[relation.relation_id] ?? null;
 }
 
+// 白背景上の配色（Issue #23）。グラフの線・ノードには中間色、文字・バッジには白に対して 4.5:1 以上の濃い色を使う
 export const CATEGORY_COLORS = {
-  capital: '#38bdf8',
-  transaction: '#fb923c',
-  alliance: '#4ade80',
-  personnel: '#f472b6',
-  group: '#a78bfa',
+  capital: '#0ea5e9',
+  transaction: '#f97316',
+  alliance: '#22c55e',
+  personnel: '#ec4899',
+  group: '#8b5cf6',
 };
+export const CATEGORY_TEXT_COLORS = {
+  capital: '#0369a1',
+  transaction: '#9a3412',
+  alliance: '#166534',
+  personnel: '#be185d',
+  group: '#6d28d9',
+};
+export const STATUS_COLORS = { confirmed: '#166534', needs_review: '#854d0e', historical: '#475569' };
+export const TIER_COLORS = { primary: '#0369a1', secondary: '#6d28d9', llm_extraction: '#9a3412' };
+export const SEGMENT_COLORS = { prime: '#a16207', standard: '#0369a1', growth: '#166534' };
 
 export const CATEGORY_JA = {
   capital: '資本',
@@ -174,28 +185,28 @@ export const searchCompanies = createSearcher(COMPANIES, (code) => degreeOf({ ty
 
 // 17業種 → 色（全体マップのノード配色）
 export const INDUSTRY_COLORS = {
-  '食品': '#f87171',
-  'エネルギー資源': '#fb923c',
-  '建設・資材': '#fbbf24',
-  '素材・化学': '#a3e635',
-  '医薬品': '#4ade80',
-  '自動車・輸送機': '#34d399',
-  '鉄鋼・非鉄': '#2dd4bf',
-  '機械': '#22d3ee',
-  '電機・精密': '#38bdf8',
-  '情報通信・サービスその他': '#818cf8',
-  '電力・ガス': '#a78bfa',
-  '運輸・物流': '#c084fc',
-  '商社・卸売': '#e879f9',
-  '小売': '#f472b6',
-  '銀行': '#fb7185',
-  '金融（除く銀行）': '#fda4af',
-  '不動産': '#fcd34d',
-  'その他': '#94a3b8',
+  '食品': '#ef4444',
+  'エネルギー資源': '#f97316',
+  '建設・資材': '#d97706',
+  '素材・化学': '#65a30d',
+  '医薬品': '#16a34a',
+  '自動車・輸送機': '#059669',
+  '鉄鋼・非鉄': '#0d9488',
+  '機械': '#0891b2',
+  '電機・精密': '#0284c7',
+  '情報通信・サービスその他': '#4f46e5',
+  '電力・ガス': '#7c3aed',
+  '運輸・物流': '#9333ea',
+  '商社・卸売': '#c026d3',
+  '小売': '#db2777',
+  '銀行': '#e11d48',
+  '金融（除く銀行）': '#f43f5e',
+  '不動産': '#ca8a04',
+  'その他': '#64748b',
 };
 
 export function industryColor(industry17) {
-  return INDUSTRY_COLORS[industry17] ?? '#94a3b8';
+  return INDUSTRY_COLORS[industry17] ?? '#64748b';
 }
 
 // 全体マップ用: 両端が上場企業のエッジのみで構成したネットワーク

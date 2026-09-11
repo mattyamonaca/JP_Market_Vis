@@ -4,7 +4,7 @@ import '@xyflow/react/dist/style.css';
 
 import {
   CATEGORY_AVAILABILITY,
-  CATEGORY_COLORS,
+  CATEGORY_TEXT_COLORS,
   CATEGORY_JA,
   COMPANIES,
   HUB_RANKING,
@@ -44,6 +44,7 @@ function Header({ view, setView }) {
 function CategoryFilterBar({ activeCategories, toggle }) {
   return (
     <div
+      className="overlay-box"
       style={{
         position: 'absolute',
         top: 12,
@@ -53,16 +54,13 @@ function CategoryFilterBar({ activeCategories, toggle }) {
         zIndex: 10,
         display: 'flex',
         gap: 6,
-        background: 'rgba(15, 23, 42, 0.85)',
         padding: '8px 10px',
-        borderRadius: 10,
-        border: '1px solid #1e293b',
       }}
     >
       {Object.entries(CATEGORY_JA).map(([key, ja]) => {
         const unavailable = (CATEGORY_AVAILABILITY[key]?.total ?? 0) === 0;
         const active = activeCategories.has(key) && !unavailable;
-        const color = CATEGORY_COLORS[key];
+        const color = CATEGORY_TEXT_COLORS[key];
         return (
           <button
             aria-pressed={active}
@@ -78,12 +76,12 @@ function CategoryFilterBar({ activeCategories, toggle }) {
               fontSize: 12,
               fontWeight: 600,
               cursor: 'pointer',
-              background: active ? `${color}22` : 'transparent',
-              border: `1px solid ${active ? color : '#334155'}`,
-              color: active ? color : '#94a3b8',
+              background: active ? `${color}14` : 'var(--bg)',
+              border: `1px solid ${active ? color : 'var(--border-strong)'}`,
+              color: active ? color : 'var(--text-2)',
             }}
           >
-            {ja}{unavailable && <small style={{ marginLeft: 4, fontSize: 10, color: '#94a3b8' }}>未収録</small>}
+            {ja}{unavailable && <small style={{ marginLeft: 4, fontSize: 10, color: 'var(--text-2)' }}>未収録</small>}
           </button>
         );
       })}
@@ -104,16 +102,9 @@ function BackBar({ history, onBack }) {
       }}
     >
       <button
+        className="btn"
         onClick={onBack}
-        style={{
-          padding: '6px 14px',
-          borderRadius: 8,
-          fontSize: 12,
-          cursor: 'pointer',
-          background: 'rgba(15, 23, 42, 0.85)',
-          border: '1px solid #334155',
-          color: '#cbd5e1',
-        }}
+        style={{ padding: '6px 14px', fontSize: 12, background: 'rgba(255, 255, 255, 0.92)' }}
       >
         ← {prev?.name ?? history[history.length - 1]} に戻る
       </button>
@@ -235,16 +226,14 @@ function GraphView({ centerCode, setCenterCode, onShowInTable }) {
         <BackBar history={history} onBack={onBack} />
         {truncated > 0 && (
           <div
+            className="overlay-box"
             style={{
               position: 'absolute',
               bottom: 12,
               left: 12,
               zIndex: 10,
               fontSize: 12,
-              color: '#94a3b8',
-              background: 'rgba(15, 23, 42, 0.85)',
-              border: '1px solid #334155',
-              borderRadius: 8,
+              color: 'var(--text-2)',
               padding: '6px 10px',
             }}
           >
@@ -252,7 +241,7 @@ function GraphView({ centerCode, setCenterCode, onShowInTable }) {
             <button
               type="button"
               onClick={() => onShowInTable(centerCode)}
-              style={{ marginLeft: 6, background: 'transparent', border: '1px solid #475569', borderRadius: 6, color: '#7dd3fc', padding: '2px 8px', fontSize: 12 }}
+              style={{ marginLeft: 6, background: 'var(--bg)', border: '1px solid var(--border-strong)', borderRadius: 6, color: 'var(--accent)', padding: '2px 8px', fontSize: 12 }}
             >
               {COMPANIES[centerCode]?.name ?? centerCode} の関係を一覧で見る →
             </button>
@@ -268,7 +257,7 @@ function GraphView({ centerCode, setCenterCode, onShowInTable }) {
               justifyContent: 'center',
               zIndex: 5,
               pointerEvents: 'none',
-              color: '#94a3b8',
+              color: 'var(--text-2)',
               fontSize: 14,
             }}
           >
@@ -292,14 +281,12 @@ function GraphView({ centerCode, setCenterCode, onShowInTable }) {
           maxZoom={2}
           proOptions={{ hideAttribution: true }}
         >
-          <Background color="#1e293b" gap={24} />
-          <Controls
-            style={{ background: '#1e293b', border: '1px solid #334155', borderRadius: 8 }}
-          />
+          <Background color="#cbd5e1" gap={24} />
+          <Controls />
           <MiniMap
-            style={{ background: '#1e293b' }}
-            nodeColor={(n) => (n.type === 'center' ? '#facc15' : n.type === 'listed' ? '#38bdf8' : '#475569')}
-            maskColor="rgba(15, 23, 42, 0.7)"
+            style={{ background: '#f8fafc' }}
+            nodeColor={(n) => (n.type === 'center' ? '#0369a1' : n.type === 'listed' ? '#0ea5e9' : '#cbd5e1')}
+            maskColor="rgba(248, 250, 252, 0.7)"
           />
         </ReactFlow>
       </div>
