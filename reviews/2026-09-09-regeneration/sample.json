@@ -1,0 +1,940 @@
+{
+ "seed": 20260909,
+ "strata": 9,
+ "per_stratum": 6,
+ "items": [
+  {
+   "relation_id": "R0012527",
+   "stratum": "edinet/capital",
+   "source": "ソウルドアウト(株)",
+   "target": "リンカーズ",
+   "relation_type": "ownership",
+   "ratio": 0.0103,
+   "evidence": [
+    {
+     "source": "edinet",
+     "as_of": "2025-07-31"
+    }
+   ],
+   "verdict": "correct",
+   "note": "大株主の状況 1.03%（2025-07-31現在）と一致"
+  },
+  {
+   "relation_id": "R0009172",
+   "stratum": "edinet/capital",
+   "source": "みずほ銀行",
+   "target": "澁澤倉庫",
+   "relation_type": "ownership",
+   "ratio": 0.0493,
+   "evidence": [
+    {
+     "source": "edinet",
+     "as_of": "2016-10-14"
+    }
+   ],
+   "verdict": "correct_stale",
+   "note": "大株主の注記に写された2016-10-14の大量保有報告書（4.93%）。抽出は正しいが時点が古い。property=large_holding_report・基準日で区別"
+  },
+  {
+   "relation_id": "R0022001",
+   "stratum": "edinet/capital",
+   "source": "国分グループ本社株式会社",
+   "target": "久世",
+   "relation_type": "affiliate",
+   "ratio": 0.199,
+   "evidence": [
+    {
+     "source": "edinet",
+     "as_of": "2025-03-31"
+    }
+   ],
+   "verdict": "correct",
+   "note": "その他の関係会社（被所有19.9%）→ 国分→久世 関連会社"
+  },
+  {
+   "relation_id": "R0076182",
+   "stratum": "edinet/capital",
+   "source": "毎日コムネット",
+   "target": "(株)ワークス・ジャパン",
+   "relation_type": "parent_subsidiary",
+   "ratio": 0.87,
+   "evidence": [
+    {
+     "source": "edinet",
+     "as_of": "2025-05-31"
+    }
+   ],
+   "verdict": "correct",
+   "note": "関係会社の状況（S100WKTA、2025-05-31）連結子会社・議決権所有 87.0% と一致"
+  },
+  {
+   "relation_id": "R0017138",
+   "stratum": "edinet/capital",
+   "source": "三好 稔美",
+   "target": "ファンペップ",
+   "relation_type": "ownership",
+   "ratio": 0.0277,
+   "evidence": [
+    {
+     "source": "edinet",
+     "as_of": "2025-12-31"
+    }
+   ],
+   "verdict": "correct",
+   "note": "大株主（個人）2.77%"
+  },
+  {
+   "relation_id": "R0066401",
+   "stratum": "edinet/capital",
+   "source": "ＣＣＩグループ",
+   "target": "株式会社ハニー ビースポーツ",
+   "relation_type": "parent_subsidiary",
+   "ratio": 1.0,
+   "evidence": [
+    {
+     "source": "edinet",
+     "as_of": "2026-03-31"
+    }
+   ],
+   "verdict": "correct",
+   "note": "関係会社の状況（S100YAOX、2026-03-31）連結子会社・議決権所有 100.00%（間接 100.00）と一致"
+  },
+  {
+   "relation_id": "R0036387",
+   "stratum": "edinet/transaction",
+   "source": "ＳＤＳホールディングス",
+   "target": "株式会社東セン貿",
+   "relation_type": "major_customer",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "edinet",
+     "as_of": "2025-03-31"
+    }
+   ],
+   "verdict": "correct",
+   "note": "主要な顧客 103,268千円"
+  },
+  {
+   "relation_id": "R0054473",
+   "stratum": "edinet/transaction",
+   "source": "メタルアート",
+   "target": "ダイハツ工業",
+   "relation_type": "major_customer",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "edinet",
+     "as_of": "2025-03-31"
+    }
+   ],
+   "verdict": "correct",
+   "note": "主要な顧客 11,881百万円"
+  },
+  {
+   "relation_id": "R0035884",
+   "stratum": "edinet/transaction",
+   "source": "ホーブ",
+   "target": "トーワ物産株式会社",
+   "relation_type": "major_customer",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "edinet",
+     "as_of": "2025-06-30"
+    }
+   ],
+   "verdict": "correct",
+   "note": "主要な顧客 336,444千円"
+  },
+  {
+   "relation_id": "R0050893",
+   "stratum": "edinet/transaction",
+   "source": "ミラティブ",
+   "target": "Google LLC",
+   "relation_type": "major_customer",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "edinet",
+     "as_of": "2025-12-31"
+    }
+   ],
+   "verdict": "correct",
+   "note": "主要な顧客 1,017,344千円"
+  },
+  {
+   "relation_id": "R0069314",
+   "stratum": "edinet/transaction",
+   "source": "旭化学工業",
+   "target": "マキタ",
+   "relation_type": "major_customer",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "edinet",
+     "as_of": "2025-08-31"
+    }
+   ],
+   "verdict": "correct",
+   "note": "主要な顧客 954,497千円（上場のマキタへ名寄せ）"
+  },
+  {
+   "relation_id": "R0061816",
+   "stratum": "edinet/transaction",
+   "source": "名古屋電機工業",
+   "target": "東日本高速道路株式会社",
+   "relation_type": "major_customer",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "edinet",
+     "as_of": "2025-03-31"
+    }
+   ],
+   "verdict": "correct",
+   "note": "主要な顧客 2,109,068千円"
+  },
+  {
+   "relation_id": "R0013254",
+   "stratum": "ir_disclosure/alliance",
+   "source": "ネスレ日本株式会社",
+   "target": "キッコーマン",
+   "relation_type": "business_alliance",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-06-05"
+    }
+   ],
+   "verdict": "correct",
+   "note": "連携した海上輸送"
+  },
+  {
+   "relation_id": "R0068223",
+   "stratum": "ir_disclosure/alliance",
+   "source": "日本精密",
+   "target": "クロスフォー",
+   "relation_type": "business_alliance",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": "2019-11-08"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2019-11-05"
+    }
+   ],
+   "verdict": "correct",
+   "note": "業務提携の発表"
+  },
+  {
+   "relation_id": "R0005050",
+   "stratum": "ir_disclosure/alliance",
+   "source": "Old City Association社",
+   "target": "マツモト",
+   "relation_type": "business_alliance",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": "2024-07-19"
+    }
+   ],
+   "verdict": "correct",
+   "note": "基本合意書（MOU）。deal_status=agreed"
+  },
+  {
+   "relation_id": "R0004085",
+   "stratum": "ir_disclosure/alliance",
+   "source": "MINIEYE TECHNOLOGY CO.,LTD.",
+   "target": "イクヨ",
+   "relation_type": "business_alliance",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-02-17"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-02-17"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-02-17"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-02-17"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-02-17"
+    }
+   ],
+   "verdict": "correct",
+   "note": "業務提携の検討に関する基本合意書。agreed 段階"
+  },
+  {
+   "relation_id": "R0008188",
+   "stratum": "ir_disclosure/alliance",
+   "source": "VI-grade社",
+   "target": "ＳＯＬＩＺＥ　Ｈｏｌｄｉｎｇｓ",
+   "relation_type": "business_alliance",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": null
+    }
+   ],
+   "verdict": "correct",
+   "note": "協業開始の記述あり"
+  },
+  {
+   "relation_id": "R0010111",
+   "stratum": "ir_disclosure/alliance",
+   "source": "株式会社イヤサカ",
+   "target": "シイエム・シイ",
+   "relation_type": "business_alliance",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": "2021-06-22"
+    }
+   ],
+   "verdict": "correct",
+   "note": "業務提携基本契約書（2021-06-22）"
+  },
+  {
+   "relation_id": "R0080121",
+   "stratum": "ir_disclosure/capital",
+   "source": "テレビ東京ホールディングス",
+   "target": "Minto",
+   "relation_type": "ownership",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-02-12"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-02-12"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-02-12"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-02-12"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-02-12"
+    }
+   ],
+   "verdict": "correct",
+   "note": "戦略的出資"
+  },
+  {
+   "relation_id": "R0053681",
+   "stratum": "ir_disclosure/capital",
+   "source": "マイポックス",
+   "target": "thomas 株式会社",
+   "relation_type": "ownership",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": "2024-10-01"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2024-10-01"
+    }
+   ],
+   "verdict": "correct",
+   "note": "出資"
+  },
+  {
+   "relation_id": "R0042267",
+   "stratum": "ir_disclosure/capital",
+   "source": "Ｊ．フロント　リテイリング",
+   "target": "TableCheck",
+   "relation_type": "ownership",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-04-17"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-04-17"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-04-17"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-04-17"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-04-17"
+    }
+   ],
+   "verdict": "correct",
+   "note": "CVC の出資（引用付与の問題あり）"
+  },
+  {
+   "relation_id": "R0015866",
+   "stratum": "ir_disclosure/capital",
+   "source": "株式会社レノ",
+   "target": "養命酒製造",
+   "relation_type": "ownership",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-04-09"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-04-09"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-04-09"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-04-09"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-04-09"
+    }
+   ],
+   "verdict": "correct",
+   "note": "レノによる公開買付け（相手が主体）"
+  },
+  {
+   "relation_id": "R0057168",
+   "stratum": "ir_disclosure/capital",
+   "source": "リケンＮＰＲ",
+   "target": "Hastings Holding Corp.",
+   "relation_type": "ownership",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-04-13"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-04-13"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-04-13"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-04-13"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-04-13"
+    }
+   ],
+   "verdict": "correct",
+   "note": "子会社 RCA 経由の Hastings 株式取得（修正後は正しい相手が確定に残る）"
+  },
+  {
+   "relation_id": "R0053683",
+   "stratum": "ir_disclosure/capital",
+   "source": "マイポックス",
+   "target": "ミスミ化学株式会社",
+   "relation_type": "ownership",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": "2022-06-15"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2022-06-15"
+    }
+   ],
+   "verdict": "correct",
+   "note": "株式取得（子会社化）"
+  },
+  {
+   "relation_id": "R0067540",
+   "stratum": "ir_disclosure/group",
+   "source": "島津製作所",
+   "target": "Plasmion GmbH",
+   "relation_type": "merger_acquisition",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-04-23"
+    }
+   ],
+   "verdict": "correct",
+   "note": "発行済株式の75%を取得し子会社化"
+  },
+  {
+   "relation_id": "R0039126",
+   "stratum": "ir_disclosure/group",
+   "source": "ｆｏｎｆｕｎ",
+   "target": "インバウンドテクノロジー株式会社",
+   "relation_type": "merger_acquisition",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": null
+    }
+   ],
+   "verdict": "correct",
+   "note": "事業譲受（M&A実績ページ）"
+  },
+  {
+   "relation_id": "R0039130",
+   "stratum": "ir_disclosure/group",
+   "source": "ｆｏｎｆｕｎ",
+   "target": "株式会社ゼロワン",
+   "relation_type": "merger_acquisition",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": null
+    }
+   ],
+   "verdict": "correct",
+   "note": "事業譲受（M&A実績ページ）"
+  },
+  {
+   "relation_id": "R0053135",
+   "stratum": "ir_disclosure/group",
+   "source": "太平洋セメント",
+   "target": "米Vulcan社",
+   "relation_type": "merger_acquisition",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-06-08"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-06-08"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-06-08"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-06-08"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-06-08"
+    }
+   ],
+   "verdict": "correct",
+   "note": "資産等の買収完了（会社ではなく事業用資産。タイプは merger_acquisition のまま）"
+  },
+  {
+   "relation_id": "R0070260",
+   "stratum": "ir_disclosure/group",
+   "source": "丸紅",
+   "target": "TiAuto Investments Pty Ltd",
+   "relation_type": "merger_acquisition",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "official_release",
+     "as_of": "2026-06-10"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-06-10"
+    }
+   ],
+   "verdict": "correct",
+   "note": "公式公表で確認済み（agreed）"
+  },
+  {
+   "relation_id": "R0049449",
+   "stratum": "ir_disclosure/group",
+   "source": "塩野義製薬",
+   "target": "田辺ファーマ",
+   "relation_type": "merger_acquisition",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": null
+    }
+   ],
+   "verdict": "correct",
+   "note": "田辺ファーマからのエダラボン事業の買収"
+  },
+  {
+   "relation_id": "R0058724",
+   "stratum": "ir_disclosure/transaction",
+   "source": "高見沢サイバネティックス",
+   "target": "警察庁",
+   "relation_type": "major_customer",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-04-01"
+    }
+   ],
+   "verdict": "correct",
+   "note": "納入。相手は官公庁"
+  },
+  {
+   "relation_id": "R0046534",
+   "stratum": "ir_disclosure/transaction",
+   "source": "レゾナック・ホールディングス",
+   "target": "ローム",
+   "relation_type": "major_customer",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": "2021-09-13"
+    }
+   ],
+   "verdict": "correct",
+   "note": "長期供給契約（2021）"
+  },
+  {
+   "relation_id": "R0036518",
+   "stratum": "ir_disclosure/transaction",
+   "source": "ハンモック",
+   "target": "(株)京王百貨店",
+   "relation_type": "major_customer",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": null
+    }
+   ],
+   "verdict": "correct",
+   "note": "主要取引先の掲載"
+  },
+  {
+   "relation_id": "R0036519",
+   "stratum": "ir_disclosure/transaction",
+   "source": "ハンモック",
+   "target": "奥村組",
+   "relation_type": "major_customer",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": null
+    }
+   ],
+   "verdict": "correct",
+   "note": "主要取引先の掲載"
+  },
+  {
+   "relation_id": "R0036116",
+   "stratum": "ir_disclosure/transaction",
+   "source": "グリーンエナジー＆カンパニー",
+   "target": "日本郵便",
+   "relation_type": "major_customer",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-05-26"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-05-26"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-05-26"
+    },
+    {
+     "source": "ir_disclosure",
+     "as_of": "2026-05-26"
+    }
+   ],
+   "verdict": "correct",
+   "note": "受注および完工"
+  },
+  {
+   "relation_id": "R0036517",
+   "stratum": "ir_disclosure/transaction",
+   "source": "ハンモック",
+   "target": "(株)不二家システムセンター",
+   "relation_type": "major_customer",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "ir_disclosure",
+     "as_of": null
+    }
+   ],
+   "verdict": "correct",
+   "note": "主要取引先の掲載"
+  },
+  {
+   "relation_id": "R0061515",
+   "stratum": "official_release/capital",
+   "source": "ソニーグループ",
+   "target": "ソニーフィナンシャルグループ",
+   "relation_type": "affiliate",
+   "ratio": 0.164,
+   "evidence": [
+    {
+     "source": "official_release",
+     "as_of": "2025-10-01"
+    }
+   ],
+   "verdict": "correct",
+   "note": "原本確認済みの訂正（16.40%・2025-10-01）"
+  },
+  {
+   "relation_id": "R0061480",
+   "stratum": "wikidata/capital",
+   "source": "ソニーグループ",
+   "target": "ソニー・ミュージック・インディア",
+   "relation_type": "ownership",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "wikidata",
+     "as_of": null
+    }
+   ],
+   "verdict": "correct",
+   "note": "Wikidata P1830"
+  },
+  {
+   "relation_id": "R0055083",
+   "stratum": "wikidata/capital",
+   "source": "ちゅうぎんフィナンシャルグループ",
+   "target": "中国銀行",
+   "relation_type": "ownership",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "wikidata",
+     "as_of": null
+    }
+   ],
+   "verdict": "correct",
+   "note": "Wikidata P1830。持株会社と銀行"
+  },
+  {
+   "relation_id": "R0068018",
+   "stratum": "wikidata/capital",
+   "source": "キヤノン",
+   "target": "Canon Computer Systems",
+   "relation_type": "parent_subsidiary",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "wikidata",
+     "as_of": null
+    }
+   ],
+   "verdict": "correct_stale",
+   "note": "Wikidata P355。現存しない可能性のある子会社で時点不明"
+  },
+  {
+   "relation_id": "R0068333",
+   "stratum": "wikidata/capital",
+   "source": "ブシロード",
+   "target": "新日本プロレス",
+   "relation_type": "parent_subsidiary",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "wikidata",
+     "as_of": null
+    }
+   ],
+   "verdict": "correct",
+   "note": "Wikidata P355"
+  },
+  {
+   "relation_id": "R0065541",
+   "stratum": "wikidata/capital",
+   "source": "本田技研工業",
+   "target": "ホンダマニュファクチャリングUK",
+   "relation_type": "parent_subsidiary",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "wikidata",
+     "as_of": null
+    }
+   ],
+   "verdict": "correct_stale",
+   "note": "Wikidata P355。2021年に生産終了した拠点で時点不明"
+  },
+  {
+   "relation_id": "R0063203",
+   "stratum": "wikidata/capital",
+   "source": "京セラ",
+   "target": "Kyocera (United States)",
+   "relation_type": "parent_subsidiary",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "wikidata",
+     "as_of": null
+    }
+   ],
+   "verdict": "correct",
+   "note": "Wikidata P355"
+  },
+  {
+   "relation_id": "R0039198",
+   "stratum": "wikidata/group",
+   "source": "東北新社",
+   "target": "東北新社グループ",
+   "relation_type": "corporate_group",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "wikidata",
+     "as_of": null
+    }
+   ],
+   "verdict": "correct",
+   "note": "Wikidata P463"
+  },
+  {
+   "relation_id": "R0043185",
+   "stratum": "wikidata/group",
+   "source": "ユナイテッド・スーパーマーケット・ホールディングス",
+   "target": "イオングループ",
+   "relation_type": "corporate_group",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "wikidata",
+     "as_of": null
+    }
+   ],
+   "verdict": "correct",
+   "note": "Wikidata P463"
+  },
+  {
+   "relation_id": "R0077318",
+   "stratum": "wikidata/group",
+   "source": "名古屋鉄道",
+   "target": "名鉄グループ",
+   "relation_type": "corporate_group",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "wikidata",
+     "as_of": null
+    }
+   ],
+   "verdict": "correct",
+   "note": "Wikidata P463"
+  },
+  {
+   "relation_id": "R0077029",
+   "stratum": "wikidata/group",
+   "source": "西日本鉄道",
+   "target": "西鉄グループ",
+   "relation_type": "corporate_group",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "wikidata",
+     "as_of": null
+    }
+   ],
+   "verdict": "correct",
+   "note": "Wikidata P463"
+  },
+  {
+   "relation_id": "R0044862",
+   "stratum": "wikidata/group",
+   "source": "ＧＭＯペパボ",
+   "target": "ＧＭＯインターネットグループ",
+   "relation_type": "corporate_group",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "wikidata",
+     "as_of": null
+    }
+   ],
+   "verdict": "correct",
+   "note": "Wikidata P463"
+  },
+  {
+   "relation_id": "R0079046",
+   "stratum": "wikidata/group",
+   "source": "ＡＮＡホールディングス",
+   "target": "ANAグループ",
+   "relation_type": "corporate_group",
+   "ratio": null,
+   "evidence": [
+    {
+     "source": "wikidata",
+     "as_of": null
+    }
+   ],
+   "verdict": "correct",
+   "note": "Wikidata P463"
+  }
+ ],
+ "summary": {
+  "total": 49,
+  "by_verdict": {
+   "correct": 46,
+   "correct_stale": 3
+  },
+  "by_source": {
+   "edinet": {
+    "correct": 11,
+    "correct_stale": 1
+   },
+   "ir_disclosure": {
+    "correct": 24
+   },
+   "official_release": {
+    "correct": 1
+   },
+   "wikidata": {
+    "correct": 10,
+    "correct_stale": 2
+   }
+  },
+  "method": "出所×カテゴリで層化した無作為抽出（seed 20260909、各層最大6件、確定関係のみ）。EDINET は取得済み原本表の該当行、IR は根拠文と公表URL、Wikidata は項目を参照して人手で判定。correct_stale は抽出は正しいが時点が古い／不明。",
+  "caveat": "層ごとの件数が小さく、全体の正解率の点推定は参考値。監査中に見つけた誤りの型（第三者の出来事、合併の方向、自社子会社の主体、第三者割当の引受側）は検証器に反映済みで、該当関係は再生成後に要確認へ移っている。"
+ }
+}

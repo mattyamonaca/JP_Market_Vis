@@ -630,6 +630,24 @@
     "direction": "out",
     "type": "major_customer"
    }
+  },
+  {
+   "id": "transfer_to_counterparty_in",
+   "row": {
+    "filer_sec_code": "8086",
+    "counterparty_name": "三笠製薬株式会社",
+    "relation_type": "merger_acquisition",
+    "date": "2026-01-21",
+    "evidence_quote": "ニプロファーマ株式会社埼玉第2工場および羽生工場の三笠製薬株式会社への譲渡に関する基本合意書締結のお知らせ",
+    "filer_names": [
+     "ニプロ"
+    ]
+   },
+   "expected": {
+    "status": "confirmed",
+    "direction": "in",
+    "type": "merger_acquisition"
+   }
   }
  ]
 }

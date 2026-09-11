@@ -35,7 +35,10 @@ const REASON_JA = {
   'ir:tech_basis_only': 'ベース技術・準拠の記述のみ（供与の明示なし）',
   'ir:noise_context': '注記・商標・受賞・イベント等の文脈',
   'ir:third_party_statement': '提出会社が当事者でない記述',
-  'ir:direction_unclear': 'どちらが主体か不明',
+  'ir:direction_unclear': 'どちらが主体か不明（対等な合併・統合など）',
+  'ir:counterparty_is_own_subsidiary': '相手が提出会社自身の子会社として記述されている',
+  wikidata_parent_below_control: 'Wikidata の親組織だが、有報では支配関係ではない',
+  insufficient_evidence: '原本確認の結果、根拠不足',
 };
 const reasonLabel = (r) => REASON_JA[r] ?? (r.startsWith('ir:cue_for_other_type:') ? `根拠は別タイプ（${RELATION_TYPES[r.split(':')[2]]?.ja ?? r.split(':')[2]}）を示す` : r);
 
