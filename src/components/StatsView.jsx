@@ -7,24 +7,19 @@ import {
   RELATION_TYPES,
   SEGMENT_JA,
   STATS,
+  STATUS_COLORS,
   STATUS_JA,
+  TIER_COLORS,
   TIER_JA,
 } from '../data/graph.js';
 
-function Card({ label, value, sub, accent = '#38bdf8' }) {
+// 白基調（Issue #23）: 数値は本文色で統一し、色はバーとカテゴリの識別にだけ使う
+function Card({ label, value, sub }) {
   return (
-    <div
-      style={{
-        background: '#1e293b',
-        borderRadius: 12,
-        padding: '16px 20px',
-        minWidth: 170,
-        border: '1px solid #334155',
-      }}
-    >
-      <div style={{ fontSize: 12, color: '#94a3b8', marginBottom: 6 }}>{label}</div>
-      <div style={{ fontSize: 26, fontWeight: 700, color: accent }}>{value.toLocaleString()}</div>
-      {sub && <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 4 }}>{sub}</div>}
+    <div className="card" style={{ padding: '14px 18px', minWidth: 170 }}>
+      <div style={{ fontSize: 12, color: 'var(--text-2)', marginBottom: 6 }}>{label}</div>
+      <div style={{ fontSize: 26, fontWeight: 600, color: 'var(--text)', fontVariantNumeric: 'tabular-nums' }}>{value.toLocaleString()}</div>
+      {sub && <div style={{ fontSize: 12, color: 'var(--text-2)', marginTop: 4 }}>{sub}</div>}
     </div>
   );
 }
@@ -32,17 +27,17 @@ function Card({ label, value, sub, accent = '#38bdf8' }) {
 function BarList({ title, items, colorOf, labelOf }) {
   const max = Math.max(...items.map(([, v]) => v), 1);
   return (
-    <div style={{ background: '#1e293b', borderRadius: 12, padding: 18, border: '1px solid #334155' }}>
-      <div style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9', marginBottom: 12 }}>{title}</div>
+    <div className="card" style={{ padding: 18 }}>
+      <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--text)', marginBottom: 12 }}>{title}</div>
       {items.map(([key, value]) => {
         const color = colorOf(key);
         return (
           <div key={key} style={{ marginBottom: 9 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 3 }}>
-              <span style={{ color: '#cbd5e1' }}>{labelOf(key)}</span>
-              <span style={{ color }}>{value.toLocaleString()}</span>
+              <span style={{ color: 'var(--text-2)' }}>{labelOf(key)}</span>
+              <span style={{ color: 'var(--text)', fontVariantNumeric: 'tabular-nums' }}>{value.toLocaleString()}</span>
             </div>
-            <div style={{ height: 6, background: '#0f172a', borderRadius: 3 }}>
+            <div style={{ height: 6, background: 'var(--surface-2)', borderRadius: 3 }}>
               <div
                 style={{
                   height: '100%',
@@ -69,15 +64,14 @@ export default function StatsView({ onSelectCompany }) {
   return (
     <div style={{ flex: 1, minHeight: 0, overflowY: 'auto', padding: 20 }}>
       <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 20 }}>
-        <Card label="収録上場企業" value={STATS.companies} sub="東証内国株式" accent="#facc15" />
+        <Card label="収録上場企業" value={STATS.companies} sub="東証内国株式" />
         <Card label="確定関係" value={STATS.relations} sub={`うち上場間 ${STATS.listedToListed.toLocaleString()} 件 · 要確認・過去を除く`} />
-        <Card label="要確認の関係" value={STATS.byStatus.needs_review ?? 0} sub="出所から関係タイプ・方向を確定できない" accent="#facc15" />
-        <Card label="非上場エンティティ" value={STATS.entities} sub="子会社・グループ等" accent="#94a3b8" />
+        <Card label="要確認の関係" value={STATS.byStatus.needs_review ?? 0} sub="出所から関係タイプ・方向を確定できない" />
+        <Card label="非上場エンティティ" value={STATS.entities} sub="子会社・グループ等" />
         <Card
           label="関係を持つ上場企業"
           value={STATS.companiesWithEdges}
           sub={`カバレッジ ${((STATS.companiesWithEdges / STATS.companies) * 100).toFixed(1)}%`}
-          accent="#4ade80"
         />
       </div>
 
@@ -104,42 +98,32 @@ export default function StatsView({ onSelectCompany }) {
         <BarList
           title="エビデンス出所（確定関係）"
           items={sourceItems}
-          colorOf={() => '#38bdf8'}
+          colorOf={() => '#0ea5e9'}
           labelOf={(k) => ({ wikidata: 'Wikidata', edinet: 'EDINET 有報', ir_disclosure: '企業IR（LLM抽出）', official_release: '公式開示（原本確認）' }[k] ?? k)}
         />
         <BarList
           title="出所の種別（抽出の正しさとは別）"
           items={tierItems}
-          colorOf={(k) => ({ primary: '#7dd3fc', secondary: '#c4b5fd', llm_extraction: '#fdba74' }[k] ?? '#64748b')}
+          colorOf={(k) => TIER_COLORS[k] ?? '#64748b'}
           labelOf={(k) => TIER_JA[k] ?? k}
         />
         <BarList
           title="関係の状態（全関係）"
           items={statusItems}
-          colorOf={(k) => ({ confirmed: '#4ade80', needs_review: '#facc15', historical: '#94a3b8' }[k] ?? '#64748b')}
+          colorOf={(k) => STATUS_COLORS[k] ?? '#64748b'}
           labelOf={(k) => STATUS_JA[k] ?? k}
         />
       </div>
 
-      <div style={{ background: '#1e293b', borderRadius: 12, padding: 18, border: '1px solid #334155', marginBottom: 20 }}>
-        <div style={{ fontSize: 14, fontWeight: 700, color: '#f1f5f9', marginBottom: 12 }}>
+      <div className="card" style={{ padding: 18, marginBottom: 20 }}>
+        <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--text)', marginBottom: 12 }}>
           ハブ企業ランキング（関係数 上位20社）
         </div>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
+        <table className="data-table">
           <thead>
             <tr>
               {['#', '企業名', 'コード', '市場', '17業種', '関係数'].map((h) => (
-                <th
-                  key={h}
-                  style={{
-                    textAlign: 'left',
-                    padding: '6px 10px',
-                    color: '#94a3b8',
-                    borderBottom: '1px solid #334155',
-                  }}
-                >
-                  {h}
-                </th>
+                <th key={h}>{h}</th>
               ))}
             </tr>
           </thead>
@@ -153,25 +137,19 @@ export default function StatsView({ onSelectCompany }) {
                 style={{ cursor: 'pointer' }}
                 title="クリックで関係グラフを表示"
               >
-                <td style={{ padding: '6px 10px', color: '#94a3b8', borderBottom: '1px solid #0f172a' }}>{i + 1}</td>
-                <td style={{ padding: '6px 10px', color: '#38bdf8', borderBottom: '1px solid #0f172a' }}>
-                  {company.name}
-                </td>
-                <td style={{ padding: '6px 10px', color: '#cbd5e1', borderBottom: '1px solid #0f172a' }}>{code}</td>
-                <td style={{ padding: '6px 10px', color: '#cbd5e1', borderBottom: '1px solid #0f172a' }}>
-                  {SEGMENT_JA[company.market_segment]}
-                </td>
-                <td style={{ padding: '6px 10px', color: '#cbd5e1', borderBottom: '1px solid #0f172a' }}>
-                  {company.industry_17}
-                </td>
-                <td style={{ padding: '6px 10px', color: '#facc15', borderBottom: '1px solid #0f172a' }}>{degree}</td>
+                <td style={{ color: 'var(--text-2)' }}>{i + 1}</td>
+                <td style={{ color: 'var(--accent)', fontWeight: 600 }}>{company.name}</td>
+                <td style={{ color: 'var(--text-2)' }}>{code}</td>
+                <td style={{ color: 'var(--text-2)' }}>{SEGMENT_JA[company.market_segment]}</td>
+                <td style={{ color: 'var(--text-2)' }}>{company.industry_17}</td>
+                <td style={{ fontVariantNumeric: 'tabular-nums' }}>{degree}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      <div className="data-notes" style={{ fontSize: 14, color: '#94a3b8', paddingBottom: 16 }}>
+      <div className="data-notes" style={{ fontSize: 14, color: 'var(--text-2)', paddingBottom: 16 }}>
         <h2>このデータについて</h2>
         <p>生成日 {META.generatedAt}。東証プライム・スタンダード・グロースの内国株式を対象にした収録データです。地方単独上場・ETF・REIT等は対象外です。</p>
         <p>全体マップは上場企業同士の関係のみを表示します。個別グラフと関係一覧には非上場の関係先も含みます。円の大きさは収録関係数で、株価や時価総額ではありません。位置・距離に地理的な意味はありません。</p>

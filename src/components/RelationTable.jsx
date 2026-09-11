@@ -1,29 +1,27 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import {
-  CATEGORY_COLORS,
+  CATEGORY_TEXT_COLORS,
   CATEGORY_JA,
   COMPANIES,
   RELATIONS,
   RELATION_TYPES,
+  STATUS_COLORS,
   STATUS_JA,
   nodeName,
   relationStatus,
 } from '../data/graph.js';
 import { filterRelations } from '../data/relationFilter.js';
-
-const STATUS_COLOR = { confirmed: '#4ade80', needs_review: '#facc15', historical: '#94a3b8' };
 import { RelationDetail } from './DetailPanel.jsx';
 
 const MAX_ROWS = 300;
 
 const selectStyle = {
   padding: '7px 10px',
-  borderRadius: 8,
-  border: '1px solid #334155',
-  background: '#1e293b',
-  color: '#f1f5f9',
-  fontSize: 12,
-  outline: 'none',
+  borderRadius: 6,
+  border: '1px solid var(--border-strong)',
+  background: 'var(--bg)',
+  color: 'var(--text)',
+  fontSize: 13,
 };
 
 
@@ -100,92 +98,66 @@ export default function RelationTable({ request = null }) {
             style={{ ...selectStyle, width: 220 }}
           />
           {companyCode && (
-            <span className="company-filter-chip" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 12, padding: '4px 8px', borderRadius: 999, border: '1px solid #38bdf8', color: '#7dd3fc' }}>
+            <span className="company-filter-chip" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 12, padding: '4px 8px', borderRadius: 999, border: '1px solid var(--accent)', color: 'var(--accent)', background: 'var(--accent-bg)' }}>
               企業: {COMPANIES[companyCode]?.name ?? companyCode}（{companyCode}）
-              <button type="button" aria-label="企業の絞り込みを解除" onClick={() => setCompanyCode(null)} style={{ background: 'none', border: 'none', color: '#7dd3fc', cursor: 'pointer', padding: 0, fontSize: 12 }}>✕</button>
+              <button type="button" aria-label="企業の絞り込みを解除" onClick={() => setCompanyCode(null)} style={{ background: 'none', border: 'none', color: 'var(--accent)', cursor: 'pointer', padding: 0, fontSize: 12 }}>✕</button>
             </span>
           )}
-          <span style={{ fontSize: 12, color: '#94a3b8' }}>
+          <span style={{ fontSize: 12, color: 'var(--text-2)' }}>
             {filtered.length.toLocaleString()} 件
           </span>
         </div>
         <div style={{ flex: 1, overflowY: 'auto', padding: '0 14px 14px' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
+          <table className="data-table">
             <thead>
-              <tr style={{ position: 'sticky', top: 0, background: '#0f172a', zIndex: 1 }}>
+              <tr style={{ position: 'sticky', top: 0, background: 'var(--bg)', zIndex: 1 }}>
                 {['ID', 'From（source）', '関係タイプ', 'To（target）', '比率', '状態', '出所'].map((h) => (
-                  <th
-                    key={h}
-                    style={{
-                      textAlign: 'left',
-                      padding: '8px 10px',
-                      color: '#94a3b8',
-                      borderBottom: '1px solid #334155',
-                      fontWeight: 600,
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    {h}
-                  </th>
+                  <th key={h}>{h}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {filtered.slice(page * MAX_ROWS, (page + 1) * MAX_ROWS).map((rel) => {
-                const color = CATEGORY_COLORS[rel.category];
+                const color = CATEGORY_TEXT_COLORS[rel.category] ?? 'var(--text-2)';
                 const ratio = rel.attributes?.ownership_ratio ?? rel.attributes?.sales_ratio;
                 const isSel = selected?.relation_id === rel.relation_id;
                 return (
                   <tr
                     key={rel.relation_id}
+                    className={isSel ? 'selected' : undefined}
                     tabIndex={0}
                     onKeyDown={(e) => { if (e.key === 'Enter') setSelected(isSel ? null : rel); }}
                     onClick={() => setSelected(isSel ? null : rel)}
-                    style={{
-                      cursor: 'pointer',
-                      background: isSel ? 'rgba(250, 204, 21, 0.08)' : 'transparent',
-                    }}
                   >
-                    <td style={{ padding: '7px 10px', color: '#94a3b8', borderBottom: '1px solid #1e293b' }}>
-                      {rel.relation_id}
-                    </td>
-                    <td style={{ padding: '7px 10px', color: '#f1f5f9', borderBottom: '1px solid #1e293b' }}>
+                    <td style={{ color: 'var(--text-2)' }}>{rel.relation_id}</td>
+                    <td>
                       {nodeName(rel.source)}
                       {rel.source.type === 'listed' && (
-                        <span style={{ color: '#94a3b8', marginLeft: 4 }}>({rel.source.key})</span>
+                        <span style={{ color: 'var(--text-2)', marginLeft: 4 }}>({rel.source.key})</span>
                       )}
                     </td>
-                    <td style={{ padding: '7px 10px', borderBottom: '1px solid #1e293b', whiteSpace: 'nowrap' }}>
-                      <span
-                        style={{
-                          padding: '2px 8px',
-                          borderRadius: 999,
-                          fontSize: 12,
-                          background: `${color}22`,
-                          border: `1px solid ${color}`,
-                          color,
-                        }}
-                      >
+                    <td style={{ whiteSpace: 'nowrap' }}>
+                      <span className="pill" style={{ background: `${color}14`, color, fontWeight: 500 }}>
                         {RELATION_TYPES[rel.relation_type]?.ja ?? rel.relation_type}
                         {rel.directed ? ' →' : ' ↔'}
                       </span>
                     </td>
-                    <td style={{ padding: '7px 10px', color: '#f1f5f9', borderBottom: '1px solid #1e293b' }}>
+                    <td>
                       {nodeName(rel.target)}
                       {rel.target.type === 'listed' && (
-                        <span style={{ color: '#94a3b8', marginLeft: 4 }}>({rel.target.key})</span>
+                        <span style={{ color: 'var(--text-2)', marginLeft: 4 }}>({rel.target.key})</span>
                       )}
                     </td>
-                    <td style={{ padding: '7px 10px', color: '#cbd5e1', borderBottom: '1px solid #1e293b' }}>
+                    <td style={{ color: 'var(--text-2)' }}>
                       {ratio != null ? `${(ratio * 100).toFixed(1)}%` : '—'}
                     </td>
-                    <td style={{ padding: '7px 10px', borderBottom: '1px solid #1e293b', whiteSpace: 'nowrap' }}>
-                      <span style={{ color: STATUS_COLOR[relationStatus(rel)] ?? '#94a3b8' }}>{STATUS_JA[relationStatus(rel)] ?? relationStatus(rel)}</span>
-                      {rel.verification?.status === 'verified' && <span title="原本で検証済み" style={{ color: '#4ade80', marginLeft: 4 }}>✓</span>}
+                    <td style={{ whiteSpace: 'nowrap' }}>
+                      <span style={{ color: STATUS_COLORS[relationStatus(rel)] ?? 'var(--text-2)', fontWeight: 600 }}>{STATUS_JA[relationStatus(rel)] ?? relationStatus(rel)}</span>
+                      {rel.verification?.status === 'verified' && <span title="原本で検証済み" style={{ color: 'var(--status-confirmed)', marginLeft: 4 }}>✓</span>}
                     </td>
-                    <td style={{ padding: '7px 10px', color: '#94a3b8', borderBottom: '1px solid #1e293b' }}>
+                    <td style={{ color: 'var(--text-2)' }}>
                       {[...new Set(rel.evidence.map((e) => e.source))].join(', ')}
-                      {rel.evidence.some((e) => e.as_of) && <span style={{ marginLeft: 4, color: '#a8b7cb' }}>{rel.evidence.map((e) => e.as_of).filter(Boolean).sort().at(-1)}</span>}
+                      {rel.evidence.some((e) => e.as_of) && <span style={{ marginLeft: 4 }}>{rel.evidence.map((e) => e.as_of).filter(Boolean).sort().at(-1)}</span>}
                     </td>
                   </tr>
                 );
@@ -207,15 +179,14 @@ export default function RelationTable({ request = null }) {
             width: 320,
             minWidth: 320,
             overflowY: 'auto',
-            borderLeft: '1px solid #1e293b',
+            borderLeft: '1px solid var(--border)',
             padding: 16,
-            background: 'rgba(15, 23, 42, 0.97)',
           }}
         >
           <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 8 }}>
             <button
               onClick={() => setSelected(null)}
-              style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', fontSize: 14 }}
+              style={{ background: 'none', border: 'none', color: 'var(--text-2)', cursor: 'pointer', fontSize: 14 }}
             >
               ✕ 閉じる
             </button>

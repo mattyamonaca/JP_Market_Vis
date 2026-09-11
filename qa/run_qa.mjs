@@ -4,6 +4,7 @@
 //   npm i -D --no-save playwright && node qa/run_qa.mjs [http://localhost:5184/JP_Market_Vis/]
 // 終了コード: 全項目合格で 0、不合格が 1 件でもあれば 1（CI や後続コマンドが合否を判定できる）。
 // QA_SELFTEST_FAIL=1 を付けると意図的な不合格を 1 件記録し、出力先を qa/results/<日付>-selftest/ にする（終了コードの確認用）。
+// QA_LABEL=issue-23 のように付けると出力先が qa/results/<日付>-issue-23/ になる（同日に複数の PR で実行するとき）。
 import { chromium } from 'playwright';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { execSync } from 'node:child_process';
@@ -11,7 +12,7 @@ import { execSync } from 'node:child_process';
 const url = process.argv[2] || 'http://localhost:5184/JP_Market_Vis/';
 const date = new Date().toISOString().slice(0, 10);
 const selftestFail = process.env.QA_SELFTEST_FAIL === '1';
-const outDir = `qa/results/${date}${selftestFail ? '-selftest' : ''}`;
+const outDir = `qa/results/${date}${process.env.QA_LABEL ? `-${process.env.QA_LABEL}` : ''}${selftestFail ? '-selftest' : ''}`;
 mkdirSync(outDir, { recursive: true });
 const commit = execSync('git rev-parse HEAD').toString().trim();
 const results = [];
@@ -37,6 +38,43 @@ const tab = (page, name) => page.getByRole('button', { name, exact: true });
 const zoomOf = (page) => page.evaluate(() => document.querySelector('.map-canvas canvas')?.getContext('2d').getTransform().a ?? null);
 const drawsPerSec = async (page) => { await page.evaluate(() => { window.__draws = 0; }); await page.waitForTimeout(1000); return page.evaluate(() => window.__draws); };
 const noHScroll = (page) => page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth);
+// 表示中の文字のコントラスト比（WCAG）。文字色と、祖先を遡って最初に見つかる不透明な背景色（半透明は白に合成）で計算する。
+// 通常文字は 4.5:1、24px 以上または 18.66px 以上の太字は 3:1 を基準にし、基準未満の要素を返す（Issue #23 の完了条件）
+const contrastAudit = (page) => page.evaluate(() => {
+  const parse = (c) => { const m = c.match(/rgba?\(([^)]+)\)/); if (!m) return null; const [r, g, b, a = 1] = m[1].split(',').map(Number); return { r, g, b, a }; };
+  const lum = ({ r, g, b }) => { const f = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b); };
+  const over = (top, bottom) => ({ r: top.r * top.a + bottom.r * (1 - top.a), g: top.g * top.a + bottom.g * (1 - top.a), b: top.b * top.a + bottom.b * (1 - top.a), a: 1 });
+  const bgOf = (el) => {
+    let acc = null;
+    for (let e = el; e; e = e.parentElement) {
+      const c = parse(getComputedStyle(e).backgroundColor);
+      if (c && c.a > 0) { acc = acc ? over(acc, c) : c; if (acc.a >= 0.999) return acc; }
+    }
+    return over(acc ?? { r: 255, g: 255, b: 255, a: 0 }, { r: 255, g: 255, b: 255, a: 1 });
+  };
+  const bad = [];
+  let checked = 0;
+  for (const el of document.querySelectorAll('body *')) {
+    if (!el.closest('.view-pane:not(.view-pane-hidden), .app-header, .app-footer, .loading-screen')) continue;
+    const hasText = [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim());
+    if (!hasText) continue;
+    const cs = getComputedStyle(el);
+    const r = el.getBoundingClientRect();
+    if (cs.visibility === 'hidden' || cs.display === 'none' || r.width === 0 || r.height === 0 || Number(cs.opacity) < 0.5) continue;
+    if (el.closest('[disabled], [aria-disabled="true"]')) continue;
+    const fg = parse(cs.color); if (!fg) continue;
+    const bg = bgOf(el);
+    const fgc = fg.a < 1 ? over(fg, bg) : fg;
+    const [l1, l2] = [lum(fgc), lum(bg)].sort((a, b) => b - a);
+    const ratio = (l1 + 0.05) / (l2 + 0.05);
+    const size = parseFloat(cs.fontSize), bold = parseInt(cs.fontWeight, 10) >= 700;
+    const need = size >= 24 || (size >= 18.66 && bold) ? 3 : 4.5;
+    checked++;
+    if (ratio < need) bad.push(`${el.tagName.toLowerCase()}.${[...el.classList].join('.')} "${el.textContent.trim().slice(0, 18)}" ${ratio.toFixed(2)}`);
+  }
+  return { checked, bad };
+});
+const recordContrast = async (page, scenario, label) => { const c = await contrastAudit(page); record(scenario, `文字コントラスト 4.5:1（${label}）`, c.bad.length === 0, `${c.checked} 要素` + (c.bad.length ? ` / 不足: ${c.bad.slice(0, 6).join(' ; ')}` : '')); };
 
 // ---------------------------------------------------------------- PC 1440x900
 {
@@ -57,6 +95,7 @@ const noHScroll = (page) => page.evaluate(() => document.documentElement.scrollW
     return { capTools: inter(cap, tools), capHover: inter(cap, hover) };
   });
   record('PC初回', '見出し・操作部品の重なりなし', !overlap.capTools && !overlap.capHover, JSON.stringify(overlap));
+  await recordContrast(page, '視認性', 'PC 全体マップ');
 
   // 通常移動 → 回転 → 移動
   const box = await page.locator('.map-canvas canvas').boundingBox();
@@ -128,6 +167,7 @@ const noHScroll = (page) => page.evaluate(() => document.documentElement.scrollW
   const detailOpen = await page.locator('.detail-panel').count();
   await page.screenshot({ path: `${outDir}/pc_04_graph_detail.png` });
   record('往復', '関係グラフでエッジを選択して詳細を表示', detailOpen > 0);
+  await recordContrast(page, '視認性', 'PC 関係グラフ＋詳細');
   await tab(page, '全体マップ').click(); await page.waitForTimeout(300);
   record('往復', '全体マップの検索・カテゴリ・件数を復元', (await page.locator('#map-search').inputValue()) === 'トヨタ' && (await page.locator('.map-totals').innerText()) === before);
 
@@ -147,8 +187,13 @@ const noHScroll = (page) => page.evaluate(() => document.documentElement.scrollW
   await page.locator('tbody tr').first().click(); await page.waitForTimeout(1500);
   record('一覧', '詳細を開く', (await page.locator('.view-pane:not(.view-pane-hidden) .detail-panel').count()) > 0);
   await page.screenshot({ path: `${outDir}/pc_05_table_detail.png` });
+  await recordContrast(page, '視認性', 'PC 関係一覧＋詳細');
   await page.getByRole('button', { name: '✕ 閉じる' }).click(); await page.waitForTimeout(200);
   record('一覧', '詳細を閉じる', (await page.locator('.view-pane:not(.view-pane-hidden) .detail-panel').count()) === 0);
+  await tab(page, '統計・データ').click(); await page.waitForTimeout(500);
+  await page.screenshot({ path: `${outDir}/pc_06_stats.png` });
+  record('統計', '統計・データを表示', await page.getByText('ハブ企業ランキング').isVisible());
+  await recordContrast(page, '視認性', 'PC 統計・データ');
   await ctx.close();
 }
 
@@ -226,6 +271,7 @@ const noHScroll = (page) => page.evaluate(() => document.documentElement.scrollW
   await page.locator('tbody tr').first().tap(); await page.waitForTimeout(1500);
   record('タッチ', '一覧から詳細を開く', (await page.locator('.view-pane:not(.view-pane-hidden) .detail-panel').count()) > 0);
   await page.screenshot({ path: `${outDir}/mobile_04_table_detail.png` });
+  await recordContrast(page, '視認性', 'タッチ 一覧＋詳細');
   record('タッチ', 'コンソールエラーなし', errors.length === 0, errors.join(' / '));
   await ctx.close();
 }
@@ -252,7 +298,7 @@ const md = [
   '',
   '## スクリーンショット',
   '',
-  ...['pc_01_initial', 'pc_02_graph_after_rotation_click', 'pc_03_empty', 'pc_04_graph_detail', 'pc_05_table_detail', 'zoom200_map', 'zoom200_table', 'mobile_01_map', 'mobile_02_rotation', 'mobile_03_graph', 'mobile_04_table_detail'].map((n) => `- ![${n}](${n}.png)`),
+  ...['pc_01_initial', 'pc_02_graph_after_rotation_click', 'pc_03_empty', 'pc_04_graph_detail', 'pc_05_table_detail', 'pc_06_stats', 'zoom200_map', 'zoom200_table', 'mobile_01_map', 'mobile_02_rotation', 'mobile_03_graph', 'mobile_04_table_detail'].map((n) => `- ![${n}](${n}.png)`),
   '',
   '## 未実施・注記',
   '',
