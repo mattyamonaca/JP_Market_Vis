@@ -258,12 +258,32 @@ def is_label_only(text: str) -> bool:
 
 
 _NOTE_RE = re.compile(r"[（(]\s*注[^)）]{0,12}[)）]\s*[0-9０-９、,.．・]*|※\s*[0-9０-９]*|＊\s*[0-9０-９]*|\*\s*[0-9]*")
-_TRAILING_MARK_RE = re.compile(r"(?<=[)）㈱株社Ｄd])\s*[0-9０-９]{1,2}(?:[・,、][0-9０-９]{1,2})*$")
+# 末尾の脚注番号。法人格の直後（「イオン(株)１」「三菱電機株式会社 6」「... Limited 4」）か閉じ括弧の直後だけを対象にし、
+# 「LIB Material Investment Fund 1」のように法人格ではない語に続く数字は名称の一部として残す。
+_LATIN_LEGAL_SUFFIX = r"(?:Ltd|Limited|Inc|Incorporated|Corp|Corporation|Co|Company|LLC|LLP|GmbH|AG|plc|PLC|Pte|Pty|Bhd|S\.A\.|B\.V\.|N\.V\.|S\.p\.A\.|S\.A\.S\.|S\.r\.l\.)\.?"
+_TRAILING_MARK_RE = re.compile(
+    r"^(?P<name>.*?(?:[)）㈱株社]|(?<![A-Za-z])" + _LATIN_LEGAL_SUFFIX + r"))\s*[0-9０-９]{1,2}(?:[・,、][0-9０-９]{1,2})*$"
+)
 _LEGAL_RE = re.compile(
     r"^(株式会社|（株）|\(株\)|㈱|合同会社|（同）|有限会社|（有）|\(有\)|㈲|一般社団法人|一般財団法人|公益財団法人|公益社団法人|学校法人|医療法人(社団|財団)?|国立大学法人|独立行政法人|社会福祉法人)\s*|"
     r"\s*(株式会社|（株）|\(株\)|㈱|合同会社|（同）|有限会社|（有）|\(有\)|㈲)$"
 )
 _OTHERS_RE = re.compile(r"^(その他|他)?\s*[0-9０-９,，]+\s*社$|^(その他|他)\s*[0-9０-９,，]+\s*社")
+
+
+def _strip_trailing_footnote(s: str) -> str:
+    """法人格・閉じ括弧の直後に付く 1〜2 桁の脚注番号を除く。
+
+    「株式会社８８」「株式会社28」のように、数字を除くと法人格しか残らない場合は
+    数字が社名本体なので何もしない（脚注と断定する根拠がない）。
+    """
+    m = _TRAILING_MARK_RE.match(s)
+    if not m:
+        return s
+    rest = m.group("name").strip()
+    if not _LEGAL_RE.sub("", rest).strip() or re.fullmatch(_LATIN_LEGAL_SUFFIX, rest):
+        return s
+    return rest
 
 
 def clean_name(raw: str) -> str:
@@ -274,7 +294,7 @@ def clean_name(raw: str) -> str:
     s = re.sub(r"^\s*(" + _CLASS_WORD + r")\s+(?=\S)", "", s)
     s = _NOTE_RE.sub("", s)
     s = re.sub(r"\s+", " ", s).strip(" ・,、")
-    s = _TRAILING_MARK_RE.sub("", s).strip()
+    s = _strip_trailing_footnote(s)
     # 法人格の後ろに付く補足（「みずほ証券(株) (株式売却収入)」）は名称ではないので除く
     s = re.sub(r"(?<=[)）])\s*[（(][^（）()]{2,20}[）)]\s*$", "", s).strip()
     return s
@@ -308,6 +328,8 @@ def name_problem(name: str | None) -> str | None:
         return "label"
     if is_label_only(n):
         return "classification_label"
+    if not _LEGAL_RE.sub("", n).strip() or re.fullmatch(_LATIN_LEGAL_SUFFIX, n):
+        return "legal_form_only"
     if not re.search(r"[A-Za-z぀-ヿ一-鿿Ａ-Ｚａ-ｚ]", n):
         return "no_letters"
     return None

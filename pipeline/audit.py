@@ -4,6 +4,7 @@
 
 チェック項目:
   - 数値・記号だけの企業（entity）名と、それに接続する関係（確定データで 0 件であること）
+  - 法人格だけ・記号だけなど企業名として不適切な entity 名（name_problem）と、数字を社名に含む法人の名称が保持されていること
   - 参照整合性・ID 重複・evidence の有無
   - 相互に親会社となる候補ペア（一括反転・削除はせず、根拠の出所と理由を列挙する）
   - 比率付き親子関係のうち 50% 以下のもの（削除はしない。分類・出所の内訳を出す）
@@ -23,10 +24,18 @@ import unicodedata
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+import edinet_tables as et  # noqa: E402
 from aliases import match_key  # noqa: E402
 from config import PUBLIC_DIR  # noqa: E402
 
 NUMERIC_RE = re.compile(r"^[\s0-9０-９.,．、()（）%％△▲\-−―－ー・/\[\]［］]*$")
+
+# 数字を社名に含む法人（#20 レビューで名称破損が見つかった 3 社）。再生成後も原文どおりの名称で存在すること
+KNOWN_DIGIT_NAMES = [
+    ("株式会社88", "S100W2DE", "フェイスネットワーク(3489) の大株主"),
+    ("株式会社58", "S100XS2Y", "エスネットワークス(5867) の大株主"),
+    ("株式会社28", "S100XHR6", "GLOE(9565) の連結子会社"),
+]
 
 KNOWN_CASES = [
     # (説明, source, target, relation_type, 期待 status または None=存在しないこと)
@@ -93,6 +102,29 @@ def audit(m4: dict, m5: dict, old_m4: dict | None, old_m5: dict | None, sample_n
     touching = [r["relation_id"] for r in rels if any(x["type"] == "entity" and x["key"] in numeric for x in (r["source"], r["target"]))]
     report["numeric_entities"] = {"count": len(numeric), "examples": dict(list(numeric.items())[:10]),
                                   "relations_touching": len(touching)}
+
+    # --- 名称の妥当性（法人格だけの名称「株式会社」「Inc.」など。numeric 以外の name_problem も集計）
+    by_reason: dict[str, dict] = {}
+    for k, v in ents.items():
+        problem = et.name_problem(v.get("name"))
+        if problem:
+            by_reason.setdefault(problem, {})[k] = v.get("name")
+    bad_keys = {k for d in by_reason.values() for k in d}
+    touching_bad = [r["relation_id"] for r in rels if any(x["type"] == "entity" and x["key"] in bad_keys for x in (r["source"], r["target"]))]
+    # 法人格を除いた本体が 1 文字以下の「空同然」の名称は、name_problem に該当しなくても目視用に列挙する
+    thin = {k: v.get("name") for k, v in ents.items() if k not in bad_keys
+            and len(et._LEGAL_RE.sub("", unicodedata.normalize("NFKC", v.get("name") or "")).strip()) <= 1}
+    report["name_problem_entities"] = {
+        "count": len(bad_keys), "relations_touching": len(touching_bad),
+        "legal_form_only": len(by_reason.get("legal_form_only", {})),
+        "by_reason": {p: {"count": len(d), "examples": dict(list(d.items())[:10])} for p, d in sorted(by_reason.items())},
+        "thin_names": {"count": len(thin), "examples": dict(list(thin.items())[:20])},
+    }
+    names_index = {unicodedata.normalize("NFKC", v.get("name") or ""): k for k, v in ents.items()}
+    report["digit_names"] = [
+        {"name": n, "doc_id": doc, "context": ctx, "entity": names_index.get(n), "ok": n in names_index}
+        for n, doc, ctx in KNOWN_DIGIT_NAMES
+    ]
 
     # --- 参照整合性
     ids = collections.Counter(r["relation_id"] for r in rels)

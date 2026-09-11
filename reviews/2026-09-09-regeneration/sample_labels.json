@@ -592,5 +592,17 @@
   "target_contains": "ゼロワン",
   "verdict": "correct",
   "note": "事業譲受（M&A実績ページ）"
+ },
+ {
+  "source_contains": "毎日コムネット",
+  "target_contains": "ワークス・ジャパン",
+  "verdict": "correct",
+  "note": "関係会社の状況（S100WKTA、2025-05-31）連結子会社・議決権所有 87.0% と一致"
+ },
+ {
+  "source_contains": "CCIグループ",
+  "target_contains": "ハニー",
+  "verdict": "correct",
+  "note": "関係会社の状況（S100YAOX、2026-03-31）連結子会社・議決権所有 100.00%（間接 100.00）と一致"
  }
 ]

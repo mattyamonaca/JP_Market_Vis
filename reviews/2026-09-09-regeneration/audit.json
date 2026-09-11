@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-09-09",
+ "generated_at": "2026-09-11",
  "counts": {
-  "relations": 83482,
-  "entities": 57940,
+  "relations": 83479,
+  "entities": 57937,
   "companies": 3734,
   "by_status": {
-   "confirmed": 81828,
+   "confirmed": 81825,
    "needs_review": 1653,
    "historical": 1
   }
@@ -15,6 +15,56 @@
   "examples": {},
   "relations_touching": 0
  },
+ "name_problem_entities": {
+  "count": 0,
+  "relations_touching": 0,
+  "legal_form_only": 0,
+  "by_reason": {},
+  "thin_names": {
+   "count": 16,
+   "examples": {
+    "ENT007118": "株式会社K",
+    "ENT017471": "Z株式会社",
+    "ENT038314": "株式会社創",
+    "ENT042089": "(株)孝",
+    "ENT044965": "(有)彩",
+    "ENT045065": "有限会社志",
+    "ENT047438": "株式会社晴",
+    "ENT047858": "株式会社杏",
+    "ENT050121": "有限会社欅",
+    "ENT050783": "泉株式会社",
+    "ENT051336": "港合同会社",
+    "ENT051856": "株式会社瑛",
+    "ENT053675": "有限会社純",
+    "ENT053899": "(株)翼",
+    "ENT054195": "有限会社英",
+    "ENT055430": "(株)輝"
+   }
+  }
+ },
+ "digit_names": [
+  {
+   "name": "株式会社88",
+   "doc_id": "S100W2DE",
+   "context": "フェイスネットワーク(3489) の大株主",
+   "entity": "ENT000100",
+   "ok": true
+  },
+  {
+   "name": "株式会社58",
+   "doc_id": "S100XS2Y",
+   "context": "エスネットワークス(5867) の大株主",
+   "entity": "ENT000080",
+   "ok": true
+  },
+  {
+   "name": "株式会社28",
+   "doc_id": "S100XHR6",
+   "context": "GLOE(9565) の連結子会社",
+   "entity": "ENT000029",
+   "ok": true
+  }
+ ],
  "integrity": {
   "duplicate_ids": [],
   "broken_refs": 0,
@@ -106,7 +156,7 @@
    "expected": "confirmed",
    "found": [
     {
-     "id": "R0076589",
+     "id": "R0076586",
      "status": "confirmed",
      "ratio": 0.2014,
      "verified": "verified"
@@ -125,7 +175,7 @@
    "expected": "needs_review",
    "found": [
     {
-     "id": "R0076591",
+     "id": "R0076588",
      "status": "needs_review",
      "ratio": null,
      "verified": "verified"
@@ -138,7 +188,7 @@
    "expected": "confirmed",
    "found": [
     {
-     "id": "R0083380",
+     "id": "R0083377",
      "status": "confirmed",
      "ratio": 0.519,
      "verified": "verified"
@@ -176,7 +226,7 @@
    "expected": "confirmed",
    "found": [
     {
-     "id": "R0073330",
+     "id": "R0073327",
      "status": "confirmed",
      "ratio": 0.672,
      "verified": "verified"
@@ -189,7 +239,7 @@
    "expected": "confirmed",
    "found": [
     {
-     "id": "R0071721",
+     "id": "R0071718",
      "status": "confirmed",
      "ratio": 0.2556,
      "verified": "verified"
@@ -227,7 +277,7 @@
    "expected": "confirmed",
    "found": [
     {
-     "id": "R0065414",
+     "id": "R0065411",
      "status": "confirmed",
      "ratio": null,
      "verified": "verified"
@@ -238,24 +288,24 @@
  ],
  "diff_vs_old": {
   "old_relations": 81445,
-  "new_relations": 83482,
-  "new_confirmed": 81828,
-  "old_ids_mapped": 62724,
-  "old_ids_unmatched": 18721,
+  "new_relations": 83479,
+  "new_confirmed": 81825,
+  "old_ids_mapped": 62725,
+  "old_ids_unmatched": 18720,
   "unmatched_by_type_and_source": [
    {
     "type": "parent_subsidiary",
     "sources": [
      "edinet"
     ],
-    "count": 17988
+    "count": 17989
    },
    {
     "type": "ownership",
     "sources": [
      "edinet"
     ],
-    "count": 437
+    "count": 435
    },
    {
     "type": "major_customer",
@@ -361,7 +411,7 @@
   "by_type": {
    "affiliate": {
     "old": 160,
-    "new_confirmed": 4525
+    "new_confirmed": 4524
    },
    "business_alliance": {
     "old": 1091,
@@ -397,7 +447,7 @@
    },
    "parent_subsidiary": {
     "old": 44675,
-    "new_confirmed": 36604
+    "new_confirmed": 36602
    },
    "technology_license": {
     "old": 38,
@@ -405,7 +455,7 @@
    }
   },
   "old_entities": 59780,
-  "new_entities": 57940
+  "new_entities": 57937
  },
  "stratified_sample": {
   "seed": 20260909,
@@ -463,14 +513,14 @@
    {
     "relation_id": "R0076182",
     "stratum": "edinet/capital",
-    "source": "ＡＶＡＮＴＩＡ",
-    "target": "株式会社 宇戸平工務店",
+    "source": "毎日コムネット",
+    "target": "(株)ワークス・ジャパン",
     "relation_type": "parent_subsidiary",
-    "ratio": 1.0,
+    "ratio": 0.87,
     "evidence": [
      {
       "source": "edinet",
-      "as_of": "2025-08-31"
+      "as_of": "2025-05-31"
      }
     ],
     "verdict": null,
@@ -496,7 +546,7 @@
     "relation_id": "R0066401",
     "stratum": "edinet/capital",
     "source": "ＣＣＩグループ",
-    "target": "株式会社QR インベストメント",
+    "target": "株式会社ハニー ビースポーツ",
     "relation_type": "parent_subsidiary",
     "ratio": 1.0,
     "evidence": [
@@ -573,7 +623,7 @@
     "note": null
    },
    {
-    "relation_id": "R0069317",
+    "relation_id": "R0069314",
     "stratum": "edinet/transaction",
     "source": "旭化学工業",
     "target": "マキタ",
@@ -621,7 +671,7 @@
     "note": null
    },
    {
-    "relation_id": "R0068226",
+    "relation_id": "R0068223",
     "stratum": "ir_disclosure/alliance",
     "source": "日本精密",
     "target": "クロスフォー",
@@ -721,7 +771,7 @@
     "note": null
    },
    {
-    "relation_id": "R0080124",
+    "relation_id": "R0080121",
     "stratum": "ir_disclosure/capital",
     "source": "テレビ東京ホールディングス",
     "target": "Minto",
@@ -889,7 +939,7 @@
     "note": null
    },
    {
-    "relation_id": "R0067543",
+    "relation_id": "R0067540",
     "stratum": "ir_disclosure/group",
     "source": "島津製作所",
     "target": "Plasmion GmbH",
@@ -969,7 +1019,7 @@
     "note": null
    },
    {
-    "relation_id": "R0070263",
+    "relation_id": "R0070260",
     "stratum": "ir_disclosure/group",
     "source": "丸紅",
     "target": "TiAuto Investments Pty Ltd",
@@ -1161,7 +1211,7 @@
     "note": null
    },
    {
-    "relation_id": "R0068021",
+    "relation_id": "R0068018",
     "stratum": "wikidata/capital",
     "source": "キヤノン",
     "target": "Canon Computer Systems",
@@ -1177,7 +1227,7 @@
     "note": null
    },
    {
-    "relation_id": "R0068336",
+    "relation_id": "R0068333",
     "stratum": "wikidata/capital",
     "source": "ブシロード",
     "target": "新日本プロレス",
@@ -1193,7 +1243,7 @@
     "note": null
    },
    {
-    "relation_id": "R0065544",
+    "relation_id": "R0065541",
     "stratum": "wikidata/capital",
     "source": "本田技研工業",
     "target": "ホンダマニュファクチャリングUK",
@@ -1257,7 +1307,7 @@
     "note": null
    },
    {
-    "relation_id": "R0077321",
+    "relation_id": "R0077318",
     "stratum": "wikidata/group",
     "source": "名古屋鉄道",
     "target": "名鉄グループ",
@@ -1273,7 +1323,7 @@
     "note": null
    },
    {
-    "relation_id": "R0077032",
+    "relation_id": "R0077029",
     "stratum": "wikidata/group",
     "source": "西日本鉄道",
     "target": "西鉄グループ",
@@ -1305,7 +1355,7 @@
     "note": null
    },
    {
-    "relation_id": "R0079049",
+    "relation_id": "R0079046",
     "stratum": "wikidata/group",
     "source": "ＡＮＡホールディングス",
     "target": "ANAグループ",
