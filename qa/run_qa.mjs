@@ -76,6 +76,52 @@ const contrastAudit = (page) => page.evaluate(() => {
 });
 const recordContrast = async (page, scenario, label) => { const c = await contrastAudit(page); record(scenario, `文字コントラスト 4.5:1（${label}）`, c.bad.length === 0, `${c.checked} 要素` + (c.bad.length ? ` / 不足: ${c.bad.slice(0, 6).join(' ; ')}` : '')); };
 
+// ---------------------------------------------------------------- ロード画面（Issue #24）
+{
+  // 低速通信の代替: データ取得を 4 秒遅らせてロード画面を観察する
+  const { ctx, page, errors } = await newPage({ width: 1440, height: 900 });
+  await page.route('**/M5_company_relations.json', async (route) => { await new Promise((r) => setTimeout(r, 4000)); await route.continue(); });
+  await page.goto(url, { waitUntil: 'domcontentloaded' });
+  const ls = page.locator('.loading-screen');
+  await ls.waitFor({ timeout: 20000 });
+  await page.waitForTimeout(500);
+  await page.screenshot({ path: `${outDir}/loading_pc.png` });
+  const text = (await ls.innerText()).trim();
+  record('ロード', '余計な文言なし（件数・容量・技術説明を含まない）', !/\d|MB|圧縮|展開|データ|JP MARKET/.test(text), JSON.stringify(text));
+  record('ロード', '読み込み状態を支援技術に伝える（role=status＋「読み込み中」）', (await ls.getAttribute('role')) === 'status' && /読み込み中/.test(text));
+  const bg = await page.evaluate(() => getComputedStyle(document.querySelector('.loading-screen')).backgroundColor);
+  record('ロード', '白基調の背景', bg === 'rgb(255, 255, 255)', bg);
+  const count = await ls.locator('*').count();
+  record('ロード', '最小限の要素（インジケーターと文言のみ）', count <= 2, `${count} 要素`);
+  const textOpacity0 = await page.evaluate(() => getComputedStyle(document.querySelector('.loading-text')).opacity);
+  await page.waitForTimeout(3000);
+  const textOpacity1 = await page.evaluate(() => getComputedStyle(document.querySelector('.loading-text'))?.opacity ?? null);
+  record('ロード', '文言は数秒後に「読み込み中」だけを表示', textOpacity0 === '0' && (textOpacity1 === '1' || textOpacity1 === null), `${textOpacity0} -> ${textOpacity1}`);
+  await page.locator('.map-canvas canvas').waitFor({ timeout: 120000 });
+  record('ロード', '完了後に本画面へ遷移（ロード画面が残らない）', (await ls.count()) === 0 && await page.locator('.app-shell').isVisible());
+  record('ロード', 'コンソールエラーなし', errors.length === 0, errors.join(' / '));
+  await ctx.close();
+}
+{
+  // 読み込み失敗（狭い画面）: 無限ローディングにならず、再試行で復帰できる
+  const { ctx, page } = await newPage({ width: 390, height: 844 }, { hasTouch: true, isMobile: true });
+  let fail = true;
+  await page.route('**/M5_company_relations.json', async (route) => { if (fail) { await new Promise((r) => setTimeout(r, 1500)); return route.abort('failed'); } return route.continue(); });
+  await page.goto(url, { waitUntil: 'domcontentloaded' });
+  await page.locator('.loading-screen .spinner').waitFor({ timeout: 20000 });
+  await page.screenshot({ path: `${outDir}/loading_mobile.png` });
+  record('ロード', '狭い画面で横スクロールなし', await noHScroll(page));
+  const alert = page.getByRole('alert');
+  await alert.waitFor({ timeout: 30000 }).catch(() => {});
+  record('ロード', '失敗時に簡潔なエラー表示（無限ローディングにならない）', (await alert.count()) > 0 && (await page.locator('.spinner').count()) === 0, (await alert.innerText().catch(() => '')).replace(/\n/g, ' '));
+  await page.screenshot({ path: `${outDir}/loading_error_mobile.png` });
+  fail = false;
+  await page.getByRole('button', { name: '再試行' }).click();
+  await page.locator('.map-canvas canvas').waitFor({ timeout: 120000 });
+  record('ロード', '再試行で本画面を表示', await page.locator('.app-shell').isVisible());
+  await ctx.close();
+}
+
 // ---------------------------------------------------------------- PC 1440x900
 {
   const { ctx, page, errors } = await newPage({ width: 1440, height: 900 });
@@ -298,12 +344,13 @@ const md = [
   '',
   '## スクリーンショット',
   '',
-  ...['pc_01_initial', 'pc_02_graph_after_rotation_click', 'pc_03_empty', 'pc_04_graph_detail', 'pc_05_table_detail', 'pc_06_stats', 'zoom200_map', 'zoom200_table', 'mobile_01_map', 'mobile_02_rotation', 'mobile_03_graph', 'mobile_04_table_detail'].map((n) => `- ![${n}](${n}.png)`),
+  ...['loading_pc', 'loading_mobile', 'loading_error_mobile', 'pc_01_initial', 'pc_02_graph_after_rotation_click', 'pc_03_empty', 'pc_04_graph_detail', 'pc_05_table_detail', 'pc_06_stats', 'zoom200_map', 'zoom200_table', 'mobile_01_map', 'mobile_02_rotation', 'mobile_03_graph', 'mobile_04_table_detail'].map((n) => `- ![${n}](${n}.png)`),
   '',
   '## 未実施・注記',
   '',
   '- タッチ操作はヘッドレス Chrome のエミュレーション（hasTouch / CDP のタッチイベント）で、実機ではない。',
   '- 描画負荷は canvas の clearRect 呼び出し回数を再描画回数として計測したもので、CPU 使用率・FPS の実測ではない。',
+  '- 低速通信は Playwright のルートで M5 の取得を 4 秒遅らせる代替、読み込み失敗はルートの中断で再現した（実回線ではない）。',
   '- データの事実精度の評価はこのレビューの対象外（Issue #3 の監査を参照）。',
   '',
 ].join('\n');
