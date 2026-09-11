@@ -1,6 +1,6 @@
 {
  "date": "2026-09-11",
- "commit": "8fb8711f4b50303081f2e083f60bd226a5563d71",
+ "commit": "0b1bfebbefd57b4477991636f9cb77640f2e9c55",
  "url": "http://localhost:5184/JP_Market_Vis/",
  "browser": "Chrome 152.0.7977.83 (headless, Playwright)",
  "device": "darwin arm64",
@@ -69,7 +69,7 @@
    "scenario": "PC初回",
    "item": "初回表示（マップ描画まで）",
    "ok": true,
-   "detail": "3736 ms"
+   "detail": "3554 ms"
   },
   {
    "scenario": "PC初回",
@@ -117,11 +117,23 @@
    "scenario": "負荷",
    "item": "ドラッグ中の WebGL 描画呼び出し（約0.6秒）",
    "ok": true,
-   "detail": "724470"
+   "detail": "498560"
   },
   {
    "scenario": "負荷",
    "item": "停止中の WebGL 描画呼び出し/秒",
+   "ok": true,
+   "detail": "0"
+  },
+  {
+   "scenario": "3D",
+   "item": "描画休止中のリサイズ後に再描画される（ポインター操作なし）",
+   "ok": true,
+   "detail": "373920 回"
+  },
+  {
+   "scenario": "負荷",
+   "item": "リサイズ後も停止中は描画休止",
    "ok": true,
    "detail": "0"
   },
@@ -153,7 +165,7 @@
    "scenario": "3D",
    "item": "回転後のクリックで見た目どおりの企業が開く",
    "ok": true,
-   "detail": "極洋 -> 極洋"
+   "detail": "福留ハム -> 福留ハム"
   },
   {
    "scenario": "フィルタ",
@@ -178,6 +190,18 @@
    "item": "未収録カテゴリが無効化されている",
    "ok": true,
    "detail": ""
+  },
+  {
+   "scenario": "フィルタ",
+   "item": "グループのみ（低次数の企業だけ）でも視点が収まる",
+   "ok": true,
+   "detail": "2907 -> 120 / 2 表示中の企業 1 表示中の関係 上場企業間 4,996件中"
+  },
+  {
+   "scenario": "フィルタ",
+   "item": "グループのみで視点リセットが機能する",
+   "ok": true,
+   "detail": "120"
   },
   {
    "scenario": "往復",
@@ -320,6 +344,18 @@
   {
    "scenario": "タッチ",
    "item": "横スクロールなし",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "タッチ",
+   "item": "向き変更後に再描画される（ポインター操作なし）",
+   "ok": true,
+   "detail": "373920 回"
+  },
+  {
+   "scenario": "タッチ",
+   "item": "向き変更後も横スクロールなし",
    "ok": true,
    "detail": ""
   },

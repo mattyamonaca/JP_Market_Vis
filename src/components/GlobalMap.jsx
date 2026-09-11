@@ -49,13 +49,14 @@ export default function GlobalMap({ onSelectCompany }) {
   }, []);
   useEffect(() => () => clearTimeout(idleTimer.current), []);
 
+  // リサイズ（ウィンドウ幅の変更・端末の向き変更）: サイズ反映後のフレームを描いてから休止する（休止中に消えたままにしない）
   useEffect(() => {
     const el = wrapRef.current;
-    const resize = () => setSize({ w: el.clientWidth, h: el.clientHeight });
+    const resize = () => { setSize({ w: el.clientWidth, h: el.clientHeight }); wake(800); };
     const ro = new ResizeObserver(resize);
     ro.observe(el); resize();
     return () => ro.disconnect();
-  }, []);
+  }, [wake]);
   // データが変わったらシミュレーションが動くので描画を再開し、ホバーを消す
   useEffect(() => { setHoverNode(null); engineRunning.current = true; tickCount.current = 0; resume(); }, [data]);
   // 主要ハブのラベルを、球の画面座標に合わせて HTML で重ねる（カメラ移動・シミュレーションのたびに位置を更新）
@@ -84,6 +85,7 @@ export default function GlobalMap({ onSelectCompany }) {
     const controls = fg?.controls();
     const el = wrapRef.current;
     if (!fg || !controls || !el) return undefined;
+    controls.minDistance = 120; // 表示が 2 社だけのときなどに球の内側まで寄らない
     let timer = null;
     const update = () => {
       timer = null;
@@ -97,12 +99,15 @@ export default function GlobalMap({ onSelectCompany }) {
   }, [updateLabels]);
   // 離れた小さな塊が全体を押し広げないよう、反発力の届く距離を制限する
   useEffect(() => { fgRef.current?.d3Force('charge')?.distanceMax(700); }, [data]);
+  // 収める対象: 中心部（関係数 3 以上）。フィルタ後に低次数のノードしか残らない場合は表示中の全ノードに切り替える
+  const fitFilter = useMemo(() => (data.nodes.some(isCore) ? isCore : undefined), [data]);
+  const fit = useCallback((ms = 600) => { fgRef.current?.zoomToFit(ms, Math.min(60, size.w * 0.08), fitFilter); wake(ms + 800); }, [fitFilter, size.w, wake]);
   // 配置計算中は塊が広がり続けるので、一定ティックごとに中心部が収まるようカメラを追従させる（最終位置は onEngineStop で確定）
   const onEngineTick = useCallback(() => {
     tickCount.current += 1;
-    if (tickCount.current % 25 === 0) fgRef.current?.zoomToFit(300, Math.min(60, size.w * 0.08), isCore);
+    if (tickCount.current % 25 === 0) fgRef.current?.zoomToFit(300, Math.min(60, size.w * 0.08), fitFilter);
     updateLabels();
-  }, [updateLabels, size.w]);
+  }, [updateLabels, size.w, fitFilter]);
 
   const toggleCategory = (key) => setActiveCategories((prev) => {
     const next = new Set(prev); if (next.has(key)) next.delete(key); else next.add(key); return next;
@@ -111,7 +116,6 @@ export default function GlobalMap({ onSelectCompany }) {
 
   // --- カメラ操作（ボタン・キーボード用。ドラッグ・ホイール・ピンチは OrbitControls が処理する）
   const target = () => { const t = fgRef.current?.controls()?.target; return t ? { x: t.x, y: t.y, z: t.z } : { x: 0, y: 0, z: 0 }; };
-  const fit = (ms = 600) => { fgRef.current?.zoomToFit(ms, Math.min(60, size.w * 0.08), isCore); wake(ms + 800); };
   const zoomBy = (factor) => {
     const fg = fgRef.current; if (!fg) return;
     const c = fg.cameraPosition(), t = target();

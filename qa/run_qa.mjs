@@ -188,6 +188,15 @@ const recordContrast = async (page, scenario, label) => { const c = await contra
   await page.waitForTimeout(2000);
   const idleDraws = await drawsPerSec(page);
   record('負荷', '停止中の WebGL 描画呼び出し/秒', idleDraws === 0, String(idleDraws));
+  // 描画休止中のリサイズ（レビュー指摘）: ポインターを動かさずにビューポートを変えても、サイズ反映後のフレームが描かれ、その後は休止する
+  await page.evaluate(() => { window.__draws = 0; });
+  await page.setViewportSize({ width: 1100, height: 750 }); await page.waitForTimeout(1500);
+  const resizeDraws = await page.evaluate(() => window.__draws);
+  record('3D', '描画休止中のリサイズ後に再描画される（ポインター操作なし）', resizeDraws > 0, `${resizeDraws} 回`);
+  await page.screenshot({ path: `${outDir}/pc_07_after_resize.png` });
+  const idleAfterResize = await drawsPerSec(page);
+  record('負荷', 'リサイズ後も停止中は描画休止', idleAfterResize === 0, String(idleAfterResize));
+  await page.setViewportSize({ width: 1440, height: 900 }); await page.waitForTimeout(1500);
   await page.mouse.move(cx, cy); await page.mouse.wheel(0, -300); await page.waitForTimeout(600);
   const camZoom = await cameraOf(page);
   record('3D', 'ホイールで拡大（カメラが近づく）', distOf(camZoom) < distOf(camAfter), `${distOf(camAfter).toFixed(0)} -> ${distOf(camZoom).toFixed(0)}`);
@@ -224,6 +233,20 @@ const recordContrast = async (page, scenario, label) => { const c = await contra
   record('フィルタ', '閾値20で表示線なし件数を表示', /表示線なし/.test(totals) || /表示中の企業/.test(totals), totals.replace(/\n/g, ' '));
   await page.locator('#min-degree').fill('1');
   record('フィルタ', '未収録カテゴリが無効化されている', (await page.locator('.category-pills button[disabled]').count()) >= 1);
+  // グループのみ（レビュー指摘）: 関係数 3 未満の企業しか残らなくても、フィルタ変更時と視点リセットで表示中の企業が収まる
+  const distFull = distOf(await cameraOf(page));
+  for (const name of ['資本', '取引', '提携']) await page.locator('.category-pills button', { hasText: name }).click();
+  await page.waitForTimeout(4000);
+  const totalsGroup = (await page.locator('.map-totals').innerText()).replace(/\n/g, ' ');
+  const distGroup = distOf(await cameraOf(page));
+  record('フィルタ', 'グループのみ（低次数の企業だけ）でも視点が収まる', distGroup < distFull * 0.5, `${distFull.toFixed(0)} -> ${distGroup.toFixed(0)} / ${totalsGroup}`);
+  await page.mouse.move(cx, cy); await page.mouse.wheel(0, 600); await page.waitForTimeout(500);
+  await tab(page, '視点をリセット').click(); await page.waitForTimeout(1500);
+  const distGroupReset = distOf(await cameraOf(page));
+  record('フィルタ', 'グループのみで視点リセットが機能する', distGroupReset < distFull * 0.5 && isFront(await cameraOf(page)), `${distGroupReset.toFixed(0)}`);
+  await page.screenshot({ path: `${outDir}/pc_08_group_only.png` });
+  for (const name of ['資本', '取引', '提携']) await page.locator('.category-pills button', { hasText: name }).click();
+  await page.waitForTimeout(500);
 
   // 検索 → 個別グラフ → 詳細 → 全体（状態復元）
   await page.locator('#map-search').fill('トヨタ');
@@ -322,7 +345,14 @@ const recordContrast = async (page, scenario, label) => { const c = await contra
   await page.screenshot({ path: `${outDir}/mobile_01_map.png` });
   record('タッチ', '横スクロールなし', await noHScroll(page));
   await page.waitForFunction(() => document.querySelector('.map-canvas')?.dataset.depth, null, { timeout: 60000 }).catch(() => {});
-  await page.waitForTimeout(1500);
+  await page.waitForTimeout(2500);
+  // 向き変更（横向き 844×390、レビュー指摘）: 休止中でもポインター操作なしで再描画され、横スクロールも出ない
+  await page.evaluate(() => { window.__draws = 0; });
+  await page.setViewportSize({ width: 844, height: 390 }); await page.waitForTimeout(1500);
+  record('タッチ', '向き変更後に再描画される（ポインター操作なし）', (await page.evaluate(() => window.__draws)) > 0, `${await page.evaluate(() => window.__draws)} 回`);
+  record('タッチ', '向き変更後も横スクロールなし', await noHScroll(page));
+  await page.screenshot({ path: `${outDir}/mobile_05_landscape.png` });
+  await page.setViewportSize({ width: 390, height: 844 }); await page.waitForTimeout(1500);
   const box = await page.locator('.map-canvas canvas').boundingBox();
   // 3D では企業の画面位置が事前に分からないので、ホバー表示が出ない（企業のない）位置を選んでタップ・スワイプする
   let cx = box.x + 60, cy = box.y + box.height - 90;
@@ -380,7 +410,7 @@ const md = [
   '',
   '## スクリーンショット',
   '',
-  ...['loading_pc', 'loading_mobile', 'loading_error_mobile', 'pc_01_initial', 'pc_02_graph_after_rotation_click', 'pc_03_empty', 'pc_04_graph_detail', 'pc_05_table_detail', 'pc_06_stats', 'zoom200_map', 'zoom200_table', 'mobile_01_map', 'mobile_02_rotation', 'mobile_03_graph', 'mobile_04_table_detail'].map((n) => `- ![${n}](${n}.png)`),
+  ...['loading_pc', 'loading_mobile', 'loading_error_mobile', 'pc_01_initial', 'pc_02_graph_after_rotation_click', 'pc_03_empty', 'pc_04_graph_detail', 'pc_05_table_detail', 'pc_06_stats', 'pc_07_after_resize', 'pc_08_group_only', 'zoom200_map', 'zoom200_table', 'mobile_01_map', 'mobile_02_rotation', 'mobile_03_graph', 'mobile_04_table_detail', 'mobile_05_landscape'].map((n) => `- ![${n}](${n}.png)`),
   '',
   '## 未実施・注記',
   '',
