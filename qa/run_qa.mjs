@@ -2,13 +2,16 @@
 // PC・タッチ・キーボードのシナリオを実行し、スクリーンショットと結果 JSON を qa/results/<日付>/ に残す。
 //   npm run dev  （別ターミナル）
 //   npm i -D --no-save playwright && node qa/run_qa.mjs [http://localhost:5184/JP_Market_Vis/]
+// 終了コード: 全項目合格で 0、不合格が 1 件でもあれば 1（CI や後続コマンドが合否を判定できる）。
+// QA_SELFTEST_FAIL=1 を付けると意図的な不合格を 1 件記録し、出力先を qa/results/<日付>-selftest/ にする（終了コードの確認用）。
 import { chromium } from 'playwright';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 
 const url = process.argv[2] || 'http://localhost:5184/JP_Market_Vis/';
 const date = new Date().toISOString().slice(0, 10);
-const outDir = `qa/results/${date}`;
+const selftestFail = process.env.QA_SELFTEST_FAIL === '1';
+const outDir = `qa/results/${date}${selftestFail ? '-selftest' : ''}`;
 mkdirSync(outDir, { recursive: true });
 const commit = execSync('git rev-parse HEAD').toString().trim();
 const results = [];
@@ -228,6 +231,7 @@ const noHScroll = (page) => page.evaluate(() => document.documentElement.scrollW
 }
 
 await browser.close();
+if (selftestFail) record('自己診断', 'QA_SELFTEST_FAIL による意図的な不合格', false, '終了コードが 1 になることの確認用');
 const summary = { date, commit, url, browser: `Chrome ${version} (headless, Playwright)`, device: `${process.platform} ${process.arch}`, results };
 writeFileSync(`${outDir}/results.json`, JSON.stringify(summary, null, 1));
 const pass = results.filter((r) => r.ok).length;
@@ -258,4 +262,9 @@ const md = [
   '',
 ].join('\n');
 writeFileSync(`${outDir}/REPORT.md`, md);
+const failed = results.filter((r) => !r.ok);
 console.log(`\n${pass}/${results.length} passed -> ${outDir}/results.json, REPORT.md`);
+if (failed.length) {
+  console.error(`FAIL ${failed.length}: ${failed.map((r) => `${r.scenario} | ${r.item}`).join(' ; ')}`);
+  process.exitCode = 1;
+}
