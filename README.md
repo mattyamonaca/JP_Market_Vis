@@ -78,3 +78,15 @@ npm run preview
 `public/M4_companies.json` と `public/M5_company_relations.json` を同じスナップショットの組で置き換え、`npm test` と `npm run build` を実行します。READMEの件数・生成日も更新してください。
 
 データ生成パイプラインは [`pipeline/`](pipeline/README.md) にあります（元は別プロジェクト `persona_project` にあったものを移管）。EDINET の再取得には API キーが必要です。認証情報はこのリポジトリに含めていません。
+
+## 実操作の確認
+
+`qa/run_qa.mjs` が Playwright とローカルの Chrome で PC（1440×900）・200%拡大相当・タッチ（390×844、エミュレーション）・キーボードのシナリオを実行し、`qa/results/<日付>/` にスクリーンショット・結果 JSON・レポートを残します。
+
+```sh
+npm run dev            # 別ターミナル
+npm i -D --no-save playwright
+node qa/run_qa.mjs     # http://localhost:5184/JP_Market_Vis/ を対象
+```
+
+最新の結果は `qa/results/2026-09-09/REPORT.md` を参照してください。
