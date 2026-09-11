@@ -2,16 +2,28 @@ import React, { Component, Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles.css';
 const App = lazy(() => import('./App.jsx'));
+
+// ロード画面（Issue #24）: 白地に小さなインジケーターだけを置く。件数・容量・技術的な説明は表示しない。
+// 支援技術には role="status" と視覚的に隠した「読み込み中」で状態を伝える。
+// 低速時の目安として、CSS で数秒後にだけ小さな「読み込み中」を表示する（reduced-motion では即時表示）。
+function LoadingScreen() {
+  return (
+    <main className="loading-screen" role="status" aria-live="polite">
+      <span className="spinner" aria-hidden="true" />
+      <span className="loading-text">読み込み中</span>
+    </main>
+  );
+}
+
+// 読み込み失敗（データ取得・モジュール読み込みの失敗）: 無限ローディングにせず、簡潔な文言と再試行を出す
 class ErrorBoundary extends Component {
   state = { error: false };
   static getDerivedStateFromError() { return { error: true }; }
   render() {
     if (this.state.error) return (
       <main className="loading-screen" role="alert">
-        <span className="brand-kicker">JP MARKET VIS</span>
-        <h1>データを読み込めませんでした</h1>
-        <p>通信状況を確認して、もう一度お試しください。</p>
-        <button onClick={() => window.location.reload()}>再読み込み</button>
+        <p className="loading-error">データを読み込めませんでした</p>
+        <button type="button" className="btn" onClick={() => window.location.reload()}>再試行</button>
       </main>
     );
     return this.props.children;
@@ -19,11 +31,6 @@ class ErrorBoundary extends Component {
 }
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode><ErrorBoundary>
-    <Suspense fallback={<main className="loading-screen" role="status">
-      <span className="brand-kicker">JP MARKET VIS</span>
-      <h1>日本の企業のつながりを、ひとつの地図に。</h1>
-      <p>企業・関係データを読み込んでいます。初回は圧縮転送で約2.3MB（展開後 約40MB）のデータを読み込みます。</p>
-      <div className="loading-line" />
-    </main>}><App /></Suspense>
+    <Suspense fallback={<LoadingScreen />}><App /></Suspense>
   </ErrorBoundary></React.StrictMode>,
 );
