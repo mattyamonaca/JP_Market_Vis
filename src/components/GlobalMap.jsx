@@ -1,6 +1,6 @@
 import React, { useMemo, useRef, useState, useEffect } from 'react';
 import ForceGraph2D from 'react-force-graph-2d';
-import { CATEGORY_AVAILABILITY, CATEGORY_COLORS, CATEGORY_JA, GLOBAL_GRAPH, INDUSTRY_COLORS, industryColor, searchCompanies } from '../data/graph.js';
+import { CATEGORY_AVAILABILITY, CATEGORY_COLORS, CATEGORY_JA, CATEGORY_TEXT_COLORS, GLOBAL_GRAPH, INDUSTRY_COLORS, industryColor, searchCompanies } from '../data/graph.js';
 
 // 収録のあるカテゴリだけを初期選択にする（未収録カテゴリは選択できない）
 const AVAILABLE_CATEGORIES = Object.keys(CATEGORY_JA).filter((key) => CATEGORY_AVAILABILITY[key]?.listed > 0);
@@ -99,11 +99,11 @@ export default function GlobalMap({ onSelectCompany }) {
           <div className="category-pills">{Object.entries(CATEGORY_JA).map(([key, label]) => {
             const avail = CATEGORY_AVAILABILITY[key] ?? { total: 0, listed: 0 };
             const unavailable = avail.listed === 0;
-            const active = activeCategories.has(key) && !unavailable, color = CATEGORY_COLORS[key];
+            const active = activeCategories.has(key) && !unavailable, color = CATEGORY_TEXT_COLORS[key];
             const title = unavailable
               ? (avail.total === 0 ? 'このカテゴリは現在のデータに収録されていません（関係がないことを意味しません）' : '上場企業同士の関係が収録されていないため全体マップでは選べません')
               : `上場企業間 ${avail.listed.toLocaleString()}件（全体 ${avail.total.toLocaleString()}件）`;
-            return <button key={key} aria-pressed={active} aria-disabled={unavailable} disabled={unavailable} title={title} onClick={() => toggleCategory(key)} style={{ color: active ? color : '#94a3b8', border: `1px solid ${active ? color + '88' : '#334155'}`, background: active ? color + '18' : 'transparent', opacity: unavailable ? 0.55 : 1, cursor: unavailable ? 'not-allowed' : 'pointer' }}>{label}<small>{unavailable ? '未収録' : avail.listed.toLocaleString()}</small></button>;
+            return <button key={key} aria-pressed={active} aria-disabled={unavailable} disabled={unavailable} title={title} onClick={() => toggleCategory(key)} style={{ color: active ? color : 'var(--text-2)', border: `1px solid ${active ? color : 'var(--border-strong)'}`, background: active ? color + '14' : 'var(--bg)', opacity: unavailable ? 0.55 : 1, cursor: unavailable ? 'not-allowed' : 'pointer' }}>{label}<small>{unavailable ? '未収録' : avail.listed.toLocaleString()}</small></button>;
           })}</div>
           {AVAILABLE_CATEGORIES.length < Object.keys(CATEGORY_JA).length && <p className="control-note">「未収録」は収集していないカテゴリです。関係がないことを意味しません。</p>}
         </section>
@@ -121,9 +121,9 @@ export default function GlobalMap({ onSelectCompany }) {
       <div ref={wrapRef} className="map-canvas" role="region" aria-label="上場企業間ネットワーク。企業検索からも各社の関係を確認できます。">
         <div className="map-caption"><strong>上場企業間ネットワーク</strong><br />色：業種 ／ 円の大きさ：関係数<br />{rotationMode ? '左右にドラッグして回転 · スクロール・＋/−で拡大縮小 · 企業をクリックで詳細へ · Escで移動モード' : 'ドラッグで移動 · スクロールで拡大 · 企業を選択して詳細へ'}</div>
         <ForceGraph2D ref={fgRef} width={size.w} height={size.h} graphData={data}
-          backgroundColor="#0b1220" nodeId="id" nodeRelSize={1}
+          backgroundColor="#ffffff" nodeId="id" nodeRelSize={1}
           nodeVal={(n) => nodeSize(n) ** 2 / 4} nodeColor={(n) => industryColor(n.industry)} nodeLabel={() => ''}
-          linkColor={(l) => `${CATEGORY_COLORS[l.category] ?? '#475569'}55`} linkWidth={0.6}
+          linkColor={(l) => `${CATEGORY_COLORS[l.category] ?? '#94a3b8'}66`} linkWidth={0.7}
           warmupTicks={50} cooldownTicks={rotationMode ? 0 : 90}
           autoPauseRedraw={!(rotationMode && interacting)}
           enableNodeDrag={!rotationMode} enablePanInteraction={!rotationMode}
@@ -134,7 +134,7 @@ export default function GlobalMap({ onSelectCompany }) {
           nodeCanvasObject={(node, ctx, scale) => {
             if (node !== hoverNode && !(scale > 2 && node.degree >= 8) && node.degree < 110) return;
             ctx.font = `${12 / scale}px sans-serif`; ctx.textAlign = 'center';
-            ctx.fillStyle = '#dce8f6'; ctx.fillText(node.name, node.x, node.y - nodeSize(node) - 4 / scale);
+            ctx.fillStyle = '#0f172a'; ctx.fillText(node.name, node.x, node.y - nodeSize(node) - 4 / scale);
           }}
         />
         {rotationMode && <div className="rotation-surface"

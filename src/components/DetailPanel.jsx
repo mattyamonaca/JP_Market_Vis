@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import {
-  CATEGORY_COLORS,
+  CATEGORY_TEXT_COLORS,
   CATEGORY_JA,
   META,
   RELATION_TYPES,
   SEGMENT_JA,
+  STATUS_COLORS,
   STATUS_JA,
+  TIER_COLORS,
   TIER_JA,
   evidenceTier,
   loadRelationDetail,
@@ -20,8 +22,6 @@ const SOURCE_JA = {
   official_release: '公式開示（原本確認）',
 };
 
-const TIER_COLOR = { primary: '#7dd3fc', secondary: '#c4b5fd', llm_extraction: '#fdba74' };
-const STATUS_COLOR = { confirmed: '#4ade80', needs_review: '#facc15', historical: '#94a3b8' };
 
 const RATIO_KIND_JA = { voting: '議決権', share: '株式数', share_large_holding: '株券等保有割合（大量保有報告）', sales_share: '売上' };
 const SCOPE_JA = { total: '合計', indirect_only: '間接のみ（合計不明）', unresolved: '同じ時点の記載が食い違い（未確定）' };
@@ -48,7 +48,7 @@ const dateOrUnknown = (d) => d ?? '不明';
 function Section({ title, children }) {
   return (
     <div style={{ marginBottom: 16 }}>
-      <div style={{ fontSize: 12, fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 6 }}>
+      <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--text-2)', letterSpacing: .5, marginBottom: 6 }}>
         {title}
       </div>
       {children}
@@ -60,15 +60,15 @@ function Field({ label, value }) {
   if (value == null || value === '') return null;
   return (
     <div style={{ display: 'flex', fontSize: 12, marginBottom: 4, gap: 8 }}>
-      <span style={{ color: '#a8b7cb', minWidth: 84, flexShrink: 0 }}>{label}</span>
-      <span style={{ color: '#f1f5f9', wordBreak: 'break-all' }}>{value}</span>
+      <span style={{ color: 'var(--text-2)', minWidth: 84, flexShrink: 0 }}>{label}</span>
+      <span style={{ color: 'var(--text)', wordBreak: 'break-all' }}>{value}</span>
     </div>
   );
 }
 
 function Badge({ color, children, title }) {
   return (
-    <span title={title} style={{ display: 'inline-block', padding: '2px 8px', borderRadius: 999, fontSize: 11, fontWeight: 700, background: `${color}22`, border: `1px solid ${color}`, color, marginRight: 6, marginBottom: 4 }}>
+    <span className="pill" title={title} style={{ fontSize: 11, background: `${color}14`, color, marginRight: 6, marginBottom: 4 }}>
       {children}
     </span>
   );
@@ -76,7 +76,7 @@ function Badge({ color, children, title }) {
 
 function ExternalLink({ href, children }) {
   if (!/^https?:\/\//i.test(href ?? '')) return null;
-  return <a href={href} target="_blank" rel="noreferrer" style={{ color: '#7dd3fc' }}>{children}</a>;
+  return <a href={href} target="_blank" rel="noreferrer" style={{ color: 'var(--accent)' }}>{children}</a>;
 }
 
 function CompanyDetail({ info, refObj }) {
@@ -88,7 +88,7 @@ function CompanyDetail({ info, refObj }) {
           <Field label="法人番号" value={info.corporate_number} />
           <Field label="Wikidata" value={info.wikidata_qid && <ExternalLink href={`https://www.wikidata.org/wiki/${info.wikidata_qid}`}>{info.wikidata_qid}</ExternalLink>} />
         </Section>
-        <div style={{ fontSize: 12, color: '#a8b7cb' }}>収録上場企業以外の組織です。子会社・グループ等として関係先にのみ登場します。</div>
+        <div style={{ fontSize: 12, color: 'var(--text-2)' }}>収録上場企業以外の組織です。子会社・グループ等として関係先にのみ登場します。</div>
       </>
     );
   }
@@ -142,8 +142,8 @@ function RatioDetail({ label, summary, detail, fallback }) {
       {r.conflict_same_period && <Field label="注意" value="同じ時点で異なる値の記載があります（履歴を確認してください）" />}
       {r.history?.length > 0 && (
         <details style={{ fontSize: 12, marginTop: 4 }}>
-          <summary style={{ cursor: 'pointer', color: '#a8b7cb' }}>他の記載・過去の値 {r.history.length} 件</summary>
-          <ul style={{ margin: '4px 0 0', paddingLeft: 16, color: '#cbd5e1' }}>
+          <summary style={{ cursor: 'pointer', color: 'var(--text-2)' }}>他の記載・過去の値 {r.history.length} 件</summary>
+          <ul style={{ margin: '4px 0 0', paddingLeft: 16, color: 'var(--text-2)' }}>
             {r.history.map((h, i) => (
               <li key={i}>
                 {RATIO_KIND_JA[h.kind] ?? ''} {h.value != null ? pct(h.value) : '合計不明'}
@@ -162,12 +162,12 @@ function EvidenceCard({ ev }) {
   const url = ev.url;
   const originalLabel = ev.source === 'edinet' ? 'EDINET で原本を開く' : ev.source === 'wikidata' ? 'Wikidata の項目を開く' : '公表資料を開く';
   return (
-    <div style={{ background: '#1e293b', borderRadius: 8, padding: '8px 10px', marginBottom: 6, fontSize: 12 }}>
+    <div className="card" style={{ background: 'var(--surface)', borderRadius: 8, padding: '8px 10px', marginBottom: 6, fontSize: 12 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4, gap: 6, flexWrap: 'wrap' }}>
-        <span style={{ color: '#f1f5f9', fontWeight: 600 }}>{SOURCE_JA[ev.source] ?? ev.source}</span>
+        <span style={{ color: 'var(--text)', fontWeight: 600 }}>{SOURCE_JA[ev.source] ?? ev.source}</span>
         <span>
-          {tier && <Badge color={TIER_COLOR[tier] ?? '#94a3b8'} title="出所の種別。抽出内容の正しさとは別です">{TIER_JA[tier] ?? tier}</Badge>}
-          {ev.verification === 'verified' && <Badge color="#4ade80">原本確認</Badge>}
+          {tier && <Badge color={TIER_COLORS[tier] ?? '#475569'} title="出所の種別。抽出内容の正しさとは別です">{TIER_JA[tier] ?? tier}</Badge>}
+          {ev.verification === 'verified' && <Badge color={STATUS_COLORS.confirmed}>原本確認</Badge>}
         </span>
       </div>
       <Field label="基準日" value={dateOrUnknown(ev.as_of)} />
@@ -189,7 +189,7 @@ function EvidenceCard({ ev }) {
       {ev.person && <Field label="人物" value={ev.person} />}
       {ev.note && <Field label="備考" value={ev.note} />}
       {url ? (
-        <Field label="原本" value={<>{ev.doc_id && <span style={{ color: '#cbd5e1', marginRight: 6 }}>{ev.doc_id}</span>}<ExternalLink href={url}>{originalLabel} ↗</ExternalLink></>} />
+        <Field label="原本" value={<>{ev.doc_id && <span style={{ color: 'var(--text-2)', marginRight: 6 }}>{ev.doc_id}</span>}<ExternalLink href={url}>{originalLabel} ↗</ExternalLink></>} />
       ) : (
         <Field label="原本" value={ev.doc_id ? `書類ID ${ev.doc_id}（リンク情報なし。EDINET の書類検索で参照できます）` : 'リンク情報なし'} />
       )}
@@ -199,7 +199,7 @@ function EvidenceCard({ ev }) {
 
 export function RelationDetail({ relation }) {
   const typeDef = RELATION_TYPES[relation.relation_type] ?? {};
-  const color = CATEGORY_COLORS[relation.category] ?? '#64748b';
+  const color = CATEGORY_TEXT_COLORS[relation.category] ?? '#475569';
   const status = relationStatus(relation);
   const [detail, setDetail] = useState(null);
   const [loadState, setLoadState] = useState('loading');
@@ -221,8 +221,8 @@ export function RelationDetail({ relation }) {
       <Section title={`関係 ${relation.relation_id}`}>
         <div style={{ marginBottom: 8 }}>
           <Badge color={color}>{CATEGORY_JA[relation.category]} / {typeDef.ja ?? relation.relation_type}</Badge>
-          <Badge color={STATUS_COLOR[status]} title={status === 'confirmed' ? '出所の記載どおりに抽出できた関係。内容の真偽を保証するものではありません' : status === 'needs_review' ? '出所の記載から関係タイプ・方向を確定できない関係' : '後続の開示で過去の状態になった関係'}>{STATUS_JA[status]}</Badge>
-          <Badge color={verification?.status === 'verified' ? '#4ade80' : '#94a3b8'} title="抽出結果を人手で原本と照合したかどうか">
+          <Badge color={STATUS_COLORS[status] ?? '#475569'} title={status === 'confirmed' ? '出所の記載どおりに抽出できた関係。内容の真偽を保証するものではありません' : status === 'needs_review' ? '出所の記載から関係タイプ・方向を確定できない関係' : '後続の開示で過去の状態になった関係'}>{STATUS_JA[status]}</Badge>
+          <Badge color={verification?.status === 'verified' ? STATUS_COLORS.confirmed : '#475569'} title="抽出結果を人手で原本と照合したかどうか">
             {verification?.status === 'verified' ? `原本で検証済み${verification.on ? `（${verification.on}）` : ''}` : '未検証（自動抽出）'}
           </Badge>
         </div>
@@ -244,10 +244,10 @@ export function RelationDetail({ relation }) {
         {relation.attributes?.person && <Field label="人物" value={relation.attributes.person} />}
       </Section>
       <Section title={`エビデンス（出所） ${evidence.length} 件`}>
-        {loadState === 'loading' && detail === null && META.evidenceShards && <div style={{ fontSize: 12, color: '#a8b7cb', marginBottom: 6 }}>原本情報を読み込み中…</div>}
-        {loadState === 'error' && <div style={{ fontSize: 12, color: '#fca5a5', marginBottom: 6 }}>原本情報を取得できませんでした。通信状況を確認してください。</div>}
+        {loadState === 'loading' && detail === null && META.evidenceShards && <div style={{ fontSize: 12, color: 'var(--text-2)', marginBottom: 6 }}>原本情報を読み込み中…</div>}
+        {loadState === 'error' && <div role="alert" style={{ fontSize: 12, color: 'var(--danger)', marginBottom: 6 }}>原本情報を取得できませんでした。通信状況を確認してください。</div>}
         {evidence.map((ev, i) => <EvidenceCard key={i} ev={ev} />)}
-        <div style={{ fontSize: 11, color: '#a8b7cb', lineHeight: 1.6 }}>
+        <div style={{ fontSize: 12, color: 'var(--text-2)', lineHeight: 1.6 }}>
           「一次開示」は出所の種別で、抽出が正しいことを意味しません。「原本で検証済み」は人手で照合した関係にだけ付きます。
         </div>
       </Section>
@@ -258,10 +258,10 @@ export function RelationDetail({ relation }) {
 export default function DetailPanel({ selection, onClose }) {
   if (!selection) return null;
   return (
-    <div className="detail-panel" role="region" aria-label="企業・関係の詳細" style={{ width: 320, minWidth: 320, height: '100%', overflowY: 'auto', borderLeft: '1px solid #1e293b', background: 'rgba(15, 23, 42, 0.97)', padding: 16 }}>
+    <div className="detail-panel" role="region" aria-label="企業・関係の詳細" style={{ width: 320, minWidth: 320, height: '100%', overflowY: 'auto', borderLeft: '1px solid var(--border)', padding: 16 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}>
-        <span style={{ fontSize: 14, fontWeight: 700, color: '#facc15' }}>詳細</span>
-        <button onClick={onClose} style={{ background: 'none', border: 'none', color: '#a8b7cb', cursor: 'pointer', fontSize: 14 }}>✕ 閉じる</button>
+        <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--text)' }}>詳細</span>
+        <button onClick={onClose} style={{ background: 'none', border: 'none', color: 'var(--text-2)', cursor: 'pointer', fontSize: 14 }}>✕ 閉じる</button>
       </div>
       {selection.kind === 'node' && <CompanyDetail info={selection.info} refObj={selection.ref} />}
       {selection.kind === 'edge' && <RelationDetail relation={selection.relation} />}

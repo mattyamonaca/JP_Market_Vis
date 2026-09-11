@@ -166,11 +166,11 @@ export function buildEgoNetwork(centerCode, { categoryFilter = null, maxNeighbor
         target: tKey,
         type: 'default',
         label: ratioLabel, // 種別は色で表現。比率がある時だけラベル表示してクラッタを抑える
-        labelStyle: { fill: '#e2e8f0', fontSize: 10, fontWeight: 600 },
-        labelBgStyle: { fill: '#0f172a', fillOpacity: 0.85 },
+        labelStyle: { fill: '#0f172a', fontSize: 10, fontWeight: 600 },
+        labelBgStyle: { fill: '#ffffff', fillOpacity: 0.9 },
         labelBgPadding: [3, 2],
         labelBgBorderRadius: 3,
-        style: { stroke: color, strokeWidth: 1.4, opacity: 0.75 },
+        style: { stroke: color, strokeWidth: 1.5, opacity: 0.85 },
         markerEnd: rel.directed
           ? { type: 'arrowclosed', color, width: 14, height: 14 }
           : undefined,
