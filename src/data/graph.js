@@ -62,11 +62,12 @@ export async function loadRelationDetail(relation) {
 
 // 白背景上の配色（Issue #23）。グラフの線・ノードには中間色、文字・バッジには白に対して 4.5:1 以上の濃い色を使う
 export const CATEGORY_COLORS = {
-  capital: '#0ea5e9',
-  transaction: '#f97316',
-  alliance: '#22c55e',
-  personnel: '#ec4899',
-  group: '#8b5cf6',
+  // くすみ系（Issue #28）: 白背景で線・バーに使う。文字には CATEGORY_TEXT_COLORS を使う
+  capital: '#6f95bd',
+  transaction: '#c4906f',
+  alliance: '#7fa98b',
+  personnel: '#b58aa5',
+  group: '#9a8dc0',
 };
 export const CATEGORY_TEXT_COLORS = {
   capital: '#0369a1',
@@ -184,29 +185,30 @@ export const STATS = (() => {
 export const searchCompanies = createSearcher(COMPANIES, (code) => degreeOf({ type: 'listed', key: code }));
 
 // 17業種 → 色（全体マップのノード配色）
+// 17業種 → 色（全体マップのノード配色）。彩度を抑えたくすみ系で、白背景でも輪郭（同色を暗くしたリング）で識別する（Issue #28）
 export const INDUSTRY_COLORS = {
-  '食品': '#ef4444',
-  'エネルギー資源': '#f97316',
-  '建設・資材': '#d97706',
-  '素材・化学': '#65a30d',
-  '医薬品': '#16a34a',
-  '自動車・輸送機': '#059669',
-  '鉄鋼・非鉄': '#0d9488',
-  '機械': '#0891b2',
-  '電機・精密': '#0284c7',
-  '情報通信・サービスその他': '#4f46e5',
-  '電力・ガス': '#7c3aed',
-  '運輸・物流': '#9333ea',
-  '商社・卸売': '#c026d3',
-  '小売': '#db2777',
-  '銀行': '#e11d48',
-  '金融（除く銀行）': '#f43f5e',
-  '不動産': '#ca8a04',
-  'その他': '#64748b',
+  '食品': '#c26f6f',
+  'エネルギー資源': '#c98a5c',
+  '建設・資材': '#c1a35a',
+  '素材・化学': '#9aa855',
+  '医薬品': '#6ea87b',
+  '自動車・輸送機': '#5e9c8f',
+  '鉄鋼・非鉄': '#6a9aa6',
+  '機械': '#6b8fbb',
+  '電機・精密': '#7b85c6',
+  '情報通信・サービスその他': '#8f7dba',
+  '電力・ガス': '#a97db2',
+  '運輸・物流': '#b779a0',
+  '商社・卸売': '#ba7889',
+  '小売': '#c47f76',
+  '銀行': '#8a8e9c',
+  '金融（除く銀行）': '#a49b85',
+  '不動産': '#a08a58',
+  'その他': '#9aa0a8',
 };
 
 export function industryColor(industry17) {
-  return INDUSTRY_COLORS[industry17] ?? '#64748b';
+  return INDUSTRY_COLORS[industry17] ?? '#9aa0a8';
 }
 
 // 全体マップ用: 両端が上場企業のエッジのみで構成したネットワーク

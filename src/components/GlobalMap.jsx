@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ForceGraph3D from 'react-force-graph-3d';
+import { CanvasTexture, SRGBColorSpace, Sprite, SpriteMaterial } from 'three';
 import { CATEGORY_AVAILABILITY, CATEGORY_COLORS, CATEGORY_JA, CATEGORY_TEXT_COLORS, GLOBAL_GRAPH, INDUSTRY_COLORS, industryColor, searchCompanies } from '../data/graph.js';
 import { filterGlobalGraph } from '../data/filterGlobalGraph.js';
 
@@ -7,16 +8,59 @@ import { filterGlobalGraph } from '../data/filterGlobalGraph.js';
 const AVAILABLE_CATEGORIES = Object.keys(CATEGORY_JA).filter((key) => CATEGORY_AVAILABILITY[key]?.listed > 0);
 
 // 全体マップ（Issue #22）: ノードを 3D 空間に配置し、ドラッグでカメラを回す。
-// 球の半径 ∝ 関係数の立方根（nodeRelSize × cbrt(nodeVal)）。色は業種。線は関係カテゴリ。
-// アクセサは参照が変わるとライブラリがオブジェクトを作り直すため、モジュール定数として固定する。
+// ノードは常にカメラに正対するスプライト（塗りの円＋細いリング。Issue #28）で、半径 ∝ 関係数の立方根（nodeRelSize × cbrt(nodeVal)）。
+// 色は業種。線は関係カテゴリ。アクセサは参照が変わるとライブラリがオブジェクトを作り直すため、モジュール定数として固定する。
 const NODE_REL_SIZE = 8;
-const LABEL_MIN_DEGREE = 110; // 主要ハブだけ常時ラベル（HTML を球の画面位置に重ねる）。その他はホバーで表示
+const HOVER_SCALE = 1.2;
+const LABEL_MIN_DEGREE = 110; // 主要ハブだけ常時ラベル（HTML を円の画面位置に重ねる）。その他はホバーで表示
 const CORE_MIN_DEGREE = 3; // 視点リセット・初期表示で収める「中心部」の関係数（孤立した小さな塊は画面外でもよい）
 const nodeVal = (node) => node.degree * 2;
 const nodeColor = (node) => industryColor(node.industry);
 const linkColor = (link) => CATEGORY_COLORS[link.category] ?? '#94a3b8';
 const noLabel = () => '';
 const radiusOf = (node) => Math.cbrt(nodeVal(node)) * NODE_REL_SIZE;
+
+// --- フラットなノードの見た目: 円の塗りと、同色を暗くした細いリング。ホバー時はリングを太く・濃くし、少し拡大する
+const shade = (hex, k) => '#' + [1, 3, 5].map((i) => Math.round(parseInt(hex.slice(i, i + 2), 16) * (1 - k)).toString(16).padStart(2, '0')).join('');
+const TEXTURE_SIZE = 128;
+const textureCache = new Map();
+const nodeTexture = (color, hover) => {
+  const key = `${color}:${hover ? 1 : 0}`;
+  if (textureCache.has(key)) return textureCache.get(key);
+  const canvas = document.createElement('canvas');
+  canvas.width = canvas.height = TEXTURE_SIZE;
+  const ctx = canvas.getContext('2d');
+  const c = TEXTURE_SIZE / 2, ring = hover ? 9 : 5, r = c - ring;
+  ctx.beginPath(); ctx.arc(c, c, r, 0, Math.PI * 2);
+  ctx.fillStyle = color; ctx.fill();
+  ctx.lineWidth = ring; ctx.strokeStyle = shade(color, hover ? 0.5 : 0.28); ctx.stroke();
+  const texture = new CanvasTexture(canvas);
+  texture.colorSpace = SRGBColorSpace;
+  textureCache.set(key, texture);
+  return texture;
+};
+const materialCache = new Map();
+const nodeMaterial = (color, hover = false) => {
+  const key = `${color}:${hover ? 1 : 0}`;
+  if (!materialCache.has(key)) {
+    materialCache.set(key, new SpriteMaterial({ map: nodeTexture(color, hover), transparent: true, depthWrite: false, alphaTest: 0.05, opacity: 0.94 }));
+  }
+  return materialCache.get(key);
+};
+const applyNodeLook = (node, hover) => {
+  const obj = node.__threeObj;
+  if (!obj) return;
+  obj.material = nodeMaterial(nodeColor(node), hover);
+  const d = radiusOf(node) * 2 * (hover ? HOVER_SCALE : 1);
+  obj.scale.set(d, d, 1);
+  obj.renderOrder = hover ? 1 : 0;
+};
+const nodeObject = (node) => {
+  const sprite = new Sprite(nodeMaterial(nodeColor(node)));
+  const d = radiusOf(node) * 2;
+  sprite.scale.set(d, d, 1);
+  return sprite;
+};
 const isCore = (node) => node.degree >= CORE_MIN_DEGREE;
 const ORBIT_STEP = Math.PI / 12; // 矢印キー 1 回で 15°
 const CLAMP = 0.05;
@@ -59,7 +103,7 @@ export default function GlobalMap({ onSelectCompany }) {
   }, [wake]);
   // データが変わったらシミュレーションが動くので描画を再開し、ホバーを消す
   useEffect(() => { setHoverNode(null); engineRunning.current = true; tickCount.current = 0; resume(); }, [data]);
-  // 主要ハブのラベルを、球の画面座標に合わせて HTML で重ねる（カメラ移動・シミュレーションのたびに位置を更新）
+  // 主要ハブのラベルを、円の画面座標に合わせて HTML で重ねる（カメラ移動・シミュレーションのたびに位置を更新）
   const hubs = useMemo(() => data.nodes.filter((n) => n.degree >= LABEL_MIN_DEGREE), [data]);
   const updateLabels = useCallback(() => {
     const fg = fgRef.current, layer = labelsRef.current;
@@ -85,7 +129,7 @@ export default function GlobalMap({ onSelectCompany }) {
     const controls = fg?.controls();
     const el = wrapRef.current;
     if (!fg || !controls || !el) return undefined;
-    controls.minDistance = 120; // 表示が 2 社だけのときなどに球の内側まで寄らない
+    controls.minDistance = 120; // 表示が 2 社だけのときなどに円の内側まで寄らない
     let timer = null;
     const update = () => {
       timer = null;
@@ -148,9 +192,11 @@ export default function GlobalMap({ onSelectCompany }) {
     if (fn) { event.preventDefault(); fn(); }
   };
 
-  const onNodeHover = useCallback((node) => {
+  const onNodeHover = useCallback((node, prev) => {
+    if (prev) applyNodeLook(prev, false);
+    if (node) applyNodeLook(node, true);
     setHoverNode(node || null);
-    if (wrapRef.current) wrapRef.current.style.cursor = node ? 'pointer' : 'grab';
+    if (wrapRef.current) { wrapRef.current.style.cursor = node ? 'pointer' : 'grab'; wrapRef.current.dataset.hover = node ? node.id : ''; }
   }, []);
   // クリック（ドラッグせずに離した場合だけライブラリが発火する）で見た目どおりの企業を開く
   const onNodeClick = useCallback((node) => onSelectCompany(node.id), [onSelectCompany]);
@@ -197,7 +243,7 @@ export default function GlobalMap({ onSelectCompany }) {
         <section className="control-section">
           <label className="range-caption" htmlFor="min-degree">最小関係数 <strong>{minDegree}</strong></label>
           <input id="min-degree" type="range" min="1" max="20" value={minDegree} onChange={(e) => setMinDegree(Number(e.target.value))} />
-          <p>選択カテゴリで、その企業が上場企業と持つ関係数（非表示の企業との関係を含む）が {minDegree} 以上の企業を表示します。線は表示中の企業同士の関係だけなので、相手が非表示の企業は「表示線なし」になります。球の大きさも同じ関係数です。</p>
+          <p>選択カテゴリで、その企業が上場企業と持つ関係数（非表示の企業との関係を含む）が {minDegree} 以上の企業を表示します。線は表示中の企業同士の関係だけなので、相手が非表示の企業は「表示線なし」になります。円の大きさも同じ関係数です。</p>
           {(data.nodes.length === 0 || activeCategories.size === 0) && <button type="button" className="reset-button" onClick={resetFilters}>カテゴリと最小関係数を初期状態に戻す</button>}
         </section>
         <details className="legend-details" open>
@@ -208,12 +254,12 @@ export default function GlobalMap({ onSelectCompany }) {
       <div ref={wrapRef} className="map-canvas" tabIndex={0} role="group"
         aria-label="上場企業間ネットワークの 3D 表示。ドラッグで視点を回転、スクロールで拡大縮小。左右の矢印キーで水平に、上下の矢印キーで垂直に回転、＋／−で拡大縮小、0 で視点をリセットできます。企業をクリックすると関係グラフを開きます。"
         onPointerDown={() => wake(1500)} onPointerMove={() => wake(600)} onWheel={() => wake(800)} onKeyDown={onKeyDown}>
-        <div className="map-caption"><strong>上場企業間ネットワーク（3D）</strong><br />色：業種 ／ 球の大きさ：関係数<br />ドラッグで回転 · スクロール／ピンチで拡大縮小 · 右ドラッグ／2本指で移動 · 企業を選択して詳細へ</div>
+        <div className="map-caption"><strong>上場企業間ネットワーク（3D）</strong><br />色：業種 ／ 円の大きさ：関係数<br />ドラッグで回転 · スクロール／ピンチで拡大縮小 · 右ドラッグ／2本指で移動 · 企業を選択して詳細へ</div>
         <ForceGraph3D ref={fgRef} width={size.w} height={size.h} graphData={data}
           controlType="orbit" backgroundColor="#ffffff" showNavInfo={false}
-          nodeId="id" nodeRelSize={NODE_REL_SIZE} nodeVal={nodeVal} nodeColor={nodeColor} nodeOpacity={0.95} nodeResolution={12}
+          nodeId="id" nodeRelSize={NODE_REL_SIZE} nodeVal={nodeVal} nodeColor={nodeColor} nodeThreeObject={nodeObject}
           nodeLabel={noLabel}
-          linkColor={linkColor} linkOpacity={0.4} linkWidth={0}
+          linkColor={linkColor} linkOpacity={0.3} linkWidth={0}
           warmupTicks={60} cooldownTicks={150}
           enableNodeDrag={false}
           onEngineTick={onEngineTick} onEngineStop={onEngineStop} onNodeHover={onNodeHover} onNodeClick={onNodeClick}
