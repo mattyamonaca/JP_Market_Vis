@@ -129,6 +129,8 @@ button:hover:not(:disabled) { filter: brightness(.96); }
 .legend-details { margin-top: 20px; border-top: 1px solid var(--border); padding-top: 14px; }
 .legend-details summary { font-size: 13px; cursor: pointer; margin-bottom: 12px; }
 .map-canvas { position: relative; flex: 1; min-width: 0; overflow: hidden; background: var(--bg); }
+.map-labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1; }
+.map-labels span { position: absolute; left: 0; top: 0; font-size: 12px; font-weight: 600; color: var(--text); background: rgba(255, 255, 255, .85); border-radius: 3px; padding: 1px 5px; white-space: nowrap; will-change: transform; }
 .map-caption { position: absolute; top: 16px; left: 20px; z-index: 2; pointer-events: none; color: var(--text-2); font-size: 12px; line-height: 1.7; }
 .map-caption strong { font-weight: 600; color: var(--text); font-size: 13px; }
 .map-tools { position: absolute; bottom: 18px; right: 18px; display: flex; gap: 6px; z-index: 2; }
@@ -139,7 +141,6 @@ button:hover:not(:disabled) { filter: brightness(.96); }
 .map-empty { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; pointer-events: none; color: var(--text-2); line-height: 1.8; padding: 20px; }
 .map-empty strong { color: var(--text); }
 .map-empty .reset-button { pointer-events: auto; margin: 10px auto 0; display: block; }
-.rotation-surface { position: absolute; inset: 0; z-index: 1; cursor: ew-resize; touch-action: none; }
 
 /* 関係グラフ（React Flow） */
 .graph-view { position: relative; }
