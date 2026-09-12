@@ -212,6 +212,9 @@ const recordContrast = async (page, scenario, label) => { const c = await contra
   await mapEl.focus(); await page.keyboard.press('ArrowRight'); await page.keyboard.press('ArrowUp'); await page.waitForTimeout(600);
   const hit = await findHoverTarget(page, box);
   if (hit) {
+    // ホバー状態（リングを太く・拡大）がノードに反映され、ホバー表示と一致していること（Issue #28）
+    record('3D', 'ホバー状態がノードに反映される', (await mapEl.getAttribute('data-hover')) !== '' && (await mapEl.getAttribute('data-hover')) !== null, `hover=${await mapEl.getAttribute('data-hover')} (${hit.name})`);
+    await page.screenshot({ path: `${outDir}/pc_02a_hover.png`, clip: { x: Math.max(0, hit.x - 160), y: Math.max(0, hit.y - 120), width: 320, height: 240 } });
     await page.mouse.click(hit.x, hit.y); await page.waitForTimeout(1500);
     const center = (await page.locator('.react-flow__node-center').innerText().catch(() => '')).split('\n')[0];
     record('3D', '回転後のクリックで見た目どおりの企業が開く', center === hit.name, `${hit.name} -> ${center}`);
@@ -410,7 +413,7 @@ const md = [
   '',
   '## スクリーンショット',
   '',
-  ...['loading_pc', 'loading_mobile', 'loading_error_mobile', 'pc_01_initial', 'pc_02_graph_after_rotation_click', 'pc_03_empty', 'pc_04_graph_detail', 'pc_05_table_detail', 'pc_06_stats', 'pc_07_after_resize', 'pc_08_group_only', 'zoom200_map', 'zoom200_table', 'mobile_01_map', 'mobile_02_rotation', 'mobile_03_graph', 'mobile_04_table_detail', 'mobile_05_landscape'].map((n) => `- ![${n}](${n}.png)`),
+  ...['loading_pc', 'loading_mobile', 'loading_error_mobile', 'pc_01_initial', 'pc_02a_hover', 'pc_02_graph_after_rotation_click', 'pc_03_empty', 'pc_04_graph_detail', 'pc_05_table_detail', 'pc_06_stats', 'pc_07_after_resize', 'pc_08_group_only', 'zoom200_map', 'zoom200_table', 'mobile_01_map', 'mobile_02_rotation', 'mobile_03_graph', 'mobile_04_table_detail', 'mobile_05_landscape'].map((n) => `- ![${n}](${n}.png)`),
   '',
   '## 未実施・注記',
   '',
