@@ -137,20 +137,40 @@ function GraphView({ centerCode, setCenterCode, onShowInTable }) {
 
   // ノードにホバー → そのノードに接続するエッジ/ノードを強調、他を減光。
   // エッジにホバー → 関係タイプ名のラベルを一時表示。
+  // React Flow が計測したノードの大きさ。ノード配列は毎回作り直すので、計測結果を自分で保持して渡さないと
+  // ミニマップが（大きさ未確定として）ノードを描かない
+  const [measured, setMeasured] = useState({});
+  const onNodesChange = useCallback((changes) => {
+    setMeasured((prev) => {
+      let next = null;
+      for (const c of changes) if (c.type === 'dimensions' && c.dimensions) (next ??= { ...prev })[c.id] = c.dimensions;
+      return next ?? prev;
+    });
+  }, []);
   const displayNodes = useMemo(() => {
-    if (!hoveredNodeId) return nodes;
     const connected = new Set([hoveredNodeId]);
-    for (const e of edges) {
-      if (e.source === hoveredNodeId) connected.add(e.target);
-      if (e.target === hoveredNodeId) connected.add(e.source);
+    if (hoveredNodeId) {
+      for (const e of edges) {
+        if (e.source === hoveredNodeId) connected.add(e.target);
+        if (e.target === hoveredNodeId) connected.add(e.source);
+      }
     }
     return nodes.map((n) => ({
       ...n,
-      data: { ...n.data, dimmed: !connected.has(n.id) },
+      measured: measured[n.id],
+      data: { ...n.data, dimmed: hoveredNodeId ? !connected.has(n.id) : false },
     }));
-  }, [nodes, edges, hoveredNodeId]);
+  }, [nodes, edges, hoveredNodeId, measured]);
 
+  // ノードにホバーしたとき、接続するエッジに種別名を付けるのは本数が少ない場合だけ。
+  // 中心企業のように数十本あると、ラベルが中心付近で重なり合って読めなくなる（崩れて見える）ため、強調（太線・減光）だけにする
+  const HOVER_LABEL_MAX_EDGES = 8;
+  const hoverNodeEdgeCount = useMemo(
+    () => (hoveredNodeId ? edges.filter((e) => e.source === hoveredNodeId || e.target === hoveredNodeId).length : 0),
+    [edges, hoveredNodeId],
+  );
   const displayEdges = useMemo(() => {
+    const labelConnected = hoverNodeEdgeCount > 0 && hoverNodeEdgeCount <= HOVER_LABEL_MAX_EDGES;
     return edges.map((e) => {
       const touchesHoverNode =
         hoveredNodeId && (e.source === hoveredNodeId || e.target === hoveredNodeId);
@@ -160,10 +180,11 @@ function GraphView({ centerCode, setCenterCode, onShowInTable }) {
       const typeJa = RELATION_TYPES[rel.relation_type]?.ja ?? rel.relation_type;
       const dim = hoveredNodeId && !touchesHoverNode;
       const emphasize = isHoverEdge || touchesHoverNode;
+      const withType = isHoverEdge || (touchesHoverNode && labelConnected);
       return {
         ...e,
-        // ホバー対象のエッジ（およびホバー中ノードに接続するエッジ）に種別名を表示
-        label: isHoverEdge || touchesHoverNode ? `${typeJa}${e.label ? ` ${e.label}` : ''}` : e.label,
+        // ホバー対象のエッジ（およびホバー中ノードに接続するエッジが少ないとき）に種別名を表示
+        label: withType ? `${typeJa}${e.label ? ` ${e.label}` : ''}` : e.label,
         style: {
           ...e.style,
           opacity: dim ? 0.12 : emphasize ? 1 : e.style.opacity,
@@ -171,7 +192,7 @@ function GraphView({ centerCode, setCenterCode, onShowInTable }) {
         },
       };
     });
-  }, [edges, hoveredNodeId, hoveredEdgeId]);
+  }, [edges, hoveredNodeId, hoveredEdgeId, hoverNodeEdgeCount]);
 
   const onNodeClick = useCallback(
     (_, node) => {
@@ -269,6 +290,7 @@ function GraphView({ centerCode, setCenterCode, onShowInTable }) {
           nodes={displayNodes}
           edges={displayEdges}
           nodeTypes={nodeTypes}
+          onNodesChange={onNodesChange}
           onNodeClick={onNodeClick}
           onEdgeClick={onEdgeClick}
           onNodeMouseEnter={onNodeMouseEnter}
