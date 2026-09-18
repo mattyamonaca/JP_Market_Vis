@@ -29,54 +29,42 @@ async function newPage(vp, opts = {}) {
   const errors = [];
   page.on('pageerror', (e) => errors.push(String(e)));
   page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text().slice(0, 200)); });
-  // 描画負荷の指標: WebGL の描画呼び出し（drawElements / drawArrays）回数を数える（3D マップ。Issue #22）
+  // 描画負荷の指標: Canvas 2D の clearRect 回数を数える（2D マップはフレームごとに描画用・当たり判定用の 2 枚の canvas を消去する）
   await page.addInitScript(() => {
     window.__draws = 0;
-    for (const C of [window.WebGLRenderingContext, window.WebGL2RenderingContext]) {
-      if (!C) continue;
-      for (const m of ['drawElements', 'drawArrays', 'drawElementsInstanced', 'drawArraysInstanced']) {
-        const orig = C.prototype[m];
-        if (orig) C.prototype[m] = function (...a) { window.__draws++; return orig.apply(this, a); };
-      }
-    }
+    const orig = CanvasRenderingContext2D.prototype.clearRect;
+    CanvasRenderingContext2D.prototype.clearRect = function (...a) { window.__draws++; return orig.apply(this, a); };
   });
   return { ctx, page, errors };
 }
 const tab = (page, name) => page.getByRole('button', { name, exact: true });
-const cameraOf = (page) => page.locator('.map-canvas').getAttribute('data-camera');
-const distOf = (cam) => Math.hypot(...String(cam ?? '0,0,0').split(',').map(Number));
-const isFront = (cam) => /^0,0,\d+$/.test(cam ?? '');
+// 倍率と中心（.map-canvas の data-view = 倍率,中心x,中心y）
+const viewOf = async (page) => { const [k, x, y] = String((await page.locator('.map-canvas').getAttribute('data-view')) ?? '0,0,0').split(',').map(Number); return { k, x, y }; };
+const viewText = (v) => `k=${v.k.toFixed(3)} 中心(${v.x},${v.y})`;
+const centerMoved = (a, b) => Math.hypot(a.x - b.x, a.y - b.y) > 2;
 // 指定位置にポインターを置いたときのホバー企業名（なければ null）
-const hoverAt = async (page, x, y, wait = 120) => { await page.mouse.move(x, y); await page.waitForTimeout(wait); return page.locator('.map-hover strong').innerText({ timeout: 100 }).catch(() => null); };
-// ホバー中のノードの円を画面上で計測する。走査開始点は中心からずれているので、まず水平にホバーが続く範囲から中心 x を求め、
-// その列を垂直に走査して中心 y を求め、最後に中心を通る行・列の直径から半径を取る（中心を通らない弦で測ると半径を小さく見積もる）。
-// ホバー中はノードが 1.2 倍に拡大されるため、得られる半径は拡大後の円のもの
-const measureCircle = async (page, x0, y0, name, step = 4, limit = 260) => {
-  const extent = async (x, y, dx, dy) => { let n = 0; while (n < limit && (await hoverAt(page, x + dx * (n + step), y + dy * (n + step), 45)) === name) n += step; return n; };
-  const cx = x0 + ((await extent(x0, y0, 1, 0)) - (await extent(x0, y0, -1, 0))) / 2;
-  const up = await extent(cx, y0, 0, -1), down = await extent(cx, y0, 0, 1);
-  const cy = y0 + (down - up) / 2;
-  const rx = ((await extent(cx, cy, -1, 0)) + (await extent(cx, cy, 1, 0))) / 2;
-  return { cx, cy, r: ((up + down) / 2 + rx) / 2 };
-};
-// 円の内側（中心から各軸 0.5r、距離 0.71r）はホバーでき、描画された円の外側にあたる四隅（各軸 0.85r、距離 1.2r。
-// スプライトの正方形の半辺は約 1.05r なので正方形の内側）はホバーしないこと（Issue #28 レビュー指摘: 既定の raycast は正方形で判定する）
-const recordCircleHit = async (page, scenario, label, name, circle) => {
-  const { cx, cy, r } = circle;
-  const inside = await hoverAt(page, cx + 0.5 * r, cy + 0.5 * r, 250);
-  await page.mouse.move(cx, cy); await page.waitForTimeout(150); // ホバー拡大した状態から四隅へ
-  const corners = [];
-  for (const [sx, sy] of [[1, 1], [-1, 1], [-1, -1], [1, -1]]) corners.push(await hoverAt(page, cx + sx * 0.85 * r, cy + sy * 0.85 * r, 350));
-  record(scenario, `円の内側だけがホバー対象（${label}）`, inside === name && corners.every((c) => c === null), `${name} 中心(${cx.toFixed(0)},${cy.toFixed(0)}) r=${r.toFixed(0)} 内側=${inside} 四隅=${corners.map((c) => c ?? 'なし').join('/')}`);
-};
-// 円の内側をクリックすると同じ企業の関係グラフが開くこと。クリック対象はホバー中のノードなので、実操作と同じく先にホバーを確立してからクリックする
-const recordCircleClick = async (page, scenario, label, name, circle) => {
-  const x = circle.cx + 0.5 * circle.r, y = circle.cy + 0.5 * circle.r;
-  await hoverAt(page, x, y, 300); await page.mouse.click(x, y); await page.waitForTimeout(1500);
+const hoverAt = async (page, x, y, wait = 250) => { await page.mouse.move(x, y); await page.waitForTimeout(wait); return page.locator('.map-hover strong').innerText({ timeout: 100 }).catch(() => null); };
+// 見た目とホバー・クリックの対象位置が一致すること: ホバー中のノードの画面上の中心と半径（data-hover-center / data-hover-radius。ホバー拡大後）を読み、
+// 円の内側（各軸 0.5r、距離 0.71r）はホバーでき、円の外側（各軸 0.95r、距離 1.34r。外接する正方形の内側）ではホバーせず、中心のクリックで同じ企業が開く
+const recordCircleHit = async (page, scenario, label, box) => {
+  const hit = await findHoverTarget(page, box);
+  if (!hit) { record(scenario, `円の内側だけがホバー対象（${label}）`, false, 'ホバー対象を見つけられず'); return null; }
+  const map = page.locator('.map-canvas');
+  const [hx, hy] = String(await map.getAttribute('data-hover-center')).split(',').map(Number);
+  const r = Number(await map.getAttribute('data-hover-radius'));
+  const cx = box.x + hx, cy = box.y + hy;
+  const center = await hoverAt(page, cx, cy);
+  const inside = await hoverAt(page, cx + 0.5 * r, cy + 0.5 * r);
+  const outside = [];
+  for (const [sx, sy] of [[1, 1], [-1, 1], [-1, -1], [1, -1]]) { await hoverAt(page, cx, cy, 150); outside.push(await hoverAt(page, cx + sx * 0.95 * r, cy + sy * 0.95 * r, 350)); }
+  record(scenario, `円の内側だけがホバー対象（${label}）`, r >= 4 && center === hit.name && inside === hit.name && outside.every((c) => c === null), `${hit.name} 中心(${cx.toFixed(0)},${cy.toFixed(0)}) r=${r.toFixed(1)} 中心=${center} 内側=${inside} 外側=${outside.map((c) => c ?? 'なし').join('/')}`);
+  await hoverAt(page, cx, cy); await page.mouse.click(cx, cy); await page.waitForTimeout(1500);
   const opened = (await page.locator('.react-flow__node-center').innerText().catch(() => '')).split('\n')[0];
-  record(scenario, `円の内側のクリックで同じ企業が開く（${label}）`, opened === name, `${name} -> ${opened || '（開かない）'}`);
+  record(scenario, `円の中心のクリックで同じ企業が開く（${label}）`, opened === hit.name, `${hit.name} -> ${opened || '（開かない）'}`);
+  await tab(page, '全体マップ').click(); await page.waitForTimeout(500);
+  return hit;
 };
-// ホバー表示が出る位置を走査して、表示された企業名を返す（3D ではノードの画面位置が事前に分からない）
+// ホバー表示が出る位置を走査して、表示された企業名を返す（配置は力学計算の結果なのでノードの画面位置が事前に分からない）
 const findHoverTarget = async (page, box) => {
   for (let y = box.y + 120; y < box.y + box.height - 120; y += 20) {
     for (let x = box.x + 120; x < box.x + box.width - 120; x += 20) {
@@ -197,59 +185,61 @@ const recordContrast = async (page, scenario, label) => { const c = await contra
   record('PC初回', '見出し・操作部品の重なりなし', !overlap.capTools && !overlap.capHover, JSON.stringify(overlap));
   await recordContrast(page, '視認性', 'PC 全体マップ');
 
-  // 3D 配置 → ドラッグで視点回転（誤って詳細を開かない）→ ホイール拡大 → 停止中は描画休止 → 視点リセット
+  // 2D マップ: ドラッグで移動（誤って詳細を開かない）→ ホイール・＋で拡大 → 停止中は描画休止 → 全体を表示
   const mapEl = page.locator('.map-canvas');
-  await page.waitForFunction(() => document.querySelector('.map-canvas')?.dataset.depth, null, { timeout: 60000 }).catch(() => {});
-  const depth = Number(await mapEl.getAttribute('data-depth'));
-  record('3D', 'ノードが奥行きを持って配置される（z 方向の広がり）', depth > 500, `z 範囲 ${depth}`);
+  await page.waitForFunction(() => document.querySelector('.map-canvas')?.dataset.view, null, { timeout: 60000 }).catch(() => {});
   const box = await page.locator('.map-canvas canvas').boundingBox();
   const cx = box.x + box.width / 2, cy = box.y + box.height / 2;
   await page.waitForTimeout(1500);
-  const camBefore = await cameraOf(page);
+  const viewFit = await viewOf(page);
+  record('2D', '初期表示で全体が収まる（倍率が確定している）', viewFit.k > 0, viewText(viewFit));
   await page.mouse.move(cx, cy); await page.mouse.down();
   await page.evaluate(() => { window.__draws = 0; });
   for (let i = 0; i < 20; i++) { await page.mouse.move(cx + i * 8, cy + i * 3); await page.waitForTimeout(30); }
   const dragDraws = await page.evaluate(() => window.__draws);
   await page.mouse.up(); await page.waitForTimeout(400);
-  const camAfter = await cameraOf(page);
-  record('3D', 'ドラッグで視点が水平・垂直に回転する', camBefore !== camAfter, `${camBefore} -> ${camAfter}`);
-  record('3D', 'ドラッグ終了で詳細を誤って開かない', await page.locator('.map-view').isVisible() && (await page.locator('.graph-view').count()) === 0);
-  record('負荷', 'ドラッグ中の WebGL 描画呼び出し（約0.6秒）', dragDraws > 0, String(dragDraws));
+  const viewDrag = await viewOf(page);
+  record('2D', 'ドラッグで表示位置が移動する（倍率は変わらない）', centerMoved(viewFit, viewDrag) && Math.abs(viewDrag.k - viewFit.k) < 1e-6, `${viewText(viewFit)} -> ${viewText(viewDrag)}`);
+  record('2D', 'ドラッグ終了で詳細を誤って開かない', await page.locator('.map-view').isVisible() && (await page.locator('.graph-view').count()) === 0);
+  record('負荷', 'ドラッグ中の描画（約0.6秒）', dragDraws > 0, String(dragDraws));
   await page.waitForTimeout(2000);
   const idleDraws = await drawsPerSec(page);
-  record('負荷', '停止中の WebGL 描画呼び出し/秒', idleDraws === 0, String(idleDraws));
-  // 描画休止中のリサイズ（レビュー指摘）: ポインターを動かさずにビューポートを変えても、サイズ反映後のフレームが描かれ、その後は休止する
+  record('負荷', '停止中の描画/秒', idleDraws === 0, String(idleDraws));
+  // 描画休止中のリサイズ: ポインターを動かさずにビューポートを変えても、サイズ反映後のフレームが描かれ、その後は休止する
   await page.evaluate(() => { window.__draws = 0; });
   await page.setViewportSize({ width: 1100, height: 750 }); await page.waitForTimeout(1500);
   const resizeDraws = await page.evaluate(() => window.__draws);
-  record('3D', '描画休止中のリサイズ後に再描画される（ポインター操作なし）', resizeDraws > 0, `${resizeDraws} 回`);
+  record('2D', '描画休止中のリサイズ後に再描画される（ポインター操作なし）', resizeDraws > 0, `${resizeDraws} 回`);
   await page.screenshot({ path: `${outDir}/pc_07_after_resize.png` });
   const idleAfterResize = await drawsPerSec(page);
   record('負荷', 'リサイズ後も停止中は描画休止', idleAfterResize === 0, String(idleAfterResize));
   await page.setViewportSize({ width: 1440, height: 900 }); await page.waitForTimeout(1500);
   await page.mouse.move(cx, cy); await page.mouse.wheel(0, -300); await page.waitForTimeout(600);
-  const camZoom = await cameraOf(page);
-  record('3D', 'ホイールで拡大（カメラが近づく）', distOf(camZoom) < distOf(camAfter), `${distOf(camAfter).toFixed(0)} -> ${distOf(camZoom).toFixed(0)}`);
-  await tab(page, '＋').click().catch(() => page.getByRole('button', { name: '拡大' }).click()); await page.waitForTimeout(500);
-  record('3D', '＋ボタンで拡大', distOf(await cameraOf(page)) < distOf(camZoom));
-  await tab(page, '視点をリセット').click(); await page.waitForTimeout(1500);
-  const camReset = await cameraOf(page);
-  record('3D', '視点リセットで正面から全体を見る向きに戻る', isFront(camReset), camReset);
+  const viewWheel = await viewOf(page);
+  record('2D', 'ホイールで拡大（倍率が上がる）', viewWheel.k > viewDrag.k, `${viewDrag.k.toFixed(3)} -> ${viewWheel.k.toFixed(3)}`);
+  await page.getByRole('button', { name: '拡大' }).click(); await page.waitForTimeout(500);
+  const viewPlus = await viewOf(page);
+  record('2D', '＋ボタンで拡大', viewPlus.k > viewWheel.k, `${viewWheel.k.toFixed(3)} -> ${viewPlus.k.toFixed(3)}`);
+  await tab(page, '全体を表示').click(); await page.waitForTimeout(1200);
+  const viewReset = await viewOf(page);
+  record('2D', '「全体を表示」で初期表示と同じ倍率・位置に戻る', Math.abs(viewReset.k - viewFit.k) < viewFit.k * 0.05 && !centerMoved(viewReset, viewFit), `${viewText(viewReset)} / 初期 ${viewText(viewFit)}`);
   await page.mouse.move(cx, cy); await page.mouse.down(); await page.mouse.move(box.x + box.width + 200, cy, { steps: 4 }); await page.mouse.up();
   await page.mouse.move(cx, cy); await page.mouse.down(); await page.mouse.move(cx - 80, cy, { steps: 4 }); await page.mouse.up(); await page.waitForTimeout(400);
-  record('3D', '外側リリース後の再ドラッグで固着なし', (await cameraOf(page)) !== camReset && errors.length === 0, errors.join(' / '));
-  // 回転後のクリック: ホバーで表示された企業と、開いた関係グラフの中心企業が一致する
-  await mapEl.focus(); await page.keyboard.press('ArrowRight'); await page.keyboard.press('ArrowUp'); await page.waitForTimeout(600);
+  record('2D', '外側リリース後の再ドラッグで固着なし', centerMoved(await viewOf(page), viewReset) && errors.length === 0, errors.join(' / '));
+  await tab(page, '全体を表示').click(); await page.waitForTimeout(1200);
+  // 拡大時のラベル: 倍率 1 以上で関係数の多い企業に名前が出る（描画は canvas なので、ホバー中の企業名がホバー表示と一致することで確認）
+  for (let i = 0; i < 4; i++) { await page.getByRole('button', { name: '拡大' }).click(); await page.waitForTimeout(350); }
+  await page.waitForTimeout(500);
+  await page.screenshot({ path: `${outDir}/pc_02b_zoomed.png` });
+  // 見た目とホバー・クリックの対象位置の一致（拡大した全体表示）
   const hit = await findHoverTarget(page, box);
   if (hit) {
-    // ホバー状態（リングを太く・拡大）がノードに反映され、ホバー表示と一致していること（Issue #28）
-    record('3D', 'ホバー状態がノードに反映される', (await mapEl.getAttribute('data-hover')) !== '' && (await mapEl.getAttribute('data-hover')) !== null, `hover=${await mapEl.getAttribute('data-hover')} (${hit.name})`);
+    record('2D', 'ホバー状態がノードに反映される', (await mapEl.getAttribute('data-hover')) !== '' && (await mapEl.getAttribute('data-hover')) !== null, `hover=${await mapEl.getAttribute('data-hover')} (${hit.name})`);
     await page.screenshot({ path: `${outDir}/pc_02a_hover.png`, clip: { x: Math.max(0, hit.x - 160), y: Math.max(0, hit.y - 120), width: 320, height: 240 } });
-    await page.mouse.click(hit.x, hit.y); await page.waitForTimeout(1500);
-    const center = (await page.locator('.react-flow__node-center').innerText().catch(() => '')).split('\n')[0];
-    record('3D', '回転後のクリックで見た目どおりの企業が開く', center === hit.name, `${hit.name} -> ${center}`);
-    await page.screenshot({ path: `${outDir}/pc_02_graph_after_rotation_click.png` });
-  } else record('3D', '回転後のクリックで見た目どおりの企業が開く', false, 'ホバー対象を見つけられず');
+  } else record('2D', 'ホバー状態がノードに反映される', false, 'ホバー対象を見つけられず');
+  await recordCircleHit(page, '2D', '拡大した全体表示', box);
+  await page.screenshot({ path: `${outDir}/pc_02_graph_after_click.png` });
+  await tab(page, '全体を表示').click(); await page.waitForTimeout(1200);
 
   // カテゴリ全解除 → 0件 → 復帰
   await tab(page, '全体マップ').click(); await page.waitForTimeout(300);
@@ -266,40 +256,20 @@ const recordContrast = async (page, scenario, label) => { const c = await contra
   record('フィルタ', '閾値20で表示線なし件数を表示', /表示線なし/.test(totals) || /表示中の企業/.test(totals), totals.replace(/\n/g, ' '));
   await page.locator('#min-degree').fill('1');
   record('フィルタ', '未収録カテゴリが無効化されている', (await page.locator('.category-pills button[disabled]').count()) >= 1);
-  // グループのみ（レビュー指摘）: 関係数 3 未満の企業しか残らなくても、フィルタ変更時と視点リセットで表示中の企業が収まる
-  const distFull = distOf(await cameraOf(page));
+  // グループのみ: 関係数 3 未満の企業しか残らなくても、フィルタ変更時と「全体を表示」で表示中の企業が収まる（倍率が上がる）
+  const viewFull = await viewOf(page);
   for (const name of ['資本', '取引', '提携']) await page.locator('.category-pills button', { hasText: name }).click();
   await page.waitForTimeout(4000);
   const totalsGroup = (await page.locator('.map-totals').innerText()).replace(/\n/g, ' ');
-  const distGroup = distOf(await cameraOf(page));
-  record('フィルタ', 'グループのみ（低次数の企業だけ）でも視点が収まる', distGroup < distFull * 0.5, `${distFull.toFixed(0)} -> ${distGroup.toFixed(0)} / ${totalsGroup}`);
+  const viewGroup = await viewOf(page);
+  record('フィルタ', 'グループのみ（低次数の企業だけ）でも表示中の企業が収まる', viewGroup.k > viewFull.k * 2, `${viewText(viewFull)} -> ${viewText(viewGroup)} / ${totalsGroup}`);
   await page.mouse.move(cx, cy); await page.mouse.wheel(0, 600); await page.waitForTimeout(500);
-  await tab(page, '視点をリセット').click(); await page.waitForTimeout(1500);
-  const distGroupReset = distOf(await cameraOf(page));
-  record('フィルタ', 'グループのみで視点リセットが機能する', distGroupReset < distFull * 0.5 && isFront(await cameraOf(page)), `${distGroupReset.toFixed(0)}`);
+  await tab(page, '全体を表示').click(); await page.waitForTimeout(1200);
+  const viewGroupReset = await viewOf(page);
+  record('フィルタ', 'グループのみで「全体を表示」が機能する', viewGroupReset.k > viewFull.k * 2, viewText(viewGroupReset));
   await page.screenshot({ path: `${outDir}/pc_08_group_only.png` });
-  // 円とリングの当たり判定: 通常 → ホバー拡大 → 視点回転後で、円の内側は選択（ホバー・クリック）でき、透明な四隅は選択されない
-  const hit2 = await findHoverTarget(page, box);
-  if (hit2) {
-    const circle = await measureCircle(page, hit2.x, hit2.y, hit2.name);
-    await recordCircleHit(page, '3D', '通常・ホバー拡大', hit2.name, circle);
-    await recordCircleClick(page, '3D', '通常', hit2.name, circle);
-    await tab(page, '全体マップ').click(); await page.waitForTimeout(800);
-    await page.mouse.move(box.x + 10, box.y + 10); await page.waitForTimeout(200);
-    const camBefore = await cameraOf(page);
-    // カメラ遷移（200ms）中に次のキーを押すと注視点の一時値を基準に計算されて距離が飛ぶ（#27 由来の既存不具合、#30）ため、キーの間に待ちを入れる
-    await mapEl.focus(); await page.keyboard.press('ArrowRight'); await page.waitForTimeout(400); await page.keyboard.press('ArrowUp'); await page.waitForTimeout(600);
-    const camAfter = await cameraOf(page);
-    record('3D', '当たり判定の確認前に視点が回転している', camBefore !== camAfter, `${camBefore} -> ${camAfter}`);
-    const hit3 = await findHoverTarget(page, box);
-    if (hit3) {
-      const circle3 = await measureCircle(page, hit3.x, hit3.y, hit3.name);
-      await recordCircleHit(page, '3D', '視点回転後', hit3.name, circle3);
-      await recordCircleClick(page, '3D', '視点回転後', hit3.name, circle3);
-      await tab(page, '全体マップ').click(); await page.waitForTimeout(800);
-    } else record('3D', '円の内側だけがホバー対象（視点回転後）', false, 'ホバー対象を見つけられず');
-    await tab(page, '視点をリセット').click(); await page.waitForTimeout(1200);
-  } else record('3D', '円の内側だけがホバー対象（通常・ホバー拡大）', false, 'ホバー対象を見つけられず');
+  // 見た目とホバー・クリックの対象位置の一致（2 社表示）
+  await recordCircleHit(page, '2D', 'グループのみ', box);
   for (const name of ['資本', '取引', '提携']) await page.locator('.category-pills button', { hasText: name }).click();
   await page.waitForTimeout(500);
 
@@ -359,21 +329,22 @@ const recordContrast = async (page, scenario, label) => { const c = await contra
   const list = [...reached];
   record('キーボード', 'Tabで検索欄に到達', list.some((s) => s.includes('map-search')), list.join(', ').slice(0, 300));
   record('キーボード', 'Tabで表示切替タブに到達', list.some((s) => /関係一覧|関係グラフ/.test(s)));
-  record('キーボード', 'Tabでマップ領域（3D）に到達', list.some((s) => s.includes('上場企業間ネットワーク')));
-  record('キーボード', 'Tabで拡大・縮小・視点リセットに到達', list.some((s) => s.includes('拡大')) && list.some((s) => s.includes('視点をリセット')));
+  record('キーボード', 'Tabでマップ領域に到達', list.some((s) => s.includes('上場企業間ネットワーク')));
+  record('キーボード', 'Tabで拡大・縮小・全体を表示に到達', list.some((s) => s.includes('拡大')) && list.some((s) => s.includes('全体を表示')));
   await page.locator('.map-canvas').focus();
-  const k0 = await cameraOf(page);
+  const k0 = await viewOf(page);
   await page.keyboard.press('ArrowRight'); await page.waitForTimeout(400);
-  const k1 = await cameraOf(page);
-  record('キーボード', '左右矢印キーで視点を水平に回転', k0 !== k1, `${k0} -> ${k1}`);
+  const k1 = await viewOf(page);
+  record('キーボード', '左右矢印キーで表示位置を水平に移動', k1.x !== k0.x && k1.y === k0.y, `${viewText(k0)} -> ${viewText(k1)}`);
   await page.keyboard.press('ArrowUp'); await page.waitForTimeout(400);
-  const k2 = await cameraOf(page);
-  record('キーボード', '上下矢印キーで視点を垂直に回転', k1 !== k2, `${k1} -> ${k2}`);
+  const k2 = await viewOf(page);
+  record('キーボード', '上下矢印キーで表示位置を垂直に移動', k2.y !== k1.y && k2.x === k1.x, `${viewText(k1)} -> ${viewText(k2)}`);
   await page.keyboard.press('-'); await page.waitForTimeout(400);
-  const k3 = await cameraOf(page);
-  record('キーボード', '−キーで縮小（カメラが離れる）', distOf(k3) > distOf(k2), `${distOf(k2).toFixed(0)} -> ${distOf(k3).toFixed(0)}`);
-  await page.keyboard.press('0'); await page.waitForTimeout(1500);
-  record('キーボード', '0キーで視点リセット', isFront(await cameraOf(page)), await cameraOf(page));
+  const k3 = await viewOf(page);
+  record('キーボード', '−キーで縮小（倍率が下がる）', k3.k < k2.k, `${k2.k.toFixed(3)} -> ${k3.k.toFixed(3)}`);
+  await page.keyboard.press('0'); await page.waitForTimeout(1200);
+  const k4 = await viewOf(page);
+  record('キーボード', '0キーで全体を表示（初期の倍率・位置に戻る）', Math.abs(k4.k - k0.k) < k0.k * 0.05 && !centerMoved(k4, k0), `${viewText(k4)} / 初期 ${viewText(k0)}`);
   await closeQuietly(ctx);
 }
 
@@ -399,7 +370,7 @@ const recordContrast = async (page, scenario, label) => { const c = await contra
   await page.locator('.map-canvas canvas').waitFor({ timeout: 120000 }); await page.waitForTimeout(3000);
   await page.screenshot({ path: `${outDir}/mobile_01_map.png` });
   record('タッチ', '横スクロールなし', await noHScroll(page));
-  await page.waitForFunction(() => document.querySelector('.map-canvas')?.dataset.depth, null, { timeout: 60000 }).catch(() => {});
+  await page.waitForFunction(() => document.querySelector('.map-canvas')?.dataset.view, null, { timeout: 60000 }).catch(() => {});
   await page.waitForTimeout(2500);
   // 向き変更（横向き 844×390、レビュー指摘）: 休止中でもポインター操作なしで再描画され、横スクロールも出ない
   await page.evaluate(() => { window.__draws = 0; });
@@ -409,7 +380,7 @@ const recordContrast = async (page, scenario, label) => { const c = await contra
   await page.screenshot({ path: `${outDir}/mobile_05_landscape.png` });
   await page.setViewportSize({ width: 390, height: 844 }); await page.waitForTimeout(1500);
   const box = await page.locator('.map-canvas canvas').boundingBox();
-  // 3D では企業の画面位置が事前に分からないので、ホバー表示が出ない（企業のない）位置を選んでタップ・スワイプする
+  // 企業の画面位置は事前に分からないので、ホバー表示が出ない（企業のない）位置を選んでタップ・スワイプする
   let cx = box.x + 60, cy = box.y + box.height - 90;
   for (const [x, y] of [[box.x + 60, box.y + box.height - 90], [box.x + box.width - 60, box.y + box.height - 90], [box.x + 60, box.y + 60], [box.x + box.width - 60, box.y + 60], [box.x + 30, box.y + box.height / 2]]) {
     await page.mouse.move(x, y); await page.waitForTimeout(150);
@@ -428,10 +399,19 @@ const recordContrast = async (page, scenario, label) => { const c = await contra
   const pageScroll0 = await page.evaluate(() => window.scrollY);
   await swipe(cx, cy, cx + 80, cy + 60); await page.waitForTimeout(300);
   record('タッチ', 'マップ上のスワイプでページがスクロールしない', (await page.evaluate(() => window.scrollY)) === pageScroll0);
-  const camT0 = await cameraOf(page);
+  const viewT0 = await viewOf(page);
   await swipe(cx - 60, cy, cx + 60, cy); await page.waitForTimeout(500);
-  record('タッチ', 'スワイプで視点が回転し、固着・エラーなし', errors.length === 0 && (await cameraOf(page)) !== camT0, `${camT0} -> ${await cameraOf(page)}` + (errors.length ? ' / ' + errors.join(' / ') : ''));
-  await page.screenshot({ path: `${outDir}/mobile_02_rotation.png` });
+  record('タッチ', 'スワイプで表示位置が移動し、固着・エラーなし', errors.length === 0 && centerMoved(await viewOf(page), viewT0), `${viewText(viewT0)} -> ${viewText(await viewOf(page))}` + (errors.length ? ' / ' + errors.join(' / ') : ''));
+  // ピンチ（2 本指）で拡大
+  const pinch = async (x, y, d0, d1) => {
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: x - d0 / 2, y }, { x: x + d0 / 2, y }] });
+    for (let i = 1; i <= 6; i++) { const d = d0 + (d1 - d0) * i / 6; await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: x - d / 2, y }, { x: x + d / 2, y }] }); }
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+  };
+  const viewP0 = await viewOf(page);
+  await pinch(cx, cy, 60, 180); await page.waitForTimeout(500);
+  record('タッチ', 'ピンチで拡大（倍率が上がる）', (await viewOf(page)).k > viewP0.k, `${viewP0.k.toFixed(3)} -> ${(await viewOf(page)).k.toFixed(3)}`);
+  await page.screenshot({ path: `${outDir}/mobile_02_pan.png` });
   await page.getByRole('button', { name: '関係グラフ', exact: true }).click(); await page.waitForTimeout(1500);
   await page.screenshot({ path: `${outDir}/mobile_03_graph.png` });
   record('タッチ', '関係グラフを表示', await page.locator('.react-flow').isVisible());
@@ -465,13 +445,13 @@ const md = [
   '',
   '## スクリーンショット',
   '',
-  ...['loading_pc', 'loading_mobile', 'loading_error_mobile', 'pc_01_initial', 'pc_02a_hover', 'pc_02_graph_after_rotation_click', 'pc_03_empty', 'pc_04_graph_detail', 'pc_05_table_detail', 'pc_06_stats', 'pc_07_after_resize', 'pc_08_group_only', 'zoom200_map', 'zoom200_table', 'mobile_01_map', 'mobile_02_rotation', 'mobile_03_graph', 'mobile_04_table_detail', 'mobile_05_landscape'].map((n) => `- ![${n}](${n}.png)`),
+  ...['loading_pc', 'loading_mobile', 'loading_error_mobile', 'pc_01_initial', 'pc_02a_hover', 'pc_02b_zoomed', 'pc_02_graph_after_click', 'pc_03_empty', 'pc_04_graph_detail', 'pc_05_table_detail', 'pc_06_stats', 'pc_07_after_resize', 'pc_08_group_only', 'zoom200_map', 'zoom200_table', 'mobile_01_map', 'mobile_02_pan', 'mobile_03_graph', 'mobile_04_table_detail', 'mobile_05_landscape'].map((n) => `- ![${n}](${n}.png)`),
   '',
   '## 未実施・注記',
   '',
   '- タッチ操作はヘッドレス Chrome のエミュレーション（hasTouch / CDP のタッチイベント）で、実機ではない。',
-  '- 描画負荷は WebGL の描画呼び出し（drawElements / drawArrays）回数を計測したもので、CPU・GPU 使用率・FPS の実測ではない。',
-  '- 視点の向きは .map-canvas の data-camera（注視点からのカメラ相対位置）、奥行きは data-depth（ノードの z 範囲）で確認した。',
+  '- 描画負荷は Canvas 2D の clearRect 回数（フレームごとに 2 回）を計測したもので、CPU・GPU 使用率・FPS の実測ではない。',
+  '- 倍率と表示位置は .map-canvas の data-view（倍率,中心x,中心y）、ホバー中のノードの画面上の中心と半径は data-hover-center / data-hover-radius で確認した。',
   '- 低速通信は Playwright のルートで M5 の取得を 4 秒遅らせる代替、読み込み失敗はルートの中断で再現した（実回線ではない）。',
   '- データの事実精度の評価はこのレビューの対象外（Issue #3 の監査を参照）。',
   '',
