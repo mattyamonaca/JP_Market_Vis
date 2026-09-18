@@ -2,17 +2,17 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import ForceGraph2D from 'react-force-graph-2d';
 import { CATEGORY_AVAILABILITY, CATEGORY_COLORS, CATEGORY_JA, CATEGORY_TEXT_COLORS, GLOBAL_GRAPH, INDUSTRY_COLORS, industryColor, searchCompanies } from '../data/graph.js';
 import { filterGlobalGraph } from '../data/filterGlobalGraph.js';
-import { HOVER_SCALE, LABEL_MIN_DEGREE, nodeRadius, ringWidth, shade, showsLabel } from '../data/nodeShape.js';
+import { HOVER_SCALE, LABEL_MIN_DEGREE, insideLayout, nodeRadius, ringWidth, showsLabel } from '../data/nodeShape.js';
 
 // 収録のあるカテゴリだけを初期選択にする（未収録カテゴリは選択できない）
 const AVAILABLE_CATEGORIES = Object.keys(CATEGORY_JA).filter((key) => CATEGORY_AVAILABILITY[key]?.listed > 0);
 
-// 全体マップ: 平面（2D）のネットワーク。ノードは塗りの円＋細いリング（色は業種、半径 ∝ √関係数）、線は関係カテゴリ。
+// 全体マップ: 平面（2D）のネットワーク。ノードは白い円に業種色の縁（半径 ∝ √関係数）で、円の中に企業名を書く。線は関係カテゴリ。
 // ドラッグで移動、スクロール／ピンチで拡大縮小。ノードの描画と当たり判定は nodeShape.js の同じ半径を使う。
 const CORE_MIN_DEGREE = 3; // 「全体を表示」で収める中心部の関係数（孤立した小さな塊は画面外でもよい）
 const isCore = (node) => node.degree >= CORE_MIN_DEGREE;
 const PAN_STEP = 80; // 矢印キー 1 回で動かす画面上の距離（px）
-const LINK_ALPHA = '40'; // 線の不透明度 0.25（線より円が目立つように）
+const LINK_ALPHA = '4d'; // 線の不透明度 0.3（線より円が目立つように）
 const linkColor = (link) => `${CATEGORY_COLORS[link.category] ?? '#94a3b8'}${LINK_ALPHA}`;
 const noLabel = () => '';
 
@@ -69,32 +69,48 @@ export default function GlobalMap({ onSelectCompany }) {
     if (fn) { event.preventDefault(); fn(); }
   };
 
-  // --- ノードの描画: 塗りの円と、同色を暗くしたリング（円の内側に描くので外縁＝当たり判定の半径）。ホバー中はリングを太く・濃くし、少し拡大する
+  // --- ノードの描画: 白い円に業種色の縁（縁は円の内側に描くので外側＝当たり判定の半径）。ホバー中は縁を太くし、少し拡大して薄く色を敷く。
+  // 円の中に企業名を書く（画面上で 11〜20px、長い名前は 2 行。円に収まらない企業は drawLabels で円の上に出す）
+  const textWidths = useRef(new Map()); // 企業名の 12px での幅（画面 px）。倍率に関係なく一定なので一度だけ測る
+  const widthAt12 = (ctx, name) => {
+    let w = textWidths.current.get(name);
+    if (w === undefined) { const f = ctx.font; ctx.font = '12px sans-serif'; w = ctx.measureText(name).width; ctx.font = f; textWidths.current.set(name, w); }
+    return w;
+  };
   const drawNode = useCallback((node, ctx, scale) => {
     const hover = node === hoverRef.current;
     const r = nodeRadius(node.degree) * (hover ? HOVER_SCALE : 1);
     const color = industryColor(node.industry);
     const ring = ringWidth(r, hover);
-    ctx.beginPath(); ctx.arc(node.x, node.y, r, 0, Math.PI * 2);
-    ctx.fillStyle = color; ctx.fill();
     ctx.beginPath(); ctx.arc(node.x, node.y, r - ring / 2, 0, Math.PI * 2);
-    ctx.lineWidth = ring; ctx.strokeStyle = shade(color, hover ? 0.5 : 0.28); ctx.stroke();
+    ctx.fillStyle = hover ? `${color}1f` : '#ffffff'; ctx.fill();
+    ctx.lineWidth = ring; ctx.strokeStyle = color; ctx.stroke();
+    // 円の中に書く企業名の配置（null なら入らない）。文字は後から描かれる円に隠れないよう drawLabels でまとめて重ねる
+    node.__labelInside = insideLayout(r * scale, node.name, (text) => widthAt12(ctx, text));
   }, []);
-  // ラベルは全ノードを描いた後に別パスで重ねる（後から描かれる円に隠れない）。画面上で一定の大きさ（12px）、白の下地付き。
+  // 円の中に名前が入らない企業のラベルは、全ノードを描いた後に別パスで円の上に重ねる（後から描かれる円に隠れない）。画面上で一定の大きさ（12px）、白の下地付き。
   // 画面内の候補を関係数の多い順（ホバー中を最優先）に置き、先に置いたラベルと重なるものは描かない（縮小時にハブのラベルが重ならない）
   const dataRef = useRef(data); dataRef.current = data;
   const drawLabels = useCallback((ctx, scale) => {
     const fg = fgRef.current; if (!fg) return;
     const font = 12 / scale, pad = 4 / scale, hoverNode = hoverRef.current;
     const tl = fg.screen2GraphCoords(0, 0), br = fg.screen2GraphCoords(size.w, size.h);
-    const candidates = [];
+    const candidates = [], placed = []; // placed: 名前を書いた円と、置いたラベルの矩形（上ラベルはこれらと重ねない）
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#0f172a';
     for (const node of dataRef.current.nodes) {
       if (!Number.isFinite(node.x) || node.x < tl.x || node.x > br.x || node.y < tl.y || node.y > br.y) continue;
-      if (showsLabel(node.degree, scale, node === hoverNode)) candidates.push(node);
+      const hover = node === hoverNode;
+      const inside = node.__labelInside;
+      if (inside) {
+        ctx.font = `${hover ? 600 : 500} ${inside.font / scale}px sans-serif`;
+        const step = inside.font * 1.3 / scale, y0 = node.y - step * (inside.lines.length - 1) / 2;
+        inside.lines.forEach((line, i) => ctx.fillText(line, node.x, y0 + step * i));
+        const r = nodeRadius(node.degree) * (hover ? HOVER_SCALE : 1);
+        placed.push({ x0: node.x - r, x1: node.x + r, y0: node.y - r, y1: node.y + r });
+      } else if (showsLabel(node.degree, scale, hover)) candidates.push(node);
     }
     candidates.sort((a, b) => (b === hoverNode) - (a === hoverNode) || b.degree - a.degree);
     ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
-    const placed = [];
     for (const node of candidates) {
       const hover = node === hoverNode;
       const r = nodeRadius(node.degree) * (hover ? HOVER_SCALE : 1);
@@ -170,17 +186,17 @@ export default function GlobalMap({ onSelectCompany }) {
         </section>
         <details className="legend-details" open>
           <summary>業種の凡例</summary>
-          <div className="legend">{Object.entries(INDUSTRY_COLORS).map(([name, color]) => <span key={name}><i style={{ background: color }} />{name}</span>)}</div>
+          <div className="legend">{Object.entries(INDUSTRY_COLORS).map(([name, color]) => <span key={name}><i style={{ borderColor: color }} />{name}</span>)}</div>
         </details>
       </aside>
       <div ref={wrapRef} className="map-canvas" tabIndex={0} role="group"
         aria-label="上場企業間ネットワーク。ドラッグで移動、スクロールで拡大縮小。矢印キーで移動、＋／−で拡大縮小、0 で全体を表示できます。企業をクリックすると関係グラフを開きます。"
         onKeyDown={onKeyDown}>
-        <div className="map-caption"><strong>上場企業間ネットワーク</strong><br />色：業種 ／ 円の大きさ：関係数<br />ドラッグで移動 · スクロール／ピンチで拡大縮小 · 企業を選択して詳細へ</div>
+        <div className="map-caption"><strong>上場企業間ネットワーク</strong><br />縁の色：業種 ／ 円の大きさ：関係数<br />ドラッグで移動 · スクロール／ピンチで拡大縮小 · 企業を選択して詳細へ</div>
         <ForceGraph2D ref={fgRef} width={size.w} height={size.h} graphData={data}
           backgroundColor="#ffffff" nodeId="id" nodeLabel={noLabel}
           nodeCanvasObject={drawNode} nodePointerAreaPaint={paintPointerArea}
-          linkColor={linkColor} linkWidth={0.6}
+          linkColor={linkColor} linkWidth={0.8}
           warmupTicks={50} cooldownTicks={100}
           enableNodeDrag={false} minZoom={0.05} maxZoom={20}
           onRenderFramePost={drawLabels}
