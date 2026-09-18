@@ -278,6 +278,16 @@ const recordContrast = async (page, scenario, label) => { const c = await contra
   await page.getByRole('button', { name: '取引' }).first().click();
   const before = await page.locator('.map-totals').innerText();
   await page.locator('.search-result').first().click(); await page.waitForTimeout(1500);
+  // 関係グラフのホバー: 中心企業（接続が多い）にホバーしても線に種別ラベルが付かず（重なって崩れない）、線の強調だけになる
+  const typeLabels = () => page.evaluate(() => [...document.querySelectorAll('.react-flow__edge-text')].filter((t) => /[^\d.%\s]/.test(t.textContent)).length);
+  const labelsIdle = await typeLabels();
+  const centerBox = await page.locator('.react-flow__node-center').boundingBox();
+  await page.mouse.move(centerBox.x + centerBox.width / 2, centerBox.y + centerBox.height / 2); await page.waitForTimeout(800);
+  const labelsCenter = await typeLabels();
+  const edgesCount = await page.locator('.react-flow__edge').count();
+  record('往復', '中心企業にホバーしても線の種別ラベルが増えない（崩れない）', edgesCount > 8 ? labelsCenter === labelsIdle : labelsCenter >= labelsIdle, `線 ${edgesCount} 本 / 種別ラベル ${labelsIdle} -> ${labelsCenter}`);
+  await page.mouse.move(centerBox.x + centerBox.width / 2, centerBox.y - 200); await page.waitForTimeout(300);
+  record('往復', 'ミニマップにノードが描かれる', (await page.locator('.react-flow__minimap-node').count()) > 0, `${await page.locator('.react-flow__minimap-node').count()} 個`);
   await page.locator('.react-flow__edge').first().click({ force: true }).catch(() => {});
   await page.waitForTimeout(800);
   const detailOpen = await page.locator('.detail-panel').count();
