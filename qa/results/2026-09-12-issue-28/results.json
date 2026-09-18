@@ -1,0 +1,411 @@
+{
+ "date": "2026-09-12",
+ "commit": "4d6dc0af2b157e6a463b5f8f73102ce230f55ee0",
+ "url": "http://localhost:5184/JP_Market_Vis/",
+ "browser": "Chrome 152.0.7977.83 (headless, Playwright)",
+ "device": "darwin arm64",
+ "results": [
+  {
+   "scenario": "ロード",
+   "item": "余計な文言なし（件数・容量・技術説明を含まない）",
+   "ok": true,
+   "detail": "\"読み込み中\""
+  },
+  {
+   "scenario": "ロード",
+   "item": "読み込み状態を支援技術に伝える（role=status＋「読み込み中」）",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "ロード",
+   "item": "白基調の背景",
+   "ok": true,
+   "detail": "rgb(255, 255, 255)"
+  },
+  {
+   "scenario": "ロード",
+   "item": "最小限の要素（インジケーターと文言のみ）",
+   "ok": true,
+   "detail": "2 要素"
+  },
+  {
+   "scenario": "ロード",
+   "item": "文言は数秒後に「読み込み中」だけを表示",
+   "ok": true,
+   "detail": "0 -> 1"
+  },
+  {
+   "scenario": "ロード",
+   "item": "完了後に本画面へ遷移（ロード画面が残らない）",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "ロード",
+   "item": "コンソールエラーなし",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "ロード",
+   "item": "狭い画面で横スクロールなし",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "ロード",
+   "item": "失敗時に簡潔なエラー表示（無限ローディングにならない）",
+   "ok": true,
+   "detail": "データを読み込めませんでした  再試行"
+  },
+  {
+   "scenario": "ロード",
+   "item": "再試行で本画面を表示",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "PC初回",
+   "item": "初回表示（マップ描画まで）",
+   "ok": true,
+   "detail": "3484 ms"
+  },
+  {
+   "scenario": "PC初回",
+   "item": "コンソールエラーなし",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "PC初回",
+   "item": "横スクロールなし",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "PC初回",
+   "item": "見出し・操作部品の重なりなし",
+   "ok": true,
+   "detail": "{\"capTools\":false}"
+  },
+  {
+   "scenario": "視認性",
+   "item": "文字コントラスト 4.5:1（PC 全体マップ）",
+   "ok": true,
+   "detail": "55 要素"
+  },
+  {
+   "scenario": "3D",
+   "item": "ノードが奥行きを持って配置される（z 方向の広がり）",
+   "ok": true,
+   "detail": "z 範囲 4033"
+  },
+  {
+   "scenario": "3D",
+   "item": "ドラッグで視点が水平・垂直に回転する",
+   "ok": true,
+   "detail": "0,0,5303 -> -4466,2339,1644"
+  },
+  {
+   "scenario": "3D",
+   "item": "ドラッグ終了で詳細を誤って開かない",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "負荷",
+   "item": "ドラッグ中の WebGL 描画呼び出し（約0.6秒）",
+   "ok": true,
+   "detail": "521930"
+  },
+  {
+   "scenario": "負荷",
+   "item": "停止中の WebGL 描画呼び出し/秒",
+   "ok": true,
+   "detail": "0"
+  },
+  {
+   "scenario": "3D",
+   "item": "描画休止中のリサイズ後に再描画される（ポインター操作なし）",
+   "ok": true,
+   "detail": "373920 回"
+  },
+  {
+   "scenario": "負荷",
+   "item": "リサイズ後も停止中は描画休止",
+   "ok": true,
+   "detail": "0"
+  },
+  {
+   "scenario": "3D",
+   "item": "ホイールで拡大（カメラが近づく）",
+   "ok": true,
+   "detail": "5303 -> 4910"
+  },
+  {
+   "scenario": "3D",
+   "item": "＋ボタンで拡大",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "3D",
+   "item": "視点リセットで正面から全体を見る向きに戻る",
+   "ok": true,
+   "detail": "0,0,5303"
+  },
+  {
+   "scenario": "3D",
+   "item": "外側リリース後の再ドラッグで固着なし",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "3D",
+   "item": "ホバー状態がノードに反映される",
+   "ok": true,
+   "detail": "hover=7867 (タカラトミー)"
+  },
+  {
+   "scenario": "3D",
+   "item": "回転後のクリックで見た目どおりの企業が開く",
+   "ok": true,
+   "detail": "タカラトミー -> タカラトミー"
+  },
+  {
+   "scenario": "フィルタ",
+   "item": "全解除で空状態を表示",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "フィルタ",
+   "item": "初期状態に戻すで復帰",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "フィルタ",
+   "item": "閾値20で表示線なし件数を表示",
+   "ok": true,
+   "detail": "30 表示中の企業 うち表示線なし 19社 7 表示中の関係 上場企業間 4,996件中"
+  },
+  {
+   "scenario": "フィルタ",
+   "item": "未収録カテゴリが無効化されている",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "フィルタ",
+   "item": "グループのみ（低次数の企業だけ）でも視点が収まる",
+   "ok": true,
+   "detail": "1094 -> 120 / 2 表示中の企業 1 表示中の関係 上場企業間 4,996件中"
+  },
+  {
+   "scenario": "フィルタ",
+   "item": "グループのみで視点リセットが機能する",
+   "ok": true,
+   "detail": "120"
+  },
+  {
+   "scenario": "往復",
+   "item": "関係グラフでエッジを選択して詳細を表示",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "視認性",
+   "item": "文字コントラスト 4.5:1（PC 関係グラフ＋詳細）",
+   "ok": true,
+   "detail": "493 要素"
+  },
+  {
+   "scenario": "往復",
+   "item": "全体マップの検索・カテゴリ・件数を復元",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "一覧",
+   "item": "0件表示",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "一覧",
+   "item": "1ページ300件の境界",
+   "ok": true,
+   "detail": "300行 / 1 / 279 ページ"
+  },
+  {
+   "scenario": "一覧",
+   "item": "ページ送り",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "一覧",
+   "item": "検索変更で1ページ目に戻る",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "一覧",
+   "item": "詳細を開く",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "視認性",
+   "item": "文字コントラスト 4.5:1（PC 関係一覧＋詳細）",
+   "ok": true,
+   "detail": "1435 要素"
+  },
+  {
+   "scenario": "一覧",
+   "item": "詳細を閉じる",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "統計",
+   "item": "統計・データを表示",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "視認性",
+   "item": "文字コントラスト 4.5:1（PC 統計・データ）",
+   "ok": true,
+   "detail": "215 要素"
+  },
+  {
+   "scenario": "キーボード",
+   "item": "Tabで検索欄に到達",
+   "ok": true,
+   "detail": "BUTTON:全体マップ, BUTTON:関係グラフ, BUTTON:関係一覧, BUTTON:統計・データ, A:GitHub ↗, INPUT:map-search, BUTTON:資本4,259, BUTTON:取引656, BUTTON:提携80, BUTTON:グループ1, INPUT:min-degree, SUMMARY:業種の凡例, DIV:上場企業間ネットワークの 3D 表示。ドラッグで視点を回転、スクロールで拡大縮小。左右の矢印キーで水平に、上下の矢印キーで垂直に回転、＋／−で拡大縮小、0 で視点をリセットできます。企業をクリックすると関係グラフを開きます。, BUTTON"
+  },
+  {
+   "scenario": "キーボード",
+   "item": "Tabで表示切替タブに到達",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "キーボード",
+   "item": "Tabでマップ領域（3D）に到達",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "キーボード",
+   "item": "Tabで拡大・縮小・視点リセットに到達",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "キーボード",
+   "item": "左右矢印キーで視点を水平に回転",
+   "ok": true,
+   "detail": "0,0,5303 -> 1372,0,5122"
+  },
+  {
+   "scenario": "キーボード",
+   "item": "上下矢印キーで視点を垂直に回転",
+   "ok": true,
+   "detail": "1372,0,5122 -> 1361,692,5078"
+  },
+  {
+   "scenario": "キーボード",
+   "item": "−キーで縮小（カメラが離れる）",
+   "ok": true,
+   "detail": "5303 -> 7423"
+  },
+  {
+   "scenario": "キーボード",
+   "item": "0キーで視点リセット",
+   "ok": true,
+   "detail": "0,0,5303"
+  },
+  {
+   "scenario": "200%",
+   "item": "横スクロールなし",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "200%",
+   "item": "最小関係数スライダーにスクロールで到達",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "200%",
+   "item": "一覧の操作部品が表示される",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "タッチ",
+   "item": "横スクロールなし",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "タッチ",
+   "item": "向き変更後に再描画される（ポインター操作なし）",
+   "ok": true,
+   "detail": "389500 回"
+  },
+  {
+   "scenario": "タッチ",
+   "item": "向き変更後も横スクロールなし",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "タッチ",
+   "item": "空き領域のタップで画面が切り替わらない",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "タッチ",
+   "item": "マップ上のスワイプでページがスクロールしない",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "タッチ",
+   "item": "スワイプで視点が回転し、固着・エラーなし",
+   "ok": true,
+   "detail": "-4000,5089,1814 -> -1210,5089,-4222"
+  },
+  {
+   "scenario": "タッチ",
+   "item": "関係グラフを表示",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "タッチ",
+   "item": "一覧から詳細を開く",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "scenario": "視認性",
+   "item": "文字コントラスト 4.5:1（タッチ 一覧＋詳細）",
+   "ok": true,
+   "detail": "2735 要素"
+  },
+  {
+   "scenario": "タッチ",
+   "item": "コンソールエラーなし",
+   "ok": true,
+   "detail": ""
+  }
+ ]
+}
