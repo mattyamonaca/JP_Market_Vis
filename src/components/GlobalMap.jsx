@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ForceGraph3D from 'react-force-graph-3d';
 import { CanvasTexture, SRGBColorSpace, Sprite, SpriteMaterial } from 'three';
+import { RING_WIDTH, TEXTURE_SIZE, keepCircleHits } from '../data/nodeShape.js';
 import { CATEGORY_AVAILABILITY, CATEGORY_COLORS, CATEGORY_JA, CATEGORY_TEXT_COLORS, GLOBAL_GRAPH, INDUSTRY_COLORS, industryColor, searchCompanies } from '../data/graph.js';
 import { filterGlobalGraph } from '../data/filterGlobalGraph.js';
 
@@ -22,7 +23,6 @@ const radiusOf = (node) => Math.cbrt(nodeVal(node)) * NODE_REL_SIZE;
 
 // --- フラットなノードの見た目: 円の塗りと、同色を暗くした細いリング。ホバー時はリングを太く・濃くし、少し拡大する
 const shade = (hex, k) => '#' + [1, 3, 5].map((i) => Math.round(parseInt(hex.slice(i, i + 2), 16) * (1 - k)).toString(16).padStart(2, '0')).join('');
-const TEXTURE_SIZE = 128;
 const textureCache = new Map();
 const nodeTexture = (color, hover) => {
   const key = `${color}:${hover ? 1 : 0}`;
@@ -30,7 +30,8 @@ const nodeTexture = (color, hover) => {
   const canvas = document.createElement('canvas');
   canvas.width = canvas.height = TEXTURE_SIZE;
   const ctx = canvas.getContext('2d');
-  const c = TEXTURE_SIZE / 2, ring = hover ? 9 : 5, r = c - ring;
+  // 円の外縁（リングの外側）が正方形の縁に接するように描く（当たり判定の UV 半径 0.5 と一致させる。nodeShape.js）
+  const c = TEXTURE_SIZE / 2, ring = hover ? RING_WIDTH.hover : RING_WIDTH.normal, r = c - ring / 2 - 0.5;
   ctx.beginPath(); ctx.arc(c, c, r, 0, Math.PI * 2);
   ctx.fillStyle = color; ctx.fill();
   ctx.lineWidth = ring; ctx.strokeStyle = shade(color, hover ? 0.5 : 0.28); ctx.stroke();
@@ -55,10 +56,18 @@ const applyNodeLook = (node, hover) => {
   obj.scale.set(d, d, 1);
   obj.renderOrder = hover ? 1 : 0;
 };
+// スプライトの既定 raycast は正方形で判定するため、交点の UV が円の内側のものだけを残す（透明な四隅でホバー・クリックしない）
+const spriteRaycast = Sprite.prototype.raycast;
+function circleRaycast(raycaster, intersects) {
+  const start = intersects.length;
+  spriteRaycast.call(this, raycaster, intersects);
+  keepCircleHits(intersects, start);
+}
 const nodeObject = (node) => {
   const sprite = new Sprite(nodeMaterial(nodeColor(node)));
   const d = radiusOf(node) * 2;
   sprite.scale.set(d, d, 1);
+  sprite.raycast = circleRaycast;
   return sprite;
 };
 const isCore = (node) => node.degree >= CORE_MIN_DEGREE;

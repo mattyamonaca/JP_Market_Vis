@@ -46,6 +46,36 @@ const tab = (page, name) => page.getByRole('button', { name, exact: true });
 const cameraOf = (page) => page.locator('.map-canvas').getAttribute('data-camera');
 const distOf = (cam) => Math.hypot(...String(cam ?? '0,0,0').split(',').map(Number));
 const isFront = (cam) => /^0,0,\d+$/.test(cam ?? '');
+// 指定位置にポインターを置いたときのホバー企業名（なければ null）
+const hoverAt = async (page, x, y, wait = 120) => { await page.mouse.move(x, y); await page.waitForTimeout(wait); return page.locator('.map-hover strong').innerText({ timeout: 100 }).catch(() => null); };
+// ホバー中のノードの円を画面上で計測する。走査開始点は中心からずれているので、まず水平にホバーが続く範囲から中心 x を求め、
+// その列を垂直に走査して中心 y を求め、最後に中心を通る行・列の直径から半径を取る（中心を通らない弦で測ると半径を小さく見積もる）。
+// ホバー中はノードが 1.2 倍に拡大されるため、得られる半径は拡大後の円のもの
+const measureCircle = async (page, x0, y0, name, step = 4, limit = 260) => {
+  const extent = async (x, y, dx, dy) => { let n = 0; while (n < limit && (await hoverAt(page, x + dx * (n + step), y + dy * (n + step), 45)) === name) n += step; return n; };
+  const cx = x0 + ((await extent(x0, y0, 1, 0)) - (await extent(x0, y0, -1, 0))) / 2;
+  const up = await extent(cx, y0, 0, -1), down = await extent(cx, y0, 0, 1);
+  const cy = y0 + (down - up) / 2;
+  const rx = ((await extent(cx, cy, -1, 0)) + (await extent(cx, cy, 1, 0))) / 2;
+  return { cx, cy, r: ((up + down) / 2 + rx) / 2 };
+};
+// 円の内側（中心から各軸 0.5r、距離 0.71r）はホバーでき、描画された円の外側にあたる四隅（各軸 0.85r、距離 1.2r。
+// スプライトの正方形の半辺は約 1.05r なので正方形の内側）はホバーしないこと（Issue #28 レビュー指摘: 既定の raycast は正方形で判定する）
+const recordCircleHit = async (page, scenario, label, name, circle) => {
+  const { cx, cy, r } = circle;
+  const inside = await hoverAt(page, cx + 0.5 * r, cy + 0.5 * r, 250);
+  await page.mouse.move(cx, cy); await page.waitForTimeout(150); // ホバー拡大した状態から四隅へ
+  const corners = [];
+  for (const [sx, sy] of [[1, 1], [-1, 1], [-1, -1], [1, -1]]) corners.push(await hoverAt(page, cx + sx * 0.85 * r, cy + sy * 0.85 * r, 350));
+  record(scenario, `円の内側だけがホバー対象（${label}）`, inside === name && corners.every((c) => c === null), `${name} 中心(${cx.toFixed(0)},${cy.toFixed(0)}) r=${r.toFixed(0)} 内側=${inside} 四隅=${corners.map((c) => c ?? 'なし').join('/')}`);
+};
+// 円の内側をクリックすると同じ企業の関係グラフが開くこと。クリック対象はホバー中のノードなので、実操作と同じく先にホバーを確立してからクリックする
+const recordCircleClick = async (page, scenario, label, name, circle) => {
+  const x = circle.cx + 0.5 * circle.r, y = circle.cy + 0.5 * circle.r;
+  await hoverAt(page, x, y, 300); await page.mouse.click(x, y); await page.waitForTimeout(1500);
+  const opened = (await page.locator('.react-flow__node-center').innerText().catch(() => '')).split('\n')[0];
+  record(scenario, `円の内側のクリックで同じ企業が開く（${label}）`, opened === name, `${name} -> ${opened || '（開かない）'}`);
+};
 // ホバー表示が出る位置を走査して、表示された企業名を返す（3D ではノードの画面位置が事前に分からない）
 const findHoverTarget = async (page, box) => {
   for (let y = box.y + 120; y < box.y + box.height - 120; y += 20) {
@@ -248,6 +278,28 @@ const recordContrast = async (page, scenario, label) => { const c = await contra
   const distGroupReset = distOf(await cameraOf(page));
   record('フィルタ', 'グループのみで視点リセットが機能する', distGroupReset < distFull * 0.5 && isFront(await cameraOf(page)), `${distGroupReset.toFixed(0)}`);
   await page.screenshot({ path: `${outDir}/pc_08_group_only.png` });
+  // 円とリングの当たり判定: 通常 → ホバー拡大 → 視点回転後で、円の内側は選択（ホバー・クリック）でき、透明な四隅は選択されない
+  const hit2 = await findHoverTarget(page, box);
+  if (hit2) {
+    const circle = await measureCircle(page, hit2.x, hit2.y, hit2.name);
+    await recordCircleHit(page, '3D', '通常・ホバー拡大', hit2.name, circle);
+    await recordCircleClick(page, '3D', '通常', hit2.name, circle);
+    await tab(page, '全体マップ').click(); await page.waitForTimeout(800);
+    await page.mouse.move(box.x + 10, box.y + 10); await page.waitForTimeout(200);
+    const camBefore = await cameraOf(page);
+    // カメラ遷移（200ms）中に次のキーを押すと注視点の一時値を基準に計算されて距離が飛ぶ（#27 由来の既存不具合、#30）ため、キーの間に待ちを入れる
+    await mapEl.focus(); await page.keyboard.press('ArrowRight'); await page.waitForTimeout(400); await page.keyboard.press('ArrowUp'); await page.waitForTimeout(600);
+    const camAfter = await cameraOf(page);
+    record('3D', '当たり判定の確認前に視点が回転している', camBefore !== camAfter, `${camBefore} -> ${camAfter}`);
+    const hit3 = await findHoverTarget(page, box);
+    if (hit3) {
+      const circle3 = await measureCircle(page, hit3.x, hit3.y, hit3.name);
+      await recordCircleHit(page, '3D', '視点回転後', hit3.name, circle3);
+      await recordCircleClick(page, '3D', '視点回転後', hit3.name, circle3);
+      await tab(page, '全体マップ').click(); await page.waitForTimeout(800);
+    } else record('3D', '円の内側だけがホバー対象（視点回転後）', false, 'ホバー対象を見つけられず');
+    await tab(page, '視点をリセット').click(); await page.waitForTimeout(1200);
+  } else record('3D', '円の内側だけがホバー対象（通常・ホバー拡大）', false, 'ホバー対象を見つけられず');
   for (const name of ['資本', '取引', '提携']) await page.locator('.category-pills button', { hasText: name }).click();
   await page.waitForTimeout(500);
 
