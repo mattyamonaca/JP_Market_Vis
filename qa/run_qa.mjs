@@ -256,6 +256,16 @@ const recordContrast = async (page, scenario, label) => { const c = await contra
   record('フィルタ', '閾値20で表示線なし件数を表示', /表示線なし/.test(totals) || /表示中の企業/.test(totals), totals.replace(/\n/g, ' '));
   await page.locator('#min-degree').fill('1');
   record('フィルタ', '未収録カテゴリが無効化されている', (await page.locator('.category-pills button[disabled]').count()) >= 1);
+  // 配置計算中（フィルタ変更直後、ノードが広がっている最中）にホイールで拡大しても、自動の「全体を収める」追従に引き戻されず倍率が単調に上がる（ガクつかない）
+  await page.locator('.category-pills button', { hasText: '取引' }).click(); await page.waitForTimeout(300);
+  await page.mouse.move(cx, cy);
+  const ksLayout = [(await viewOf(page)).k];
+  for (let i = 0; i < 8; i++) { await page.mouse.wheel(0, -80); await page.waitForTimeout(60); ksLayout.push((await viewOf(page)).k); }
+  await page.waitForTimeout(2500);
+  const kSettled = (await viewOf(page)).k;
+  const monotonic = ksLayout.every((k, i) => i === 0 || k >= ksLayout[i - 1]);
+  record('2D', '配置計算中のズームが引き戻されない（倍率が単調に上がり、その後も保たれる）', monotonic && ksLayout.at(-1) > ksLayout[0] * 1.3 && Math.abs(kSettled - ksLayout.at(-1)) < 1e-6, `${ksLayout.map((k) => k.toFixed(3)).join(' ')} / 2.5秒後 ${kSettled.toFixed(3)}`);
+  await page.locator('.category-pills button', { hasText: '取引' }).click(); await page.waitForTimeout(4000);
   // グループのみ: 関係数 3 未満の企業しか残らなくても、フィルタ変更時と「全体を表示」で表示中の企業が収まる（倍率が上がる）
   const viewFull = await viewOf(page);
   for (const name of ['資本', '取引', '提携']) await page.locator('.category-pills button', { hasText: name }).click();

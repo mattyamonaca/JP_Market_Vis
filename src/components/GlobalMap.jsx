@@ -31,8 +31,11 @@ export default function GlobalMap({ onSelectCompany }) {
   const data = useMemo(() => filterGlobalGraph(GLOBAL_GRAPH, activeCategories, minDegree), [activeCategories, minDegree]);
 
   // 停止中は描画を休止する（autoPauseRedraw）。ホバーの見た目とサイズ変更はライブラリが再描画の対象にしないため、
-  // 現在の中心を設定し直して 1 フレームだけ描かせる（同時に data-view も更新される）
-  const redraw = useCallback(() => { const fg = fgRef.current; if (!fg) return; const c = fg.centerAt(); fg.centerAt(c.x, c.y); }, []);
+  // 休止を 80ms だけ解除して数フレーム描かせる（中心やズームの再設定で代用するとズーム操作中にズームイベントが割り込んでカクつく）
+  const [drawing, setDrawing] = useState(false);
+  const drawTimer = useRef(null);
+  const redraw = useCallback(() => { setDrawing(true); clearTimeout(drawTimer.current); drawTimer.current = setTimeout(() => setDrawing(false), 80); }, []);
+  useEffect(() => () => clearTimeout(drawTimer.current), []);
   useEffect(() => {
     const el = wrapRef.current;
     const resize = () => setSize({ w: el.clientWidth, h: el.clientHeight });
@@ -42,15 +45,20 @@ export default function GlobalMap({ onSelectCompany }) {
   }, []);
   // サイズ反映後（ウィンドウ幅の変更・端末の向き変更）に再描画し、休止中に消えたままにしない
   useEffect(() => { redraw(); }, [size, redraw]);
-  useEffect(() => { hoverRef.current = null; setHoverNode(null); tickCount.current = 0; }, [data]);
+  // 配置計算中は一定ティックごとに全体を収め直す（下の onEngineTick）が、その間にユーザーがズーム・移動したら追従をやめる
+  // （追従を続けると操作のたびに視点が引き戻されてガクつく）。データが変わって配置をやり直すときに解除する
+  // （ズームライブラリはホイール・ポインターイベントの伝播を止めるので、キャプチャ段階で受け取る）
+  const userAdjusted = useRef(false);
+  const markAdjusted = () => { userAdjusted.current = true; };
+  useEffect(() => { hoverRef.current = null; setHoverNode(null); tickCount.current = 0; userAdjusted.current = false; }, [data]);
   // 離れた小さな塊が全体を押し広げないよう、反発力の届く距離を制限する
   useEffect(() => { fgRef.current?.d3Force('charge')?.distanceMax(500); }, [data]);
   // 収める対象: 中心部（関係数 3 以上）。フィルタ後に低次数のノードしか残らない場合は表示中の全ノード
   const fitFilter = useMemo(() => (data.nodes.some(isCore) ? isCore : undefined), [data]);
   const fit = useCallback((ms = 500) => fgRef.current?.zoomToFit(ms, Math.min(60, size.w * 0.08), fitFilter), [fitFilter, size.w]);
   // 配置計算中は塊が広がり続けるので、一定ティックごとに中心部が収まるよう追従させる（最終位置は onEngineStop で確定）
-  const onEngineTick = useCallback(() => { tickCount.current += 1; if (tickCount.current % 25 === 0) fit(200); }, [fit]);
-  const onEngineStop = useCallback(() => { if (fittedRef.current !== data && data.nodes.length) { fittedRef.current = data; fit(); } }, [data, fit]);
+  const onEngineTick = useCallback(() => { tickCount.current += 1; if (tickCount.current % 25 === 0 && !userAdjusted.current) fit(200); }, [fit]);
+  const onEngineStop = useCallback(() => { if (fittedRef.current !== data && data.nodes.length) { fittedRef.current = data; if (!userAdjusted.current) fit(); } }, [data, fit]);
   // 倍率と中心を data-view（倍率,中心x,中心y）に出し、操作記録・確認に使う
   const onZoom = useCallback(({ k, x, y }) => { const el = wrapRef.current; if (el) el.dataset.view = `${k.toFixed(3)},${Math.round(x)},${Math.round(y)}`; }, []);
 
@@ -66,7 +74,7 @@ export default function GlobalMap({ onSelectCompany }) {
     const keys = { ArrowLeft: () => panBy(-PAN_STEP, 0), ArrowRight: () => panBy(PAN_STEP, 0), ArrowUp: () => panBy(0, -PAN_STEP), ArrowDown: () => panBy(0, PAN_STEP),
       '+': () => zoomBy(1.4), '=': () => zoomBy(1.4), '-': () => zoomBy(1 / 1.4), '0': () => fit(), Home: () => fit() };
     const fn = keys[event.key];
-    if (fn) { event.preventDefault(); fn(); }
+    if (fn) { event.preventDefault(); markAdjusted(); fn(); }
   };
 
   // --- ノードの描画: 白い円に業種色の縁（縁は円の内側に描くので外側＝当たり判定の半径）。ホバー中は縁を太くし、少し拡大して薄く色を敷く。
@@ -77,16 +85,28 @@ export default function GlobalMap({ onSelectCompany }) {
     if (w === undefined) { const f = ctx.font; ctx.font = '12px sans-serif'; w = ctx.measureText(name).width; ctx.font = f; textWidths.current.set(name, w); }
     return w;
   };
+  // 画面に入っているグラフ座標の範囲（フレームの最初に求め、画面外のノードは描かない。拡大時の描画量を抑える）
+  const viewRef = useRef(null);
+  const onRenderFramePre = useCallback(() => {
+    const fg = fgRef.current; if (!fg) return;
+    const tl = fg.screen2GraphCoords(0, 0), br = fg.screen2GraphCoords(size.w, size.h);
+    viewRef.current = { x0: tl.x, y0: tl.y, x1: br.x, y1: br.y };
+  }, [size]);
+  const offScreen = (node, r) => { const v = viewRef.current; return v && (node.x + r < v.x0 || node.x - r > v.x1 || node.y + r < v.y0 || node.y - r > v.y1); };
   const drawNode = useCallback((node, ctx, scale) => {
     const hover = node === hoverRef.current;
     const r = nodeRadius(node.degree) * (hover ? HOVER_SCALE : 1);
+    if (offScreen(node, r)) return;
     const color = industryColor(node.industry);
+    if (r * scale < 2) {
+      // 画面上 2px 未満の円は白い中身も縁も見えないので、縁の色の点として 1 回の塗りで済ませる（全体表示の大半）
+      ctx.beginPath(); ctx.arc(node.x, node.y, r, 0, Math.PI * 2); ctx.fillStyle = color; ctx.fill();
+      return;
+    }
     const ring = ringWidth(r, hover);
     ctx.beginPath(); ctx.arc(node.x, node.y, r - ring / 2, 0, Math.PI * 2);
     ctx.fillStyle = hover ? `${color}1f` : '#ffffff'; ctx.fill();
     ctx.lineWidth = ring; ctx.strokeStyle = color; ctx.stroke();
-    // 円の中に書く企業名の配置（null なら入らない）。文字は後から描かれる円に隠れないよう drawLabels でまとめて重ねる
-    node.__labelInside = insideLayout(r * scale, node.name, (text) => widthAt12(ctx, text));
   }, []);
   // 円の中に名前が入らない企業のラベルは、全ノードを描いた後に別パスで円の上に重ねる（後から描かれる円に隠れない）。画面上で一定の大きさ（12px）、白の下地付き。
   // 画面内の候補を関係数の多い順（ホバー中を最優先）に置き、先に置いたラベルと重なるものは描かない（縮小時にハブのラベルが重ならない）
@@ -100,7 +120,8 @@ export default function GlobalMap({ onSelectCompany }) {
     for (const node of dataRef.current.nodes) {
       if (!Number.isFinite(node.x) || node.x < tl.x || node.x > br.x || node.y < tl.y || node.y > br.y) continue;
       const hover = node === hoverNode;
-      const inside = node.__labelInside;
+      // 円の中に書く企業名の配置（null なら入らない）。画面内のノードだけ計算する
+      const inside = insideLayout(nodeRadius(node.degree) * (hover ? HOVER_SCALE : 1) * scale, node.name, (text) => widthAt12(ctx, text));
       if (inside) {
         ctx.font = `${hover ? 600 : 500} ${inside.font / scale}px sans-serif`;
         const step = inside.font * 1.3 / scale, y0 = node.y - step * (inside.lines.length - 1) / 2;
@@ -127,6 +148,7 @@ export default function GlobalMap({ onSelectCompany }) {
   // 当たり判定は描いた円と同じ半径（ホバー中は拡大後）
   const paintPointerArea = useCallback((node, color, ctx) => {
     const r = nodeRadius(node.degree) * (node === hoverRef.current ? HOVER_SCALE : 1);
+    if (offScreen(node, r)) return;
     ctx.beginPath(); ctx.arc(node.x, node.y, r, 0, Math.PI * 2); ctx.fillStyle = color; ctx.fill();
   }, []);
   const onNodeHover = useCallback((node) => {
@@ -191,15 +213,15 @@ export default function GlobalMap({ onSelectCompany }) {
       </aside>
       <div ref={wrapRef} className="map-canvas" tabIndex={0} role="group"
         aria-label="上場企業間ネットワーク。ドラッグで移動、スクロールで拡大縮小。矢印キーで移動、＋／−で拡大縮小、0 で全体を表示できます。企業をクリックすると関係グラフを開きます。"
-        onKeyDown={onKeyDown}>
+        onKeyDown={onKeyDown} onWheelCapture={markAdjusted} onPointerDownCapture={markAdjusted} onTouchStartCapture={markAdjusted}>
         <div className="map-caption"><strong>上場企業間ネットワーク</strong><br />縁の色：業種 ／ 円の大きさ：関係数<br />ドラッグで移動 · スクロール／ピンチで拡大縮小 · 企業を選択して詳細へ</div>
         <ForceGraph2D ref={fgRef} width={size.w} height={size.h} graphData={data}
           backgroundColor="#ffffff" nodeId="id" nodeLabel={noLabel}
           nodeCanvasObject={drawNode} nodePointerAreaPaint={paintPointerArea}
           linkColor={linkColor} linkWidth={0.8}
           warmupTicks={50} cooldownTicks={100}
-          enableNodeDrag={false} minZoom={0.05} maxZoom={20}
-          onRenderFramePost={drawLabels}
+          enableNodeDrag={false} minZoom={0.05} maxZoom={20} autoPauseRedraw={!drawing}
+          onRenderFramePre={onRenderFramePre} onRenderFramePost={drawLabels}
           onEngineTick={onEngineTick} onEngineStop={onEngineStop} onZoom={onZoom}
           onNodeHover={onNodeHover} onNodeClick={onNodeClick}
         />

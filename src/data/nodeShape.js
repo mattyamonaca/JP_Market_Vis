@@ -19,6 +19,7 @@ export function ringWidth(radius, hover = false) {
 // 3) それでも駄目なら 1 行で最小まで縮めて試し、入らなければ null（drawLabels が円の上に出す）。measure12 は 12px での文字幅（画面 px）
 export const INSIDE_FONT = { min: 11, max: 20, fill: 0.86 };
 export function insideLayout(screenRadius, name, measure12) {
+  if (screenRadius * 2 * INSIDE_FONT.fill < INSIDE_FONT.min * 1.9) return null; // 最短の 2 文字でも入らない大きさ（全体表示の大半）は即座に除外
   const fontMax = Math.min(INSIDE_FONT.max, Math.max(INSIDE_FONT.min, screenRadius * 0.38));
   const diameter = screenRadius * 2 * INSIDE_FONT.fill;
   const width = (text, font) => measure12(text) * font / 12;
@@ -42,7 +43,13 @@ const WORDS = ['ホールディングス', 'ホールディング', 'グルー�
   'エンジニアリング', 'システムズ', 'システム', 'サービス', 'マネジメント', 'ネットワーク', 'コーポレーション', 'コミュニケーションズ', 'エレクトロニクス',
   'インダストリーズ', 'インダストリー', 'パートナーズ', 'キャピタル', 'リアルエステート', 'ロジスティクス', 'ファーマ', 'ジャパン', 'ハウス', 'リース',
   '不動産', '工業', '製作所', '電機', '電気', '銀行', '証券', '商事', '物産', '産業', '製薬', '化学', '建設', '運輸', '鉄道', '自動車', '日本'];
+const splitCache = new Map(); // 企業名ごとの分割候補（毎フレーム呼ばれるので一度だけ計算する）
 export function splitCandidates(name) {
+  let cached = splitCache.get(name);
+  if (!cached) splitCache.set(name, (cached = computeSplitCandidates(name)));
+  return cached;
+}
+function computeSplitCandidates(name) {
   const mid = name.length / 2, cuts = new Set();
   [...name].forEach((c, i) => { if (SEPARATORS.includes(c)) cuts.add(i + 1); });
   for (const word of WORDS) for (let i = name.indexOf(word); i >= 0; i = name.indexOf(word, i + 1)) { cuts.add(i); cuts.add(i + word.length); }
