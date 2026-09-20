@@ -50,15 +50,20 @@ export default function GlobalMap({ onSelectCompany }) {
   // （ズームライブラリはホイール・ポインターイベントの伝播を止めるので、キャプチャ段階で受け取る）
   const userAdjusted = useRef(false);
   const markAdjusted = () => { userAdjusted.current = true; };
+  // 「全体を表示」のアニメーション（ライブラリ内部の tween で外から中断できない）が終わる時刻。その間のキー・ボタン操作は
+  // 終了まで続く長さの tween にして負けないようにする（自動の収め直しは即時適用なので競合しない）
+  const fitEndsAt = useRef(0);
+  const userTween = (ms) => Math.max(ms, fitEndsAt.current - Date.now() + 50);
   useEffect(() => { hoverRef.current = null; setHoverNode(null); tickCount.current = 0; userAdjusted.current = false; }, [data]);
   // 離れた小さな塊が全体を押し広げないよう、反発力の届く距離を制限する
   useEffect(() => { fgRef.current?.d3Force('charge')?.distanceMax(500); }, [data]);
   // 収める対象: 中心部（関係数 3 以上）。フィルタ後に低次数のノードしか残らない場合は表示中の全ノード
   const fitFilter = useMemo(() => (data.nodes.some(isCore) ? isCore : undefined), [data]);
-  const fit = useCallback((ms = 500) => fgRef.current?.zoomToFit(ms, Math.min(60, size.w * 0.08), fitFilter), [fitFilter, size.w]);
-  // 配置計算中は塊が広がり続けるので、一定ティックごとに中心部が収まるよう追従させる（最終位置は onEngineStop で確定）
-  const onEngineTick = useCallback(() => { tickCount.current += 1; if (tickCount.current % 25 === 0 && !userAdjusted.current) fit(200); }, [fit]);
-  const onEngineStop = useCallback(() => { if (fittedRef.current !== data && data.nodes.length) { fittedRef.current = data; if (!userAdjusted.current) fit(); } }, [data, fit]);
+  const fit = useCallback((ms = 500) => { fitEndsAt.current = Date.now() + ms; return fgRef.current?.zoomToFit(ms, Math.min(60, size.w * 0.08), fitFilter); }, [fitFilter, size.w]);
+  // 配置計算中は塊が広がり続けるので、数ティックごとに中心部が収まるよう即時に追従させる（アニメーションにするとユーザー操作と競合する）。
+  // 最終位置は onEngineStop で確定
+  const onEngineTick = useCallback(() => { tickCount.current += 1; if (tickCount.current % 5 === 0 && !userAdjusted.current) fit(0); }, [fit]);
+  const onEngineStop = useCallback(() => { if (fittedRef.current !== data && data.nodes.length) { fittedRef.current = data; if (!userAdjusted.current) fit(0); } }, [data, fit]);
   // 倍率と中心を data-view（倍率,中心x,中心y）に出し、操作記録・確認に使う
   const onZoom = useCallback(({ k, x, y }) => { const el = wrapRef.current; if (el) el.dataset.view = `${k.toFixed(3)},${Math.round(x)},${Math.round(y)}`; }, []);
 
@@ -68,8 +73,8 @@ export default function GlobalMap({ onSelectCompany }) {
   const resetFilters = () => { setActiveCategories(new Set(AVAILABLE_CATEGORIES)); setMinDegree(1); };
 
   // --- 拡大縮小・移動（ボタン・キーボード用。ドラッグ・ホイール・ピンチはライブラリが処理する）
-  const zoomBy = (factor) => { const fg = fgRef.current; if (fg) fg.zoom(fg.zoom() * factor, 250); };
-  const panBy = (dx, dy) => { const fg = fgRef.current; if (!fg) return; const c = fg.centerAt(), k = fg.zoom(); fg.centerAt(c.x + dx / k, c.y + dy / k, 200); };
+  const zoomBy = (factor) => { const fg = fgRef.current; if (!fg) return; fg.zoom(fg.zoom() * factor, userTween(250)); };
+  const panBy = (dx, dy) => { const fg = fgRef.current; if (!fg) return; const c = fg.centerAt(), k = fg.zoom(); fg.centerAt(c.x + dx / k, c.y + dy / k, userTween(200)); };
   const onKeyDown = (event) => {
     const keys = { ArrowLeft: () => panBy(-PAN_STEP, 0), ArrowRight: () => panBy(PAN_STEP, 0), ArrowUp: () => panBy(0, -PAN_STEP), ArrowDown: () => panBy(0, PAN_STEP),
       '+': () => zoomBy(1.4), '=': () => zoomBy(1.4), '-': () => zoomBy(1 / 1.4), '0': () => fit(), Home: () => fit() };
@@ -98,6 +103,16 @@ export default function GlobalMap({ onSelectCompany }) {
     const r = nodeRadius(node.degree) * (hover ? HOVER_SCALE : 1);
     if (offScreen(node, r)) return;
     const color = industryColor(node.industry);
+    if (node.kind === 'group') {
+      // 企業グループのハブ: 白い円にグループ色の縁と、その外側に点線のリング（企業ではないことを示す）
+      const ring = ringWidth(r, hover);
+      ctx.beginPath(); ctx.arc(node.x, node.y, r - ring / 2 - ring, 0, Math.PI * 2);
+      ctx.fillStyle = hover ? `${color}1f` : '#ffffff'; ctx.fill();
+      ctx.lineWidth = ring; ctx.strokeStyle = color; ctx.stroke();
+      ctx.beginPath(); ctx.arc(node.x, node.y, r - ring / 2, 0, Math.PI * 2);
+      ctx.setLineDash([ring * 1.5, ring * 1.5]); ctx.lineWidth = ring * 0.8; ctx.stroke(); ctx.setLineDash([]);
+      return;
+    }
     if (r * scale < 2) {
       // 画面上 2px 未満の円は白い中身も縁も見えないので、縁の色の点として 1 回の塗りで済ませる（全体表示の大半）
       ctx.beginPath(); ctx.arc(node.x, node.y, r, 0, Math.PI * 2); ctx.fillStyle = color; ctx.fill();
@@ -123,19 +138,19 @@ export default function GlobalMap({ onSelectCompany }) {
       // 円の中に書く企業名の配置（null なら入らない）。画面内のノードだけ計算する
       const inside = insideLayout(nodeRadius(node.degree) * (hover ? HOVER_SCALE : 1) * scale, node.name, (text) => widthAt12(ctx, text));
       if (inside) {
-        ctx.font = `${hover ? 600 : 500} ${inside.font / scale}px sans-serif`;
+        ctx.font = `${hover || node.kind === 'group' ? 600 : 500} ${inside.font / scale}px sans-serif`;
         const step = inside.font * 1.3 / scale, y0 = node.y - step * (inside.lines.length - 1) / 2;
         inside.lines.forEach((line, i) => ctx.fillText(line, node.x, y0 + step * i));
         const r = nodeRadius(node.degree) * (hover ? HOVER_SCALE : 1);
         placed.push({ x0: node.x - r, x1: node.x + r, y0: node.y - r, y1: node.y + r });
-      } else if (showsLabel(node.degree, scale, hover)) candidates.push(node);
+      } else if ((node.kind === 'group' && node.degree >= 3) || showsLabel(node.degree, scale, hover)) candidates.push(node);
     }
-    candidates.sort((a, b) => (b === hoverNode) - (a === hoverNode) || b.degree - a.degree);
+    candidates.sort((a, b) => (b === hoverNode) - (a === hoverNode) || (b.kind === 'group') - (a.kind === 'group') || b.degree - a.degree);
     ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
     for (const node of candidates) {
       const hover = node === hoverNode;
       const r = nodeRadius(node.degree) * (hover ? HOVER_SCALE : 1);
-      ctx.font = `${hover || node.degree >= LABEL_MIN_DEGREE ? 600 : 400} ${font}px sans-serif`;
+      ctx.font = `${hover || node.kind === 'group' || node.degree >= LABEL_MIN_DEGREE ? 600 : 400} ${font}px sans-serif`;
       const y = node.y - r - 3 / scale;
       const w = ctx.measureText(node.name).width + pad * 2;
       const box = { x0: node.x - w / 2, x1: node.x + w / 2, y0: y - font - pad / 2, y1: y + pad / 2 };
@@ -156,8 +171,9 @@ export default function GlobalMap({ onSelectCompany }) {
     setHoverNode(node || null);
     const el = wrapRef.current, fg = fgRef.current;
     if (el) {
-      el.style.cursor = node ? 'pointer' : 'grab';
+      el.style.cursor = node ? (node.kind === 'group' ? 'default' : 'pointer') : 'grab';
       el.dataset.hover = node ? node.id : '';
+      el.dataset.hoverKind = node?.kind ?? (node ? 'listed' : '');
       // ホバー中のノードの画面上の中心と半径（見た目と当たり判定の一致確認用）
       if (node && fg) {
         const p = fg.graph2ScreenCoords(node.x, node.y);
@@ -168,7 +184,7 @@ export default function GlobalMap({ onSelectCompany }) {
     redraw();
   }, [redraw]);
   // クリック（ドラッグせずに離した場合だけライブラリが発火する）で見た目どおりの企業を開く
-  const onNodeClick = useCallback((node) => onSelectCompany(node.id), [onSelectCompany]);
+  const onNodeClick = useCallback((node) => { if (node.kind !== 'group') onSelectCompany(node.id); }, [onSelectCompany]);
 
   return (
     <div className="map-view">
@@ -214,7 +230,7 @@ export default function GlobalMap({ onSelectCompany }) {
       <div ref={wrapRef} className="map-canvas" tabIndex={0} role="group"
         aria-label="上場企業間ネットワーク。ドラッグで移動、スクロールで拡大縮小。矢印キーで移動、＋／−で拡大縮小、0 で全体を表示できます。企業をクリックすると関係グラフを開きます。"
         onKeyDown={onKeyDown} onWheelCapture={markAdjusted} onPointerDownCapture={markAdjusted} onTouchStartCapture={markAdjusted}>
-        <div className="map-caption"><strong>上場企業間ネットワーク</strong><br />縁の色：業種 ／ 円の大きさ：関係数<br />ドラッグで移動 · スクロール／ピンチで拡大縮小 · 企業を選択して詳細へ</div>
+        <div className="map-caption"><strong>上場企業間ネットワーク</strong><br />縁の色：業種（点線の二重円は企業グループ） ／ 円の大きさ：関係数<br />ドラッグで移動 · スクロール／ピンチで拡大縮小 · 企業を選択して詳細へ</div>
         <ForceGraph2D ref={fgRef} width={size.w} height={size.h} graphData={data}
           backgroundColor="#ffffff" nodeId="id" nodeLabel={noLabel}
           nodeCanvasObject={drawNode} nodePointerAreaPaint={paintPointerArea}
@@ -226,7 +242,9 @@ export default function GlobalMap({ onSelectCompany }) {
           onNodeHover={onNodeHover} onNodeClick={onNodeClick}
         />
         {!data.nodes.length && <div className="map-empty" role="status"><strong>表示できる企業がありません</strong><span>カテゴリを選択するか、最小関係数を下げてください。</span><button type="button" className="reset-button" style={{ pointerEvents: 'auto' }} onClick={resetFilters}>初期状態に戻す</button></div>}
-        {hoverNode && <div className="map-hover"><strong>{hoverNode.name}</strong><small>{hoverNode.id} · {hoverNode.industry}</small><small>選択カテゴリで上場企業と {hoverNode.degree}関係（非表示の相手を含む）</small></div>}
+        {hoverNode && (hoverNode.kind === 'group'
+          ? <div className="map-hover"><strong>{hoverNode.name}</strong><small>企業グループ{hoverNode.organization ? ` · ${hoverNode.organization}の会員会社一覧に基づく` : ''}</small><small>会員の上場企業 {hoverNode.degree}社（子会社が会員の場合は上場親会社）</small></div>
+          : <div className="map-hover"><strong>{hoverNode.name}</strong><small>{hoverNode.id} · {hoverNode.industry}</small><small>選択カテゴリで上場企業と {hoverNode.degree}関係（非表示の相手を含む）</small></div>)}
         <div className="map-tools"><button onClick={() => zoomBy(1.4)} aria-label="拡大">＋</button><button onClick={() => zoomBy(1 / 1.4)} aria-label="縮小">−</button><button onClick={() => fit()}>全体を表示</button></div>
       </div>
     </div>

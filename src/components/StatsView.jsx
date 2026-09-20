@@ -99,7 +99,7 @@ export default function StatsView({ onSelectCompany }) {
           title="エビデンス出所（確定関係）"
           items={sourceItems}
           colorOf={() => '#0ea5e9'}
-          labelOf={(k) => ({ wikidata: 'Wikidata', edinet: 'EDINET 有報', ir_disclosure: '企業IR（LLM抽出）', official_release: '公式開示（原本確認）' }[k] ?? k)}
+          labelOf={(k) => ({ wikidata: 'Wikidata', edinet: 'EDINET 有報', ir_disclosure: '企業IR（LLM抽出）', official_release: '公式開示（原本確認）', group_site: 'グループ広報団体の会員一覧' }[k] ?? k)}
         />
         <BarList
           title="出所の種別（抽出の正しさとは別）"

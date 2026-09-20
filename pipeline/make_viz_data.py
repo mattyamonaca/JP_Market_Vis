@@ -95,7 +95,7 @@ def main() -> int:
                 if isinstance(raw_attrs["sales_amount"], dict) else raw_attrs["sales_amount"]
             if isinstance(raw_attrs["sales_amount"], dict) and raw_attrs["sales_amount"].get("unit"):
                 attrs["sales_amount"]["unit"] = raw_attrs["sales_amount"]["unit"]
-        for k in ("person", "deal_status", "event_year"):
+        for k in ("person", "persons", "deal_status", "event_year", "contract_date", "contract_note", "member_via"):
             if raw_attrs.get(k) is not None:
                 attrs[k] = raw_attrs[k]
         rel = {

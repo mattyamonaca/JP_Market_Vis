@@ -40,7 +40,7 @@ export const TIER_JA = {
   secondary: '二次情報',
   llm_extraction: 'LLM抽出',
 };
-export const evidenceTier = (ev) => ev.tier ?? ev.source_tier ?? ({ edinet: 'primary', official_release: 'primary', wikidata: 'secondary', ir_disclosure: 'llm_extraction' }[ev.source] ?? null);
+export const evidenceTier = (ev) => ev.tier ?? ev.source_tier ?? ({ edinet: 'primary', official_release: 'primary', group_site: 'primary', wikidata: 'secondary', ir_disclosure: 'llm_extraction' }[ev.source] ?? null);
 
 // エビデンス全文（基準日・原本URL・抽出根拠・引用・比率の履歴）は関係IDごとのシャードに分けて配信する。
 // 詳細パネルを開いたときだけ取得し、メモリにキャッシュする。旧データ（シャードなし）は本体の evidence をそのまま返す。
@@ -205,6 +205,7 @@ export const INDUSTRY_COLORS = {
   '金融（除く銀行）': '#a49b85',
   '不動産': '#a08a58',
   'その他': '#9aa0a8',
+  'グループ': '#5b6472', // 企業グループのハブ（全体マップ）
 };
 
 export function industryColor(industry17) {
@@ -212,12 +213,24 @@ export function industryColor(industry17) {
 }
 
 // 全体マップ用: 両端が上場企業のエッジのみで構成したネットワーク
-// （子会社など非上場エンティティは末端が大半のため除外して俯瞰性を確保）
+// （子会社など非上場エンティティは末端が大半のため除外して俯瞰性を確保）。
+// 例外として企業グループ（kind: "group" のエンティティ。三菱・三井・住友・三和など）は、会員の上場企業を束ねる
+// ハブとしてノードに含める（企業グループ所属 corporate_group の線でつなぐ）
+// 会員の上場企業が 1 社しかないグループはハブとして意味がない（Wikidata 由来の小さなグループ）ので、2 社以上に限る
+const isGroupRef = (ref) => ref.type === 'entity' && ENTITIES[ref.key]?.kind === 'group';
+const GROUP_MIN_MEMBERS = 2;
 export const GLOBAL_GRAPH = (() => {
+  const groupMembers = new Map();
+  for (const rel of CURRENT_RELATIONS) {
+    if (rel.source.type === 'listed' && isGroupRef(rel.target)) groupMembers.set(rel.target.key, (groupMembers.get(rel.target.key) ?? 0) + 1);
+  }
+  const isHub = (ref) => isGroupRef(ref) && (groupMembers.get(ref.key) ?? 0) >= GROUP_MIN_MEMBERS;
   const deg = new Map();
   const links = [];
   for (const rel of CURRENT_RELATIONS) {
-    if (rel.source.type !== 'listed' || rel.target.type !== 'listed') continue;
+    const okSource = rel.source.type === 'listed' || isHub(rel.source);
+    const okTarget = rel.target.type === 'listed' || isHub(rel.target);
+    if (!okSource || !okTarget || (rel.source.type !== 'listed' && rel.target.type !== 'listed')) continue;
     const s = rel.source.key;
     const t = rel.target.key;
     deg.set(s, (deg.get(s) ?? 0) + 1);
@@ -235,14 +248,14 @@ export const GLOBAL_GRAPH = (() => {
   const nodes = [];
   for (const [code, d] of deg) {
     const c = COMPANIES[code];
-    if (!c) continue;
-    nodes.push({
-      id: code,
-      name: c.name,
-      industry: c.industry_17 ?? 'その他',
-      segment: c.market_segment,
-      degree: d,
-    });
+    if (c) {
+      nodes.push({ id: code, name: c.name, industry: c.industry_17 ?? 'その他', segment: c.market_segment, degree: d });
+      continue;
+    }
+    const e = ENTITIES[code];
+    if (e?.kind === 'group') {
+      nodes.push({ id: code, name: e.name, industry: 'グループ', kind: 'group', organization: e.organization ?? null, url: e.url ?? null, degree: d });
+    }
   }
   return { nodes, links, byCategory };
 })();

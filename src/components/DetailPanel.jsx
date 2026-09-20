@@ -20,6 +20,7 @@ const SOURCE_JA = {
   edinet: 'EDINET 有価証券報告書',
   ir_disclosure: '企業IRリリース（LLM抽出）',
   official_release: '公式開示（原本確認）',
+  group_site: 'グループ広報団体の会員一覧（公式サイト）',
 };
 
 
@@ -187,6 +188,10 @@ function EvidenceCard({ ev }) {
       {ev.deal_status && <Field label="状態" value={{ agreed: '合意・予定', executed: '実行済み' }[ev.deal_status] ?? ev.deal_status} />}
       {ev.event_year && <Field label="時点" value={`${ev.event_year}年の出来事に言及`} />}
       {ev.person && <Field label="人物" value={ev.person} />}
+      {(ev.role_at_filer || ev.role_at_counterparty) && <Field label="役職" value={[ev.role_at_filer && `提出会社: ${ev.role_at_filer}`, ev.role_at_counterparty && `相手: ${ev.role_at_counterparty}`].filter(Boolean).join(' ／ ')} />}
+      {ev.contracting_party && <Field label="契約会社" value={ev.contracting_party} />}
+      {ev.contract_date && <Field label="契約年月" value={ev.contract_date} />}
+      {ev.organization && <Field label="団体" value={ev.organization} />}
       {ev.note && <Field label="備考" value={ev.note} />}
       {url ? (
         <Field label="原本" value={<>{ev.doc_id && <span style={{ color: 'var(--text-2)', marginRight: 6 }}>{ev.doc_id}</span>}<ExternalLink href={url}>{originalLabel} ↗</ExternalLink></>} />
@@ -242,6 +247,10 @@ export function RelationDetail({ relation }) {
         {relation.attributes?.deal_status && <Field label="状態" value={{ agreed: '合意・予定', executed: '実行済み' }[relation.attributes.deal_status] ?? relation.attributes.deal_status} />}
         {relation.attributes?.event_year && <Field label="時点" value={`${relation.attributes.event_year}年の出来事（公表日とは別）`} />}
         {relation.attributes?.person && <Field label="人物" value={relation.attributes.person} />}
+        {relation.attributes?.persons?.length > 0 && <Field label="兼任者" value={relation.attributes.persons.map((p) => `${p.name}（${Object.entries(p.roles ?? {}).map(([code, role]) => `${nodeName({ type: 'listed', key: code })}: ${role}`).join('、')}）`).join(' ／ ')} />}
+        {relation.attributes?.contract_date && <Field label="契約年月" value={relation.attributes.contract_date} />}
+        {relation.attributes?.contract_note && <Field label="契約の種類" value={relation.attributes.contract_note} />}
+        {relation.attributes?.member_via && <Field label="会員会社" value={`${relation.attributes.member_via}（上場親会社として表示）`} />}
       </Section>
       <Section title={`エビデンス（出所） ${evidence.length} 件`}>
         {loadState === 'loading' && detail === null && META.evidenceShards && <div style={{ fontSize: 12, color: 'var(--text-2)', marginBottom: 6 }}>原本情報を読み込み中…</div>}

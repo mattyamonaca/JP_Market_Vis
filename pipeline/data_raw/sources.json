@@ -25,7 +25,11 @@
   "source": "各社IRサイト（Playwright + moonshot-v1-32k 抽出）"
  },
  "edinet_blocks": {
-  "retrieved": "2026-09-09",
-  "source": "EDINET API v2（有価証券報告書 2025-06-14〜2026-06-13 提出分）"
+  "retrieved": "2026-09-20",
+  "source": "EDINET API v2（有価証券報告書 2025-06-14〜2026-06-13 提出分）。関係会社・大株主・主要顧客は 2026-09-09 取得、役員の状況・経営上の重要な契約等・事業の内容は 2026-09-20 に追加取得"
+ },
+ "group_members.json": {
+  "retrieved": "2026-09-20",
+  "source": "三菱広報委員会・三井広報委員会・住友グループ広報委員会・みどり会の公式サイトの会員会社一覧（fetch_group_members.py）"
  }
 }

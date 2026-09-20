@@ -302,7 +302,7 @@ class RelationBuilder:
 
 
 def _same_evidence(a: dict, b: dict) -> bool:
-    keys = ("source", "property", "doc_id", "url", "as_of")
+    keys = ("source", "property", "doc_id", "url", "as_of", "person")
     return all(a.get(k) == b.get(k) for k in keys)
 
 
@@ -625,6 +625,184 @@ IR_DIRECTION = {
 }
 
 
+# ---------------------------------------------------------------------------
+# 役員兼任（有報「役員の状況」）・提携（有報「経営上の重要な契約等」）・グループ会員（広報団体の会員一覧）
+# ---------------------------------------------------------------------------
+
+LEGAL_FORM_RE = re.compile(r"株式会社|㈱|（株）|\(株\)|有限会社|合同会社|有限公司|Inc\.|Corp\.|Corporation|Ltd\.|LLC|GmbH|S\.A\.|N\.V\.|B\.V\.|Limited|Company|plc|AG$")
+_SPACES = re.compile(r"[\s\u3000]+")
+
+
+def _resolve_listed_candidates(builder: RelationBuilder, cands: list[str] | None) -> str | None:
+    """「Ａ（現Ｂ）」のような複数候補を順に上場企業へ照合する。"""
+    for cand in cands or []:
+        if cand:
+            code = builder.resolve_listed(name=cand)
+            if code:
+                return code
+    return None
+
+
+def add_officer_relations(builder: RelationBuilder, edinet_rows: list[dict], retrieved: str | None) -> None:
+    """役員の状況（役員兼任）。提出会社の役員が現任で務める他社の役職のうち、相手が上場企業に解決できたものだけを
+    interlocking_director（無向）として投入する。人物と役職は attributes.persons に集約する。"""
+    n = n_unresolved = n_self = 0
+    for row in edinet_rows:
+        if row.get("kind") != "officers":
+            continue
+        filer_code = row.get("filer_sec_code")
+        if filer_code not in builder.companies:
+            continue
+        code = _resolve_listed_candidates(builder, row.get("counterparty_candidates") or [row.get("counterparty_name")])
+        if code is None:
+            n_unresolved += 1
+            continue
+        if code == filer_code:
+            n_self += 1
+            continue
+        person = _SPACES.sub(" ", row.get("person") or "").strip()
+        ev = edinet_evidence(row, retrieved, {
+            "property": "officers", "as_of": row.get("as_of") or row.get("submit_date"),
+            "raw_name": row.get("counterparty_name"), "person": person,
+            "role_at_filer": row.get("role_at_filer"), "role_at_counterparty": row.get("role_at_counterparty"),
+            "quote": row.get("quote"), "basis": row.get("basis"),
+            "note": "提出会社の有価証券報告書「役員の状況」に記載された、役員が現任で務める他社の役職（提出日現在）",
+        })
+        ev.pop("table_ref", None)
+        rel = builder.add({"type": "listed", "key": filer_code}, {"type": "listed", "key": code},
+                          "interlocking_director", {}, ev)
+        if rel is None:
+            continue
+        persons = rel["attributes"].setdefault("persons", [])
+        key = _SPACES.sub("", person)
+        entry = next((p for p in persons if _SPACES.sub("", p["name"]) == key), None)
+        if entry is None:
+            entry = {"name": person, "roles": {}}
+            persons.append(entry)
+        if row.get("role_at_filer"):
+            entry["roles"].setdefault(filer_code, row["role_at_filer"])
+        if row.get("role_at_counterparty"):
+            entry["roles"].setdefault(code, row["role_at_counterparty"])
+        n += 1
+    print(f"役員兼任（有報）エッジ投入: {n} 行（相手が上場企業に解決できず除外 {n_unresolved} / 提出会社自身 {n_self}）")
+
+
+def add_contract_relations(builder: RelationBuilder, edinet_rows: list[dict], retrieved: str | None) -> None:
+    """経営上の重要な契約等（提携）。相手が上場企業なら上場ノード、法人格付きの非上場名ならエンティティとして投入する。
+    相手方であることが文中で明示されない（party_cue なし）・技術提携で方向が読めないものは needs_review。"""
+    import edinet_tables as et
+
+    n = n_skipped = 0
+    by_type: dict[str, int] = {}
+    by_status: dict[str, int] = {}
+    for row in edinet_rows:
+        if row.get("kind") != "contracts":
+            continue
+        filer_code = row.get("filer_sec_code")
+        rel_type = row.get("relation_type")
+        if filer_code not in builder.companies or rel_type not in RELATION_TYPES:
+            continue
+        cands = row.get("counterparty_candidates") or [row.get("counterparty_name")]
+        code = _resolve_listed_candidates(builder, cands)
+        if code == filer_code:
+            continue
+        if code:
+            counterparty: dict | None = {"type": "listed", "key": code}
+        else:
+            name = cands[0]
+            if not name or not LEGAL_FORM_RE.search(name) or et.name_problem(name):
+                n_skipped += 1
+                continue
+            counterparty = builder.resolve_node(name=name)
+        if counterparty is None:
+            continue
+        filer_node = {"type": "listed", "key": filer_code}
+        attrs: dict = {}
+        if row.get("date"):
+            attrs["contract_date"] = row["date"]
+        status, reasons, note = "confirmed", [], None
+        if not row.get("party_cue"):
+            status = "needs_review"
+            reasons.append("contract:unclear_party")
+        if rel_type == "joint_venture":
+            # 「Ａと合弁契約を締結」の相手は共同出資のパートナーであって合弁会社ではないので、パートナー間の提携として扱う
+            rel_type = "business_alliance"
+            attrs["contract_note"] = "合弁契約"
+            note = "合弁契約（相手は共同出資のパートナー。合弁会社そのものは関係会社の状況から投入）"
+        source, target = filer_node, counterparty
+        if rel_type == "technology_license":
+            hint = row.get("direction_hint")
+            if hint == "in":
+                source, target = counterparty, filer_node
+            elif hint == "mutual":
+                attrs["contract_note"] = "相互ライセンス"
+            elif hint != "out":
+                status = "needs_review"
+                reasons.append("contract:unknown_direction")
+        ev = edinet_evidence(row, retrieved, {
+            "property": "contracts", "raw_name": row.get("counterparty_name"), "quote": row.get("quote"),
+            "basis": row.get("basis"), "contracting_party": row.get("party"), "contract_date": row.get("date"),
+            "note": note or "提出会社の有価証券報告書「経営上の重要な契約等」の記載",
+        })
+        ev.pop("table_ref", None)
+        builder.add(source, target, rel_type, attrs, ev, status=status, reasons=reasons)
+        n += 1
+        by_type[rel_type] = by_type.get(rel_type, 0) + 1
+        by_status[status] = by_status.get(status, 0) + 1
+    print(f"提携（有報・重要な契約等）エッジ投入: {n} 行（{by_type}） 判定 {by_status} / 法人格のない相手の除外 {n_skipped}")
+
+
+def _listed_parent_of(builder: RelationBuilder, name: str) -> str | None:
+    """名前がエンティティ（非上場）として登録済みで、確定した親子関係の親が上場企業ならその証券コード。"""
+    canon, _ = builder.alias_index.canonical_entity_name(name)
+    key = normalize_name(canon) if canon else None
+    ent = builder._entity_index.get(key) if key else None
+    if not ent:
+        return None
+    for (st, sk, tt, tk, rt), rel in builder.relations.items():
+        if rt == "parent_subsidiary" and tt == "entity" and tk == ent and st == "listed" and rel.get("status") == "confirmed":
+            return sk
+    return None
+
+
+def add_group_relations(builder: RelationBuilder, groups: list[dict]) -> None:
+    """グループ広報団体の会員会社一覧 → corporate_group（上場会員 → グループ）。会員が上場企業の子会社
+    （三菱UFJ銀行など）の場合は、有報で確定した親会社（上場持株会社）を会員として扱い member_via に記録する。"""
+    for g in groups:
+        assert builder.resolve_listed(name=g["group"]) is None, g["group"]
+        node = builder.resolve_node(name=g["group"])
+        ent = builder.entities[node["key"]]
+        ent["kind"] = "group"
+        ent["organization"] = g.get("organization")
+        ent["url"] = g.get("url")
+        n = n_via = 0
+        unresolved = []
+        for mem in g.get("members", []):
+            code = builder.resolve_listed(name=mem["name"])
+            via = None
+            if code is None:
+                code = _listed_parent_of(builder, mem["name"])
+                via = mem["name"] if code else None
+            if code is None:
+                unresolved.append(mem["name"])
+                continue
+            attrs = {"member_via": via} if via else {}
+            ev = {
+                "source": "group_site", "source_tier": "primary", "property": "member_list",
+                "url": g["url"], "as_of": g.get("retrieved"), "retrieved": g.get("retrieved"), "confidence": "high",
+                "raw_name": mem["name"], "member_url": mem.get("url"), "organization": g.get("organization"),
+                "note": f"{g.get('organization')}の会員会社一覧" + (f"（会員は子会社の{via}）" if via else ""),
+            }
+            builder.add({"type": "listed", "key": code}, node, "corporate_group", attrs, ev)
+            n += 1
+            n_via += 1 if via else 0
+        print(f"グループ会員（{g['group']}）: {n} 社を投入（うち子会社経由 {n_via}）/ 上場に解決できず {len(unresolved)} 社")
+    # 企業グループ所属の対象になったエンティティは種別 group（全体マップでハブとして描く）
+    for (st, sk, tt, tk, rt) in builder.relations:
+        if rt == "corporate_group" and tt == "entity" and tk in builder.entities:
+            builder.entities[tk].setdefault("kind", "group")
+
+
 def add_ir_relations(builder: RelationBuilder, ir_rows: list[dict], retrieved: str | None) -> None:
     """IR 抽出行の投入（Issue #6）。根拠文の検証（ir_validate）に通った行だけ confirmed にし、
     根拠が不足する行は needs_review として理由を残す。"""
@@ -876,6 +1054,7 @@ def main() -> int:
     wd_relations = load("wikidata_relations.json")
     edinet_rows = load("edinet_relations.json")
     personnel = load("wikidata_personnel.json", required=False) or []
+    groups = load("group_members.json", required=False) or []
     ir_path = BASE_DIR / "ir_crawl" / "data" / "ir_relations.json"
     ir_rows = json.loads(ir_path.read_text(encoding="utf-8")) if ir_path.exists() else []
 
@@ -884,7 +1063,10 @@ def main() -> int:
     add_wikidata_relations(builder, wd_relations, d("wikidata_relations.json"))
     add_personnel_relations(builder, personnel, d("wikidata_personnel.json"))
     add_edinet_relations(builder, edinet_rows, d("edinet_blocks"))
+    add_officer_relations(builder, edinet_rows, d("edinet_blocks"))
+    add_contract_relations(builder, edinet_rows, d("edinet_blocks"))
     add_ir_relations(builder, ir_rows, d("ir_crawl/data/ir_relations.json"))
+    add_group_relations(builder, groups)
     corrections = json.loads(CORRECTIONS_PATH.read_text(encoding="utf-8")) if CORRECTIONS_PATH.exists() else {}
     correction_log = apply_corrections(builder, corrections)
     print(f"訂正適用: {sum(1 for c in correction_log if c['applied'])}/{len(correction_log)} 件")
@@ -902,8 +1084,9 @@ def main() -> int:
         "generated_at": GENERATED_AT,
         "source": {
             "wikidata": "Wikidata SPARQL (資本: P355/P749/P127/P1830; グループ: P463; 役員兼任: P169/P488 等)",
-            "edinet": "EDINET API v2 有価証券報告書（関係会社の状況・大株主の状況・主要な顧客）",
+            "edinet": "EDINET API v2 有価証券報告書（関係会社の状況・大株主の状況・主要な顧客・役員の状況・経営上の重要な契約等）",
             "ir_disclosure": "各社IRサイトのプレスリリースを LLM(moonshot-v1-32k) で構造化 (confidence=low)",
+            "group_site": "企業グループ広報団体（三菱広報委員会・三井広報委員会・住友グループ広報委員会・みどり会）の公式サイトの会員会社一覧",
         },
         "status_values": {
             "confirmed": "出所の記載どおりに抽出できた関係（内容の真偽を保証するものではない）",

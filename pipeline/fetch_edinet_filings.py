@@ -10,7 +10,8 @@
       → 期間内の有価証券報告書（docTypeCode=120、証券コードあり）の一覧を
         data_raw/edinet_docs.json に保存（書類ID → メタデータ）
   python fetch_edinet_filings.py fetch [--limit N] [--doc S100XXXX ...]
-      → edinet_docs.json の各書類を取得し、生ブロックをキャッシュ（取得済みはスキップ）
+      → edinet_docs.json の各書類を取得し、生ブロックをキャッシュ（BLOCK_KIND の全種別が取得済みならスキップ。
+        種別を追加した場合は不足分だけ取得して既存キャッシュに追加する）
 
 EDINET_API_KEY は環境変数または ~/.persona/.env から読む。
 """
@@ -37,6 +38,10 @@ REQUEST_WAIT_SEC = 0.35
 BLOCK_KIND = {
     "OverviewOfAffiliatedEntitiesTextBlock": "affiliated",
     "MajorShareholdersTextBlock": "shareholder",
+    # 人的関係（役員兼任）・提携（経営上の重要な契約等）・グループ（事業の内容の記述）用に追加
+    "InformationAboutOfficersTextBlock": "officers",
+    "CriticalContractsTextBlock": "contracts",
+    "DescriptionOfBusinessTextBlock": "business",
     "InformationForEachOfMainCustomersTextBlock": "customer",
 }
 DEI_ELEMENTS = {
@@ -140,11 +145,18 @@ def cmd_fetch(args: argparse.Namespace, key: str) -> int:
     EDINET_CACHE.mkdir(parents=True, exist_ok=True)
     session = requests.Session()
     n_done = n_skip = n_fail = 0
+    wanted = set(BLOCK_KIND.values())
     for i, doc_id in enumerate(targets):
         out = EDINET_CACHE / f"{doc_id}.json.gz"
+        existing = None
         if out.exists() and not args.force:
-            n_skip += 1
-            continue
+            # 既存キャッシュに新しい種別のブロックが揃っていればスキップ。足りなければ取得して既存ブロックに追加する
+            # （書類にその節がない場合もあるので、取得済み種別の記録 fetched_kinds で判定する）
+            with gzip.open(out, "rt", encoding="utf-8") as fh:
+                existing = json.load(fh)
+            if wanted <= set(existing.get("fetched_kinds") or existing.get("blocks", {}).keys()):
+                n_skip += 1
+                continue
         if args.limit and n_done >= args.limit:
             break
         try:
@@ -154,11 +166,13 @@ def cmd_fetch(args: argparse.Namespace, key: str) -> int:
             n_fail += 1
             time.sleep(3)
             continue
+        blocks = {**(existing or {}).get("blocks", {}), **got["blocks"]}
         payload = {
             "doc": docs.get(doc_id, {"doc_id": doc_id}),
-            "dei": got["dei"],
+            "dei": got["dei"] or (existing or {}).get("dei", {}),
             "fetched_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
-            "blocks": got["blocks"],
+            "fetched_kinds": sorted(wanted),
+            "blocks": blocks,
         }
         with gzip.open(out, "wt", encoding="utf-8") as f:
             json.dump(payload, f, ensure_ascii=False)

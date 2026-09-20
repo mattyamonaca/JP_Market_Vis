@@ -12,8 +12,11 @@
 | `fetch_jpx.py` | JPX 上場銘柄一覧 → `data_raw/jpx_listed.json` |
 | `fetch_edinet_codes.py` | EDINET コードリスト → `data_raw/edinet_codes.json` |
 | `fetch_wikidata.py` / `apply_org_flags.py` | Wikidata の QID 対応・資本/グループ関係 → `data_raw/wikidata_*.json` |
-| `fetch_edinet_filings.py` | EDINET API v2 から有価証券報告書を取得し、関係会社・大株主・主要顧客の**生 HTML ブロック**を `data_raw/edinet_blocks/<docID>.json.gz` にキャッシュ（要 `EDINET_API_KEY`） |
+| `fetch_edinet_filings.py` | EDINET API v2 から有価証券報告書を取得し、関係会社・大株主・主要顧客・役員の状況・経営上の重要な契約等・事業の内容の**生 HTML ブロック**を `data_raw/edinet_blocks/<docID>.json.gz` にキャッシュ（要 `EDINET_API_KEY`。種別を追加した場合は不足分だけ再取得して既存キャッシュに追加） |
 | `edinet_tables.py` | 有報の表の解析ロジック（結合セル展開・分類見出しの継承・所有／被所有・比率） |
+| `edinet_officers.py` | 「役員の状況」の解析（役員一覧の略歴から現任の他社役職＝役員兼任を抽出。回帰テスト `tests/test_edinet_officers.py`） |
+| `edinet_contracts.py` | 「経営上の重要な契約等」の解析（相手方と契約の種類から提携を抽出。回帰テスト `tests/test_edinet_contracts.py`） |
+| `fetch_group_members.py` | 企業グループ広報団体（三菱広報委員会・三井広報委員会・住友グループ広報委員会・みどり会）の公式サイトから会員会社一覧 → `data_raw/group_members.json` |
 | `parse_edinet_filings.py` | キャッシュを解析して `data_raw/edinet_relations.json(.gz)` を出力（オフライン） |
 | `build_masters.py` | 各ソースを統合し `data_processed/masters/M4,M5` と `quarantine.json` を出力 |
 | `make_viz_data.py` | 公開用に軽量化して `public/` へ出力 |
@@ -124,3 +127,29 @@ python make_viz_data.py                                                # public/
   `public/evidence/<shard>.json`（関係 1,000 件ごとの全文と比率の履歴）に分ける。詳細パネルが必要なシャードだけ取得する。
 - 大株主の状況の注記に写された大量保有報告書の表は `property: large_holding_report`（比率 kind
   `share_large_holding`）として大株主本表と区別する。
+
+## 人的・グループ・提携の拡充（有報の役員の状況・重要な契約等、グループ会員一覧）
+
+資本関係に比べて手薄だった 3 カテゴリを、IR（有価証券報告書）と民間公表データ（グループ広報団体の会員一覧）で埋める。
+
+- **人的（役員兼任）**: 有報「役員の状況」の役員一覧を `edinet_officers.py` が読む。略歴欄は「年月＋経歴」の入れ子の表
+  （または `<br>` 区切り）なので入れ子を保って復元し、現任の印（現任／現在に至る／現職／現在）があり退任の記述がない行から
+  「会社名＋役職」を分ける（「同社」は直前の会社、「当社」は提出会社、「Ａ（現Ｂ）」は現在名を先に照合）。注記の
+  「…は、○○株式会社の社外取締役を兼務」も読む。相手が上場企業に解決できた行だけを `interlocking_director`（無向）として
+  投入し、人物と両社での役職は `attributes.persons` に集約、根拠行は evidence の `quote`（時点は提出日）。
+  非上場の兼職先（財団・大学・子会社）はエンティティを作らない。
+- **提携**: 有報「経営上の重要な契約等」を `edinet_contracts.py` が読む。相手方・契約内容の列がある表は列から、
+  年月＋概要の表や本文は文単位で「会社名＋契約の種類語」から拾い、`資本業務提携→capital_alliance`、
+  `業務提携・協業→business_alliance`、`技術援助・ライセンス→technology_license`（導入＝相手→当社、供与＝当社→相手、
+  方向不明は needs_review）、`共同開発→joint_research`。「Ａと合弁契約」は相手が共同出資のパートナーなので
+  `business_alliance`＋注記「合弁契約」（合弁会社自体は関係会社の状況から投入済み）。株式譲渡・吸収分割・借入などは対象外。
+  相手方であることが文中で明示されない（`party_cue` なし）ものは needs_review（理由 `contract:unclear_party`）。
+  相手が上場企業でない場合は法人格付きの名前だけエンティティにする。
+- **グループ**: `fetch_group_members.py` が三菱広報委員会・三井広報委員会・住友グループ広報委員会・みどり会の会員会社一覧
+  （各団体の公式サイト）を取得し、`build_masters.py` が上場会員 → グループ（エンティティ、`kind: "group"`）の
+  `corporate_group` を投入する（evidence の `source` は `group_site`、`source_tier` は `primary`）。会員が上場持株会社の
+  子会社（三菱UFJ銀行など）の場合は、有報で確定した親子関係をたどって上場親会社を会員として扱い `attributes.member_via`
+  に記録する。芙蓉懇談会・三金会は公式の会員一覧が公開されていないため対象外。Wikidata（P463）由来のグループも
+  同じエンティティに統合される。全体マップでは会員が 2 社以上のグループをハブ（点線の二重円）として描く。
+- 再取得と再生成: `python fetch_edinet_filings.py fetch`（新しい種別だけ取得。全書類で約 4 時間）→
+  `python fetch_group_members.py` → `parse_edinet_filings.py` → `build_masters.py` → `make_viz_data.py`。

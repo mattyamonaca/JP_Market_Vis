@@ -5,8 +5,8 @@
 ネットワークアクセスは行わない。旧 4_fetch_edinet_filings.py の「取得と解析の同時実行」を分離した。
 
 出力行の共通項目:
-  filer_sec_code, doc_id, period_end, submit_date, kind(affiliated/shareholder/customer), filer_name
-種別ごとの項目は edinet_tables の各 extract_* を参照。
+  filer_sec_code, doc_id, period_end, submit_date, kind(affiliated/shareholder/customer/officers/contracts), filer_name
+種別ごとの項目は edinet_tables の各 extract_*、edinet_officers.extract_officer_positions、edinet_contracts.extract_contracts を参照。
 
 使い方: python parse_edinet_filings.py [--limit N]
 """
@@ -18,6 +18,8 @@ import gzip
 import json
 import sys
 
+import edinet_contracts as ecn
+import edinet_officers as eof
 import edinet_tables as et
 from config import DATA_RAW, EDINET_CACHE
 
@@ -46,6 +48,12 @@ def parse_doc(payload: dict) -> list[dict]:
             rows = et.extract_shareholders(tables, et.block_text(raw))
         elif kind == "customer":
             rows = et.extract_customers(tables)
+        elif kind == "officers":
+            # 役員の状況 → 他社での現任の役職（役員兼任）。時点は提出日現在
+            rows = [{**r, "as_of": base["submit_date"]} for r in eof.extract_officer_positions(raw, base["filer_name"])]
+        elif kind == "contracts":
+            # 経営上の重要な契約等 → 提携（相手の原文名と契約の種類）
+            rows = ecn.extract_contracts(raw, base["filer_name"])
         else:
             continue
         for row in rows:
@@ -80,6 +88,8 @@ def main() -> int:
                     stats["affiliated:被所有"] += 1
             if r.get("name_problem"):
                 stats["name_problem:" + r["name_problem"]] += 1
+            if r["kind"] == "contracts":
+                stats["contracts:" + r["relation_type"]] += 1
         if i % 500 == 0:
             print(f"... {i}/{len(files)} 書類 / {len(records)} 行", flush=True)
     DATA_RAW.mkdir(exist_ok=True)

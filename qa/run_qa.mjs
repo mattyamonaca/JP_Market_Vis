@@ -57,7 +57,8 @@ const recordCircleHit = async (page, scenario, label, box) => {
   const inside = await hoverAt(page, cx + 0.5 * r, cy + 0.5 * r);
   const outside = [];
   for (const [sx, sy] of [[1, 1], [-1, 1], [-1, -1], [1, -1]]) { await hoverAt(page, cx, cy, 150); outside.push(await hoverAt(page, cx + sx * 0.95 * r, cy + sy * 0.95 * r, 350)); }
-  record(scenario, `円の内側だけがホバー対象（${label}）`, r >= 4 && center === hit.name && inside === hit.name && outside.every((c) => c === null), `${hit.name} 中心(${cx.toFixed(0)},${cy.toFixed(0)}) r=${r.toFixed(1)} 中心=${center} 内側=${inside} 外側=${outside.map((c) => c ?? 'なし').join('/')}`);
+  // 外側の点は「その企業」にはホバーしないこと（密集時は隣の別企業に当たることがあり、それは正しい）
+  record(scenario, `円の内側だけがホバー対象（${label}）`, r >= 4 && center === hit.name && inside === hit.name && outside.every((c) => c !== hit.name), `${hit.name} 中心(${cx.toFixed(0)},${cy.toFixed(0)}) r=${r.toFixed(1)} 中心=${center} 内側=${inside} 外側=${outside.map((c) => c ?? 'なし').join('/')}`);
   await hoverAt(page, cx, cy); await page.mouse.click(cx, cy); await page.waitForTimeout(1500);
   const opened = (await page.locator('.react-flow__node-center').innerText().catch(() => '')).split('\n')[0];
   record(scenario, `円の中心のクリックで同じ企業が開く（${label}）`, opened === hit.name, `${hit.name} -> ${opened || '（開かない）'}`);
@@ -73,7 +74,8 @@ const findHoverTarget = async (page, box) => {
       // ホバー判定は数十ms遅れるため、止まった位置で表示が続くことを確かめてから採用する
       await page.mouse.move(x, y); await page.waitForTimeout(250);
       const name = await page.locator('.map-hover strong').innerText({ timeout: 250 }).catch(() => null);
-      if (name) return { x, y, name };
+      // 企業グループのハブ（クリックしても関係グラフを開かない）は対象にしない
+      if (name && (await page.locator('.map-canvas').getAttribute('data-hover-kind')) !== 'group') return { x, y, name };
     }
   }
   return null;
@@ -255,7 +257,16 @@ const recordContrast = async (page, scenario, label) => { const c = await contra
   const totals = await page.locator('.map-totals').innerText();
   record('フィルタ', '閾値20で表示線なし件数を表示', /表示線なし/.test(totals) || /表示中の企業/.test(totals), totals.replace(/\n/g, ' '));
   await page.locator('#min-degree').fill('1');
-  record('フィルタ', '未収録カテゴリが無効化されている', (await page.locator('.category-pills button[disabled]').count()) >= 1);
+  // 「未収録」と表示されたカテゴリだけが無効化されている（人的・グループが収録された現在は 0 件で一致する）
+  const nDisabled = await page.locator('.category-pills button[disabled]').count();
+  const nUnavailable = await page.locator('.category-pills button', { hasText: '未収録' }).count();
+  record('フィルタ', '未収録カテゴリだけが無効化されている', nDisabled === nUnavailable, `無効 ${nDisabled} / 未収録表示 ${nUnavailable}`);
+  // 人的（役員兼任）・グループ・提携が収録され、全体マップで選べる（Issue: 手薄なカテゴリの拡充）
+  for (const name of ['人的', 'グループ', '提携']) {
+    const pill = page.locator('.category-pills button', { hasText: name }).first();
+    const txt = (await pill.innerText()).replace(/\s+/g, ' ');
+    record('フィルタ', `${name}カテゴリが収録され有効（未収録でない）`, !(await pill.isDisabled()) && /\d/.test(txt) && !/未収録/.test(txt), txt);
+  }
   // 配置計算中（フィルタ変更直後、ノードが広がっている最中）にホイールで拡大しても、自動の「全体を収める」追従に引き戻されず倍率が単調に上がる（ガクつかない）
   await page.locator('.category-pills button', { hasText: '取引' }).click(); await page.waitForTimeout(300);
   await page.mouse.move(cx, cy);
@@ -266,21 +277,34 @@ const recordContrast = async (page, scenario, label) => { const c = await contra
   const monotonic = ksLayout.every((k, i) => i === 0 || k >= ksLayout[i - 1]);
   record('2D', '配置計算中のズームが引き戻されない（倍率が単調に上がり、その後も保たれる）', monotonic && ksLayout.at(-1) > ksLayout[0] * 1.3 && Math.abs(kSettled - ksLayout.at(-1)) < 1e-6, `${ksLayout.map((k) => k.toFixed(3)).join(' ')} / 2.5秒後 ${kSettled.toFixed(3)}`);
   await page.locator('.category-pills button', { hasText: '取引' }).click(); await page.waitForTimeout(4000);
-  // グループのみ: 関係数 3 未満の企業しか残らなくても、フィルタ変更時と「全体を表示」で表示中の企業が収まる（倍率が上がる）
+  // 絞り込んだ小さな表示（グループのみ・最小関係数 2 = 複数のグループに属する企業とグループのハブ、20 社前後）でも、
+  // フィルタ変更時と「全体を表示」で表示中の企業が収まる（倍率が上がる）
   const viewFull = await viewOf(page);
-  for (const name of ['資本', '取引', '提携']) await page.locator('.category-pills button', { hasText: name }).click();
+  for (const name of ['資本', '取引', '提携', '人的']) await page.locator('.category-pills button', { hasText: name }).click();
+  await page.locator('#min-degree').fill('2');
   await page.waitForTimeout(4000);
   const totalsGroup = (await page.locator('.map-totals').innerText()).replace(/\n/g, ' ');
   const viewGroup = await viewOf(page);
-  record('フィルタ', 'グループのみ（低次数の企業だけ）でも表示中の企業が収まる', viewGroup.k > viewFull.k * 2, `${viewText(viewFull)} -> ${viewText(viewGroup)} / ${totalsGroup}`);
+  record('フィルタ', '絞り込んだ小さな表示（グループのみ・最小関係数 2）でも表示中の企業が収まる', viewGroup.k > viewFull.k * 2, `${viewText(viewFull)} -> ${viewText(viewGroup)} / ${totalsGroup}`);
   await page.mouse.move(cx, cy); await page.mouse.wheel(0, 600); await page.waitForTimeout(500);
   await tab(page, '全体を表示').click(); await page.waitForTimeout(1200);
   const viewGroupReset = await viewOf(page);
-  record('フィルタ', 'グループのみで「全体を表示」が機能する', viewGroupReset.k > viewFull.k * 2, viewText(viewGroupReset));
+  record('フィルタ', '絞り込んだ表示で「全体を表示」が機能する', viewGroupReset.k > viewFull.k * 2, viewText(viewGroupReset));
   await page.screenshot({ path: `${outDir}/pc_08_group_only.png` });
-  // 見た目とホバー・クリックの対象位置の一致（2 社表示）
-  await recordCircleHit(page, '2D', 'グループのみ', box);
-  for (const name of ['資本', '取引', '提携']) await page.locator('.category-pills button', { hasText: name }).click();
+  // 見た目とホバー・クリックの対象位置の一致（大きな円）。グループのハブ（点線の二重円）にホバーすると企業グループとして表示される
+  const groupHover = await (async () => {
+    for (let y = box.y + 120; y < box.y + box.height - 120; y += 20) {
+      for (let x = box.x + 120; x < box.x + box.width - 120; x += 20) {
+        await page.mouse.move(x, y); await page.waitForTimeout(25);
+        if ((await page.locator('.map-canvas').getAttribute('data-hover-kind')) === 'group') { await page.waitForTimeout(250); return page.locator('.map-hover').innerText().catch(() => null); }
+      }
+    }
+    return null;
+  })();
+  record('フィルタ', 'グループのハブにホバーすると企業グループと会員数を表示', !!groupHover && /企業グループ/.test(groupHover) && /会員の上場企業 \d+社/.test(groupHover), (groupHover ?? 'ハブが見つからない').replace(/\n/g, ' ').slice(0, 120));
+  await recordCircleHit(page, '2D', 'グループのみ・最小関係数 2', box);
+  for (const name of ['資本', '取引', '提携', '人的']) await page.locator('.category-pills button', { hasText: name }).click();
+  await page.locator('#min-degree').fill('1');
   await page.waitForTimeout(500);
 
   // 検索 → 個別グラフ → 詳細 → 全体（状態復元）
@@ -338,6 +362,12 @@ const recordContrast = async (page, scenario, label) => { const c = await contra
   const { ctx, page } = await newPage({ width: 1440, height: 900 });
   await page.goto(url, { waitUntil: 'domcontentloaded' });
   await page.locator('.map-canvas canvas').waitFor({ timeout: 120000 }); await page.waitForTimeout(2000);
+  // 初期配置の計算（自動で全体を収め直す）が終わるまで待つ: data-view が 1.5 秒変わらなくなったら完了とみなす
+  await page.waitForFunction(() => {
+    const el = document.querySelector('.map-canvas'); const v = el?.dataset.view; const now = Date.now();
+    if (!window.__qaStable || window.__qaStable.v !== v) window.__qaStable = { v, t: now };
+    return now - window.__qaStable.t > 1500;
+  }, null, { timeout: 30000, polling: 200 }).catch(() => {});
   const reached = new Set();
   for (let i = 0; i < 40; i++) {
     await page.keyboard.press('Tab');

@@ -40,10 +40,16 @@ test('ego graph filters and endpoints remain consistent for all five categories'
     }
   }
 });
-test('global graph includes precisely the listed-to-listed records', () => {
-  assert.equal(graph.GLOBAL_GRAPH.links.length, graph.STATS.listedToListed);
+test('global graph includes the listed-to-listed records plus group hubs with at least two listed members', () => {
   const ids = new Set(graph.GLOBAL_GRAPH.nodes.map((node) => node.id));
+  const groupIds = new Set(graph.GLOBAL_GRAPH.nodes.filter((node) => node.kind === 'group').map((node) => node.id));
+  const listedLinks = graph.GLOBAL_GRAPH.links.filter((link) => !groupIds.has(link.source) && !groupIds.has(link.target));
+  assert.equal(listedLinks.length, graph.STATS.listedToListed);
   for (const link of graph.GLOBAL_GRAPH.links) assert.ok(ids.has(link.source) && ids.has(link.target));
+  for (const node of graph.GLOBAL_GRAPH.nodes) {
+    if (node.kind === 'group') { assert.ok(node.degree >= 2); assert.equal(node.industry, 'グループ'); }
+    else assert.ok(graph.COMPANIES[node.id]);
+  }
 });
 test('global filtering excludes disabled categories and copies simulation objects', () => {
   const data = filterGlobalGraph(graph.GLOBAL_GRAPH, new Set(['capital']), 5);
@@ -85,4 +91,15 @@ test('company filter from the ego graph matches exactly the company relations, n
   // 企業フィルタと自由入力は同時に効く
   const both = filterRelations(graph.RELATIONS, { companyCode: code, query: 'デンソー' });
   assert.ok(both.length > 0 && both.length < expected);
+});
+
+test('personnel, group and alliance categories are populated on the global map', () => {
+  for (const key of ['personnel', 'group', 'alliance']) {
+    assert.ok(graph.CATEGORY_AVAILABILITY[key].total > 0, `${key} total`);
+    assert.ok(graph.CATEGORY_AVAILABILITY[key].listed > 0, `${key} on map`);
+  }
+  const personnel = graph.RELATIONS.find((r) => r.relation_type === 'interlocking_director' && r.attributes?.persons?.length);
+  assert.ok(personnel, 'an interlocking_director relation carries persons');
+  assert.ok(personnel.attributes.persons[0].name);
+  assert.ok(graph.GLOBAL_GRAPH.nodes.some((n) => n.kind === 'group'), 'a group hub node exists');
 });
