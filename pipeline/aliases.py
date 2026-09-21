@@ -93,7 +93,11 @@ def match_key(name: str | None) -> str:
     """名寄せ用の照合キー。"""
     n = base_name(name)
     n = unicodedata.normalize("NFKD", n)
-    n = "".join(ch for ch in n if not unicodedata.combining(ch))  # アクセント除去（Santé → Sante）
+    # Japanese voicing marks distinguish companies (プラス != ブラス).
+    # Keep them while folding Latin accents, then compose the kana again.
+    n = unicodedata.normalize("NFC", "".join(
+        ch for ch in n if not unicodedata.combining(ch) or ch in "\u3099\u309a"
+    ))
     n = re.sub(r"[\s　・･\-－—–‐'’\"“”&＆,.、。()（）]+", "", n)
     return n.lower()
 

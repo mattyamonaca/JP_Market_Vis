@@ -24,6 +24,15 @@ COMPANIES = {
 
 
 class MatchKeys(unittest.TestCase):
+    def test_japanese_voicing_marks_identify_different_companies(self):
+        self.assertNotEqual(al.match_key("プラス株式会社"), al.match_key("株式会社ブラス"))
+        self.assertNotEqual(al.match_key("ハル"), al.match_key("バル"))
+        self.assertEqual(al.match_key("ﾌﾟﾗｽ株式会社"), al.match_key("プラス株式会社"))
+        self.assertEqual(al.match_key("フ\u309aラス株式会社"), al.match_key("プラス株式会社"))
+        idx = al.AliasIndex({"2424": {"name": "株式会社ブラス"}})
+        self.assertIsNone(idx.resolve_listed("プラス株式会社")[0])
+        self.assertEqual(idx.resolve_listed("株式会社ブラス")[0], "2424")
+
     def test_kanji_variant_and_legal_form(self):
         self.assertEqual(al.match_key("東邦瓦斯株式会社"), al.match_key("東邦ガス"))
         self.assertEqual(al.match_key("株式会社髙松コンストラクショングループ"), al.match_key("高松コンストラクショングループ"))

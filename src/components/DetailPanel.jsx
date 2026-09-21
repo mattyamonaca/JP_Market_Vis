@@ -224,6 +224,7 @@ export function EvidenceCard({ ev }) {
       <Field label="取得日" value={dateOrUnknown(ev.retrieved)} />
       {ev.origin === 'edinet_republication' && <Field label="元資料" value="有価証券報告書（企業サイト掲載）。寄与度ではEDINET由来として集計" />}
       {ev.reviewer === 'codex_primary_source_review' && <Field label="確認方法" value="AIによる資料との個別照合" />}
+      {ev.reviewer === 'reviewed_same_document_offices' && <Field label="確認方法" value="AIが同じ公式プロフィールで照合した現任役職から、兼任する企業対を生成" />}
       {ev.property && <Field label="項目" value={{ affiliated: '関係会社の状況', shareholder: '大株主の状況', large_holding_report: '大量保有報告書（大株主の状況の注記）', customer: '主要な顧客' }[ev.property] ?? ev.property} />}
       {ev.classification && (
         <Field label="原本の分類" value={`${ev.classification}${ev.classification_source ? `（${{ section: '節見出し', row: 'ラベル行', column: '区分列', prefix: '行頭の表記', note: '注記', header: '見出しセル' }[ev.classification_source] ?? ev.classification_source}から）` : ''}`} />
