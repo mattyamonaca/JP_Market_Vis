@@ -155,7 +155,7 @@ export default function StatsView({ onSelectCompany }) {
         <p>データ版 {META.datasetId}。訂正の連絡にはこの版と関係IDを添えてください。</p>
         <p>生成日 {META.generatedAt}。EDINETコード一覧と企業公開資料を基にした収録データです。地方市場・PRO市場等も含み、市場区分と現在の上場状態には未確認の項目があります。</p>
         <p>全体マップは上場企業同士の関係のみを表示します。個別グラフと関係一覧には非上場の関係先も含みます。円の大きさは収録関係数で、株価や時価総額ではありません。位置・距離に地理的な意味はありません。</p>
-        <p>情報元に信頼度が低い項目があり、不一致・未確認の値を含みます。正確な情報が必要な場合は、<a href="https://www.jpx.co.jp/markets/statistics-equities/misc/01.html" target="_blank" rel="noreferrer">JPX公式の最新情報</a>をご自身で確認してください。JPXの一覧は照合にのみ利用し、表示値はEDINET・企業公開資料等に基づきます。</p>
+        <p>情報元に信頼度が低い項目があり、不一致・未確認の値を含みます。正確な情報が必要な場合は、<a href="https://www.jpx.co.jp/markets/statistics-equities/misc/01.html" target="_blank" rel="noreferrer">JPX公式の最新情報</a>をご自身で確認してください。</p>
         <p>出所：<a href="https://disclosure2.edinet-fsa.go.jp/" target="_blank" rel="noreferrer">金融庁 EDINET</a>、<a href="https://www.wikidata.org/" target="_blank" rel="noreferrer">Wikidata</a>、企業IR開示。出所別・信頼度別はエビデンス件数で、関係数とは一致しません。</p>
         <p>自動抽出・名寄せおよびLLMによるIR情報抽出を含み、誤り・欠落・古い関係が残る可能性があります。「一次開示」は出所の種別であり、抽出内容の正しさを保証するものではありません。人手で原本と照合した関係は {STATS.verified.toLocaleString()} 件で、詳細に「原本照合済み」と表示します。基準日のある関係は {STATS.withAsOf.toLocaleString()} 件、それ以外は基準日不明として表示します。各関係の詳細と企業の最新開示を確認してください。</p>
       </div>
