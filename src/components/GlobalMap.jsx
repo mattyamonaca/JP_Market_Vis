@@ -84,7 +84,7 @@ export default function GlobalMap({ onSelectCompany }) {
     if (fn) { event.preventDefault(); markAdjusted(); fn(); }
   };
 
-  // --- ノードの描画: 白い円に業種色の縁（縁は円の内側に描くので外側＝当たり判定の半径）。ホバー中は縁を太くし、少し拡大して薄く色を敷く。
+  // --- ノードの描画: 白い円に業種色の縁（縁は円の内側に描くので外側＝当たり判定の半径）。ホバー中は縁を太くし、少し拡大する。中は常に白く塗り、背後の線を透かさない。
   // 円の中に企業名を書く（画面上で 11〜20px、長い名前は 2 行。円に収まらない企業は drawLabels で円の上に出す）
   const textWidths = useRef(new Map()); // 企業名の 12px での幅（画面 px）。倍率に関係なく一定なので一度だけ測る
   const widthAt12 = (ctx, name) => {
@@ -109,7 +109,7 @@ export default function GlobalMap({ onSelectCompany }) {
       // 企業グループのハブ: 白い円にグループ色の縁と、その外側に点線のリング（企業ではないことを示す）
       const ring = ringWidth(r, hover);
       ctx.beginPath(); ctx.arc(node.x, node.y, r - ring / 2 - ring, 0, Math.PI * 2);
-      ctx.fillStyle = hover ? `${color}1f` : '#ffffff'; ctx.fill();
+      ctx.fillStyle = '#ffffff'; ctx.fill();
       ctx.lineWidth = ring; ctx.strokeStyle = color; ctx.stroke();
       ctx.beginPath(); ctx.arc(node.x, node.y, r - ring / 2, 0, Math.PI * 2);
       ctx.setLineDash([ring * 1.5, ring * 1.5]); ctx.lineWidth = ring * 0.8; ctx.stroke(); ctx.setLineDash([]);
@@ -122,7 +122,7 @@ export default function GlobalMap({ onSelectCompany }) {
     }
     const ring = ringWidth(r, hover);
     ctx.beginPath(); ctx.arc(node.x, node.y, r - ring / 2, 0, Math.PI * 2);
-    ctx.fillStyle = hover ? `${color}1f` : '#ffffff'; ctx.fill();
+    ctx.fillStyle = '#ffffff'; ctx.fill();
     ctx.lineWidth = ring; ctx.strokeStyle = color; ctx.stroke();
   }, []);
   // 円の中に名前が入らない企業のラベルは、全ノードを描いた後に別パスで円の上に重ねる（後から描かれる円に隠れない）。画面上で一定の大きさ（12px）、白の下地付き。
