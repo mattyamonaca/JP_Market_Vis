@@ -223,6 +223,9 @@ class RelationBuilder:
                 "wikidata_qid": qid,
                 "listed": False,
             }
+            if name and not cn and not qid and match_key(name) in self.alias_index.ambiguous_keys:
+                self.entities[ent_key]["identity_status"] = "ambiguous_listed_name"
+                self.entities[ent_key]["listed"] = None
             for k in (qid, cn, name_key):
                 if k:
                     self._entity_index[k] = ent_key
@@ -235,6 +238,11 @@ class RelationBuilder:
             evidence: dict, *, status: str = "confirmed", reasons: list[str] | None = None) -> dict | None:
         if source == target:
             return None
+        if any(ref["type"] == "entity" and self.entities[ref["key"]].get("identity_status") == "ambiguous_listed_name"
+               for ref in (source, target)):
+            status = "needs_review"
+            reasons = list(dict.fromkeys([*(reasons or []), "ambiguous_listed_name"]))
+            evidence = {**evidence, "support_status": "needs_review", "confidence": "low"}
         meta = RELATION_TYPES[relation_type]
         s, t = source, target
         if not meta["directed"] and (s["type"], s["key"]) > (t["type"], t["key"]):

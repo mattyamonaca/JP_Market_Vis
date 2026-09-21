@@ -53,6 +53,33 @@ class Resolution(unittest.TestCase):
     def setUp(self):
         self.idx = al.AliasIndex(COMPANIES)
 
+    def test_shared_names_do_not_depend_on_input_order(self):
+        companies = {
+            "1885": {"name": "東亜建設工業株式会社", "name_en": "TOA CORPORATION"},
+            "6809": {"name": "ＴＯＡ株式会社", "name_en": "TOA Corporation"},
+            "3434": {"name": "株式会社アルファ"},
+            "4760": {"name": "株式会社アルファ"},
+        }
+        for items in (companies, dict(reversed(list(companies.items())))):
+            idx = al.AliasIndex(items)
+            for name in ("TOA", "TOA Corporation", "アルファ", "株式会社アルファ", "アルファ(株)"):
+                self.assertIsNone(idx.resolve_listed(name)[0], name)
+            self.assertEqual(idx.resolve_listed("東亜建設工業株式会社")[0], "1885")
+            self.assertEqual(idx.resolve_listed("ＴＯＡ株式会社")[0], "6809")
+
+    def test_unidentified_namesake_is_not_a_confirmed_unlisted_company(self):
+        companies = {**COMPANIES, "3434": {"name": "株式会社アルファ"},
+                     "4760": {"name": "株式会社アルファ"}}
+        builder = bm.RelationBuilder(companies)
+        ref = builder.resolve_node(name="株式会社アルファ")
+        self.assertEqual(ref["type"], "entity")
+        self.assertIsNone(builder.entities[ref["key"]]["listed"])
+        relation = builder.add({"type": "listed", "key": "7203"}, ref, "ownership", {},
+                               {"source": "edinet", "confidence": "high"})
+        self.assertEqual(relation["status"], "needs_review")
+        self.assertIn("ambiguous_listed_name", relation["review_reasons"])
+        self.assertEqual(relation["evidence"][0]["support_status"], "needs_review")
+
     def test_tohogas_resolves_to_9533(self):
         for n in ("東邦ガス", "東邦瓦斯株式会社", "東邦ガス株式会社", "東邦瓦斯㈱"):
             self.assertEqual(self.idx.resolve_listed(n)[0], "9533", n)

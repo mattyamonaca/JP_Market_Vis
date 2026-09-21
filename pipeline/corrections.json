@@ -368,6 +368,97 @@
    "reason": "公表は「N700Sをベースに製造」の説明で、日本車輌→JR東海という方向のライセンス供与を支えない。関係がないという断定ではなく根拠不足",
    "verified_by": "manual",
    "verified_on": "2026-09-09"
+  },
+  {
+   "id": "nonlisted-namesake-shareholder-7227-1807",
+   "match": {
+    "source": "listed:7227",
+    "target": "listed:1807",
+    "relation_type": "ownership"
+   },
+   "action": "remove",
+   "as_of": "2025-03-31",
+   "source": {
+    "url": "https://kk-aska.com/company.html",
+    "title": "株式会社アスカ（道路資材・東京都港区） 会社概要",
+    "published": null
+   },
+   "reason": "有価証券報告書S100W538の大株主表の所在地と会社概要を照合。記名株主は株式会社アスカ（道路資材・東京都港区）であり、同名の上場企業7227ではない。正しい非上場法人との関係は企業公式資料に基づく別レコードで保持。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "nonlisted-namesake-shareholder-7743-3202",
+   "match": {
+    "source": "listed:7743",
+    "target": "listed:3202",
+    "relation_type": "ownership"
+   },
+   "action": "remove",
+   "as_of": "2025-03-31",
+   "source": {
+    "url": "https://www.seedinc.co.jp/company/",
+    "title": "株式会社シード（広告・静岡県三島市） 会社概要",
+    "published": null
+   },
+   "reason": "有価証券報告書S100W4I2の大株主表の所在地と会社概要を照合。記名株主は株式会社シード（広告・静岡県三島市）であり、同名の上場企業7743ではない。正しい非上場法人との関係は企業公式資料に基づく別レコードで保持。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "nonlisted-namesake-shareholder-6809-4928",
+   "match": {
+    "source": "listed:6809",
+    "target": "listed:4928",
+    "relation_type": "ownership"
+   },
+   "action": "remove",
+   "as_of": "2025-09-30",
+   "source": {
+    "url": "https://www.toa-cosme.co.jp/office/",
+    "title": "TOA株式会社（化粧品・大阪市中央区） 会社概要",
+    "published": null
+   },
+   "reason": "有価証券報告書S100X8TQの大株主表の所在地と会社概要を照合。記名株主はTOA株式会社（化粧品・大阪市中央区）であり、同名の上場企業6809ではない。正しい非上場法人との関係は企業公式資料に基づく別レコードで保持。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "nonlisted-namesake-shareholder-1738-8153",
+   "match": {
+    "source": "listed:1738",
+    "target": "listed:8153",
+    "relation_type": "ownership"
+   },
+   "action": "remove",
+   "as_of": "2025-03-31",
+   "source": {
+    "url": "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100W05O",
+    "title": "モスフードサービス 大株主の状況・株主所在地",
+    "published": null
+   },
+   "reason": "株主表のニットーは東京都立川市一番町4丁目50番1号の法人。名古屋市の上場企業1738ではない。記名株主の関係は所在地を付した非上場法人として保持。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "shinko-restar-alliance-ended-2026-05-15",
+   "match": {
+    "source": "listed:3156",
+    "target": "listed:8141",
+    "relation_type": "capital_alliance"
+   },
+   "action": "set_status",
+   "status": "historical",
+   "as_of": "2026-05-15",
+   "source": {
+    "url": "https://shinko-sj.co.jp/wp2024/wp-content/uploads/2026/05/株式会社レスターとの資本業務提携の解消に関するお知らせ.pdf",
+    "published": "2026-05-15",
+    "title": "新光商事・レスター 資本業務提携の解消"
+   },
+   "reason": "両社は2026年5月15日付で資本業務提携の終了合意書を締結。株式保有の有無とは区別し、提携関係を過去の状態として扱う。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
   }
  ]
 }

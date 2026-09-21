@@ -17,7 +17,7 @@ ap.add_argument('--limit',type=int,default=100000)
 ap.add_argument('--pages',type=int,default=12)
 ap.add_argument('--workers',type=int,default=8)
 ap.add_argument('--extend',action='store_true',help='Discover additional pages from cached HTML without fetching cached pages again')
-ap.add_argument('--focus',choices=['company','news'],default='company')
+ap.add_argument('--focus',choices=['company','news','governance'],default='company')
 args=ap.parse_args()
 from pathlib import Path
 from urllib.parse import urljoin,urlsplit,urldefrag
@@ -34,6 +34,9 @@ strong=re.compile(r'大株主|株主構成|株式の状況|役員一覧|役員�
 if args.focus == 'news':
  kw=re.compile(r'ニュース|リリース|お知らせ|提携|共同開発|共同研究|共同実証|協業|/news|/press|/release',re.I)
  strong=re.compile(r'提携|共同開発|共同研究|共同実証|協業|共同出資',re.I)
+elif args.focus == 'governance':
+ kw=re.compile(r'ガバナンス|governance|株主総会|/meeting|/ir/?$|/investors/?$',re.I)
+ strong=re.compile(r'ガバナンス|governance',re.I)
 def run(seed):
  folder=out/seed['code'];folder.mkdir(exist_ok=True)
  report=folder/'pages.json'
@@ -43,6 +46,7 @@ def run(seed):
   pages=json.load(open(report))['pages']
   seen={p['url'] for p in pages}
   queue=[]
+  priorities={}
   if pages:root=urlsplit(pages[0]['url']).hostname.removeprefix('www.')
   for doc in pages:
    cached=folder/(doc['key']+'.html')
@@ -57,7 +61,10 @@ def run(seed):
     except ValueError:continue
     if parsed.scheme not in ['https','http'] or not same_host(parsed.hostname,root):continue
     if re.search(r'\.(pdf|zip|xls|xlsx)(?:\?|$)',v,re.I):continue
-    if v not in seen and v not in queue and kw.search(a.get_text(' ',strip=True)+' '+v):queue.append(v)
+    label=a.get_text(' ',strip=True)+' '+v
+    if v not in seen and kw.search(label):
+     priorities[v]=min(priorities.get(v,True),not bool(strong.search(label)))
+  queue=sorted(priorities,key=lambda v:(priorities[v],v))
  for _ in range(args.pages):
   if not queue:break
   u=queue.pop(0)
@@ -72,7 +79,7 @@ def run(seed):
    for x in soup(['script','style','noscript']):x.decompose()
    text=soup.get_text(' ',strip=True);key=hashlib.sha256(u.encode()).hexdigest()[:20]
    (folder/(key+'.html.gz')).write_bytes(gzip.compress(resp.content,compresslevel=5))
-   (folder/(key+'.txt')).write_text(text)
+   (folder/(key+'.txt.gz')).write_bytes(gzip.compress(text.encode('utf-8'),compresslevel=5))
    tables=[t.get_text(' | ',strip=True) for t in soup.select('table') if re.search('大株主|株主名|所有株式数|持株数',t.get_text())]
    pages.append({'url':resp.url,'title':soup.title.get_text(strip=True) if soup.title else None,'key':key,'sha256':hashlib.sha256(resp.content).hexdigest(),'has_stock_table':bool(tables),'table_count':len(tables),'text_length':len(text),'issuer_name_present':seed['name'] in text,'checked_at':date.today().isoformat()})
    links=[]

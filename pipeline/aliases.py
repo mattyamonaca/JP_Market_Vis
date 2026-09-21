@@ -112,6 +112,13 @@ def kana_key(kana: str | None) -> str:
     return "".join(chr(ord(ch) - 0x60) if "ァ" <= ch <= "ヶ" else ch for ch in k).lower()
 
 
+def official_literal_key(name: str) -> str:
+    """Keep legal forms so a full Japanese name can disambiguate English homonyms."""
+    value = fold_kanji(unicodedata.normalize("NFKC", name))
+    value = re.sub(r"\s+", "", value).replace("(株)", "株式会社")
+    return value.casefold()
+
+
 class AliasIndex:
     """上場企業（証券コード）と確認済み非上場法人への別名索引。"""
 
@@ -120,7 +127,19 @@ class AliasIndex:
         self.listed_bare: dict[str, str] = {}    # 法人格なしの別名: match_key → code（法人格のない原文名にだけ適用）
         self.listed_legal: dict[str, str] = {}   # 法人格付きの別名: match_key → code（法人格を無視して適用）
         self.listed_key: dict[str, str] = {}     # match_key(公式名) → code
+        self.official_exact: dict[str, str] = {}
+        self.ambiguous_keys: set[str] = set()
+        exact_ambiguous: set[str] = set()
         self.reasons: dict[str, dict[str, str]] = {}  # code → {別名: 理由}
+
+        def add_unique(index, ambiguous, key, code):
+            if key in ambiguous:
+                return
+            if key in index and index[key] != code:
+                index.pop(key)
+                ambiguous.add(key)
+            else:
+                index[key] = code
 
         def add_alias(alias: str, code: str) -> None:
             if has_legal_form(alias):
@@ -131,7 +150,8 @@ class AliasIndex:
         for code, c in companies.items():
             for official in (c.get("name"), c.get("name_edinet"), c.get("name_en")):
                 if official:
-                    self.listed_key.setdefault(match_key(official), code)
+                    add_unique(self.listed_key, self.ambiguous_keys, match_key(official), code)
+                    add_unique(self.official_exact, exact_ambiguous, official_literal_key(official), code)
             for alias in c.get("aliases") or []:
                 add_alias(alias, code)
         for code, spec in self.aliases["listed"].items():
@@ -159,6 +179,13 @@ class AliasIndex:
         if re.search(r"^" + non_stock + r"|" + non_stock + r"$", normalized):
             return None, None
         key = match_key(name)
+        exact = self.official_exact.get(official_literal_key(name))
+        if exact:
+            return exact, "official_name"
+        # Do not choose the first company when multiple listed corporations
+        # share a Japanese or English name. A code/corporate number is needed.
+        if key in self.ambiguous_keys:
+            return None, None
         code = self.listed_key.get(key)
         if code:
             return code, "official_name"

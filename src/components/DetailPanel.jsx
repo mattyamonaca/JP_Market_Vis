@@ -33,6 +33,7 @@ const SCOPE_JA = { total: '合計', indirect_only: '間接のみ（合計不明�
 const REASON_JA = {
   unclassified: '関係会社の分類が原本で不明',
   officer_role_unproven: '顧問・相談役等の記載のみで、両社の役員兼任を確認できない',
+  ambiguous_listed_name: '同名の上場企業が複数あり、法人を特定できない',
   direction_conflict: '分類と所有方向の記載が矛盾',
   'ir:no_quote': '根拠文なし',
   'ir:counterparty_not_in_quote': '根拠文に相手が出てこない',
@@ -121,12 +122,12 @@ function CompanyDetail({ info, refObj, onSelectCompany }) {
   if (refObj.type === 'entity') {
     return (
       <>
-        <Section title="非上場エンティティ">
+        <Section title={info.identity_status === 'ambiguous_listed_name' ? '法人の特定が必要' : '非上場エンティティ'}>
           <Field label="名称" value={info.name} />
           <Field label="法人番号" value={info.corporate_number} />
           <Field label="Wikidata" value={info.wikidata_qid && <ExternalLink href={`https://www.wikidata.org/wiki/${info.wikidata_qid}`}>{info.wikidata_qid}</ExternalLink>} />
         </Section>
-        <div style={{ fontSize: 12, color: 'var(--text-2)' }}>収録上場企業以外の組織です。子会社・グループ等として関係先にのみ登場します。</div>
+        <div style={{ fontSize: 12, color: 'var(--text-2)' }}>{info.identity_status === 'ambiguous_listed_name' ? '同名の上場企業が複数あるため、名称だけでは証券コードを割り当てられません。関連する関係は要確認です。' : '収録上場企業以外の組織です。子会社・グループ等として関係先にのみ登場します。'}</div>
       </>
     );
   }

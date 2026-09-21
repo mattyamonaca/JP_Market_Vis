@@ -54,6 +54,8 @@ def add_official_relations(builder, records):
             evidence["source_check"] = {"status": "reviewed_document", "sha256": document["sha256"], "checked_at": checked}
         if "table_index" in document:
             evidence["table_ref"] = f"HTML table {document['table_index'] + 1}, row {document['row_index'] + 1}"
+        elif document.get("page"):
+            evidence["table_ref"] = f"PDF page {int(document['page'])}"
         attributes = {}
         if typ == "interlocking_director":
             person = row["person"]
