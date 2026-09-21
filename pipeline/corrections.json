@@ -2157,6 +2157,40 @@
    "reason": "小笠原剛：2026年定時株主総会終結時に中部日本放送の監査役を辞任予定。後続資料の確認まで現任として表示しない。",
    "verified_by": "codex_primary_source_review",
    "verified_on": "2026-09-22"
+  },
+  {
+   "id": "ceres-mercury-namesake-parent_subsidiary",
+   "match": {
+    "source": "listed:3696",
+    "target": "listed:5025",
+    "relation_type": "parent_subsidiary"
+   },
+   "action": "remove",
+   "source": {
+    "url": "https://ceres-inc.jp/news/detail/20251210-2/",
+    "title": "セレス：暗号資産サービスCoinTradeを運営する連結子会社マーキュリー",
+    "published": "2025-12-10"
+   },
+   "reason": "セレス傘下の暗号資産会社マーキュリー（代表：都木聡）を、上場する不動産情報会社マーキュリー（5025、代表：陣隆浩）と誤同定した関係。両社は別法人。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-22"
+  },
+  {
+   "id": "ceres-mercury-namesake-interlocking_director",
+   "match": {
+    "source": "listed:3696",
+    "target": "listed:5025",
+    "relation_type": "interlocking_director"
+   },
+   "action": "remove",
+   "source": {
+    "url": "https://ceres-inc.jp/news/detail/20251210-2/",
+    "title": "セレス：暗号資産サービスCoinTradeを運営する連結子会社マーキュリー",
+    "published": "2025-12-10"
+   },
+   "reason": "セレス傘下の暗号資産会社マーキュリー（代表：都木聡）を、上場する不動産情報会社マーキュリー（5025、代表：陣隆浩）と誤同定した関係。両社は別法人。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-22"
   }
  ]
 }

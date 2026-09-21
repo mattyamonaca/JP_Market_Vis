@@ -126338,5 +126338,7225 @@
    "by": "reviewed_same_document_offices",
    "on": "2026-09-22"
   }
+ },
+ {
+  "id": "1da413c3d7dfda4cdfa7",
+  "source": {
+   "code": "9439"
+  },
+  "target": {
+   "code": "3974"
+  },
+  "relation_type": "capital_alliance",
+  "document": {
+   "url": "https://mhgroup.co.jp/common/2024051302.pdf",
+   "published": "2024-05-13",
+   "origin": "independent_primary_release",
+   "sha256": "25bbc90693c9b9108c43d803ba08720a7df417890a2dfd1c852d03a3199ccbd2"
+  },
+  "topic": "理美容業界向けサービスの資本業務提携強化の発表",
+  "deal_status": "agreed",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a512405a79b293e8e6eb",
+  "source": {
+   "code": "5801"
+  },
+  "target": {
+   "code": "9022"
+  },
+  "relation_type": "joint_research",
+  "document": {
+   "url": "https://www.furukawaelectric.com/release/2025/dev_20251112.html",
+   "published": "2025-11-12",
+   "origin": "independent_primary_release",
+   "sha256": "fff43e18a9221c47d91dbdb073fc513000db072eb5db05e1097cc743530b0633"
+  },
+  "topic": "鉄道台車の塗膜除去用レーザ技術の共同開発",
+  "deal_status": "executed",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "fbf42aa3e20f2e059c8a",
+  "source": {
+   "code": "2220"
+  },
+  "target": {
+   "code": "2229"
+  },
+  "relation_type": "joint_research",
+  "document": {
+   "url": "https://www.kamedaseika.co.jp/news/20260731_26340/",
+   "published": "2026-07-31",
+   "origin": "independent_primary_release",
+   "sha256": "5a7a34edc34cbe634dc7155b037239ac67e1b493cad6b690e9a32f279234dc01"
+  },
+  "topic": "幼児の菓子の食べ方に関する共同研究",
+  "deal_status": "executed",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "78895d5e17c9cb8f0b45",
+  "source": {
+   "code": "9166"
+  },
+  "target": {
+   "code": "8473"
+  },
+  "relation_type": "capital_alliance",
+  "document": {
+   "url": "https://genda.jp/wp-content/uploads/2026/07/【GENDA適時開示】SBIホールディングス株式会社との資本業務提携契約締結に関するお知らせ.pdf",
+   "published": "2026-07-29",
+   "origin": "independent_primary_release",
+   "sha256": "8bd64ddef443d687c6ada4d84174823c623495af9aeeae9053d7489425f4f73e"
+  },
+  "topic": "エンターテインメント分野の資本業務提携契約・株式取得は予定",
+  "deal_status": "agreed",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a019300ec66e8e4bafc8",
+  "source": {
+   "code": "9166"
+  },
+  "target": {
+   "code": "8136"
+  },
+  "relation_type": "business_alliance",
+  "document": {
+   "url": "https://genda.jp/wp-content/uploads/2026/08/【GENDA適時開示0824】株式会社サンリオとの業務提携契約締結に関するお知らせ.pdf",
+   "published": "2026-08-24",
+   "origin": "independent_primary_release",
+   "sha256": "922a25981dbc30a34645158dd6a1a0c5a22d038fff20f392acae742c09322de9"
+  },
+  "topic": "キャラクター関連の景品・エンターテインメント事業",
+  "deal_status": "agreed",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "94763037865d8bdfede9",
+  "source": {
+   "code": "7267"
+  },
+  "target": {
+   "code": "7201"
+  },
+  "relation_type": "joint_research",
+  "document": {
+   "url": "https://global.honda/jp/news/2026/c260831b.html",
+   "published": "2026-08-31",
+   "origin": "independent_primary_release",
+   "sha256": "02765768953fa592e0b6ed7816a208d54ca3bc67fae69504e9321d350848579a"
+  },
+  "topic": "次世代車両向けECU・ソフトウェアの共同開発契約",
+  "deal_status": "agreed",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "4f61efe1210278d569bb",
+  "source": {
+   "code": "6047"
+  },
+  "target": {
+   "code": "3903"
+  },
+  "relation_type": "business_alliance",
+  "document": {
+   "url": "https://gunosy.co.jp/news/446",
+   "published": "2026-03-03",
+   "origin": "independent_primary_release",
+   "sha256": "f1cdbc3256dfba1f5a62187bdfae6694407ceb841764890ad1e8b3217d38e5e9"
+  },
+  "topic": "予測データサービスの協業開始・サービス提供は予定",
+  "deal_status": "agreed",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6620e143f5bcfc2f353a",
+  "source": {
+   "code": "157A"
+  },
+  "target": {
+   "code": "3839"
+  },
+  "relation_type": "business_alliance",
+  "document": {
+   "url": "https://greenmonster.co.jp/topics/2222/",
+   "published": "2026-03-25",
+   "origin": "independent_primary_release",
+   "sha256": "d84b73526823206e41a1c89fbe03a7d78039dd9496f8bfcbc58df520a35a7b73"
+  },
+  "topic": "大学新入生への体験型金融教育",
+  "deal_status": "executed",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e36ecaac4ae984959c50",
+  "source": {
+   "code": "8267"
+  },
+  "target": {
+   "code": "3353"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-02-28",
+  "document": {
+   "url": "https://www.m-ikkou.co.jp/ir/stock/situation.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7c956e128c7e0ef196e92aeebf3e5e5ee0db77459a8412c7606365908b46199b"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7457aeeb6c3fe1442ff6",
+  "source": {
+   "code": "2810"
+  },
+  "target": {
+   "code": "3353"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-02-28",
+  "document": {
+   "url": "https://www.m-ikkou.co.jp/ir/stock/situation.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7c956e128c7e0ef196e92aeebf3e5e5ee0db77459a8412c7606365908b46199b"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "eb12b482b2ed6747fd04",
+  "source": {
+   "code": "8381"
+  },
+  "target": {
+   "code": "3353"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-02-28",
+  "document": {
+   "url": "https://www.m-ikkou.co.jp/ir/stock/situation.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7c956e128c7e0ef196e92aeebf3e5e5ee0db77459a8412c7606365908b46199b"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e11b3fec00ea1b9f9bdd",
+  "source": {
+   "code": "8129"
+  },
+  "target": {
+   "code": "3353"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-02-28",
+  "document": {
+   "url": "https://www.m-ikkou.co.jp/ir/stock/situation.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7c956e128c7e0ef196e92aeebf3e5e5ee0db77459a8412c7606365908b46199b"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e62d8861b7553fef74c1",
+  "source": {
+   "code": "4063"
+  },
+  "target": {
+   "code": "4229"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.gunei-chemical.co.jp/ir/stock/basic-info/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "3c4c8b96fab4ce498819ad09c1aba43b0c9bfaa19efdd34d712e6add4d97b982"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a3d7c8b59db7cda9f8f1",
+  "source": {
+   "code": "8511"
+  },
+  "target": {
+   "code": "4229"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.gunei-chemical.co.jp/ir/stock/basic-info/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "3c4c8b96fab4ce498819ad09c1aba43b0c9bfaa19efdd34d712e6add4d97b982"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6aef17efb97fcbfbb221",
+  "source": {
+   "code": "4186"
+  },
+  "target": {
+   "code": "4229"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.gunei-chemical.co.jp/ir/stock/basic-info/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "3c4c8b96fab4ce498819ad09c1aba43b0c9bfaa19efdd34d712e6add4d97b982"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b84c3d65de816acaab15",
+  "source": {
+   "code": "5161"
+  },
+  "target": {
+   "code": "4246"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.daikyonishikawa.co.jp/ir/stock/info.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "79cff74314b6078fbc150f9e23528fb5b11d674e0eb606eec2e7c87af7b86d3e"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ef539fe703caab2f88ed",
+  "source": {
+   "code": "7261"
+  },
+  "target": {
+   "code": "4246"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.daikyonishikawa.co.jp/ir/stock/info.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "79cff74314b6078fbc150f9e23528fb5b11d674e0eb606eec2e7c87af7b86d3e"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "42454bde6d567f51f4ae",
+  "source": {
+   "code": "8370"
+  },
+  "target": {
+   "code": "4914"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-06-30",
+  "document": {
+   "url": "https://www.takasago.com/ja/ir/stockinfo.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "19c944f84ffeb466cba68445ed9740829dbf25bedec39a9e6617870c01d9ca81"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "38607587a668581d6e34",
+  "source": {
+   "code": "4401"
+  },
+  "target": {
+   "code": "4997"
+  },
+  "relation_type": "ownership",
+  "as_of": null,
+  "document": {
+   "url": "https://www.nichino.co.jp/ir/page_10093.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "76d3518d91060e2247731b42daee4c45bf760c589102b28ccc60725fd6a93446"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "32eef6113d49f4e82f67",
+  "source": {
+   "code": "9065"
+  },
+  "target": {
+   "code": "5010"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-12-31",
+  "document": {
+   "url": "https://www.seiro.co.jp/ir/stock/information/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "1e0cf512b0f3e125c5a446e92a9079b9cc8091325fb6f6b905cf8d21bd9e15e6"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5758db3ed354f6bb9bc6",
+  "source": {
+   "code": "8628"
+  },
+  "target": {
+   "code": "5010"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-12-31",
+  "document": {
+   "url": "https://www.seiro.co.jp/ir/stock/information/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "1e0cf512b0f3e125c5a446e92a9079b9cc8091325fb6f6b905cf8d21bd9e15e6"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ea541afa10f8b02d63d2",
+  "source": {
+   "code": "2676"
+  },
+  "target": {
+   "code": "5133"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.terilogy-hd.com/ir/info/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "9ba7ec743ee50f715be6a54e3390857b3535497a31de0248c40cd4e30229b192"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "285b1afaeb86055e7ac4",
+  "source": {
+   "code": "6675"
+  },
+  "target": {
+   "code": "5133"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.terilogy-hd.com/ir/info/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "9ba7ec743ee50f715be6a54e3390857b3535497a31de0248c40cd4e30229b192"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b64a817d637513588501",
+  "source": {
+   "code": "5406"
+  },
+  "target": {
+   "code": "5351"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.shinagawa.co.jp/finance/dividend.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "c376749b2c0e38f98466838b084820ea6b9b14613312fe4ce3b26c8dbb891f0c"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "36e0afa3a5c1e1be8938",
+  "source": {
+   "code": "8802"
+  },
+  "target": {
+   "code": "5351"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.shinagawa.co.jp/finance/dividend.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "c376749b2c0e38f98466838b084820ea6b9b14613312fe4ce3b26c8dbb891f0c"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f004402921cf33ab3f9a",
+  "source": {
+   "code": "5401"
+  },
+  "target": {
+   "code": "5440"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.kyoeisteel.co.jp/ja/ir/stock/shareholder.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "4f60d8636b54bbc27f94061b8355609275ac0b883c7661e259bffac7f8758a35"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "801363cb2f14180d28f2",
+  "source": {
+   "code": "8031"
+  },
+  "target": {
+   "code": "5440"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.kyoeisteel.co.jp/ja/ir/stock/shareholder.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "4f60d8636b54bbc27f94061b8355609275ac0b883c7661e259bffac7f8758a35"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "448bb93954dc7cc0d63a",
+  "source": {
+   "code": "5410"
+  },
+  "target": {
+   "code": "5440"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.kyoeisteel.co.jp/ja/ir/stock/shareholder.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "4f60d8636b54bbc27f94061b8355609275ac0b883c7661e259bffac7f8758a35"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3279011767353907c3e6",
+  "source": {
+   "code": "4088"
+  },
+  "target": {
+   "code": "5440"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.kyoeisteel.co.jp/ja/ir/stock/shareholder.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "4f60d8636b54bbc27f94061b8355609275ac0b883c7661e259bffac7f8758a35"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6adb7d09ce8baef12c26",
+  "source": {
+   "code": "7011"
+  },
+  "target": {
+   "code": "5631"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.jsw.co.jp/ja/ir/stock/shareholder.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "e954d8a25c065b215203f6bef2e3c8c24eaed7c28ffcb5241374a32310100634"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "229d90cb2d49c9a86d99",
+  "source": {
+   "code": "6971"
+  },
+  "target": {
+   "code": "5844"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.kyoto-fg.co.jp/ir/stock/stock-information/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "dca46d36916aff22161ebcbfd5728e75940d22ff3d47f3fca281434d731c941f"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a563d38f489f5369f463",
+  "source": {
+   "code": "8334"
+  },
+  "target": {
+   "code": "5901"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-06-30",
+  "document": {
+   "url": "https://www.tskg-hd.com/ir/stocks/ownership/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2555e686a261e48442135942548bf0e7a67855cbade8ea3e3f30cd2f82f506cc"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bd718145fea645dbb173",
+  "source": {
+   "code": "5451"
+  },
+  "target": {
+   "code": "5930"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.bunka-s.co.jp/ir/individual/information/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "367a116e789c07351c47c0ee8b3d4b75a7b699718bd9048633cedd6433bb8699"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "869fb24d6721470ce6a5",
+  "source": {
+   "code": "7267"
+  },
+  "target": {
+   "code": "5970"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.g-tekt.jp/ir/shareholder/stockinfo.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "a59256424129ffb38495d9115e3a91c9ec05255ba2f4804d0d98b9535b5f03f1"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c662288b0fd0b35639fb",
+  "source": {
+   "code": "2588"
+  },
+  "target": {
+   "code": "6788"
+  },
+  "relation_type": "ownership",
+  "as_of": null,
+  "document": {
+   "url": "https://www.nihon-trim.co.jp/ir/general_meeting/basic.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "36e888c7e1b687be13340617417cd26c57948175be4080222966f5dda21ab85f"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ccbd907285f3a19a9b59",
+  "source": {
+   "code": "2768"
+  },
+  "target": {
+   "code": "7172"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-06-30",
+  "document": {
+   "url": "https://www.jia-ltd.com/ir/stocks/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "5b6cd29a2e049f162a9f74fc96ea0762032b2eccee4b5dc21bdee58e44e74ba9"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "553b529d73ed66a93d0d",
+  "source": {
+   "code": "8393"
+  },
+  "target": {
+   "code": "7180"
+  },
+  "relation_type": "ownership",
+  "as_of": null,
+  "document": {
+   "url": "https://www.kyushu-fg.co.jp/ir/stock/stockinfo/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "df14a108232aa0dd173355e02232bf10a284dfaca84668d32964046215e4b011"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6120c3526e046631125c",
+  "source": {
+   "code": "7203"
+  },
+  "target": {
+   "code": "7238"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.akebono-brake.com/ir/shareholder_stock/main_shareholder.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "e068710a90003b3be96212a507b8f8fc3bbf5473304c06fa5173b52f22836d05"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "38cd62ba94ed88ccdff9",
+  "source": {
+   "code": "7202"
+  },
+  "target": {
+   "code": "7238"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.akebono-brake.com/ir/shareholder_stock/main_shareholder.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "e068710a90003b3be96212a507b8f8fc3bbf5473304c06fa5173b52f22836d05"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "63d851a318ff01dcebe3",
+  "source": {
+   "code": "9735"
+  },
+  "target": {
+   "code": "7238"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.akebono-brake.com/ir/shareholder_stock/main_shareholder.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "e068710a90003b3be96212a507b8f8fc3bbf5473304c06fa5173b52f22836d05"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "8a5a447970af2fb8c16c",
+  "source": {
+   "code": "7242"
+  },
+  "target": {
+   "code": "7245"
+  },
+  "relation_type": "ownership",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ir.daidometal.com/stock/information.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "642c9310d2fb2f2bc001ceb7887b1fd421adaaf6acbb118ce51efa6b3248f9b5"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9661b88bb06b1ba836d9",
+  "source": {
+   "code": "2815"
+  },
+  "target": {
+   "code": "7554"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://hd.kourakuen.co.jp/ir/stock-situation",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "02d42e9b8e41955b8b8435e1e6e942bfa6c140aa259af07c0a9254a8842df3ab"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2422c775e6b616c4bea6",
+  "source": {
+   "code": "2003"
+  },
+  "target": {
+   "code": "7554"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://hd.kourakuen.co.jp/ir/stock-situation",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "02d42e9b8e41955b8b8435e1e6e942bfa6c140aa259af07c0a9254a8842df3ab"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9e449559cc4c36d30c9c",
+  "source": {
+   "code": "8346"
+  },
+  "target": {
+   "code": "7554"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://hd.kourakuen.co.jp/ir/stock-situation",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "02d42e9b8e41955b8b8435e1e6e942bfa6c140aa259af07c0a9254a8842df3ab"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7632f888db5b9db694eb",
+  "source": {
+   "code": "8563"
+  },
+  "target": {
+   "code": "7554"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://hd.kourakuen.co.jp/ir/stock-situation",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "02d42e9b8e41955b8b8435e1e6e942bfa6c140aa259af07c0a9254a8842df3ab"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "4de625ecbc66d4da32d4",
+  "source": {
+   "code": "1801"
+  },
+  "target": {
+   "code": "8803"
+  },
+  "relation_type": "ownership",
+  "as_of": null,
+  "document": {
+   "url": "https://www.heiwa-net.co.jp/ir/stock/basic.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "36b23b0ee343a8c175aaea3519de617e3f6694f953e46cc691a8ecfcb35a2284"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f63307188147ec1b5da7",
+  "source": {
+   "code": "8802"
+  },
+  "target": {
+   "code": "8803"
+  },
+  "relation_type": "ownership",
+  "as_of": null,
+  "document": {
+   "url": "https://www.heiwa-net.co.jp/ir/stock/basic.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "36b23b0ee343a8c175aaea3519de617e3f6694f953e46cc691a8ecfcb35a2284"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e1467635009bf53a8663",
+  "source": {
+   "code": "8370"
+  },
+  "target": {
+   "code": "8860"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-09-30",
+  "document": {
+   "url": "https://www.fuji-jutaku.co.jp/ir/stockinfo/stock-info/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7488240f7b1f8cc681a56d750a75d8c0d14ab77b0db7847b2fc130888a565f2e"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bba2fa752820e61cc618",
+  "source": {
+   "code": "9532"
+  },
+  "target": {
+   "code": "9025"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.konoike.net/ir/stocks/stock/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "547fac126cd79615f5610de390a21c53f97819b4986315e53d6fcf368dd05f30"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "8e7348f924e068b49e2b",
+  "source": {
+   "code": "5401"
+  },
+  "target": {
+   "code": "9025"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.konoike.net/ir/stocks/stock/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "547fac126cd79615f5610de390a21c53f97819b4986315e53d6fcf368dd05f30"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "28b5bcd08f96aec179df",
+  "source": {
+   "code": "8524"
+  },
+  "target": {
+   "code": "9027"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.loginet-japan.com/ja/ir/stock/status.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "a42a2ccc36c4ecb62e8f9ced22071148d7d2b9d1ce25870001a757ecd9a44523"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bd797840ada688411062",
+  "source": {
+   "code": "5110"
+  },
+  "target": {
+   "code": "9027"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.loginet-japan.com/ja/ir/stock/status.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "a42a2ccc36c4ecb62e8f9ced22071148d7d2b9d1ce25870001a757ecd9a44523"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2e47b1daeed819904f9e",
+  "source": {
+   "code": "5101"
+  },
+  "target": {
+   "code": "9027"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.loginet-japan.com/ja/ir/stock/status.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "a42a2ccc36c4ecb62e8f9ced22071148d7d2b9d1ce25870001a757ecd9a44523"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "007c8b06405049509495",
+  "source": {
+   "code": "3088"
+  },
+  "target": {
+   "code": "9090"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.az-com-maruwa-hd.co.jp/ir/stock/stockinfo.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "bac445be402eabeb578511831838d6cb7330b8a026e0c5631b139ffae3b0580d"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "55cd7fb15a90ddd26d00",
+  "source": {
+   "code": "9364"
+  },
+  "target": {
+   "code": "9090"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.az-com-maruwa-hd.co.jp/ir/stock/stockinfo.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "bac445be402eabeb578511831838d6cb7330b8a026e0c5631b139ffae3b0580d"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1d1c13ea3bc83d5f0169",
+  "source": {
+   "code": "2168"
+  },
+  "target": {
+   "code": "9216"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-05-31",
+  "document": {
+   "url": "https://www.bewith.net/ir/stock-info/stock/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d47053cc80297ff5c04536161c0380a6e0f3e7c3cc10eece3ef2d3e1ab0f7ee8"
+  },
+  "topic": "企業公式サイトの大株主表に記載された株主",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "746aacc1fcacfc1dff12",
+  "source": {
+   "code": "9090"
+  },
+  "target": {
+   "code": "1716"
+  },
+  "relation_type": "interlocking_director",
+  "person": "船本美和子",
+  "roles": {
+   "9090": "取締役",
+   "1716": "監査役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.az-com-maruwa-hd.co.jp/corporate/board.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "4baafc2b31d8a69fddd651cf8d736e1808a7552888d2c5617987916531280535"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "28cec6ad42307e944bc6",
+  "source": {
+   "code": "9090"
+  },
+  "target": {
+   "code": "1721"
+  },
+  "relation_type": "interlocking_director",
+  "person": "市川恭子",
+  "roles": {
+   "9090": "監査役",
+   "1721": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.az-com-maruwa-hd.co.jp/corporate/board.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "4baafc2b31d8a69fddd651cf8d736e1808a7552888d2c5617987916531280535"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "03f9f1dd50f85de0af98",
+  "source": {
+   "code": "9090"
+  },
+  "target": {
+   "code": "4704"
+  },
+  "relation_type": "interlocking_director",
+  "person": "船本美和子",
+  "roles": {
+   "9090": "取締役",
+   "4704": "監査役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.az-com-maruwa-hd.co.jp/corporate/board.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "4baafc2b31d8a69fddd651cf8d736e1808a7552888d2c5617987916531280535"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "18b5751063512f837033",
+  "source": {
+   "code": "9090"
+  },
+  "target": {
+   "code": "9325"
+  },
+  "relation_type": "interlocking_director",
+  "person": "岩﨑哲律",
+  "roles": {
+   "9090": "取締役",
+   "9325": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.az-com-maruwa-hd.co.jp/corporate/board.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "4baafc2b31d8a69fddd651cf8d736e1808a7552888d2c5617987916531280535"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ba0614440f85932feb09",
+  "source": {
+   "code": "8860"
+  },
+  "target": {
+   "code": "3537"
+  },
+  "relation_type": "interlocking_director",
+  "person": "岩井伸太郎",
+  "roles": {
+   "8860": "取締役",
+   "3537": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.fuji-jutaku.co.jp/corporate/director/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "a71adff42c63d5ec16609934acc034cd9b61ee11fcb7ec44f242817da4f42c37"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3efd88804f64e60267cb",
+  "source": {
+   "code": "3475"
+  },
+  "target": {
+   "code": "6836"
+  },
+  "relation_type": "interlocking_director",
+  "person": "松山昌司",
+  "roles": {
+   "3475": "取締役",
+   "6836": "監査役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.goodcomasset.co.jp/about/directors/matsuyama",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "5b77f48a80167de095f1e874ca3302bb935d2fd73a86d95456d843679d34ec7a"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "926bd474a3d31da180e7",
+  "source": {
+   "code": "3475"
+  },
+  "target": {
+   "code": "9416"
+  },
+  "relation_type": "interlocking_director",
+  "person": "茂田井純一",
+  "roles": {
+   "3475": "取締役",
+   "9416": "監査役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.goodcomasset.co.jp/about/directors/motai",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "262a67ed8534069e5dbec6aadc8e8362bf372608e2a4dc3f6c85bb7793bd0de3"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "551607f52d5f7d01e75c",
+  "source": {
+   "code": "9417"
+  },
+  "target": {
+   "code": "3267"
+  },
+  "relation_type": "interlocking_director",
+  "person": "松本直人",
+  "roles": {
+   "9417": "取締役",
+   "3267": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.smartvalue.ad.jp/company/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "05ff70e8f830987633f15ce6021794f05ea1c126141c9d440da557a6343e835b"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b5487665483ead570fb9",
+  "source": {
+   "code": "9417"
+  },
+  "target": {
+   "code": "3904"
+  },
+  "relation_type": "interlocking_director",
+  "person": "松本直人",
+  "roles": {
+   "9417": "取締役",
+   "3904": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.smartvalue.ad.jp/company/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "05ff70e8f830987633f15ce6021794f05ea1c126141c9d440da557a6343e835b"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a79dca3d90a8aa30c5ed",
+  "source": {
+   "code": "9417"
+  },
+  "target": {
+   "code": "4167"
+  },
+  "relation_type": "interlocking_director",
+  "person": "松本直人",
+  "roles": {
+   "9417": "取締役",
+   "4167": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.smartvalue.ad.jp/company/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "05ff70e8f830987633f15ce6021794f05ea1c126141c9d440da557a6343e835b"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "39ee74970dc330aab8e0",
+  "source": {
+   "code": "9417"
+  },
+  "target": {
+   "code": "478A"
+  },
+  "relation_type": "interlocking_director",
+  "person": "渋谷順",
+  "roles": {
+   "9417": "取締役",
+   "478A": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.smartvalue.ad.jp/company/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "05ff70e8f830987633f15ce6021794f05ea1c126141c9d440da557a6343e835b"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bd482df7af85c1985331",
+  "source": {
+   "code": "9417"
+  },
+  "target": {
+   "code": "7516"
+  },
+  "relation_type": "interlocking_director",
+  "person": "松川奈央",
+  "roles": {
+   "9417": "取締役（監査委員）",
+   "7516": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.smartvalue.ad.jp/company/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "05ff70e8f830987633f15ce6021794f05ea1c126141c9d440da557a6343e835b"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f3b1cb84a7e1e7a60d91",
+  "source": {
+   "code": "1491"
+  },
+  "target": {
+   "name": "株式会社マリオン（マリオンクレープ・東京都渋谷区）"
+  },
+  "relation_type": "business_alliance",
+  "document": {
+   "url": "https://www.chugaikogyo.co.jp/wp/wp-content/uploads/2026/05/株式会社マリオンとの業務提携契約締結に関するお知らせ.pdf",
+   "published": "2026-05-15",
+   "origin": "independent_primary_release",
+   "sha256": "f164d4a11b3294f8d4d91c859a78723a9543e45e26b5a05fd88752755d0f39ac"
+  },
+  "topic": "キャラクターとクレープ店舗のコラボ企画",
+  "deal_status": "agreed",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "68415d76aaf6e099741d",
+  "source": {
+   "code": "5401"
+  },
+  "target": {
+   "code": "5408"
+  },
+  "relation_type": "business_alliance",
+  "document": {
+   "url": "https://www.nipponsteel.com/newsroom/news/2025/__icsFiles/afieldfile/2025/09/10/20250509_050.pdf",
+   "published": "2025-05-09",
+   "origin": "independent_primary_release",
+   "sha256": "63ddcc9dfb2a7461cfab6ccf9577bda71a02a6cfbede150c1fd54a50fa43b47e"
+  },
+  "topic": "電気炉保有合弁会社の設立と製造・購入に関する基本合意",
+  "deal_status": "agreed",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "4401ef52c560c9743d83",
+  "source": {
+   "code": "3106"
+  },
+  "target": {
+   "code": "4935"
+  },
+  "relation_type": "joint_research",
+  "document": {
+   "url": "https://www.kurabo.co.jp/news/assets/release_imabariteiketsu_260430.pdf",
+   "published": "2026-04-30",
+   "origin": "independent_primary_release",
+   "sha256": "3bf385852602aebc724537f223298a0afd38a4ba0ebfd198420aee55a477db90"
+  },
+  "topic": "今治造船・ハイドサインを含む4社による作業服の共同開発契約",
+  "deal_status": "agreed",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "27dd13940b70eb89f5e6",
+  "source": {
+   "code": "3101"
+  },
+  "target": {
+   "code": "9021"
+  },
+  "relation_type": "joint_research",
+  "document": {
+   "url": "https://ir.toyobo.co.jp/ja/ir/news/news4546773041909086346/main/0/link/press_20250916_1J.pdf",
+   "published": "2025-09-16",
+   "origin": "independent_primary_release",
+   "sha256": "e150665e8d55dd115a645ec2cf19af3f8b158e16814d59ad2e45b65fa45be1b6"
+  },
+  "topic": "製造工程の異常予兆を検知するAIシステムの共同開発",
+  "deal_status": "executed",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "caa05a1c3e0de3c5d957",
+  "source": {
+   "code": "9432"
+  },
+  "target": {
+   "code": "4519"
+  },
+  "relation_type": "joint_research",
+  "document": {
+   "url": "https://group.ntt/jp/newsrelease/2026/06/30/260630a.html",
+   "published": "2026-06-30",
+   "origin": "independent_primary_release",
+   "sha256": "d2513ae0f0570389c94df83e665738a10a489f90151f1f29efaa3bbfedc0402b"
+  },
+  "topic": "近畿大学・NTTデータを含む治験候補患者抽出の共同研究",
+  "deal_status": "executed",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0e6d860fdad7df44106c",
+  "source": {
+   "code": "8316"
+  },
+  "target": {
+   "code": "6702"
+  },
+  "relation_type": "business_alliance",
+  "document": {
+   "url": "https://www.smfg.co.jp/news/pdf/j20260519_01.pdf",
+   "published": "2026-05-19",
+   "origin": "independent_primary_release",
+   "sha256": "80e1f3b744394dfe691db2f2ab4ec01fc9ad85ece4b8dd9e5a784340d740fa9d"
+  },
+  "topic": "ソフトバンクを含む3社の健康・医療基盤に関する基本合意",
+  "deal_status": "agreed",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a95185fe0b582ef24c3d",
+  "source": {
+   "code": "8316"
+  },
+  "target": {
+   "code": "9434"
+  },
+  "relation_type": "business_alliance",
+  "document": {
+   "url": "https://www.smfg.co.jp/news/pdf/j20260519_01.pdf",
+   "published": "2026-05-19",
+   "origin": "independent_primary_release",
+   "sha256": "80e1f3b744394dfe691db2f2ab4ec01fc9ad85ece4b8dd9e5a784340d740fa9d"
+  },
+  "topic": "富士通を含む3社の健康・医療基盤に関する基本合意",
+  "deal_status": "agreed",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2ef8ce3e04ce7f7027a8",
+  "source": {
+   "code": "6702"
+  },
+  "target": {
+   "code": "9434"
+  },
+  "relation_type": "business_alliance",
+  "document": {
+   "url": "https://www.smfg.co.jp/news/pdf/j20260519_01.pdf",
+   "published": "2026-05-19",
+   "origin": "independent_primary_release",
+   "sha256": "80e1f3b744394dfe691db2f2ab4ec01fc9ad85ece4b8dd9e5a784340d740fa9d"
+  },
+  "topic": "三井住友フィナンシャルグループを含む3社の健康・医療基盤に関する基本合意",
+  "deal_status": "agreed",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f4527d387ebcfca2055a",
+  "source": {
+   "code": "1736"
+  },
+  "target": {
+   "code": "1904"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://www.taisei-oncho.co.jp/news/images/02_250911.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "9ba5b05c8762a7e657adb0666ff01f227be1221f446de1c694b3610b97d1166a",
+   "page": 30
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a6ba5dbee97766576922",
+  "source": {
+   "code": "2801"
+  },
+  "target": {
+   "code": "2220"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://www.kamedaseika.co.jp/wp-content/uploads/2025/12/KAMEDASEIKA_Integrated_Report_2025_.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "be1c1b91d54d821a8a011097113f9bf20c2ce21eb2205b9160b06846641a795a",
+   "page": 62
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "905e6198659d0a6bc5c6",
+  "source": {
+   "code": "8386"
+  },
+  "target": {
+   "code": "2282"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://www.nipponham.co.jp/corporate/ir/library/annual/pdf/2025_annual/annual2025all_j.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "01ff51629c1ee98476124259972b0352550025b31d926e5965a2129b5246339c",
+   "page": 92
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "dd274a7e1409d098fea4",
+  "source": {
+   "code": "8511"
+  },
+  "target": {
+   "code": "2768"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://s3-ap-northeast-1.amazonaws.com/sojitz-doc/pdf/jp/ir_202405/reports/annual/ar2026j_all.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "60befbf28a2b40ba421e2f62d2c5c11a65817c18c7ff5af40fb09db088bd9157",
+   "page": 54
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9049714e3677860f9a30",
+  "source": {
+   "code": "8058"
+  },
+  "target": {
+   "code": "2897"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://media.www.nissin.com/jp/company/ir/integrated/assets/static/pdf/back_number/integrated_report_2025.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "8a1b7fe205927f98a5b90b4ea38fe516c5d08184a6dc39b4a713d77fa1170922",
+   "page": 78
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "137551ee171f01cfc871",
+  "source": {
+   "code": "8101"
+  },
+  "target": {
+   "code": "3002"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://www.gunze.co.jp/assets/pdf/all2025.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "bd23f2f956972fffcd4f1da6c0a325533b9f59d0f92aafefff671117ff8a4460",
+   "page": 37
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "36e338019972eb8fcc67",
+  "source": {
+   "code": "8604"
+  },
+  "target": {
+   "code": "3231"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://www.nomura-re-hd.co.jp/ir/pdf/AR2025_A3_j.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "fba1371a8ed778994170de451151f91b72514f349de569d1d923f57cecac287e",
+   "page": 53
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "eff944b1980b421b8e85",
+  "source": {
+   "code": "2815"
+  },
+  "target": {
+   "code": "3397"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-09-30",
+  "document": {
+   "url": "https://files.microcms-assets.io/assets/f30f9e21e8d64c57996ea55a4f9dc3dc/e8cef9b6dac04092ac038c47c069925c/HAPPINESS_KANDO_REPORT2025.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2d4230fd1accd232fd97b6b46135fd2054eddb0610d8c64cd80539844e72d8eb",
+   "page": 25
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "fd253a49cfcf82440ad2",
+  "source": {
+   "code": "2768"
+  },
+  "target": {
+   "code": "3778"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.sakura.ad.jp/corporate/wp-content/uploads/2026/09/s-report2026j.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ce26ad033056c6bfc57a00e364713d10e792a80d4f036d9a5056fc345dfd95cd",
+   "page": 52
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e90e0c4766815002e204",
+  "source": {
+   "code": "8361"
+  },
+  "target": {
+   "code": "4062"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://www.ibiden.co.jp/ir/items/IntegratedReport2025.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d9181778e4532c468bfd1f5a131afd0b723ae188907f8a1f714be7230f14c496",
+   "page": 71
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "aa8e030078146562d9b8",
+  "source": {
+   "code": "3105"
+  },
+  "target": {
+   "code": "4099"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-06-30",
+  "document": {
+   "url": "https://www.shikoku.co.jp/wp/wp-content/uploads/2026/08/統合報告書2026.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7d12cfa8aacc0b8a11bbcfe77c72a7fb3be77beab58f9534e141d6bea1a1fe84",
+   "page": 87
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "16a51283abdd1af1c13d",
+  "source": {
+   "code": "4626"
+  },
+  "target": {
+   "code": "4099"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-06-30",
+  "document": {
+   "url": "https://www.shikoku.co.jp/wp/wp-content/uploads/2026/08/統合報告書2026.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7d12cfa8aacc0b8a11bbcfe77c72a7fb3be77beab58f9534e141d6bea1a1fe84",
+   "page": 87
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "65595d521cdb6030ec69",
+  "source": {
+   "code": "8473"
+  },
+  "target": {
+   "code": "4373"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://www.simplex.holdings/wp-content/uploads/2025/11/simplex_integratedreport2025_jp.pdf?d=20251110",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "15b27135c55d488d2747b9b7f2e81f7fc3dfdd0e3e9dcfc6aa5bd55e859406ad",
+   "page": 51
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3a112416ad1d8b77664e",
+  "source": {
+   "code": "8015"
+  },
+  "target": {
+   "code": "4471"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://www.sanyo-chemical.co.jp/wp/wp-content/uploads/2026/02/ir2025J.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "f9c77e210edfb1295bed00387ea8ff9e3b1c7a9c89f2be33156540d8728bf628",
+   "page": 33
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "873d6ba7d690e00c479e",
+  "source": {
+   "code": "5020"
+  },
+  "target": {
+   "code": "4471"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://www.sanyo-chemical.co.jp/wp/wp-content/uploads/2026/02/ir2025J.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "f9c77e210edfb1295bed00387ea8ff9e3b1c7a9c89f2be33156540d8728bf628",
+   "page": 33
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "69f127a69012f54b6fd0",
+  "source": {
+   "code": "4547"
+  },
+  "target": {
+   "code": "4552"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.jcrpharm.co.jp/assets/uploads/docs/Integrated_Report_JCR_Pharmaceuticals_2026_JP.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "4bb2b9747f52b837bdf3d1d3de2e9d23ba211efc230390e0e80d2f9b32091b3f",
+   "page": 39
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "78a21cf87cc70bdf0716",
+  "source": {
+   "code": "4534"
+  },
+  "target": {
+   "code": "4552"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.jcrpharm.co.jp/assets/uploads/docs/Integrated_Report_JCR_Pharmaceuticals_2026_JP.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "4bb2b9747f52b837bdf3d1d3de2e9d23ba211efc230390e0e80d2f9b32091b3f",
+   "page": 39
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "34248b0cfdfcc8d3378f",
+  "source": {
+   "code": "8511"
+  },
+  "target": {
+   "code": "4624"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.isamu.co.jp/wp-content/uploads/2026/06/80_Annual-report.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "750c4411839d8ebd4341c2f6b7c734d83f24a125c159210e9148c7ac4f1d05d1",
+   "page": 8
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7969452300da709ae9a0",
+  "source": {
+   "code": "7912"
+  },
+  "target": {
+   "code": "4912"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-12-31",
+  "document": {
+   "url": "https://www.lion.co.jp/ja/ir/library/ar/2026/pdf/ir2026.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7deea3be5420e057fa4eab7eeb1e5a49e5ae73da5c5ab6cf6f4422121a64e121",
+   "page": 70
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "672d90310f340b2de03d",
+  "source": {
+   "code": "5461"
+  },
+  "target": {
+   "code": "5357"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-09-30",
+  "document": {
+   "url": "https://www.yotai.co.jp/pdf/report_2025.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "f152416fbbad43e1f546b2e96c7e558d5c0b645e876653346e3e95c3a602d423",
+   "page": 33
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "cb212949823a049e9991",
+  "source": {
+   "code": "9072"
+  },
+  "target": {
+   "code": "6258"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://www.hirata.co.jp/files/uploads/HRT25J_0210.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "576097077b823f82af2f7065f4e0d7efadcbf6547843c40c87292bc1b946616e",
+   "page": 50
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "30760ed3f97cd5eb499d",
+  "source": {
+   "code": "6516"
+  },
+  "target": {
+   "code": "6258"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://www.hirata.co.jp/files/uploads/HRT25J_0210.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "576097077b823f82af2f7065f4e0d7efadcbf6547843c40c87292bc1b946616e",
+   "page": 50
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "86fe24ec68c4943ed29f",
+  "source": {
+   "code": "8386"
+  },
+  "target": {
+   "code": "6306"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://www.nikko-net.co.jp/ir/pdf/corporate-report-2025.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "b7bc969c3cf4ace5e557f6b7d49ac0fbcc1988ff3a2e09e873da5318fb38a2a4",
+   "page": 103
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "90a42e000f3c717b58a9",
+  "source": {
+   "code": "6474"
+  },
+  "target": {
+   "code": "6480"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://www.ikont.co.jp/ir/finance/pdf/integrated_report2025_v.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "dc85a1f190feaf520ed9059d66aea34600b053d9b8592831965ab1d7ce98f9fc",
+   "page": 37
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "98ba4b4d6b89731de74a",
+  "source": {
+   "code": "6905"
+  },
+  "target": {
+   "code": "6989"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://www.hdk.co.jp/wp-content/themes/hokuriku/assets/pdf/ir/library/integrated/tougou_20251104a.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "b999a4e0c0544424ed33eb866b2a02b30271ac5e0b82a706d110a93f76243295",
+   "page": 67
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f54865c68e7b26fa3292",
+  "source": {
+   "code": "7203"
+  },
+  "target": {
+   "code": "7259"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://www.aisin.com/jp/sustainability/report/pdf/aisin_ar2025_a3.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "8a310bc96923c9cb90ba7ecd9387bc71b766209f0df60011b89475ce81a19962",
+   "page": 101
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9cf7bdad70a06e2b626b",
+  "source": {
+   "code": "7203"
+  },
+  "target": {
+   "code": "7270"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://www.subaru.co.jp/ir/library/pdf/Ir/Ir2025j.pdf#page=21",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d8a57913288f4073afca61a24ec801221191ada6a43f0bdc72ee4822b3cfde15",
+   "page": 51
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6598da438fb7fe8b979b",
+  "source": {
+   "code": "6752"
+  },
+  "target": {
+   "code": "8089"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://www.nice.co.jp/uploads/report_2025.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "da0313b1f9ca48e38a1049d47a1e293b01a9ee6959a1e5add014e5f39054fa36",
+   "page": 36
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0af875a2a7935580178d",
+  "source": {
+   "code": "5938"
+  },
+  "target": {
+   "code": "8089"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://www.nice.co.jp/uploads/report_2025.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "da0313b1f9ca48e38a1049d47a1e293b01a9ee6959a1e5add014e5f39054fa36",
+   "page": 36
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1067332d0ac5b45dd3cb",
+  "source": {
+   "code": "8001"
+  },
+  "target": {
+   "code": "8410"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.sevenbank.co.jp/ir/library/disclosure/pdf/2026073101.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "cb1f6c89421a140e0cf918b0c89ce97e952d743ba3a7181316e8e2d227f3e914",
+   "page": 47
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "de12e57f57d2f32000d8",
+  "source": {
+   "code": "8331"
+  },
+  "target": {
+   "code": "8544"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.keiyobank.co.jp/ir/shared/pdf/report_2026_honshi_all.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d2e6fa16ad1b5d579ce552f7057c0c4b774ec83aaf0fc4aea5daf38bd4af50fd",
+   "page": 38
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f3fc2a197baddedfe330",
+  "source": {
+   "code": "8830"
+  },
+  "target": {
+   "code": "8544"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.keiyobank.co.jp/ir/shared/pdf/report_2026_honshi_all.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d2e6fa16ad1b5d579ce552f7057c0c4b774ec83aaf0fc4aea5daf38bd4af50fd",
+   "page": 38
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7197fa851ed43aad5118",
+  "source": {
+   "code": "8425"
+  },
+  "target": {
+   "code": "9247"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://tre-hd.co.jp/download/assets/uploads/tre_integratedreport_2025j.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "80ada77f1347fb14ef57b3fe3b81de94b1eb16800eae23ff5a36b55a9054e35c",
+   "page": 38
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "dcf5090365e28447f014",
+  "source": {
+   "code": "1433"
+  },
+  "target": {
+   "code": "9247"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://tre-hd.co.jp/download/assets/uploads/tre_integratedreport_2025j.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "80ada77f1347fb14ef57b3fe3b81de94b1eb16800eae23ff5a36b55a9054e35c",
+   "page": 38
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f40e153aa7d1f0d66e62",
+  "source": {
+   "code": "5714"
+  },
+  "target": {
+   "code": "9722"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-12-31",
+  "document": {
+   "url": "https://www.fujita-kanko.co.jp/ir/library/annual/2025/pdf/integratedreport2025j.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6c6393967900aa00a39240ec8cd5630059fac27ecfef520f35ac2a44e49cf9f4",
+   "page": 43
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b448f65045bee0a4ca63",
+  "source": {
+   "code": "8386"
+  },
+  "target": {
+   "code": "9902"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-03-31",
+  "document": {
+   "url": "https://www.nichiden.com/cms/wp-content/uploads/2025/11/integrated_report_2025.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d76f1c9fa79af745954a6d5191a2d4452d96c3b598cac8ba71d2198326313a0d",
+   "page": 25
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "910cb5773ef682013c94",
+  "source": {
+   "code": "2429"
+  },
+  "target": {
+   "code": "2375"
+  },
+  "relation_type": "interlocking_director",
+  "person": "久保欣",
+  "roles": {
+   "2429": "取締役",
+   "2375": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://world-hd.co.jp/app/wp-content/uploads/2026/07/IntegratedReport2026.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "0bcff353761f08fcfd458a906b5cbd95b1c9c1ae13e4d349a8894ab6dc161fda"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a2a9115063ee3bb68f98",
+  "source": {
+   "code": "2933"
+  },
+  "target": {
+   "code": "8075"
+  },
+  "relation_type": "interlocking_director",
+  "person": "金子浩子",
+  "roles": {
+   "2933": "取締役（監査等委員）",
+   "8075": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.kibun.co.jp/corporate/ir/library/IntegratedReport/data/integrated_report2025.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "588df53f1c41d42df49295c9943936aea36215113079dab09791f3f38db2f3e8"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "97b3bced469e12b3c49c",
+  "source": {
+   "code": "297A"
+  },
+  "target": {
+   "code": "4547"
+  },
+  "relation_type": "interlocking_director",
+  "person": "内川小百合",
+  "roles": {
+   "297A": "監査役",
+   "4547": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://holdings.alpico.co.jp/hubfs/%E7%B5%B1%E5%90%88%E5%A0%B1%E5%91%8A%E6%9B%B82025(%E9%96%B2%E8%A6%A7%E6%8E%A8%E5%A5%A8).pdf?hsLang=ja",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "41a367f1bce560079548083b76d4fdc548aaf66cee2457bd828406b8b09a623a"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "cb8ca382a6f19e87444f",
+  "source": {
+   "code": "3002"
+  },
+  "target": {
+   "code": "3480"
+  },
+  "relation_type": "interlocking_director",
+  "person": "舩冨康次",
+  "roles": {
+   "3002": "監査役",
+   "3480": "監査役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.gunze.co.jp/assets/pdf/all2025.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "bd23f2f956972fffcd4f1da6c0a325533b9f59d0f92aafefff671117ff8a4460"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d3f8b7d1caf5a28826a1",
+  "source": {
+   "code": "3231"
+  },
+  "target": {
+   "code": "4220"
+  },
+  "relation_type": "interlocking_director",
+  "person": "末村あおぎ",
+  "roles": {
+   "3231": "取締役",
+   "4220": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.nomura-re-hd.co.jp/ir/pdf/AR2025_A3_j.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "fba1371a8ed778994170de451151f91b72514f349de569d1d923f57cecac287e"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "855cdb1847725b4946d3",
+  "source": {
+   "code": "3231"
+  },
+  "target": {
+   "code": "5563"
+  },
+  "relation_type": "interlocking_director",
+  "person": "末村あおぎ",
+  "roles": {
+   "3231": "取締役",
+   "5563": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.nomura-re-hd.co.jp/ir/pdf/AR2025_A3_j.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "fba1371a8ed778994170de451151f91b72514f349de569d1d923f57cecac287e"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "99eb308ea0ac27133a89",
+  "source": {
+   "code": "3397"
+  },
+  "target": {
+   "code": "6432"
+  },
+  "relation_type": "interlocking_director",
+  "person": "宮田裕子",
+  "roles": {
+   "3397": "取締役（監査等委員）",
+   "6432": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://files.microcms-assets.io/assets/f30f9e21e8d64c57996ea55a4f9dc3dc/e8cef9b6dac04092ac038c47c069925c/HAPPINESS_KANDO_REPORT2025.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2d4230fd1accd232fd97b6b46135fd2054eddb0610d8c64cd80539844e72d8eb"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "95ea21c8b22bfc987959",
+  "source": {
+   "code": "3762"
+  },
+  "target": {
+   "code": "3994"
+  },
+  "relation_type": "interlocking_director",
+  "person": "安武弘晃",
+  "roles": {
+   "3762": "取締役",
+   "3994": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.techmatrix.co.jp/ir/upload_file/m005-m005_07/techmatrix2025_view.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "a3c38dd186bd935d9d7f0644548f7c11dce28b3634bbb91d3460756af9ada9e9"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "15349036b3cf72bd364c",
+  "source": {
+   "code": "3762"
+  },
+  "target": {
+   "code": "6087"
+  },
+  "relation_type": "interlocking_director",
+  "person": "江幡奈歩",
+  "roles": {
+   "3762": "取締役（監査等委員）",
+   "6087": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.techmatrix.co.jp/ir/upload_file/m005-m005_07/techmatrix2025_view.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "a3c38dd186bd935d9d7f0644548f7c11dce28b3634bbb91d3460756af9ada9e9"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "72efeb5be7cef28c1de7",
+  "source": {
+   "code": "3762"
+  },
+  "target": {
+   "code": "7951"
+  },
+  "relation_type": "interlocking_director",
+  "person": "江幡奈歩",
+  "roles": {
+   "3762": "取締役（監査等委員）",
+   "7951": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.techmatrix.co.jp/ir/upload_file/m005-m005_07/techmatrix2025_view.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "a3c38dd186bd935d9d7f0644548f7c11dce28b3634bbb91d3460756af9ada9e9"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "038e2b1a42e8aa7d8118",
+  "source": {
+   "code": "6315"
+  },
+  "target": {
+   "code": "6658"
+  },
+  "relation_type": "interlocking_director",
+  "person": "和氣大輔",
+  "roles": {
+   "6315": "取締役（監査等委員）",
+   "6658": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.towajapan.co.jp/jp/wp-content/uploads/sites/2/2025/09/tr2025A3.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "c26187122360dd4478a5b11989875f12a050149db911ea43beb3628e9c8e0117"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e1a3c2d46920cb458db4",
+  "source": {
+   "code": "6480"
+  },
+  "target": {
+   "code": "184A"
+  },
+  "relation_type": "interlocking_director",
+  "person": "林田和久",
+  "roles": {
+   "6480": "取締役（監査等委員）",
+   "184A": "監査役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.ikont.co.jp/ir/finance/pdf/integrated_report2025_v.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "dc85a1f190feaf520ed9059d66aea34600b053d9b8592831965ab1d7ce98f9fc"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bcea2e5b8243d4f5ac38",
+  "source": {
+   "code": "8410"
+  },
+  "target": {
+   "code": "4725"
+  },
+  "relation_type": "interlocking_director",
+  "person": "松尾美香",
+  "roles": {
+   "8410": "取締役",
+   "4725": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.sevenbank.co.jp/ir/library/disclosure/pdf/2026073101.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "cb1f6c89421a140e0cf918b0c89ce97e952d743ba3a7181316e8e2d227f3e914"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e4f274b232bd1c573eeb",
+  "source": {
+   "code": "8591"
+  },
+  "target": {
+   "code": "4565"
+  },
+  "relation_type": "interlocking_director",
+  "person": "関美和",
+  "roles": {
+   "8591": "取締役（監査委員）",
+   "4565": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.orix.co.jp/grp/pdf/company/ir/library/annual_report/AR2025J.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "5a9c630b21f6d48173df75443520c501a11e6830eb21da77a0687faab1c5a830"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "4167631d5bc800df4c00",
+  "source": {
+   "code": "9031"
+  },
+  "target": {
+   "code": "1848"
+  },
+  "relation_type": "interlocking_director",
+  "person": "松藤悟",
+  "roles": {
+   "9031": "取締役",
+   "1848": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.nishitetsu.co.jp/ja/ir/library/integrated_report/main/04/teaserItems1/01114/linkList/0/link/Integrated%20Report2025.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "25372b2d7d856c550823def1a46d54d9b70fe008b1f4fd4d2d2aebef093ec313"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "641732d795c868abcbeb",
+  "source": {
+   "code": "9031"
+  },
+  "target": {
+   "code": "6370"
+  },
+  "relation_type": "interlocking_director",
+  "person": "松尾美枝",
+  "roles": {
+   "9031": "取締役",
+   "6370": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.nishitetsu.co.jp/ja/ir/library/integrated_report/main/04/teaserItems1/01114/linkList/0/link/Integrated%20Report2025.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "25372b2d7d856c550823def1a46d54d9b70fe008b1f4fd4d2d2aebef093ec313"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "dc97e27dc9f0629f943f",
+  "source": {
+   "code": "9031"
+  },
+  "target": {
+   "code": "9407"
+  },
+  "relation_type": "interlocking_director",
+  "person": "林田浩一",
+  "roles": {
+   "9031": "取締役",
+   "9407": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.nishitetsu.co.jp/ja/ir/library/integrated_report/main/04/teaserItems1/01114/linkList/0/link/Integrated%20Report2025.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "25372b2d7d856c550823def1a46d54d9b70fe008b1f4fd4d2d2aebef093ec313"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "990d741f2126ca64717c",
+  "source": {
+   "code": "3923"
+  },
+  "target": {
+   "code": "8725"
+  },
+  "relation_type": "product_adoption",
+  "product": "楽楽精算",
+  "as_of": null,
+  "document": {
+   "url": "https://www.rakus.co.jp/rakurakucloud/seisan/case/casestudies_02.php",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "76fabec0ab4fa72c2501be2e77f71fba2f6715e413273a8b6423747691526e44"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "148b83d064d24e5f135f",
+  "source": {
+   "code": "4733"
+  },
+  "target": {
+   "code": "143A"
+  },
+  "relation_type": "product_adoption",
+  "product": "固定資産奉行ｉクラウド",
+  "as_of": null,
+  "document": {
+   "url": "https://www.obc.co.jp/casestudies/154",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ee58b956fe771f4d0851369a86028048a69ef6d34388fd3f1c6d02979b2a95ee"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1a576c817964b941c0c4",
+  "source": {
+   "code": "4733"
+  },
+  "target": {
+   "code": "9553"
+  },
+  "relation_type": "product_adoption",
+  "product": "債権奉行クラウド・奉行Edge 発行請求書DXクラウド",
+  "as_of": null,
+  "document": {
+   "url": "https://www.obc.co.jp/casestudies/152",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d049efa6fcf13c4e8eefded8d8951db57ce48d7c412398cbd909772e9a124d5d"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6231b78faf5eb3a18252",
+  "source": {
+   "code": "4733"
+  },
+  "target": {
+   "code": "9253"
+  },
+  "relation_type": "product_adoption",
+  "product": "給与奉行クラウド",
+  "as_of": null,
+  "document": {
+   "url": "https://www.obc.co.jp/casestudies/116",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "8aa1f006b4b49df088a61be2c16ca39e0fe3cf30b0d9b1fd223cc32ddb19ca69"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "accaace0394c0c9904c2",
+  "source": {
+   "code": "4733"
+  },
+  "target": {
+   "code": "2791"
+  },
+  "relation_type": "product_adoption",
+  "product": "固定資産奉行V ERP8",
+  "as_of": null,
+  "document": {
+   "url": "https://www.obc.co.jp/casestudies/74",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "28a808a34cd654d2ba033da094e1f0d7e3da7f65a32b80ebc62902a988d69d6b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "4ab3474a1aa7ad940b0d",
+  "source": {
+   "code": "4733"
+  },
+  "target": {
+   "code": "9867"
+  },
+  "relation_type": "product_adoption",
+  "product": "奉行クラウド HR DX Suite",
+  "as_of": null,
+  "document": {
+   "url": "https://www.obc.co.jp/casestudies/145",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ffc8008715b5f88e9b7844fead6470690918aa39209fad8f21ba309bcb532eff"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "06e3d6e3f5a1d9b4ec8f",
+  "source": {
+   "code": "4733"
+  },
+  "target": {
+   "code": "4751"
+  },
+  "relation_type": "product_adoption",
+  "product": "奉行V ERP・奉行Open-DB",
+  "as_of": null,
+  "document": {
+   "url": "https://www.obc.co.jp/casestudies/73",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "452b2df4c70b8a0de63a7ae15ee78a7348d4e161a8e28d3f632a035663ce00e9"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "fd0f13dba59b1ff16cfa",
+  "source": {
+   "code": "4443"
+  },
+  "target": {
+   "code": "5406"
+  },
+  "relation_type": "product_adoption",
+  "product": "Sansan",
+  "as_of": null,
+  "document": {
+   "url": "https://jp.sansan.com/case/kobelco/",
+   "published": "2024-07-29T07:40:40",
+   "origin": "independent_primary_website",
+   "sha256": "d99799da0641c58c02b1fe18e75067ae32b38181bc5fbfaf2d7e62da91616ab0"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2023-09"
+ },
+ {
+  "id": "b52d1851e1fb6d7780da",
+  "source": {
+   "code": "4443"
+  },
+  "target": {
+   "code": "6788"
+  },
+  "relation_type": "product_adoption",
+  "product": "Sansan",
+  "as_of": null,
+  "document": {
+   "url": "https://jp.sansan.com/case/nihon-trim/",
+   "published": "2023-10-13T10:01:26",
+   "origin": "independent_primary_website",
+   "sha256": "095e15a07b21e3bb5f4b59d18bfe23cb55b66658ec55a504f1ccff57a8a72881"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2023-10"
+ },
+ {
+  "id": "bf380cb599ef296e5a9d",
+  "source": {
+   "code": "4443"
+  },
+  "target": {
+   "code": "9301"
+  },
+  "relation_type": "product_adoption",
+  "product": "Sansan",
+  "as_of": null,
+  "document": {
+   "url": "https://jp.sansan.com/case/mitsubishi-logistics/",
+   "published": "2022-04-12T01:00:00",
+   "origin": "independent_primary_website",
+   "sha256": "2a4516292915d7716bdcb78c942abe291ec29420606658a2bf1d8140d698e0c9"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2022-01"
+ },
+ {
+  "id": "c13c98c20e732af1c98c",
+  "source": {
+   "code": "4443"
+  },
+  "target": {
+   "code": "6750"
+  },
+  "relation_type": "product_adoption",
+  "product": "Sansan",
+  "as_of": null,
+  "document": {
+   "url": "https://jp.sansan.com/case/elecom/",
+   "published": "2021-08-25T01:00:00",
+   "origin": "independent_primary_website",
+   "sha256": "8966fa0ebbcd73fa8218920b9f0564d516ba4f1a696f003bffc8114a55f7c664"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2021-06"
+ },
+ {
+  "id": "2a9c05534a5c3533c6c8",
+  "source": {
+   "code": "4443"
+  },
+  "target": {
+   "code": "5036"
+  },
+  "relation_type": "product_adoption",
+  "product": "Sansan",
+  "as_of": null,
+  "document": {
+   "url": "https://jp.sansan.com/case/jbs/",
+   "published": "2021-06-08T01:00:00",
+   "origin": "independent_primary_website",
+   "sha256": "80ad827e2a08bddc21a83512e20191a2da8c053068c3a032ab3c5a647709905d"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2021-05"
+ },
+ {
+  "id": "3262345c204a45cc4dca",
+  "source": {
+   "code": "4443"
+  },
+  "target": {
+   "code": "4432"
+  },
+  "relation_type": "product_adoption",
+  "product": "Sansan",
+  "as_of": null,
+  "document": {
+   "url": "https://jp.sansan.com/case/wingarc/",
+   "published": "2020-05-29T01:00:00",
+   "origin": "independent_primary_website",
+   "sha256": "2bfa141c7d070e3eeba795638861a263234919075ab88faf26f8e89910d18c6d"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2020-05"
+ },
+ {
+  "id": "2b0ff126deaf84cc976c",
+  "source": {
+   "code": "4443"
+  },
+  "target": {
+   "code": "6306"
+  },
+  "relation_type": "product_adoption",
+  "product": "Sansan",
+  "as_of": null,
+  "document": {
+   "url": "https://jp.sansan.com/case/nikko/",
+   "published": "2019-03-25T10:00:42",
+   "origin": "independent_primary_website",
+   "sha256": "85e062060f8e36835b8eb9972026204ad6623e8d94eb7a9a68d779f8d61b3484"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2018-11"
+ },
+ {
+  "id": "a761b974bc3713cef01e",
+  "source": {
+   "code": "4443"
+  },
+  "target": {
+   "code": "8053"
+  },
+  "relation_type": "product_adoption",
+  "product": "Sansan",
+  "as_of": null,
+  "document": {
+   "url": "https://jp.sansan.com/case/sumitomocorp/",
+   "published": "2018-05-29T01:00:00",
+   "origin": "independent_primary_website",
+   "sha256": "b1283713d30f725ab849d97fa919622f054a7e24a075b88ac9fcabee7c69bb4c"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2018-05"
+ },
+ {
+  "id": "a85a92205dac9999c956",
+  "source": {
+   "code": "4443"
+  },
+  "target": {
+   "code": "8802"
+  },
+  "relation_type": "product_adoption",
+  "product": "Sansan",
+  "as_of": null,
+  "document": {
+   "url": "https://jp.sansan.com/case/mec/",
+   "published": "2017-08-31T01:00:00",
+   "origin": "independent_primary_website",
+   "sha256": "d110f1c3ff6969202a0177ba9cffedc983b2d817edfcb90500fa052a8d267732"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2017-08"
+ },
+ {
+  "id": "05263320b8e31b95dc2f",
+  "source": {
+   "code": "4443"
+  },
+  "target": {
+   "code": "8801"
+  },
+  "relation_type": "product_adoption",
+  "product": "Sansan",
+  "as_of": null,
+  "document": {
+   "url": "https://jp.sansan.com/case/mitsuifudosan/",
+   "published": "2016-02-03T01:00:00",
+   "origin": "independent_primary_website",
+   "sha256": "69db37fe2dfefd9737d889828a519aa22d85689ccd2e11e58c7790f6c4bb6da8"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2016-02"
+ },
+ {
+  "id": "0323f926699d11520146",
+  "source": {
+   "code": "4443"
+  },
+  "target": {
+   "code": "4183"
+  },
+  "relation_type": "product_adoption",
+  "product": "Sansan",
+  "as_of": null,
+  "document": {
+   "url": "https://jp.sansan.com/case/mitsuichem/",
+   "published": "2015-08-28T01:00:00",
+   "origin": "independent_primary_website",
+   "sha256": "c04f800b5b04da11df2001a384a5d79ba93a959e6fd92770bd8b1b979cf938e2"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2015-08"
+ },
+ {
+  "id": "d01c7fdc4829ff760b45",
+  "source": {
+   "code": "4443"
+  },
+  "target": {
+   "code": "4428"
+  },
+  "relation_type": "product_adoption",
+  "product": "Sansan",
+  "as_of": null,
+  "document": {
+   "url": "https://jp.sansan.com/case/sinops/",
+   "published": "2022-11-24T13:26:44",
+   "origin": "independent_primary_website",
+   "sha256": "feae96b7e9efe1e7e9c403a78d6f2f7d525eeecb7be2abb6f31b5fbffe9b986f"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2022-11"
+ },
+ {
+  "id": "afef4b330a9554edd505",
+  "source": {
+   "code": "4443"
+  },
+  "target": {
+   "code": "4371"
+  },
+  "relation_type": "product_adoption",
+  "product": "Sansan",
+  "as_of": null,
+  "document": {
+   "url": "https://jp.sansan.com/case/cct/",
+   "published": "2021-12-27T10:27:15",
+   "origin": "independent_primary_website",
+   "sha256": "a9650dfba0dc5a2a9e5f78370f718a92bb32d344e9ffbc3deb32ff3c537b5e2d"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2021-10"
+ },
+ {
+  "id": "f73b0e2e4021e1c77158",
+  "source": {
+   "code": "4443"
+  },
+  "target": {
+   "code": "2914"
+  },
+  "relation_type": "product_adoption",
+  "product": "Sansan",
+  "as_of": null,
+  "document": {
+   "url": "https://jp.sansan.com/case/jti/",
+   "published": "2019-09-25T09:20:37",
+   "origin": "independent_primary_website",
+   "sha256": "215864a930bd200b529ee8a0df6914521706b72fa11cf90bbcc4f382a77b25f0"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2019-09"
+ },
+ {
+  "id": "b201cd20618f7112c00f",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "9997"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/belluna.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "bb9a81dc42a64e61e274067f72f5c63be78629a596ab606763883cf1b767371f"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e6d48e94bf74aacc8dd1",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "2432"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/dna.html",
+   "published": "2014-06-06",
+   "origin": "independent_primary_website",
+   "sha256": "a5fc8bc32882f0a5d3d9c2dabd87458c890a6e2bb7c6fe6dcfc05a8d3df6ce73"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5f40e4d0b5ed9766ed28",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "6247"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/hisakaseisakusyo.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ba12feb22016887dd9e8ab2aad33de06ba05a1844312bc7b7a606fd26832d48b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2014-05"
+ },
+ {
+  "id": "c1725f5b0fc16c50b10b",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "4751"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/cyberagent.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "67e3f46bdb57d9d2f27442b9b0bc01c692364b34cc191d2ecd61335d43b28590"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5eef135c349e092a9af8",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "4746"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/toukeidensan.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "94a4069f1535867eeb2ccfed1a353e81ad63417f4238e01cafd7261da6a3aa2a"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c300f9ab88a3e88a80f7",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "9434"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/softbank.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "16a1f478a4dec731840c298b3161bc0b2586937d987aa3a6e6c9e476db07cf9e"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b0931ab37a1de4c9e745",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "8830"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/sumitomofudosan.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d99e25b3a597be0d93ef4ac436a88fd906002b7186c5f636deece279ebe7d4f7"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1beac0e312d517b2ec00",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "7201"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/nissan.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ded05ca4fe61c9a04a5e0318637e02b7ae6f23c6d75945cf445b715f5a3e9cd9"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "74332104e04a82002392",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "4385"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/mercari.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "dc32f2b24b9db3300f8554e3ab7db943e0e5b381bb93dbd1b195d0cf63a69f07"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d59a11c8fe3d970598f0",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "4911"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/shiseido.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "4e314140b7a4dc237b56dc564f7938c0f8f7b9d0df059b880e99ad0195fd6691"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2017-04"
+ },
+ {
+  "id": "8f03232633d7402a3c28",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "2379"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/dip.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "63c2ebe1ad485acd40b8432cbd7060564cd2a369245144d202a65e11fecb1ec2"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "cc750d2481494b9afd41",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "9713"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/royalhotel.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "49714889552dfbe4bf0849dee0a564cd41c609f357216a172513859ee24f4e4d"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2018-09"
+ },
+ {
+  "id": "e8108c6dac7360e63248",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "8053"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/sumitomocorp.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "db8b1a9bc9b153efb601ddb2c2f065ad704ea13f5e0ee949bedb87cafa8da5e4"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "88fa0d0ca25ba903c8a6",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "6508"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/meidensya.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "dfe74980155184f0f17991cdb6d7303508b3e48fce095dfd51ee915272fcd371"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2018-12"
+ },
+ {
+  "id": "3730a5a19f00c9311382",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "2175"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/sms.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "268acc68d7e77aec1e80bca2c5b598e75fe8060c5bc4fd1e4c65ce63e122e1f3"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "23875da632cb2eaa61ca",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "3182"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/oisixradaichi.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "b785172e5417f0795e238fc36327ac22ff1025d5730dc1baa4da6b3a1bec0d24"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "97537d8fe229e8a81038",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "1966"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/takadacorporation.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "1e692a73a984f854ff29d16a20e7703014e5b030b5d288021212b46874ecbba4"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2020-09"
+ },
+ {
+  "id": "a98cd9835267258f4ebc",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "9005"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/tokyu.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6d7fb739cb51c22ffdab55c27920161d494a56466e16d84d68d72f12daa6c0ed"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d0a4340b293605cf40d3",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "5406"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/kobeseiko.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7a320ad842a13063265307f7e98687cf00f95dbbd42de123aa4022fcb2f4da73"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2020-12"
+ },
+ {
+  "id": "f315e2d2b11c14c60150",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "4058"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/toyokumo.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "b566194afeb57cc7a312a6721750b6ccfc07330ef232934ffa0c1f6205fc471d"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2021-02"
+ },
+ {
+  "id": "5f74b215d73b3437600f",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "7011"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/mitsubishi-hi.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "3abda273b266a29533f44e9568963e8eb1a6a17052a85edbc19e6712d42e23cb"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2021-03"
+ },
+ {
+  "id": "791c00d7e35026495681",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "3092"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/zozo.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "b17fc3c0660fd9d8ebd9405b1ce518344586edfceeca2c29445c7d8d3276526b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2021-07"
+ },
+ {
+  "id": "344018b47efc445cfe04",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "9503"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/kepco.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ee4768797ecef5519700971b5a5deca4540b25f33b56ece1684d39675e2fddd9"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2022-02"
+ },
+ {
+  "id": "d9f4dcd9d1de7d7bb013",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "6376"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/nikkiso.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ff9b091cdb4709832160efd6314b4d3fa761b648838ba6a3397b0d3de5ad3431"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "edab32b482a76aa36a37",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "3028"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/alpen.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "f8b82a590dd9d99aa2e982e84dc1c7dddc8d742fa6a65a27764cf48e939f7b31"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2022-07"
+ },
+ {
+  "id": "a222d32b1b07ece4a3bf",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "4849"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/en-japan.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "e6989b0f1440731351954474e267df6c25568a097fd4bdceb3822d56dc7ddd10"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2022-09"
+ },
+ {
+  "id": "6f4e32540274351b4260",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "6718"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/aiphone.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "5245a25a3fcaf74e0bdadcb2f7c1fde7b890975ae5d7e9479d24e2f49d87894c"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b7934e0170e504be9c44",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "4927"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/pola_orbis.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "a2bcbf032f9c7e7a241c7f75547e80a142192a13209187b39391e542856cc22b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2022-10"
+ },
+ {
+  "id": "b38395333eb958cd7f7f",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "6971"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/kyocera.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "1fb1a3684ae783c63baa49cf4dc86e67ef7f9ab2aa7ab5c85a92c1773c8f6c07"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2023-03"
+ },
+ {
+  "id": "cea0a5a425bfc593b40b",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "2590"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/dydo.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "56e4143fa239b64a6172209465284b7141914ddc1925894888faebe40a3f914b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2023-07"
+ },
+ {
+  "id": "364b7df43a157857fd03",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "4634"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/artience.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "698b46b3b1387c2b7f25a0d536e1f80a592387ae0cf29d4c93989747f102bcf7"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2024-11"
+ },
+ {
+  "id": "efab9426a212e337db64",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "5016"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/JX.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2bfee73adbb21a61f8f61b4bc49f66609ef8d50d42fef087ea8e81d843aaebd0"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2025-01"
+ },
+ {
+  "id": "5e672072cf2050984561",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "7984"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/kokuyo.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "46938bc93b0ef0c9dd414383e63077d14c58b0eed8e72d267e872dba6c233007"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "edbf5ce71756e903322b",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "9166"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/genda.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "3c83a295964043ad0717010040511563693754a21b8694f0c3eb80dc03b699ba"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2025-08"
+ },
+ {
+  "id": "2e74fdc50b09ef21679b",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "4507"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/shionogi.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6596838c1272dc8c0daca4cc6fa0d9cea59af8e91a4945cb33919df98f5bb7ea"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2025-08"
+ },
+ {
+  "id": "33045c5e8d404c0497a0",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "7201"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/nissan2.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "beb8004fe8cd0c3c66c45c0b060c6be65ac9a1f457acb0fdebd68ccd4fe5c63b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2025-10"
+ },
+ {
+  "id": "b826f2328ca6db192e2e",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "2708"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/kuze.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "30bbb7ad99a9eb09b924fbcdc0e237f927dc46f91436e2fb3f64b829efd5a467"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2026-03"
+ },
+ {
+  "id": "3b37acfcf58fa9ccbf42",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "9005"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/tokyu2.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d769860ffefa3297ee27dd15c525c527b6c7187fafbbf916cfaffc693c339e08"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2026-02"
+ },
+ {
+  "id": "d671bcda782554828075",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "9505"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/rikuden.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "36ae4324b6a6b7997217d004264ad42574c15d02c4f13dcb40c3c5bdad886d6e"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2026-04"
+ },
+ {
+  "id": "7eac29a723375004e568",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "4667"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/aisantechnology.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "453df58811d1b31d0485d3fdbbf4a914d83edf089a425300003e776edae4b089"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2026-04"
+ },
+ {
+  "id": "63da4602b7e2307470a3",
+  "source": {
+   "code": "4776"
+  },
+  "target": {
+   "code": "9511"
+  },
+  "relation_type": "product_adoption",
+  "product": "kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://kintone-sol.cybozu.co.jp/cases/okiden.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "115fe821c2b14dea2d25103d88b03c869373db8b358634130b99af10ba3252c5"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  },
+  "information_period": "2026-06"
+ },
+ {
+  "id": "88b541ea87ec8a9e9293",
+  "source": {
+   "code": "3923"
+  },
+  "target": {
+   "code": "7952"
+  },
+  "relation_type": "product_adoption",
+  "product": "楽楽精算",
+  "as_of": null,
+  "document": {
+   "url": "https://www.rakus.co.jp/rakurakucloud/seisan/case/casestudies_kawai.php",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2ced42fd077dd842d03deec5ea6310649a75c9281add71112e463f4f51a9560b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b9cd8e07b55e330e2b6f",
+  "source": {
+   "code": "3923"
+  },
+  "target": {
+   "code": "2168"
+  },
+  "relation_type": "product_adoption",
+  "product": "楽楽精算",
+  "as_of": null,
+  "document": {
+   "url": "https://www.rakus.co.jp/rakurakucloud/seisan/case/casestudies_pasonagroup.php",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "a5f7057808ec93464255a71d26c4466808e2e1199dc33eb2b50d83b133dfd2f6"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "89f5da75eefbc9dd7c84",
+  "source": {
+   "code": "3923"
+  },
+  "target": {
+   "code": "7226"
+  },
+  "relation_type": "product_adoption",
+  "product": "楽楽精算",
+  "as_of": null,
+  "document": {
+   "url": "https://www.rakus.co.jp/rakurakucloud/seisan/case/casestudies_kyokuto.php",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6241e65aa517fdf25116cc0c5b3a22e35ceded8629391e9a9d4f1fba6d32c8ea"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0896e9e60d151a9be43e",
+  "source": {
+   "code": "3923"
+  },
+  "target": {
+   "code": "4023"
+  },
+  "relation_type": "product_adoption",
+  "product": "楽楽精算",
+  "as_of": null,
+  "document": {
+   "url": "https://www.rakus.co.jp/rakurakucloud/seisan/case/casestudies_kureha.php",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "34c92d3eedabed578ad873618a5b590edd3fb747acf490ffeb7113601eaa8047"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "98ed4f762d21451a02f2",
+  "source": {
+   "code": "3923"
+  },
+  "target": {
+   "code": "2209"
+  },
+  "relation_type": "product_adoption",
+  "product": "楽楽精算",
+  "as_of": null,
+  "document": {
+   "url": "https://www.rakus.co.jp/rakurakucloud/seisan/case/casestudies_imuraya-group.php",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6d38b6baa387b284344e2dbb6f6a36d859a4e05f0b8913cf9d1986b859488222"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "12b1c84dfcc915336331",
+  "source": {
+   "code": "3923"
+  },
+  "target": {
+   "code": "2378"
+  },
+  "relation_type": "product_adoption",
+  "product": "楽楽精算",
+  "as_of": null,
+  "document": {
+   "url": "https://www.rakus.co.jp/rakurakucloud/seisan/case/casestudies_renaissance.php",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ea198187c36f7d84b73889956ce8978ddd8be26bb456ecfa99c578b5b21685c6"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "518fe6cf401f6dce5312",
+  "source": {
+   "code": "3923"
+  },
+  "target": {
+   "code": "7823"
+  },
+  "relation_type": "product_adoption",
+  "product": "楽楽精算",
+  "as_of": null,
+  "document": {
+   "url": "https://www.rakus.co.jp/rakurakucloud/seisan/case/casestudies_artnature.php",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ba20fd15ae79bd17f6640ffeb64b86329f1f8df83cda146fb20db32625d61cbc"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d948d867c45432c396d4",
+  "source": {
+   "code": "3923"
+  },
+  "target": {
+   "code": "336A"
+  },
+  "relation_type": "product_adoption",
+  "product": "楽楽精算",
+  "as_of": null,
+  "document": {
+   "url": "https://www.rakus.co.jp/rakurakucloud/seisan/case/casestudies_dynamic-maps.php",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6f308207c50b563ac76c83370fd3bc4acd6b2316c3b290d6d3bbc16083d26706"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "291368f9d4dc888b957b",
+  "source": {
+   "code": "3923"
+  },
+  "target": {
+   "code": "3778"
+  },
+  "relation_type": "product_adoption",
+  "product": "楽楽精算",
+  "as_of": null,
+  "document": {
+   "url": "https://www.rakus.co.jp/rakurakucloud/seisan/case/casestudies_sakura_internet.php",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "a92df811f8f308a956e0b6e0f032ef9078fe16ac494a4f1f984b646fd81ea7ed"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0e95df0240fbf24baba2",
+  "source": {
+   "code": "3923"
+  },
+  "target": {
+   "code": "9551"
+  },
+  "relation_type": "product_adoption",
+  "product": "楽楽精算",
+  "as_of": null,
+  "document": {
+   "url": "https://www.rakus.co.jp/rakurakucloud/seisan/case/casestudies_metawater.php",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "5b5506755aa8e81496168201d3e7e69ea94fa4ffe83e7e0f5229dfbcaecfdd2f"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "536f8c26f88d920c6178",
+  "source": {
+   "code": "3923"
+  },
+  "target": {
+   "code": "6069"
+  },
+  "relation_type": "product_adoption",
+  "product": "楽楽精算",
+  "as_of": null,
+  "document": {
+   "url": "https://www.rakus.co.jp/rakurakucloud/seisan/case/casestudies_trenders.php",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "dce55a94fcd032fa40a710ac862e01917de286421fa7287621c8f3b2a1599061"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0500ad495f4ca67bf53f",
+  "source": {
+   "code": "3923"
+  },
+  "target": {
+   "code": "4766"
+  },
+  "relation_type": "product_adoption",
+  "product": "楽楽精算",
+  "as_of": null,
+  "document": {
+   "url": "https://www.rakus.co.jp/rakurakucloud/seisan/case/casestudies_pa.php",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "5dae74938240bfbddc8fd73a87dde8819e9cec8447231a60be986a8e23c5bfeb"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "32d8c11d2af7f93407a7",
+  "source": {
+   "code": "3923"
+  },
+  "target": {
+   "code": "4933"
+  },
+  "relation_type": "product_adoption",
+  "product": "楽楽精算",
+  "as_of": null,
+  "document": {
+   "url": "https://www.rakus.co.jp/rakurakucloud/seisan/case/casestudies_I-ne.php",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "e76f197a3d5966d5bf5df16762662ecf5d8c91257e9a3109b0609a15860627eb"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "00b26a4456dc32a4140f",
+  "source": {
+   "code": "1716"
+  },
+  "target": {
+   "code": "4704"
+  },
+  "relation_type": "interlocking_director",
+  "person": "船本美和子",
+  "roles": {
+   "1716": "監査役",
+   "4704": "監査役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.az-com-maruwa-hd.co.jp/corporate/board.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "4baafc2b31d8a69fddd651cf8d736e1808a7552888d2c5617987916531280535"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "03f9f1dd50f85de0af98",
+   "746aacc1fcacfc1dff12"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "511bd8e451ea27af1346",
+  "source": {
+   "code": "3267"
+  },
+  "target": {
+   "code": "3904"
+  },
+  "relation_type": "interlocking_director",
+  "person": "松本直人",
+  "roles": {
+   "3267": "取締役（監査等委員）",
+   "3904": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.smartvalue.ad.jp/company/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "05ff70e8f830987633f15ce6021794f05ea1c126141c9d440da557a6343e835b"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "551607f52d5f7d01e75c",
+   "b5487665483ead570fb9"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "02a6d126d207efda3fb4",
+  "source": {
+   "code": "3267"
+  },
+  "target": {
+   "code": "4167"
+  },
+  "relation_type": "interlocking_director",
+  "person": "松本直人",
+  "roles": {
+   "3267": "取締役（監査等委員）",
+   "4167": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.smartvalue.ad.jp/company/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "05ff70e8f830987633f15ce6021794f05ea1c126141c9d440da557a6343e835b"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "551607f52d5f7d01e75c",
+   "a79dca3d90a8aa30c5ed"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "82eeaa906908ff7bc2b2",
+  "source": {
+   "code": "3904"
+  },
+  "target": {
+   "code": "4167"
+  },
+  "relation_type": "interlocking_director",
+  "person": "松本直人",
+  "roles": {
+   "3904": "取締役（監査等委員）",
+   "4167": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.smartvalue.ad.jp/company/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "05ff70e8f830987633f15ce6021794f05ea1c126141c9d440da557a6343e835b"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "a79dca3d90a8aa30c5ed",
+   "b5487665483ead570fb9"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9ec10877ec7dc9bd670d",
+  "source": {
+   "code": "4220"
+  },
+  "target": {
+   "code": "5563"
+  },
+  "relation_type": "interlocking_director",
+  "person": "末村あおぎ",
+  "roles": {
+   "4220": "取締役（監査等委員）",
+   "5563": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.nomura-re-hd.co.jp/ir/pdf/AR2025_A3_j.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "fba1371a8ed778994170de451151f91b72514f349de569d1d923f57cecac287e"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "855cdb1847725b4946d3",
+   "d3f8b7d1caf5a28826a1"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "27c5bf81d5bf8feb6adc",
+  "source": {
+   "code": "6087"
+  },
+  "target": {
+   "code": "7951"
+  },
+  "relation_type": "interlocking_director",
+  "person": "江幡奈歩",
+  "roles": {
+   "6087": "取締役（監査等委員）",
+   "7951": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.techmatrix.co.jp/ir/upload_file/m005-m005_07/techmatrix2025_view.pdf",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "a3c38dd186bd935d9d7f0644548f7c11dce28b3634bbb91d3460756af9ada9e9"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "15349036b3cf72bd364c",
+   "72efeb5be7cef28c1de7"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3bf39768c31e97d7c83a",
+  "source": {
+   "code": "4523"
+  },
+  "target": {
+   "code": "6258"
+  },
+  "relation_type": "interlocking_director",
+  "person": "上田亮子",
+  "roles": {
+   "4523": "取締役（監査委員）",
+   "6258": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.eisai.co.jp/company/profile/officer/ryoko-ueda.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "8847d3b096ec262ecf1c6936e89f78b7d3d56d8670e71e77cab67eae875473de"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "690e5ff154833c6ad342",
+  "source": {
+   "code": "4343"
+  },
+  "target": {
+   "code": "3179"
+  },
+  "relation_type": "interlocking_director",
+  "person": "草島智咲",
+  "roles": {
+   "4343": "取締役",
+   "3179": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.fantasy.co.jp/company/companyinfo/about/about01.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "fd0d57c9a2db22ef5376c227873a3b5f6e14b84167f70de5eca832cd6c375a90"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2c3ea604ddd8421fd3c0",
+  "source": {
+   "code": "4343"
+  },
+  "target": {
+   "code": "3641"
+  },
+  "relation_type": "interlocking_director",
+  "person": "齋藤政彦",
+  "roles": {
+   "4343": "取締役",
+   "3641": "監査役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.fantasy.co.jp/company/companyinfo/about/about01.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "fd0d57c9a2db22ef5376c227873a3b5f6e14b84167f70de5eca832cd6c375a90"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bcb7bc88baf6577a1d49",
+  "source": {
+   "code": "4343"
+  },
+  "target": {
+   "code": "9788"
+  },
+  "relation_type": "interlocking_director",
+  "person": "山下真実",
+  "roles": {
+   "4343": "取締役",
+   "9788": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.fantasy.co.jp/company/companyinfo/about/about01.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "fd0d57c9a2db22ef5376c227873a3b5f6e14b84167f70de5eca832cd6c375a90"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f25d0fa383f42f9f6223",
+  "source": {
+   "code": "3560"
+  },
+  "target": {
+   "code": "7351"
+  },
+  "relation_type": "interlocking_director",
+  "person": "佐田俊樹",
+  "roles": {
+   "3560": "監査役",
+   "7351": "監査役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.hobonichi.co.jp/company/officer.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "e4cda074811b1cdbe9d99f3892af4c99a56f6c69b7a21a4d55ddd108483907ab"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "33a18d9eb00db9babf18",
+  "source": {
+   "code": "7867"
+  },
+  "target": {
+   "code": "2587"
+  },
+  "relation_type": "interlocking_director",
+  "person": "三村まり子",
+  "roles": {
+   "7867": "取締役（監査等委員）",
+   "2587": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.takaratomy.co.jp/company/officer.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "96c7a627d94736413632c78949f881fe03f7e6e39694addb27a17d5d32c6aa55"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "caf496a3582fafdc45b8",
+  "source": {
+   "code": "7867"
+  },
+  "target": {
+   "code": "6952"
+  },
+  "relation_type": "interlocking_director",
+  "person": "原夏代",
+  "roles": {
+   "7867": "取締役（監査等委員）",
+   "6952": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.takaratomy.co.jp/company/officer.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "96c7a627d94736413632c78949f881fe03f7e6e39694addb27a17d5d32c6aa55"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "59c8fab468c500513b59",
+  "source": {
+   "code": "7867"
+  },
+  "target": {
+   "code": "7157"
+  },
+  "relation_type": "interlocking_director",
+  "person": "原夏代",
+  "roles": {
+   "7867": "取締役（監査等委員）",
+   "7157": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.takaratomy.co.jp/company/officer.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "96c7a627d94736413632c78949f881fe03f7e6e39694addb27a17d5d32c6aa55"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "11ee1dcbc631b3495c42",
+  "source": {
+   "code": "4088"
+  },
+  "target": {
+   "code": "6479"
+  },
+  "relation_type": "interlocking_director",
+  "person": "芳賀裕子",
+  "roles": {
+   "4088": "取締役",
+   "6479": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.awi.co.jp/ja/company/outline/director.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37686ffe086ce7c14d53fee21db28d4cd6e72a7e18940aae2c89a83d76ecf318"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "665cc7a1886e64980d07",
+  "source": {
+   "code": "4212"
+  },
+  "target": {
+   "code": "2301"
+  },
+  "relation_type": "interlocking_director",
+  "person": "辻内章",
+  "roles": {
+   "4212": "監査役",
+   "2301": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.sekisuijushi.co.jp/corporate/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d602f5e05b8b3c0893d81104f8892fefe4725794ed0b1a9b84d41630c7c0bbc0"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e4c3cb4ec13c3580b8dc",
+  "source": {
+   "code": "4212"
+  },
+  "target": {
+   "code": "6674"
+  },
+  "relation_type": "interlocking_director",
+  "person": "辻内章",
+  "roles": {
+   "4212": "監査役",
+   "6674": "監査役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.sekisuijushi.co.jp/corporate/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d602f5e05b8b3c0893d81104f8892fefe4725794ed0b1a9b84d41630c7c0bbc0"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c50a34df22876d86c11a",
+  "source": {
+   "code": "3064"
+  },
+  "target": {
+   "code": "3116"
+  },
+  "relation_type": "interlocking_director",
+  "person": "三浦洋",
+  "roles": {
+   "3064": "取締役（監査委員）",
+   "3116": "監査役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://corp.monotaro.com/ir/management/management_03.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "f3bbaa1247854d789bf7fba0cb951d2111b355806f5ffe2c561c9f4a0a57a26a"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2f8b568a505b8ba5d29f",
+  "source": {
+   "code": "3064"
+  },
+  "target": {
+   "code": "6645"
+  },
+  "relation_type": "interlocking_director",
+  "person": "三浦洋",
+  "roles": {
+   "3064": "取締役（監査委員）",
+   "6645": "監査役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://corp.monotaro.com/ir/management/management_03.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "f3bbaa1247854d789bf7fba0cb951d2111b355806f5ffe2c561c9f4a0a57a26a"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9328a07104e81ed0dba9",
+  "source": {
+   "code": "3064"
+  },
+  "target": {
+   "code": "6963"
+  },
+  "relation_type": "interlocking_director",
+  "person": "PeterKenevan",
+  "roles": {
+   "3064": "取締役",
+   "6963": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://corp.monotaro.com/ir/management/management_03.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "f3bbaa1247854d789bf7fba0cb951d2111b355806f5ffe2c561c9f4a0a57a26a"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0f1c30f86cf1bfd2912f",
+  "source": {
+   "code": "2282"
+  },
+  "target": {
+   "code": "8002"
+  },
+  "relation_type": "interlocking_director",
+  "person": "宮崎裕子",
+  "roles": {
+   "2282": "取締役",
+   "8002": "監査役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.nipponham.co.jp/corporate/group/outline/executive.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "222f3395343a0ad79efde398980f88521ce9487553cab62f976ad78d47ca74ab"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "19939c1f68ec78f0281a",
+  "source": {
+   "code": "2676"
+  },
+  "target": {
+   "code": "6778"
+  },
+  "relation_type": "interlocking_director",
+  "person": "串間和彦",
+  "roles": {
+   "2676": "取締役",
+   "6778": "監査役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://corp.takachiho-kk.co.jp/corp/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "96b88e710c7e558b4db9de711fa20073a8f2cd8ad22bb3eb0b432db28fc6ff25"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "eebc588a7aad31cfe630",
+  "source": {
+   "code": "1430"
+  },
+  "target": {
+   "code": "3010"
+  },
+  "relation_type": "interlocking_director",
+  "person": "諸橋隆章",
+  "roles": {
+   "1430": "取締役（監査等委員）",
+   "3010": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.1st-corp.com/company/directors/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "3fe00b9ba9110bb5288042e6418069291a26bc9a1604530915eac3542b65e666"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0c8cf1882bb2265ca9b4",
+  "source": {
+   "code": "1430"
+  },
+  "target": {
+   "code": "3538"
+  },
+  "relation_type": "interlocking_director",
+  "person": "植野和宏",
+  "roles": {
+   "1430": "取締役（監査等委員）",
+   "3538": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.1st-corp.com/company/directors/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "3fe00b9ba9110bb5288042e6418069291a26bc9a1604530915eac3542b65e666"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "4d16cd5f95702dbfa243",
+  "source": {
+   "code": "4668"
+  },
+  "target": {
+   "code": "7616"
+  },
+  "relation_type": "interlocking_director",
+  "person": "熊王斉子",
+  "roles": {
+   "4668": "取締役（監査等委員）",
+   "7616": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.meikonet.co.jp/ja/corporate/directors.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "5ffee53e1485fc6c1a48795635866b0132c095834d4c655ad0be40f9e695acc2"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "daf1dad2596ad2649447",
+  "source": {
+   "code": "2154"
+  },
+  "target": {
+   "code": "3928"
+  },
+  "relation_type": "interlocking_director",
+  "person": "和田洋一",
+  "roles": {
+   "2154": "取締役",
+   "3928": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://openupgroup.co.jp/company/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "be69a8dec370ef0144cc8abbb7b030caf921e475ebb31ad8a1c54f19eda4649f"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6eaad7091eec3ffd1f52",
+  "source": {
+   "code": "2154"
+  },
+  "target": {
+   "code": "4199"
+  },
+  "relation_type": "interlocking_director",
+  "person": "和田洋一",
+  "roles": {
+   "2154": "取締役",
+   "4199": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://openupgroup.co.jp/company/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "be69a8dec370ef0144cc8abbb7b030caf921e475ebb31ad8a1c54f19eda4649f"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "54f572fafceb5c8e4edf",
+  "source": {
+   "code": "2154"
+  },
+  "target": {
+   "code": "5253"
+  },
+  "relation_type": "interlocking_director",
+  "person": "和田洋一",
+  "roles": {
+   "2154": "取締役",
+   "5253": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://openupgroup.co.jp/company/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "be69a8dec370ef0144cc8abbb7b030caf921e475ebb31ad8a1c54f19eda4649f"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2725eb09f24f2d19358e",
+  "source": {
+   "code": "2154"
+  },
+  "target": {
+   "code": "7110"
+  },
+  "relation_type": "interlocking_director",
+  "person": "和田洋一",
+  "roles": {
+   "2154": "取締役",
+   "7110": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://openupgroup.co.jp/company/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "be69a8dec370ef0144cc8abbb7b030caf921e475ebb31ad8a1c54f19eda4649f"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6e8c0c76d29127e929b0",
+  "source": {
+   "code": "1377"
+  },
+  "target": {
+   "code": "2997"
+  },
+  "relation_type": "interlocking_director",
+  "person": "田中公子",
+  "roles": {
+   "1377": "監査役",
+   "2997": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://corporate.sakataseed.co.jp/company/executives.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "675a40a6ad9cc9d45d6e69db48a533b39aa14ba7827be1aa8301fe93450413d8"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a755bca1639bd80d007c",
+  "source": {
+   "code": "1377"
+  },
+  "target": {
+   "code": "3955"
+  },
+  "relation_type": "interlocking_director",
+  "person": "田中公子",
+  "roles": {
+   "1377": "監査役",
+   "3955": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://corporate.sakataseed.co.jp/company/executives.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "675a40a6ad9cc9d45d6e69db48a533b39aa14ba7827be1aa8301fe93450413d8"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "128ab212ea4ac9a032b4",
+  "source": {
+   "code": "1377"
+  },
+  "target": {
+   "code": "4568"
+  },
+  "relation_type": "interlocking_director",
+  "person": "渡辺雅子",
+  "roles": {
+   "1377": "取締役",
+   "4568": "監査役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://corporate.sakataseed.co.jp/company/executives.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "675a40a6ad9cc9d45d6e69db48a533b39aa14ba7827be1aa8301fe93450413d8"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c46552dc21631e1b4059",
+  "source": {
+   "code": "1377"
+  },
+  "target": {
+   "code": "6062"
+  },
+  "relation_type": "interlocking_director",
+  "person": "田中公子",
+  "roles": {
+   "1377": "監査役",
+   "6062": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://corporate.sakataseed.co.jp/company/executives.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "675a40a6ad9cc9d45d6e69db48a533b39aa14ba7827be1aa8301fe93450413d8"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "fdba0b2fb462a5a00779",
+  "source": {
+   "code": "3405"
+  },
+  "target": {
+   "code": "6305"
+  },
+  "relation_type": "interlocking_director",
+  "person": "伊藤正明",
+  "roles": {
+   "3405": "取締役",
+   "6305": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.kuraray.com/jp-ja/company/directors/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "1b6dab3dab2759bfdd9377bb9ec52d6a923c4d6148c3bf7cc484d4f5732724f5"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "10220e9c1b178c762feb",
+  "source": {
+   "code": "3405"
+  },
+  "target": {
+   "code": "6701"
+  },
+  "relation_type": "interlocking_director",
+  "person": "谷津朋美",
+  "roles": {
+   "3405": "監査役",
+   "6701": "取締役（監査委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.kuraray.com/jp-ja/company/directors/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "1b6dab3dab2759bfdd9377bb9ec52d6a923c4d6148c3bf7cc484d4f5732724f5"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1941f5593a8fcd994d49",
+  "source": {
+   "code": "3405"
+  },
+  "target": {
+   "code": "9324"
+  },
+  "relation_type": "interlocking_director",
+  "person": "藤井信行",
+  "roles": {
+   "3405": "監査役",
+   "9324": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.kuraray.com/jp-ja/company/directors/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "1b6dab3dab2759bfdd9377bb9ec52d6a923c4d6148c3bf7cc484d4f5732724f5"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9b92ee1e10ad0f9a2ca1",
+  "source": {
+   "code": "4819"
+  },
+  "target": {
+   "code": "8237"
+  },
+  "relation_type": "interlocking_director",
+  "person": "石戸奈々子",
+  "roles": {
+   "4819": "取締役",
+   "8237": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.garage.co.jp/company/directors/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "317bb391501377ee87f9db81868636a872d11663af0319c0e5f84b865f364002"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "70f13b0ee8be05f7273d",
+  "source": {
+   "code": "9766"
+  },
+  "target": {
+   "code": "5981"
+  },
+  "relation_type": "interlocking_director",
+  "person": "樋口靖",
+  "roles": {
+   "9766": "取締役（監査等委員）",
+   "5981": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.konami.com/corporate/ja/data/profile.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "8aef48a66096b38681622c0606fb937df163ef9752ccbdb140b83ef9b81dc0e9"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3cf1305687105b6fd509",
+  "source": {
+   "code": "6584"
+  },
+  "target": {
+   "code": "147A"
+  },
+  "relation_type": "interlocking_director",
+  "person": "入山章栄",
+  "roles": {
+   "6584": "取締役",
+   "147A": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.sanoh.com/corporate/executives",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "12775c7bc180b296bfdaa8ec8ab12175f14c04c206ea72d49602ff62808c5dbb"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a617d3e941c7d6445cb1",
+  "source": {
+   "code": "6584"
+  },
+  "target": {
+   "code": "2378"
+  },
+  "relation_type": "interlocking_director",
+  "person": "古川絵里",
+  "roles": {
+   "6584": "監査役",
+   "2378": "監査役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.sanoh.com/corporate/executives",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "12775c7bc180b296bfdaa8ec8ab12175f14c04c206ea72d49602ff62808c5dbb"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "191c3338f93b3929ef5e",
+  "source": {
+   "code": "6584"
+  },
+  "target": {
+   "code": "3747"
+  },
+  "relation_type": "interlocking_director",
+  "person": "平石智紀",
+  "roles": {
+   "6584": "監査役",
+   "3747": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.sanoh.com/corporate/executives",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "12775c7bc180b296bfdaa8ec8ab12175f14c04c206ea72d49602ff62808c5dbb"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "24d860f69715baec3830",
+  "source": {
+   "code": "6584"
+  },
+  "target": {
+   "code": "4293"
+  },
+  "relation_type": "interlocking_director",
+  "person": "入山章栄",
+  "roles": {
+   "6584": "取締役",
+   "4293": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.sanoh.com/corporate/executives",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "12775c7bc180b296bfdaa8ec8ab12175f14c04c206ea72d49602ff62808c5dbb"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7341c38ff2eafa8f406b",
+  "source": {
+   "code": "6584"
+  },
+  "target": {
+   "code": "4527"
+  },
+  "relation_type": "interlocking_director",
+  "person": "入山章栄",
+  "roles": {
+   "6584": "取締役",
+   "4527": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.sanoh.com/corporate/executives",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "12775c7bc180b296bfdaa8ec8ab12175f14c04c206ea72d49602ff62808c5dbb"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "28d0644a8e528bec64f1",
+  "source": {
+   "code": "3560"
+  },
+  "target": {
+   "code": "2767"
+  },
+  "relation_type": "interlocking_director",
+  "person": "山本英俊",
+  "roles": {
+   "3560": "取締役",
+   "2767": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.hobonichi.co.jp/company/officer.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "e4cda074811b1cdbe9d99f3892af4c99a56f6c69b7a21a4d55ddd108483907ab"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "86c9a3eeae1c96d9e600",
+  "source": {
+   "code": "9869"
+  },
+  "target": {
+   "code": "5803"
+  },
+  "relation_type": "interlocking_director",
+  "person": "中村明日香",
+  "roles": {
+   "9869": "監査役",
+   "5803": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.katosangyo.co.jp/company/directors/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6af6a5941ab597ddd3dc94245bb4ae2445d9a42e795166a11b178f3aba34d21c"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e22c8fbb45d5a0358e55",
+  "source": {
+   "code": "9869"
+  },
+  "target": {
+   "code": "6383"
+  },
+  "relation_type": "interlocking_director",
+  "person": "中村明日香",
+  "roles": {
+   "9869": "監査役",
+   "6383": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.katosangyo.co.jp/company/directors/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6af6a5941ab597ddd3dc94245bb4ae2445d9a42e795166a11b178f3aba34d21c"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1eef4fda349917040544",
+  "source": {
+   "code": "4552"
+  },
+  "target": {
+   "code": "9006"
+  },
+  "relation_type": "interlocking_director",
+  "person": "末綱隆",
+  "roles": {
+   "4552": "取締役",
+   "9006": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.jcrpharm.co.jp/company/management/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "39a30196650385eef663b90163d2e28e1932dd4df28bda794e9b8d4cbb771a84"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "cbb6c28e380de92ffb85",
+  "source": {
+   "code": "8570"
+  },
+  "target": {
+   "code": "3708"
+  },
+  "relation_type": "interlocking_director",
+  "person": "長坂隆",
+  "roles": {
+   "8570": "取締役",
+   "3708": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.aeonfinancial.co.jp/corp/exec/exec_31/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "86ccb78fc85473dec23fd91e190e98a72eef7495d09d5abf90a12c5cbce27ece"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d8991d0f3f73dc1177fe",
+  "source": {
+   "code": "6584"
+  },
+  "target": {
+   "code": "6923"
+  },
+  "relation_type": "interlocking_director",
+  "person": "竹田陽三",
+  "roles": {
+   "6584": "取締役",
+   "6923": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.sanoh.com/corporate/executives",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "12775c7bc180b296bfdaa8ec8ab12175f14c04c206ea72d49602ff62808c5dbb"
+  },
+  "topic": "企業公式の役員紹介・現在の重要な兼職",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ceres-crypto-mercury-subsidiary",
+  "source": {
+   "code": "3696"
+  },
+  "target": {
+   "name": "株式会社マーキュリー（CoinTrade運営・セレス子会社）"
+  },
+  "relation_type": "parent_subsidiary",
+  "document": {
+   "url": "https://ceres-inc.jp/news/detail/20251210-2/",
+   "published": "2025-12-10",
+   "origin": "independent_primary_release",
+   "sha256": "4ae8b981da8b820fc82b8cb63ab678e4c9c83b3ca0be2be88520894b9433b71e"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "25cae7d888e691ec8d79",
+  "source": {
+   "code": "8031"
+  },
+  "target": {
+   "code": "2109"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.msdm-hd.com/ir/benefit/information/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "72a088b36056d8e42e2d1dfefc4fb2109a7248b423ceec873d42ad88ce30c0af",
+   "table_index": 2,
+   "row_index": 1
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "56b2e77d17516f4c10af",
+  "source": {
+   "code": "8058"
+  },
+  "target": {
+   "code": "2109"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.msdm-hd.com/ir/benefit/information/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "72a088b36056d8e42e2d1dfefc4fb2109a7248b423ceec873d42ad88ce30c0af",
+   "table_index": 2,
+   "row_index": 2
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "09d43b23fa297594569b",
+  "source": {
+   "code": "2108"
+  },
+  "target": {
+   "code": "2109"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.msdm-hd.com/ir/benefit/information/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "72a088b36056d8e42e2d1dfefc4fb2109a7248b423ceec873d42ad88ce30c0af",
+   "table_index": 2,
+   "row_index": 7
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "918ca1498517039f552d",
+  "source": {
+   "code": "2923"
+  },
+  "target": {
+   "code": "2904"
+  },
+  "relation_type": "ownership",
+  "as_of": "2025-06-30",
+  "document": {
+   "url": "https://corporate.ichimasa.co.jp/ir/stock/info/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "09f7f074e30474050d30727d37bf43fe6c583519f8cc8ab7ff39bef0489f3a34",
+   "table_index": 2,
+   "row_index": 4
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "cda7046d8544c82c908d",
+  "source": {
+   "code": "2349"
+  },
+  "target": {
+   "code": "3768"
+  },
+  "relation_type": "ownership",
+  "as_of": null,
+  "document": {
+   "url": "https://www.riskmonster.co.jp/corporate/ir/stock/status/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "96ddc44db22a491110345fed724568c40233a3517c0afd1ef7e09d9687c363f7",
+   "table_index": 1,
+   "row_index": 6
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "851958c548806a15490b",
+  "source": {
+   "code": "4733"
+  },
+  "target": {
+   "code": "3768"
+  },
+  "relation_type": "ownership",
+  "as_of": null,
+  "document": {
+   "url": "https://www.riskmonster.co.jp/corporate/ir/stock/status/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "96ddc44db22a491110345fed724568c40233a3517c0afd1ef7e09d9687c363f7",
+   "table_index": 1,
+   "row_index": 8
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f9cbffeba7b2aa6114dd",
+  "source": {
+   "code": "3762"
+  },
+  "target": {
+   "code": "3768"
+  },
+  "relation_type": "ownership",
+  "as_of": null,
+  "document": {
+   "url": "https://www.riskmonster.co.jp/corporate/ir/stock/status/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "96ddc44db22a491110345fed724568c40233a3517c0afd1ef7e09d9687c363f7",
+   "table_index": 1,
+   "row_index": 9
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "39a3fa70da2191de3464",
+  "source": {
+   "code": "8604"
+  },
+  "target": {
+   "code": "4307"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://ir.nri.com/jp/ir/stock/stock.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2559c27d69702c348d9880ad47827f78c7e641d11fe96f69c0713a504d15a7c6",
+   "table_index": 8,
+   "row_index": 1
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "06d92a3cf30dfde88faf",
+  "source": {
+   "code": "1833"
+  },
+  "target": {
+   "code": "5923"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.takadakiko.com/ir/information.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "0fbfaa3a23525473ca42e7c47f5cd91055f877ae58ae10e844feca8983cef013",
+   "table_index": 1,
+   "row_index": 3
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "af48261aaef1674cb2e7",
+  "source": {
+   "code": "8370"
+  },
+  "target": {
+   "code": "5923"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.takadakiko.com/ir/information.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "0fbfaa3a23525473ca42e7c47f5cd91055f877ae58ae10e844feca8983cef013",
+   "table_index": 1,
+   "row_index": 6
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a4141ae31bbc83f6ea1b",
+  "source": {
+   "code": "5020"
+  },
+  "target": {
+   "code": "7441"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://kk-misumi.jp/stock",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "79d17d42465e21a20feb37d65ba7c3fa4af057776e2c9ffda4165f193cf528bf",
+   "table_index": 0,
+   "row_index": 2
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6b21c091580186bccb27",
+  "source": {
+   "code": "5105"
+  },
+  "target": {
+   "code": "7441"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://kk-misumi.jp/stock",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "79d17d42465e21a20feb37d65ba7c3fa4af057776e2c9ffda4165f193cf528bf",
+   "table_index": 0,
+   "row_index": 6
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1be132a1a5a4eface8c3",
+  "source": {
+   "code": "8001"
+  },
+  "target": {
+   "code": "8439"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.tokyocentury.co.jp/jp/ir/stock/basic.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "347a4321fb0f7c19ab88ef0c2ff5abc0b6079389ea835e7f42db2cb92bf221de",
+   "table_index": 1,
+   "row_index": 1
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3b77f8ad182e984f6d29",
+  "source": {
+   "code": "9432"
+  },
+  "target": {
+   "code": "8439"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.tokyocentury.co.jp/jp/ir/stock/basic.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "347a4321fb0f7c19ab88ef0c2ff5abc0b6079389ea835e7f42db2cb92bf221de",
+   "table_index": 1,
+   "row_index": 3
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1ea5eadb7875af8e031c",
+  "source": {
+   "code": "7189"
+  },
+  "target": {
+   "code": "8596"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.k-lease.co.jp/ja/ir/stock/status.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "86132e5b60b512adfb9bebbe6c03e4ebd0e27accd692311b5d661b1e0f6c4cdd",
+   "table_index": 7,
+   "row_index": 1
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "723f247b5b6215f083be",
+  "source": {
+   "code": "9474"
+  },
+  "target": {
+   "code": "8596"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.k-lease.co.jp/ja/ir/stock/status.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "86132e5b60b512adfb9bebbe6c03e4ebd0e27accd692311b5d661b1e0f6c4cdd",
+   "table_index": 7,
+   "row_index": 7
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "949d00003ba26aab64a0",
+  "source": {
+   "code": "7782"
+  },
+  "target": {
+   "code": "9332"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-06-30",
+  "document": {
+   "url": "https://www.nisso-hd.com/ir/stock-bond/shareholder.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "89d42b9d11cfcad9789605ebf100f1ab0feaa482d43b3373543b6fb9116ae438",
+   "table_index": 1,
+   "row_index": 8
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "eece9f960b8e5d27a10e",
+  "source": {
+   "code": "9432"
+  },
+  "target": {
+   "code": "9474"
+  },
+  "relation_type": "ownership",
+  "as_of": "2026-03-31",
+  "document": {
+   "url": "https://www.zenrin.co.jp/company/ir/stock/stock/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6023862df2acb428a49dddb9aa64720e86199772f110a2bbe67ac994c5d3942c",
+   "table_index": 1,
+   "row_index": 3
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "41b5fedf1efc9ea3a3f3",
+  "source": {
+   "code": "6952"
+  },
+  "target": {
+   "code": "7157"
+  },
+  "relation_type": "interlocking_director",
+  "person": "原夏代",
+  "roles": {
+   "6952": "取締役（監査等委員）",
+   "7157": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.takaratomy.co.jp/company/officer.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "96c7a627d94736413632c78949f881fe03f7e6e39694addb27a17d5d32c6aa55"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "59c8fab468c500513b59",
+   "caf496a3582fafdc45b8"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7cb28240bda8c52e2441",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "6674"
+  },
+  "relation_type": "interlocking_director",
+  "person": "辻内章",
+  "roles": {
+   "2301": "取締役",
+   "6674": "監査役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.sekisuijushi.co.jp/corporate/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d602f5e05b8b3c0893d81104f8892fefe4725794ed0b1a9b84d41630c7c0bbc0"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "665cc7a1886e64980d07",
+   "e4c3cb4ec13c3580b8dc"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ca51102790d8a921c6d7",
+  "source": {
+   "code": "3116"
+  },
+  "target": {
+   "code": "6645"
+  },
+  "relation_type": "interlocking_director",
+  "person": "三浦洋",
+  "roles": {
+   "3116": "監査役",
+   "6645": "監査役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://corp.monotaro.com/ir/management/management_03.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "f3bbaa1247854d789bf7fba0cb951d2111b355806f5ffe2c561c9f4a0a57a26a"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "2f8b568a505b8ba5d29f",
+   "c50a34df22876d86c11a"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "abd6c5764806813c1e9c",
+  "source": {
+   "code": "3928"
+  },
+  "target": {
+   "code": "4199"
+  },
+  "relation_type": "interlocking_director",
+  "person": "和田洋一",
+  "roles": {
+   "3928": "取締役",
+   "4199": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://openupgroup.co.jp/company/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "be69a8dec370ef0144cc8abbb7b030caf921e475ebb31ad8a1c54f19eda4649f"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "6eaad7091eec3ffd1f52",
+   "daf1dad2596ad2649447"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1b8bb2b4a02b6caa38a8",
+  "source": {
+   "code": "3928"
+  },
+  "target": {
+   "code": "5253"
+  },
+  "relation_type": "interlocking_director",
+  "person": "和田洋一",
+  "roles": {
+   "3928": "取締役",
+   "5253": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://openupgroup.co.jp/company/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "be69a8dec370ef0144cc8abbb7b030caf921e475ebb31ad8a1c54f19eda4649f"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "54f572fafceb5c8e4edf",
+   "daf1dad2596ad2649447"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bb47247ad4c6022c5cfb",
+  "source": {
+   "code": "3928"
+  },
+  "target": {
+   "code": "7110"
+  },
+  "relation_type": "interlocking_director",
+  "person": "和田洋一",
+  "roles": {
+   "3928": "取締役",
+   "7110": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://openupgroup.co.jp/company/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "be69a8dec370ef0144cc8abbb7b030caf921e475ebb31ad8a1c54f19eda4649f"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "2725eb09f24f2d19358e",
+   "daf1dad2596ad2649447"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a4e34017e541678ec496",
+  "source": {
+   "code": "4199"
+  },
+  "target": {
+   "code": "5253"
+  },
+  "relation_type": "interlocking_director",
+  "person": "和田洋一",
+  "roles": {
+   "4199": "取締役",
+   "5253": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://openupgroup.co.jp/company/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "be69a8dec370ef0144cc8abbb7b030caf921e475ebb31ad8a1c54f19eda4649f"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "54f572fafceb5c8e4edf",
+   "6eaad7091eec3ffd1f52"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "46fce81c322a73bd3bdd",
+  "source": {
+   "code": "4199"
+  },
+  "target": {
+   "code": "7110"
+  },
+  "relation_type": "interlocking_director",
+  "person": "和田洋一",
+  "roles": {
+   "4199": "取締役",
+   "7110": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://openupgroup.co.jp/company/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "be69a8dec370ef0144cc8abbb7b030caf921e475ebb31ad8a1c54f19eda4649f"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "2725eb09f24f2d19358e",
+   "6eaad7091eec3ffd1f52"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f864e77d46619d03ee79",
+  "source": {
+   "code": "5253"
+  },
+  "target": {
+   "code": "7110"
+  },
+  "relation_type": "interlocking_director",
+  "person": "和田洋一",
+  "roles": {
+   "5253": "取締役",
+   "7110": "取締役（監査等委員）"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://openupgroup.co.jp/company/officer/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "be69a8dec370ef0144cc8abbb7b030caf921e475ebb31ad8a1c54f19eda4649f"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "2725eb09f24f2d19358e",
+   "54f572fafceb5c8e4edf"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e26537a44bf8bd0be1c7",
+  "source": {
+   "code": "2997"
+  },
+  "target": {
+   "code": "3955"
+  },
+  "relation_type": "interlocking_director",
+  "person": "田中公子",
+  "roles": {
+   "2997": "取締役",
+   "3955": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://corporate.sakataseed.co.jp/company/executives.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "675a40a6ad9cc9d45d6e69db48a533b39aa14ba7827be1aa8301fe93450413d8"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "6e8c0c76d29127e929b0",
+   "a755bca1639bd80d007c"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c5e9d20d5c979c47a843",
+  "source": {
+   "code": "2997"
+  },
+  "target": {
+   "code": "6062"
+  },
+  "relation_type": "interlocking_director",
+  "person": "田中公子",
+  "roles": {
+   "2997": "取締役",
+   "6062": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://corporate.sakataseed.co.jp/company/executives.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "675a40a6ad9cc9d45d6e69db48a533b39aa14ba7827be1aa8301fe93450413d8"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "6e8c0c76d29127e929b0",
+   "c46552dc21631e1b4059"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1e1544782efc633ce1db",
+  "source": {
+   "code": "3955"
+  },
+  "target": {
+   "code": "6062"
+  },
+  "relation_type": "interlocking_director",
+  "person": "田中公子",
+  "roles": {
+   "3955": "取締役",
+   "6062": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://corporate.sakataseed.co.jp/company/executives.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "675a40a6ad9cc9d45d6e69db48a533b39aa14ba7827be1aa8301fe93450413d8"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "a755bca1639bd80d007c",
+   "c46552dc21631e1b4059"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c5a3715e424737e55f57",
+  "source": {
+   "code": "147A"
+  },
+  "target": {
+   "code": "4293"
+  },
+  "relation_type": "interlocking_director",
+  "person": "入山章栄",
+  "roles": {
+   "147A": "取締役（監査等委員）",
+   "4293": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.sanoh.com/corporate/executives",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "12775c7bc180b296bfdaa8ec8ab12175f14c04c206ea72d49602ff62808c5dbb"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "24d860f69715baec3830",
+   "3cf1305687105b6fd509"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "633c5b28c7ff486f917f",
+  "source": {
+   "code": "147A"
+  },
+  "target": {
+   "code": "4527"
+  },
+  "relation_type": "interlocking_director",
+  "person": "入山章栄",
+  "roles": {
+   "147A": "取締役（監査等委員）",
+   "4527": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.sanoh.com/corporate/executives",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "12775c7bc180b296bfdaa8ec8ab12175f14c04c206ea72d49602ff62808c5dbb"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "3cf1305687105b6fd509",
+   "7341c38ff2eafa8f406b"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3d5dc60f172fbea189ad",
+  "source": {
+   "code": "4293"
+  },
+  "target": {
+   "code": "4527"
+  },
+  "relation_type": "interlocking_director",
+  "person": "入山章栄",
+  "roles": {
+   "4293": "取締役",
+   "4527": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.sanoh.com/corporate/executives",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "12775c7bc180b296bfdaa8ec8ab12175f14c04c206ea72d49602ff62808c5dbb"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "24d860f69715baec3830",
+   "7341c38ff2eafa8f406b"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1946928f5d611baf3b82",
+  "source": {
+   "code": "5803"
+  },
+  "target": {
+   "code": "6383"
+  },
+  "relation_type": "interlocking_director",
+  "person": "中村明日香",
+  "roles": {
+   "5803": "取締役（監査等委員）",
+   "6383": "取締役"
+  },
+  "as_of": null,
+  "document": {
+   "url": "https://www.katosangyo.co.jp/company/directors/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6af6a5941ab597ddd3dc94245bb4ae2445d9a42e795166a11b178f3aba34d21c"
+  },
+  "topic": "同一の公式役員紹介で確認した現任の兼職",
+  "derived_from": [
+   "86c9a3eeae1c96d9e600",
+   "e22c8fbb45d5a0358e55"
+  ],
+  "review": {
+   "status": "source_checked",
+   "by": "reviewed_same_document_offices",
+   "on": "2026-09-22"
+  }
  }
 ]

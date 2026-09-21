@@ -30,7 +30,7 @@ EVIDENCE_KEYS = (
     "verification", "filer_sec_code", "support_status", "record_id", "reviewer", "origin",
 )
 FACT_KEYS = ("person", "role_at_filer", "role_at_counterparty", "contracting_party", "contract_date",
-             "organization", "deal_status", "event_year")
+             "organization", "deal_status", "event_year", "product", "information_period")
 RATIO_KEYS = ("value", "kind", "scope", "direct", "indirect", "as_of", "doc_id", "status", "verified",
               "has_older_values", "conflict_same_period", "conflicting_values")
 

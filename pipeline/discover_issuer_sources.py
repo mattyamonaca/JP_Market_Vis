@@ -29,16 +29,16 @@ seeds=[x for x in json.load(open(args.seeds)) if x['code'] in companies and 'jpx
 limit=args.limit
 def same_host(host,root):
  return bool(host) and (host==root or host.endswith('.'+root))
-kw=re.compile(r'大株主|株式の状況|株主構成|株式情報|株式概要|株式概況|株主・株式|役員一覧|役員紹介|取締役|会社概要|株主・投資家|投資家情報|株主情報|株式基本|/stock|/shareholder|/officer|/director|/ir/?$|/investors/?$',re.I)
+kw=re.compile(r'大株主|株式の状況|株主構成|株式情報|株式概要|株式概況|株主・株式|役員一覧|役員紹介|取締役|会社概要|会社情報|企業情報|企業概要|株主・投資家|投資家情報|株主情報|株式基本|/stock|/shareholder|/officer|/director|/ir(?:/(?:index|top)\.(?:html?|php|aspx?))?/?$|/investors?(?:/(?:index|top)\.(?:html?|php|aspx?))?/?$',re.I)
 strong=re.compile(r'大株主|株主構成|株式の状況|役員一覧|役員紹介|取締役|/stock|/officer|/director',re.I)
 if args.focus == 'news':
  kw=re.compile(r'ニュース|リリース|お知らせ|提携|共同開発|共同研究|共同実証|協業|/news|/press|/release',re.I)
  strong=re.compile(r'提携|共同開発|共同研究|共同実証|協業|共同出資',re.I)
 elif args.focus == 'meeting':
- kw=re.compile(r'株主総会|招集|株主・投資家|IRライブラリ|/meeting|/soukai|/ir/?$|/investors/?$|/stock|/library',re.I)
+ kw=re.compile(r'株主総会|招集|株主・投資家|IRライブラリ|/meeting|/soukai|/ir(?:/(?:index|top)\.(?:html?|php|aspx?))?/?$|/investors?(?:/(?:index|top)\.(?:html?|php|aspx?))?/?$|/stock|/library',re.I)
  strong=re.compile(r'株主総会|招集|/meeting|/soukai',re.I)
 elif args.focus == 'governance':
- kw=re.compile(r'ガバナンス|governance|株主総会|/meeting|/ir/?$|/investors/?$',re.I)
+ kw=re.compile(r'ガバナンス|governance|株主総会|/meeting|/ir(?:/(?:index|top)\.(?:html?|php|aspx?))?/?$|/investors?(?:/(?:index|top)\.(?:html?|php|aspx?))?/?$',re.I)
  strong=re.compile(r'ガバナンス|governance',re.I)
 def run(seed):
  folder=out/seed['code'];folder.mkdir(exist_ok=True)

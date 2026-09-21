@@ -234,6 +234,8 @@ export function EvidenceCard({ ev }) {
       {ev.direction_source && <Field label="方向の根拠" value={{ cell: 'セル内の所有／被所有表記', header: '列見出し', classification: '分類（親会社・その他の関係会社）', default: '既定（提出会社が所有）' }[ev.direction_source] ?? ev.direction_source} />}
       {ev.raw_name && <Field label="資料上の相手名" value={ev.raw_name} />}
       {ev.table_ref && <Field label="資料内の位置" value={ev.table_ref} />}
+      {facts.product && <Field label="導入製品・サービス" value={facts.product} />}
+      {facts.information_period && <Field label="事例の情報時点" value={facts.information_period} />}
       {ev.extraction?.reasons?.length > 0 && <Field label="要確認理由" value={ev.extraction.reasons.map((r) => reasonLabel(`ir:${r}`)).join('、')} />}
       {ev.source_check && <Field label="本文照合" value={ev.source_check.status === 'excerpt_found' ? '抽出根拠と本文の文字列一致を確認（関係の正しさは未検証）' : reasonLabel(`ir:source_${ev.source_check.status}`)} />}
       {ev.source_check?.checked_at && <Field label="照合日" value={ev.source_check.checked_at.slice(0, 10)} />}

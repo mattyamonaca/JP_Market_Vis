@@ -135,6 +135,27 @@ class Provenance(unittest.TestCase):
         self.assertEqual(len(b.relations), 1)
         self.assertEqual(len(next(iter(b.relations.values()))["evidence"]), 1)
 
+    def test_adoption_preserves_provider_direction_and_product_without_sales_claim(self):
+        from make_viz_data import full_evidence
+        row = {"id": "adoption", "source": {"code": "0002"}, "target": {"code": "0001"},
+               "relation_type": "product_adoption", "product": "テスト製品",
+               "document": {"url": "https://example.com/case", "origin": "independent_primary_website"},
+               "review": {"on": "2026-09-22", "by": "test", "status": "source_checked"}}
+        b = RelationBuilder(COMPANIES)
+        add_official_relations(b, [row, row])
+        _, relations = b.finalize()
+        self.assertEqual(len(relations), 1)
+        rel = relations[0]
+        self.assertEqual(rel["source"]["key"], "0002")
+        self.assertEqual(rel["target"]["key"], "0001")
+        self.assertTrue(rel["directed"])
+        self.assertEqual(rel["relation_type"], "product_adoption")
+        self.assertEqual(rel["attributes"], {})
+        self.assertIsNone(rel["evidence"][0]["as_of"])
+        self.assertEqual(full_evidence(rel["evidence"][0])["facts"]["product"], "テスト製品")
+        with self.assertRaises(ValueError):
+            add_official_relations(RelationBuilder(COMPANIES), [{**row, "product": ""}])
+
 
 if __name__ == "__main__":
     unittest.main()

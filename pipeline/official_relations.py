@@ -57,6 +57,16 @@ def add_official_relations(builder, records):
         elif document.get("page"):
             evidence["table_ref"] = f"PDF page {int(document['page'])}"
         attributes = {}
+        if typ == "product_adoption":
+            product = row.get("product", "").strip()
+            if not product or len(product) > 160 or "\n" in product:
+                raise ValueError("A reviewed product name is required for an adoption case")
+            evidence["product"] = product
+            if row.get("information_period"):
+                period = row["information_period"]
+                if not re.fullmatch(r"\d{4}-(0[1-9]|1[0-2])", period) or period > checked[:7]:
+                    raise ValueError("Invalid adoption case information period")
+                evidence["information_period"] = period
         if typ == "interlocking_director":
             person = row["person"]
             roles = row["roles"]

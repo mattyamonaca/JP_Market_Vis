@@ -91,6 +91,12 @@ RELATION_TYPES = {
         "ja": "取引先（公式掲載）",
         "description": "企業公式サイトが取引先・販売先・納入先として掲載した関係。売買の方向、現在の取引継続、売上比率10%以上は保証しない。",
     },
+    "product_adoption": {
+        "category": "transaction",
+        "directed": True,
+        "ja": "製品・サービス導入（公式事例）",
+        "description": "公式の導入事例で確認できる製品・サービスの採用。source=製品提供企業, target=導入企業。販売代理店を介する場合もあり、両社の直接契約、現在の利用継続、売上比率は推定しない。",
+    },
     "major_supplier": {
         "category": "transaction",
         "directed": True,
