@@ -1768,6 +1768,395 @@
    "reason": "鷺谷万里：JBCCホールディングスの社外取締役を2025年6月17日に退任。",
    "verified_by": "codex_primary_source_review",
    "verified_on": "2026-09-21"
+  },
+  {
+   "id": "mirait-katsumaru-retired-20260921",
+   "match": {
+    "source": "listed:1417",
+    "target": "listed:8928",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "勝丸千晶",
+   "status": "historical",
+   "as_of": "2025-06-25",
+   "source": {
+    "url": "https://contents.xj-storage.jp/xcontents/AS99169/0e7258bd/5cc3/4b49/b8cf/98ffc8fc6d45/20260527002155742s.pdf",
+    "published": "2026-05-27",
+    "title": "第16回定時株主総会招集ご通知"
+   },
+   "reason": "勝丸千晶（石川千晶）：2025年6月25日付でミライト・ワンの監査等委員である取締役を辞任した旨を確認。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm3-person-c72fc232f00ea35dd00e",
+   "match": {
+    "source": "listed:2181",
+    "target": "listed:3774",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "村林聡",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.persol-group.co.jp/ir/upload_file/m009-/20260521_FY2026_Convocation.pdf",
+    "published": null,
+    "title": "定時株主総会招集ご通知"
+   },
+   "reason": "村林聡：インターネットイニシアティブの取締役を2026年6月26日に退任予定。後続資料の確認まで現任の兼任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm3-person-e7bdd0d480840275cb94",
+   "match": {
+    "source": "listed:3443",
+    "target": "listed:4886",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "福地啓子",
+   "status": "historical",
+   "as_of": "2025-06-24",
+   "source": {
+    "url": "https://www.kawada.jp/ir/shareholder/pdf/20260603_1.pdf",
+    "published": null,
+    "title": "第18回 定時株主総会 招集ご通知（3,481KB）"
+   },
+   "reason": "福地啓子：あすか製薬ホールディングスの社外監査役を2025年6月24日に退任。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm3-person-50511de67757fb28f060",
+   "match": {
+    "source": "listed:3861",
+    "target": "listed:4886",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "福地啓子",
+   "status": "historical",
+   "as_of": "2025-06-24",
+   "source": {
+    "url": "https://www.kawada.jp/ir/shareholder/pdf/20260603_1.pdf",
+    "published": null,
+    "title": "第18回 定時株主総会 招集ご通知（3,481KB）"
+   },
+   "reason": "福地啓子：あすか製薬ホールディングスの社外監査役を2025年6月24日に退任。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm3-person-3771c569f09f67727a5b",
+   "match": {
+    "source": "listed:4092",
+    "target": "listed:7264",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "多田智子",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.nippon-chem.co.jp/wp-content/uploads/pdf_generalmeeting_168_01_jp.pdf",
+    "published": null,
+    "title": "定時株主総会招集ご通知"
+   },
+   "reason": "多田智子：ムロコーポレーションの社外取締役（監査等委員）を2026年6月に退任予定。後続資料の確認まで現任の兼任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm3-person-aef57605608ae2895377",
+   "match": {
+    "source": "listed:4042",
+    "target": "listed:4839",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "岡山誠",
+   "status": "historical",
+   "as_of": "2025-06-26",
+   "source": {
+    "url": "https://corporate.wowow.co.jp/ir/stock/meeting/42shoshu.pdf",
+    "published": null,
+    "title": "第42回定時株主総会招集ご通知 PDF"
+   },
+   "reason": "岡山誠：東ソーの常勤監査役を2025年6月26日に退任。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm3-person-9c69ac3dd5531e38e32b",
+   "match": {
+    "source": "listed:3405",
+    "target": "listed:6588",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "永濱光弘",
+   "status": "historical",
+   "as_of": null,
+   "source": {
+    "url": "https://www.toshibatec.co.jp/company/ir/pdf/101meeting_infoj.pdf",
+    "published": null,
+    "title": "第101期定時株主総会招集ご通知"
+   },
+   "reason": "永濱光弘：クラレの社外監査役の在任期間は2026年3月までと記載。日単位の退任日は未確認。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm3-person-a67bb5626536acce71df",
+   "match": {
+    "source": "listed:3405",
+    "target": "listed:6845",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "永濱光弘",
+   "status": "historical",
+   "as_of": null,
+   "source": {
+    "url": "https://www.toshibatec.co.jp/company/ir/pdf/101meeting_infoj.pdf",
+    "published": null,
+    "title": "第101期定時株主総会招集ご通知"
+   },
+   "reason": "永濱光弘：クラレの社外監査役の在任期間は2026年3月までと記載。日単位の退任日は未確認。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm3-person-126277a5877b06de3439",
+   "match": {
+    "source": "listed:6651",
+    "target": "listed:9991",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "浅野幹雄",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.nito.co.jp/IR/stock/meeting/uploads/soukai78.pdf",
+    "published": null,
+    "title": "第78回定時株主総会招集ご通知（PDF：3.9 MB）"
+   },
+   "reason": "浅野幹雄：ジェコスの社外取締役を2026年6月に退任予定。後続資料の確認まで現任の兼任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "tempos-yamatosakana-not-yamato-森下和光",
+   "match": {
+    "source": "listed:1967",
+    "target": "listed:2751",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "森下和光",
+   "status": "needs_review",
+   "source": {
+    "url": "https://www.tenpos.co.jp/ir/news/pdf/2026convocation.pdf",
+    "published": null,
+    "title": "第34回定時株主総会招集ご通知"
+   },
+   "reason": "公式資料の兼職先はヤマトサカナ株式会社であり、上場会社の株式会社ヤマト（1967）ではない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-22"
+  },
+  {
+   "id": "tempos-yamatosakana-not-yamato-森下篤史",
+   "match": {
+    "source": "listed:1967",
+    "target": "listed:2751",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "森下篤史",
+   "status": "needs_review",
+   "source": {
+    "url": "https://www.tenpos.co.jp/ir/news/pdf/2026convocation.pdf",
+    "published": null,
+    "title": "第34回定時株主総会招集ご通知"
+   },
+   "reason": "公式資料の兼職先はヤマトサカナ株式会社であり、上場会社の株式会社ヤマト（1967）ではない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-22"
+  },
+  {
+   "id": "agm4-person-bf224b6f98b411eb8103",
+   "match": {
+    "source": "listed:4078",
+    "target": "listed:7309",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "和田浩美",
+   "status": "historical",
+   "as_of": "2025-06-26",
+   "source": {
+    "url": "https://www.sakai-chem.co.jp/wp/wp-content/uploads/2025/05/2026%E5%B9%B4%E5%AE%9A%E6%99%82%E6%A0%AA%E4%B8%BB%E7%B7%8F%E4%BC%9A%E6%8B%9B%E9%9B%86%E9%80%9A%E7%9F%A5.pdf",
+    "published": null,
+    "title": "第131回 定時株主総会招集ご通知 [ PDF：1.91MB ]"
+   },
+   "reason": "和田浩美：堺化学工業の社外取締役を2025年6月26日に退任。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-22"
+  },
+  {
+   "id": "agm4-person-c74808e51436e199c8d8",
+   "match": {
+    "source": "listed:4078",
+    "target": "listed:7313",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "和田浩美",
+   "status": "historical",
+   "as_of": "2025-06-26",
+   "source": {
+    "url": "https://www.sakai-chem.co.jp/wp/wp-content/uploads/2025/05/2026%E5%B9%B4%E5%AE%9A%E6%99%82%E6%A0%AA%E4%B8%BB%E7%B7%8F%E4%BC%9A%E6%8B%9B%E9%9B%86%E9%80%9A%E7%9F%A5.pdf",
+    "published": null,
+    "title": "第131回 定時株主総会招集ご通知 [ PDF：1.91MB ]"
+   },
+   "reason": "和田浩美：堺化学工業の社外取締役を2025年6月26日に退任。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-22"
+  },
+  {
+   "id": "agm4-person-c08ec59da3d1cfa3ffc6",
+   "match": {
+    "source": "listed:7326",
+    "target": "listed:8798",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "篠原秀典",
+   "status": "historical",
+   "as_of": "2025-03-25",
+   "source": {
+    "url": "https://www.advancecreate.co.jp/pdf/2025/Notice1127.pdf",
+    "published": null,
+    "title": "第30回定時株主総会招集ご通知 (2,812KB)"
+   },
+   "reason": "篠原秀典：アドバンスクリエイトの社外取締役を2025年3月25日に退任。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-22"
+  },
+  {
+   "id": "agm4-person-2ae72d65e8cf758a48d0",
+   "match": {
+    "source": "listed:7953",
+    "target": "listed:9900",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "遠山眞樹",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.sagami-holdings.co.jp/wp-content/uploads/2026/06/56shosyu.pdf",
+    "published": null,
+    "title": "第56期定時株主総会招集ご通知 1.75 MB"
+   },
+   "reason": "遠山眞樹：グルメ杵屋の取締役（監査等委員）を2026年の定時総会終結時に辞任予定。後続資料の確認まで現任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-22"
+  },
+  {
+   "id": "kondotec-fukoku-namesake-interlocking_director",
+   "match": {
+    "source": "listed:5185",
+    "target": "listed:7438",
+    "relation_type": "interlocking_director"
+   },
+   "action": "remove",
+   "source": {
+    "url": "https://cgi.kondotec.co.jp/corporate/history.html",
+    "title": "コンドーテック沿革・足場工事会社フコクの子会社化",
+    "published": null
+   },
+   "reason": "コンドーテック傘下の足場工事会社フコクを、上場ゴム製品メーカーのフコク（5185）と誤って同定した関係。両社は別法人。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-22"
+  },
+  {
+   "id": "kondotec-fukoku-namesake-parent_subsidiary",
+   "match": {
+    "source": "listed:7438",
+    "target": "listed:5185",
+    "relation_type": "parent_subsidiary"
+   },
+   "action": "remove",
+   "source": {
+    "url": "https://cgi.kondotec.co.jp/corporate/history.html",
+    "title": "コンドーテック沿革・足場工事会社フコクの子会社化",
+    "published": null
+   },
+   "reason": "コンドーテック傘下の足場工事会社フコクを、上場ゴム製品メーカーのフコク（5185）と誤って同定した関係。両社は別法人。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-22"
+  },
+  {
+   "id": "gmo-old-airu-not-listed-airu",
+   "match": {
+    "source": "listed:3788",
+    "target": "listed:3854",
+    "relation_type": "interlocking_director"
+   },
+   "action": "remove",
+   "source": {
+    "url": "https://www.gmogshd.com/company/profile/officer/",
+    "title": "GMOグローバルサイン・ホールディングス役員一覧・アイルは当社の旧商号",
+    "published": null
+   },
+   "reason": "熊谷正寿・安田昌史の略歴にある株式会社アイル（現当社）はGMOグローバルサイン・ホールディングス（3788）の旧商号であり、株式会社アイル（3854）とは別法人。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-22"
+  },
+  {
+   "id": "cbc-ogasawara-2026-9402-9982",
+   "match": {
+    "source": "listed:9402",
+    "target": "listed:9982",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "小笠原剛",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://hicbc.com/corporation/ir/library/general_meeting/pdf/gm100_invitation.pdf",
+    "published": null,
+    "title": "第100期定時株主総会招集ご通知"
+   },
+   "reason": "小笠原剛：2026年定時株主総会終結時に中部日本放送の監査役を辞任予定。後続資料の確認まで現任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-22"
+  },
+  {
+   "id": "cbc-ogasawara-2026-9402-9987",
+   "match": {
+    "source": "listed:9402",
+    "target": "listed:9987",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "小笠原剛",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://hicbc.com/corporation/ir/library/general_meeting/pdf/gm100_invitation.pdf",
+    "published": null,
+    "title": "第100期定時株主総会招集ご通知"
+   },
+   "reason": "小笠原剛：2026年定時株主総会終結時に中部日本放送の監査役を辞任予定。後続資料の確認まで現任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-22"
   }
  ]
 }

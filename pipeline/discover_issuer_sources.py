@@ -5,7 +5,7 @@ text belong under ignored outputs only. Verify issuer, actual counterparties,
 relationship semantics and date before adding facts to official_relations.json.
 Requires pipeline/requirements-audit.txt. Resume by using the same --out.
 """
-import requests,json,hashlib,re,time,sys,argparse,unicodedata,gzip
+import requests,json,hashlib,re,time,sys,argparse,unicodedata,gzip,tarfile
 from datetime import date
 import truststore
 truststore.inject_into_ssl()
@@ -51,11 +51,18 @@ def run(seed):
   queue=[]
   priorities={}
   if pages:root=urlsplit(pages[0]['url']).hostname.removeprefix('www.')
+  archived={}
+  archive=folder/'html.tar.xz'
+  if archive.exists():
+   with tarfile.open(archive,'r:xz') as arc:
+    archived={m.name:arc.extractfile(m).read() for m in arc.getmembers() if m.isfile()}
   for doc in pages:
    cached=folder/(doc['key']+'.html')
    compressed=cached.with_suffix('.html.gz')
-   if not cached.exists() and not compressed.exists():continue
-   raw=cached.read_bytes() if cached.exists() else gzip.decompress(compressed.read_bytes())
+   if cached.exists():raw=cached.read_bytes()
+   elif compressed.exists():raw=gzip.decompress(compressed.read_bytes())
+   elif cached.name in archived:raw=archived[cached.name]
+   else:continue
    soup=BeautifulSoup(raw,'html.parser')
    for a in soup.select('a[href]'):
     try:
