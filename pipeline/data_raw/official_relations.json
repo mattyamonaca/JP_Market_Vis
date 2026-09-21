@@ -135789,5 +135789,3524 @@
    "by": "codex_primary_source_review",
    "on": "2026-09-22"
   }
+ },
+ {
+  "id": "e31dcd66f2266ee4dfe8",
+  "source": {
+   "code": "4388"
+  },
+  "target": {
+   "code": "6902"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ai-j.jp/company/profile/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "e9f685dedd3fb91f9b15d9fc43bc492854b8d7a4bd091a0f5a13ba4b344af751"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3ee4166b9b3e418439e1",
+  "source": {
+   "code": "4388"
+  },
+  "target": {
+   "code": "6703"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ai-j.jp/company/profile/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "e9f685dedd3fb91f9b15d9fc43bc492854b8d7a4bd091a0f5a13ba4b344af751"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b0af63790fed90aecbda",
+  "source": {
+   "code": "4388"
+  },
+  "target": {
+   "code": "2317"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ai-j.jp/company/profile/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "e9f685dedd3fb91f9b15d9fc43bc492854b8d7a4bd091a0f5a13ba4b344af751"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b2bff58a831250e0b4ec",
+  "source": {
+   "code": "4388"
+  },
+  "target": {
+   "code": "4344"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ai-j.jp/company/profile/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "e9f685dedd3fb91f9b15d9fc43bc492854b8d7a4bd091a0f5a13ba4b344af751"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f2dad7c12832a30b8a87",
+  "source": {
+   "code": "4388"
+  },
+  "target": {
+   "code": "7951"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ai-j.jp/company/profile/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "e9f685dedd3fb91f9b15d9fc43bc492854b8d7a4bd091a0f5a13ba4b344af751"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3a13613f853b956f7500",
+  "source": {
+   "code": "4388"
+  },
+  "target": {
+   "code": "4198"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ai-j.jp/company/profile/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "e9f685dedd3fb91f9b15d9fc43bc492854b8d7a4bd091a0f5a13ba4b344af751"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "aa77b6d862ccde400b1e",
+  "source": {
+   "code": "4388"
+  },
+  "target": {
+   "code": "9434"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ai-j.jp/company/profile/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "e9f685dedd3fb91f9b15d9fc43bc492854b8d7a4bd091a0f5a13ba4b344af751"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "27c227024cd8d58ee9e7",
+  "source": {
+   "code": "4388"
+  },
+  "target": {
+   "code": "9432"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ai-j.jp/company/profile/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "e9f685dedd3fb91f9b15d9fc43bc492854b8d7a4bd091a0f5a13ba4b344af751"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6182399fe9aed242b9b0",
+  "source": {
+   "code": "4388"
+  },
+  "target": {
+   "code": "6182"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ai-j.jp/company/profile/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "e9f685dedd3fb91f9b15d9fc43bc492854b8d7a4bd091a0f5a13ba4b344af751"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6a87f7e6f6f48a70b838",
+  "source": {
+   "code": "4388"
+  },
+  "target": {
+   "code": "4689"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ai-j.jp/company/profile/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "e9f685dedd3fb91f9b15d9fc43bc492854b8d7a4bd091a0f5a13ba4b344af751"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c4a2ded1b4045a8e393c",
+  "source": {
+   "code": "9438"
+  },
+  "target": {
+   "code": "9433"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.mti.co.jp/?page_id=11",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "60b58fd169b4c9bbf93a4c40f36c7f47735329bc69c65a915f87119aea595cfd"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "75c41c422447fe1d5edd",
+  "source": {
+   "code": "3687"
+  },
+  "target": {
+   "code": "6723"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.fixstars.com/ja/company/overview",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6f130dbb670a6a8cf354b6545724dc7a5106dab4d83932d4f84ffe774c0fc530"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "70d210efd55a77cef1f5",
+  "source": {
+   "code": "3687"
+  },
+  "target": {
+   "code": "7203"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.fixstars.com/ja/company/overview",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6f130dbb670a6a8cf354b6545724dc7a5106dab4d83932d4f84ffe774c0fc530"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "35f90b6430e397edb4a1",
+  "source": {
+   "code": "3687"
+  },
+  "target": {
+   "code": "8015"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.fixstars.com/ja/company/overview",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6f130dbb670a6a8cf354b6545724dc7a5106dab4d83932d4f84ffe774c0fc530"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "27f4081b42270199c835",
+  "source": {
+   "code": "3687"
+  },
+  "target": {
+   "code": "6902"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.fixstars.com/ja/company/overview",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6f130dbb670a6a8cf354b6545724dc7a5106dab4d83932d4f84ffe774c0fc530"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "8e92e3d1d6b408bbb4f8",
+  "source": {
+   "code": "3687"
+  },
+  "target": {
+   "code": "7751"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.fixstars.com/ja/company/overview",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6f130dbb670a6a8cf354b6545724dc7a5106dab4d83932d4f84ffe774c0fc530"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "28491d1eb71be0ad117c",
+  "source": {
+   "code": "6384"
+  },
+  "target": {
+   "code": "6971"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.showashinku.co.jp/corporate/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6ad8dad4f566d6913ed35ee7ba0e14ac5f57a9a1f96d6d63c1fac195a4bd564f"
+  },
+  "topic": "公式会社概要の主要納入先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "34411583937ab1d7ad49",
+  "source": {
+   "code": "6384"
+  },
+  "target": {
+   "code": "6724"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.showashinku.co.jp/corporate/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6ad8dad4f566d6913ed35ee7ba0e14ac5f57a9a1f96d6d63c1fac195a4bd564f"
+  },
+  "topic": "公式会社概要の主要納入先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9d6eff4753616e0fb0f3",
+  "source": {
+   "code": "6384"
+  },
+  "target": {
+   "code": "6962"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.showashinku.co.jp/corporate/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6ad8dad4f566d6913ed35ee7ba0e14ac5f57a9a1f96d6d63c1fac195a4bd564f"
+  },
+  "topic": "公式会社概要の主要納入先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a7402fcb415bb0d531ef",
+  "source": {
+   "code": "6384"
+  },
+  "target": {
+   "code": "6779"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.showashinku.co.jp/corporate/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6ad8dad4f566d6913ed35ee7ba0e14ac5f57a9a1f96d6d63c1fac195a4bd564f"
+  },
+  "topic": "公式会社概要の主要納入先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "86656feb0c9b6dfe6daa",
+  "source": {
+   "code": "6384"
+  },
+  "target": {
+   "code": "6981"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.showashinku.co.jp/corporate/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6ad8dad4f566d6913ed35ee7ba0e14ac5f57a9a1f96d6d63c1fac195a4bd564f"
+  },
+  "topic": "公式会社概要の主要納入先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0a7afcac5174dd296498",
+  "source": {
+   "code": "9561"
+  },
+  "target": {
+   "code": "4689"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://corp.glad-cube.com/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "181d294daa73c1dae7313a8db01507332161dfdcc1b5e23646cac770e053c502"
+  },
+  "topic": "公式会社概要の主要取引先企業一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d991f67529cbbdc70a64",
+  "source": {
+   "code": "9561"
+  },
+  "target": {
+   "code": "6185"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://corp.glad-cube.com/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "181d294daa73c1dae7313a8db01507332161dfdcc1b5e23646cac770e053c502"
+  },
+  "topic": "公式会社概要の主要取引先企業一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ce78364a78de916a1d13",
+  "source": {
+   "code": "5241"
+  },
+  "target": {
+   "code": "9759"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.noar.co.jp/company.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "c00d4b713b81ebc36454c493614a6620f427e72672ffd8b9d24630b6286a06ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a1138bc6a522bb65fe1e",
+  "source": {
+   "code": "5241"
+  },
+  "target": {
+   "code": "2335"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.noar.co.jp/company.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "c00d4b713b81ebc36454c493614a6620f427e72672ffd8b9d24630b6286a06ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "099399129b5deacdf923",
+  "source": {
+   "code": "5241"
+  },
+  "target": {
+   "code": "9531"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.noar.co.jp/company.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "c00d4b713b81ebc36454c493614a6620f427e72672ffd8b9d24630b6286a06ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "19994f30ce3ecada6a09",
+  "source": {
+   "code": "9629"
+  },
+  "target": {
+   "code": "4768"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://corp.pca.jp/company/profile.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ad2320d4660415081bc6c49a3539400be8353f9b96e8c220df461c0c6a81b8e2"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e452b11f410b11a72c5a",
+  "source": {
+   "code": "9629"
+  },
+  "target": {
+   "code": "8060"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://corp.pca.jp/company/profile.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ad2320d4660415081bc6c49a3539400be8353f9b96e8c220df461c0c6a81b8e2"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "4d6fdeaa8af5aca4150d",
+  "source": {
+   "code": "9629"
+  },
+  "target": {
+   "code": "6702"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://corp.pca.jp/company/profile.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ad2320d4660415081bc6c49a3539400be8353f9b96e8c220df461c0c6a81b8e2"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0417710ba1f92d744814",
+  "source": {
+   "code": "9629"
+  },
+  "target": {
+   "code": "7752"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://corp.pca.jp/company/profile.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ad2320d4660415081bc6c49a3539400be8353f9b96e8c220df461c0c6a81b8e2"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6c3fe7110fc0aa4ffb54",
+  "source": {
+   "code": "5970"
+  },
+  "target": {
+   "code": "7267"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.g-tekt.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6719505f78db2054b93a12957df5ce729831f52ace2bf663ea804cbab2955498"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a13ca63ca31b2aacee62",
+  "source": {
+   "code": "5970"
+  },
+  "target": {
+   "code": "7203"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.g-tekt.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6719505f78db2054b93a12957df5ce729831f52ace2bf663ea804cbab2955498"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "734db6e3cdc021cdb7dd",
+  "source": {
+   "code": "5970"
+  },
+  "target": {
+   "code": "7270"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.g-tekt.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6719505f78db2054b93a12957df5ce729831f52ace2bf663ea804cbab2955498"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0b188f0ab22bf8aad9a5",
+  "source": {
+   "code": "5970"
+  },
+  "target": {
+   "code": "7261"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.g-tekt.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6719505f78db2054b93a12957df5ce729831f52ace2bf663ea804cbab2955498"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "08863f8af9a05efbb8d4",
+  "source": {
+   "code": "5970"
+  },
+  "target": {
+   "code": "7201"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.g-tekt.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6719505f78db2054b93a12957df5ce729831f52ace2bf663ea804cbab2955498"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "eab580310004030db974",
+  "source": {
+   "code": "5970"
+  },
+  "target": {
+   "code": "7269"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.g-tekt.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6719505f78db2054b93a12957df5ce729831f52ace2bf663ea804cbab2955498"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2403770577cbb9cd8cfc",
+  "source": {
+   "code": "2163"
+  },
+  "target": {
+   "code": "7267"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": "2026-01-31",
+  "document": {
+   "url": "https://www.artner.co.jp/company/about-us/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "145153aac3ec70cf20885daac459de3c9166081b27f70305782a1c3749809c39"
+  },
+  "topic": "公式会社概要の取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "cb087cfb760ee91d9e91",
+  "source": {
+   "code": "2163"
+  },
+  "target": {
+   "code": "7731"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": "2026-01-31",
+  "document": {
+   "url": "https://www.artner.co.jp/company/about-us/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "145153aac3ec70cf20885daac459de3c9166081b27f70305782a1c3749809c39"
+  },
+  "topic": "公式会社概要の取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b65d6db5cd19d9a2d1fb",
+  "source": {
+   "code": "2163"
+  },
+  "target": {
+   "code": "6920"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": "2026-01-31",
+  "document": {
+   "url": "https://www.artner.co.jp/company/about-us/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "145153aac3ec70cf20885daac459de3c9166081b27f70305782a1c3749809c39"
+  },
+  "topic": "公式会社概要の取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "886c59d2bd790fc54c63",
+  "source": {
+   "code": "2163"
+  },
+  "target": {
+   "code": "5802"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": "2026-01-31",
+  "document": {
+   "url": "https://www.artner.co.jp/company/about-us/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "145153aac3ec70cf20885daac459de3c9166081b27f70305782a1c3749809c39"
+  },
+  "topic": "公式会社概要の取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "cd4812680d9e9cdaafa6",
+  "source": {
+   "code": "2163"
+  },
+  "target": {
+   "code": "4543"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": "2026-01-31",
+  "document": {
+   "url": "https://www.artner.co.jp/company/about-us/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "145153aac3ec70cf20885daac459de3c9166081b27f70305782a1c3749809c39"
+  },
+  "topic": "公式会社概要の取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6f8a2fddb8f153101e88",
+  "source": {
+   "code": "2163"
+  },
+  "target": {
+   "code": "6951"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": "2026-01-31",
+  "document": {
+   "url": "https://www.artner.co.jp/company/about-us/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "145153aac3ec70cf20885daac459de3c9166081b27f70305782a1c3749809c39"
+  },
+  "topic": "公式会社概要の取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "fcc4067730a3e14b8ae2",
+  "source": {
+   "code": "7212"
+  },
+  "target": {
+   "code": "7267"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ftech.co.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "b9781fbbd4e031950f20f308d3262d1a2bdf64b93b6e5c02b44880e59ffd61a4"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "20d325c727848e9cf653",
+  "source": {
+   "code": "7212"
+  },
+  "target": {
+   "code": "7201"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ftech.co.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "b9781fbbd4e031950f20f308d3262d1a2bdf64b93b6e5c02b44880e59ffd61a4"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0078003c27edc02699b1",
+  "source": {
+   "code": "7212"
+  },
+  "target": {
+   "code": "7269"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ftech.co.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "b9781fbbd4e031950f20f308d3262d1a2bdf64b93b6e5c02b44880e59ffd61a4"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1cb436888d800669653e",
+  "source": {
+   "code": "7212"
+  },
+  "target": {
+   "code": "7203"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ftech.co.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "b9781fbbd4e031950f20f308d3262d1a2bdf64b93b6e5c02b44880e59ffd61a4"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "991f38a24f661efcb6ab",
+  "source": {
+   "code": "4415"
+  },
+  "target": {
+   "code": "3498"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://broad-e.co.jp/company/about/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "c6e2575e6599f0a7db446f0eddd19d64a752ed76a8efe0f025fd99edcf194b06"
+  },
+  "topic": "公式会社概要の主な取引先企業一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d290bd43036ece7a84b2",
+  "source": {
+   "code": "4415"
+  },
+  "target": {
+   "code": "3276"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://broad-e.co.jp/company/about/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "c6e2575e6599f0a7db446f0eddd19d64a752ed76a8efe0f025fd99edcf194b06"
+  },
+  "topic": "公式会社概要の主な取引先企業一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2683a12c09e3fa86eaae",
+  "source": {
+   "code": "4415"
+  },
+  "target": {
+   "code": "1766"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://broad-e.co.jp/company/about/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "c6e2575e6599f0a7db446f0eddd19d64a752ed76a8efe0f025fd99edcf194b06"
+  },
+  "topic": "公式会社概要の主な取引先企業一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "640f38ca84a2948bcaab",
+  "source": {
+   "code": "4415"
+  },
+  "target": {
+   "code": "8920"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://broad-e.co.jp/company/about/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "c6e2575e6599f0a7db446f0eddd19d64a752ed76a8efe0f025fd99edcf194b06"
+  },
+  "topic": "公式会社概要の主な取引先企業一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "56b8f953573e86038191",
+  "source": {
+   "code": "4415"
+  },
+  "target": {
+   "code": "3489"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://broad-e.co.jp/company/about/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "c6e2575e6599f0a7db446f0eddd19d64a752ed76a8efe0f025fd99edcf194b06"
+  },
+  "topic": "公式会社概要の主な取引先企業一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3e02c4fa6d1c9b728bd2",
+  "source": {
+   "code": "4415"
+  },
+  "target": {
+   "code": "3236"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://broad-e.co.jp/company/about/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "c6e2575e6599f0a7db446f0eddd19d64a752ed76a8efe0f025fd99edcf194b06"
+  },
+  "topic": "公式会社概要の主な取引先企業一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "8db67b55d02e503f6ce0",
+  "source": {
+   "code": "4415"
+  },
+  "target": {
+   "code": "1810"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://broad-e.co.jp/company/about/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "c6e2575e6599f0a7db446f0eddd19d64a752ed76a8efe0f025fd99edcf194b06"
+  },
+  "topic": "公式会社概要の主な取引先企業一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "8a174835d6690abac9cd",
+  "source": {
+   "code": "4415"
+  },
+  "target": {
+   "code": "8802"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://broad-e.co.jp/company/about/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "c6e2575e6599f0a7db446f0eddd19d64a752ed76a8efe0f025fd99edcf194b06"
+  },
+  "topic": "公式会社概要の主な取引先企業一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "40af868e542919dc5f41",
+  "source": {
+   "code": "7069"
+  },
+  "target": {
+   "code": "4452"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cyberbuzz.co.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "5383700f1416a13cac0f59092da720a1eb54c54fa338c2f1aa0319535ed9cd5a"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "47011201a43318737641",
+  "source": {
+   "code": "7698"
+  },
+  "target": {
+   "code": "2206"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.iceco.co.jp/about1/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2d5e8a2aa21dcf069b5e4cd7861428b6596e27eaf7497a3741aec6801966c6a3"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ab0a2fe4c9a44c5197f4",
+  "source": {
+   "code": "7698"
+  },
+  "target": {
+   "code": "2201"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.iceco.co.jp/about1/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2d5e8a2aa21dcf069b5e4cd7861428b6596e27eaf7497a3741aec6801966c6a3"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "09bc85caa2a49dc09156",
+  "source": {
+   "code": "7698"
+  },
+  "target": {
+   "code": "2264"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.iceco.co.jp/about1/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2d5e8a2aa21dcf069b5e4cd7861428b6596e27eaf7497a3741aec6801966c6a3"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5cc5f8acc04067cb6f45",
+  "source": {
+   "code": "7698"
+  },
+  "target": {
+   "code": "1332"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.iceco.co.jp/about1/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2d5e8a2aa21dcf069b5e4cd7861428b6596e27eaf7497a3741aec6801966c6a3"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e59a86e3a1581f9da1d9",
+  "source": {
+   "code": "7698"
+  },
+  "target": {
+   "code": "2001"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.iceco.co.jp/about1/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2d5e8a2aa21dcf069b5e4cd7861428b6596e27eaf7497a3741aec6801966c6a3"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "802ebc6830bbea42f435",
+  "source": {
+   "code": "6149"
+  },
+  "target": {
+   "code": "7203"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://odawara-eng.co.jp/corporate/history/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "682af72fc8b05a82ce757d6c43c6f9e4c7b61a970050602943d07888a7817e25"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "4e454ca193019e30a942",
+  "source": {
+   "code": "6149"
+  },
+  "target": {
+   "code": "7259"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://odawara-eng.co.jp/corporate/history/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "682af72fc8b05a82ce757d6c43c6f9e4c7b61a970050602943d07888a7817e25"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "4994937b3b6b1040163c",
+  "source": {
+   "code": "6149"
+  },
+  "target": {
+   "code": "7201"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://odawara-eng.co.jp/corporate/history/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "682af72fc8b05a82ce757d6c43c6f9e4c7b61a970050602943d07888a7817e25"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ec9d2e8f12bcff240af6",
+  "source": {
+   "code": "6149"
+  },
+  "target": {
+   "code": "6503"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://odawara-eng.co.jp/corporate/history/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "682af72fc8b05a82ce757d6c43c6f9e4c7b61a970050602943d07888a7817e25"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f1f64d200f07e176939e",
+  "source": {
+   "code": "6149"
+  },
+  "target": {
+   "code": "6954"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://odawara-eng.co.jp/corporate/history/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "682af72fc8b05a82ce757d6c43c6f9e4c7b61a970050602943d07888a7817e25"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "813eb4fc206a4b75b961",
+  "source": {
+   "code": "6149"
+  },
+  "target": {
+   "code": "6594"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://odawara-eng.co.jp/corporate/history/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "682af72fc8b05a82ce757d6c43c6f9e4c7b61a970050602943d07888a7817e25"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d80fbdc866607ab0d25f",
+  "source": {
+   "code": "6149"
+  },
+  "target": {
+   "code": "6902"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://odawara-eng.co.jp/corporate/history/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "682af72fc8b05a82ce757d6c43c6f9e4c7b61a970050602943d07888a7817e25"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "648d62cf25617ee614b5",
+  "source": {
+   "code": "6149"
+  },
+  "target": {
+   "code": "6501"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://odawara-eng.co.jp/corporate/history/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "682af72fc8b05a82ce757d6c43c6f9e4c7b61a970050602943d07888a7817e25"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b7c674ee554a62be80df",
+  "source": {
+   "code": "6149"
+  },
+  "target": {
+   "code": "6586"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://odawara-eng.co.jp/corporate/history/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "682af72fc8b05a82ce757d6c43c6f9e4c7b61a970050602943d07888a7817e25"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ec936ebac6036bf0450c",
+  "source": {
+   "code": "6149"
+  },
+  "target": {
+   "code": "7283"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://odawara-eng.co.jp/corporate/history/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "682af72fc8b05a82ce757d6c43c6f9e4c7b61a970050602943d07888a7817e25"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f02e089e8883fd208f26",
+  "source": {
+   "code": "6149"
+  },
+  "target": {
+   "code": "6592"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://odawara-eng.co.jp/corporate/history/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "682af72fc8b05a82ce757d6c43c6f9e4c7b61a970050602943d07888a7817e25"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "36e7fba4fae3e067c8df",
+  "source": {
+   "code": "6149"
+  },
+  "target": {
+   "code": "6508"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://odawara-eng.co.jp/corporate/history/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "682af72fc8b05a82ce757d6c43c6f9e4c7b61a970050602943d07888a7817e25"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ff8977830d7f2480625f",
+  "source": {
+   "code": "3185"
+  },
+  "target": {
+   "code": "3092"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.dreamv.co.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "bcf2e36b47c6da20121da3bb208b072e06f5aced2cfec597859f1b389fdd255a"
+  },
+  "topic": "公式会社概要の取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b43e36e8434a17708f15",
+  "source": {
+   "code": "3926"
+  },
+  "target": {
+   "code": "6030"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.opendoor.co.jp/company/outline/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ecf464ebb2ba16513d7284a2d15f7fb6e6eeb309d8a06d8e9250800664abf161"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b83d6ad7f9d2bcaa7a05",
+  "source": {
+   "code": "3926"
+  },
+  "target": {
+   "code": "6191"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.opendoor.co.jp/company/outline/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ecf464ebb2ba16513d7284a2d15f7fb6e6eeb309d8a06d8e9250800664abf161"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bdfadbe7e6881e434230",
+  "source": {
+   "code": "3926"
+  },
+  "target": {
+   "code": "9201"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.opendoor.co.jp/company/outline/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ecf464ebb2ba16513d7284a2d15f7fb6e6eeb309d8a06d8e9250800664abf161"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "4cc671ed02686cff133e",
+  "source": {
+   "code": "3926"
+  },
+  "target": {
+   "code": "7048"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.opendoor.co.jp/company/outline/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ecf464ebb2ba16513d7284a2d15f7fb6e6eeb309d8a06d8e9250800664abf161"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "fb07ae0d4aa27d8dcb37",
+  "source": {
+   "code": "3926"
+  },
+  "target": {
+   "code": "4755"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.opendoor.co.jp/company/outline/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ecf464ebb2ba16513d7284a2d15f7fb6e6eeb309d8a06d8e9250800664abf161"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f3ac031441f4473fccd0",
+  "source": {
+   "code": "3926"
+  },
+  "target": {
+   "code": "4689"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.opendoor.co.jp/company/outline/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ecf464ebb2ba16513d7284a2d15f7fb6e6eeb309d8a06d8e9250800664abf161"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e7e4add6905455a728cb",
+  "source": {
+   "code": "4343"
+  },
+  "target": {
+   "code": "7552"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.fantasy.co.jp/company/companyinfo/about/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "1ac3fb23909d1f91f6bfde34dcf952841499a2cdda463d53be53f9ad8baab413"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "82d5cf021a4d3ad8cf1e",
+  "source": {
+   "code": "4343"
+  },
+  "target": {
+   "code": "6238"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.fantasy.co.jp/company/companyinfo/about/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "1ac3fb23909d1f91f6bfde34dcf952841499a2cdda463d53be53f9ad8baab413"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "22e7d13dd94d353380bc",
+  "source": {
+   "code": "4343"
+  },
+  "target": {
+   "code": "7608"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.fantasy.co.jp/company/companyinfo/about/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "1ac3fb23909d1f91f6bfde34dcf952841499a2cdda463d53be53f9ad8baab413"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c689f9b75362cda064f4",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "8697"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "8549d8dea006f209c101",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "8002"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "af905698b83e14756066",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "8001"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e5cef2d6070fd965fd25",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "8031"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b7f258262588672a1768",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "8053"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5762a2d0837a3472b98e",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "2503"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ff75e6e09b84325a1885",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "2282"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "69e2b3cae6ac08727828",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "1911"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b25bbcab8a750fd66add",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "9201"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "28f074f8a609d386a9d0",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "9101"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "becf0f86d55427a1d7b5",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "9020"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c59b49aaea47f24287e2",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "9022"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b351882d00199542e7b7",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "9021"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "84cd98a21f551426decd",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "9023"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a14cd37eb168fd1807d2",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "9433"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "580dac871f8e5ed612e0",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "6702"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "114d7fd3182dfbb0344a",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "6503"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "091b4561f1636995588f",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "7203"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "22ea0e5449560dc04032",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "4502"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bc56917f59594cecec19",
+  "source": {
+   "code": "2301"
+  },
+  "target": {
+   "code": "4307"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://company.gakujo.ne.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "37d521c5da1959121085d9dcbcb03a94f8497cc36e3593dc10b93521f06828ff"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "71d11fda7d30fe385c51",
+  "source": {
+   "code": "3803"
+  },
+  "target": {
+   "code": "6703"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://image-inf.co.jp/company/company-information/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "bac2d1e22602811ff6088640ceea768f02e955ff5a3460599abd4ae353b18130"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "775c4a2cb87ef783b9b4",
+  "source": {
+   "code": "4240"
+  },
+  "target": {
+   "code": "8012"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cluster-tech.co.jp/company",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "010d72b7adc8517bfeff60a776e36125c16220e7ed7558132856ffdef7a079d0"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "43826009552b5ef1309d",
+  "source": {
+   "code": "7256"
+  },
+  "target": {
+   "code": "7201"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.kasai.co.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2b691bfc52e7f61026715e11eea04c5cadf8e4d1cba7e5ae7b8b54513365006d"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0dd9d4938b4f16a8b0da",
+  "source": {
+   "code": "7256"
+  },
+  "target": {
+   "code": "7267"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.kasai.co.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2b691bfc52e7f61026715e11eea04c5cadf8e4d1cba7e5ae7b8b54513365006d"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "12df1eb2b1bf7b1ce570",
+  "source": {
+   "code": "2805"
+  },
+  "target": {
+   "code": "8031"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.sbfoods.co.jp/company/profile/about/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "3e533890a7ff52d360d2f4d7e62d19367e5a78215195ed66a40ebe64364d6f9c"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "828dec94466d45774c64",
+  "source": {
+   "code": "4395"
+  },
+  "target": {
+   "code": "2175"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.accrete-inc.com/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7e09a975a9cc589845f4e92a272e0fb93ae6477406ab16e8f644f9cb7cb9879c"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "21b7cf5f66d227e037ce",
+  "source": {
+   "code": "4395"
+  },
+  "target": {
+   "code": "3182"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.accrete-inc.com/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7e09a975a9cc589845f4e92a272e0fb93ae6477406ab16e8f644f9cb7cb9879c"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e1f1f33df66ebd691190",
+  "source": {
+   "code": "4395"
+  },
+  "target": {
+   "code": "2371"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.accrete-inc.com/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7e09a975a9cc589845f4e92a272e0fb93ae6477406ab16e8f644f9cb7cb9879c"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7cd363f461f4b887fac0",
+  "source": {
+   "code": "4395"
+  },
+  "target": {
+   "code": "9433"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.accrete-inc.com/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7e09a975a9cc589845f4e92a272e0fb93ae6477406ab16e8f644f9cb7cb9879c"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "96db71faae55ea604568",
+  "source": {
+   "code": "4395"
+  },
+  "target": {
+   "code": "6562"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.accrete-inc.com/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7e09a975a9cc589845f4e92a272e0fb93ae6477406ab16e8f644f9cb7cb9879c"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "8dac8c8e89a186893857",
+  "source": {
+   "code": "4395"
+  },
+  "target": {
+   "code": "581A"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.accrete-inc.com/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7e09a975a9cc589845f4e92a272e0fb93ae6477406ab16e8f644f9cb7cb9879c"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "48b8b8d725c6c1364d05",
+  "source": {
+   "code": "4395"
+  },
+  "target": {
+   "code": "9434"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.accrete-inc.com/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7e09a975a9cc589845f4e92a272e0fb93ae6477406ab16e8f644f9cb7cb9879c"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "918d541b8d895358647e",
+  "source": {
+   "code": "4395"
+  },
+  "target": {
+   "code": "2432"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.accrete-inc.com/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7e09a975a9cc589845f4e92a272e0fb93ae6477406ab16e8f644f9cb7cb9879c"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bc1c8d06ad0916e0195d",
+  "source": {
+   "code": "4395"
+  },
+  "target": {
+   "code": "9501"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.accrete-inc.com/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7e09a975a9cc589845f4e92a272e0fb93ae6477406ab16e8f644f9cb7cb9879c"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3afdbbd4cfad5780ea13",
+  "source": {
+   "code": "4395"
+  },
+  "target": {
+   "code": "9715"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.accrete-inc.com/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7e09a975a9cc589845f4e92a272e0fb93ae6477406ab16e8f644f9cb7cb9879c"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "8cbeacd3f64e65906eb0",
+  "source": {
+   "code": "4395"
+  },
+  "target": {
+   "code": "6098"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.accrete-inc.com/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7e09a975a9cc589845f4e92a272e0fb93ae6477406ab16e8f644f9cb7cb9879c"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6c5b126a3cbad4b3a914",
+  "source": {
+   "code": "4395"
+  },
+  "target": {
+   "code": "6054"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.accrete-inc.com/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7e09a975a9cc589845f4e92a272e0fb93ae6477406ab16e8f644f9cb7cb9879c"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0c7972d722eb446799a8",
+  "source": {
+   "code": "4395"
+  },
+  "target": {
+   "code": "9433"
+  },
+  "relation_type": "major_supplier",
+  "as_of": null,
+  "document": {
+   "url": "https://www.accrete-inc.com/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7e09a975a9cc589845f4e92a272e0fb93ae6477406ab16e8f644f9cb7cb9879c"
+  },
+  "topic": "公式会社概要の主要仕入先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "cecec82e1239c567e545",
+  "source": {
+   "code": "4395"
+  },
+  "target": {
+   "code": "9434"
+  },
+  "relation_type": "major_supplier",
+  "as_of": null,
+  "document": {
+   "url": "https://www.accrete-inc.com/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7e09a975a9cc589845f4e92a272e0fb93ae6477406ab16e8f644f9cb7cb9879c"
+  },
+  "topic": "公式会社概要の主要仕入先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7d5fbea3a6305a59b016",
+  "source": {
+   "code": "4733"
+  },
+  "target": {
+   "code": "4783"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://corp.obc.co.jp/corporate/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "a96933abbf3f6f3b5eef13cda0776ef606c81058ef0384882861098c6a96cc21"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "69fd1ff18bf07f0d026e",
+  "source": {
+   "code": "4733"
+  },
+  "target": {
+   "code": "4768"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://corp.obc.co.jp/corporate/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "a96933abbf3f6f3b5eef13cda0776ef606c81058ef0384882861098c6a96cc21"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "8a412f2b0b3f298ea2da",
+  "source": {
+   "code": "4733"
+  },
+  "target": {
+   "code": "3670"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://corp.obc.co.jp/corporate/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "a96933abbf3f6f3b5eef13cda0776ef606c81058ef0384882861098c6a96cc21"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2e33aa8fd5f27980098e",
+  "source": {
+   "code": "4733"
+  },
+  "target": {
+   "code": "7752"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://corp.obc.co.jp/corporate/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "a96933abbf3f6f3b5eef13cda0776ef606c81058ef0384882861098c6a96cc21"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5c13115262e1af7e2928",
+  "source": {
+   "code": "5256"
+  },
+  "target": {
+   "code": "8057"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://fusic.co.jp/company/outline",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "9a7fc8fa44336a62c43d10e68c94db4850ede03db4322f7f65594846c05439f1"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "461fc68c8085e35955d7",
+  "source": {
+   "code": "275A"
+  },
+  "target": {
+   "code": "1928"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.hanwa-ex.com/featured/company-profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "23f0fbba670ae443927e2a7a9a78487763514c4a1a5c2ad3446e0325770b4ce7"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "84cb002b9060581040e5",
+  "source": {
+   "code": "275A"
+  },
+  "target": {
+   "code": "8860"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.hanwa-ex.com/featured/company-profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "23f0fbba670ae443927e2a7a9a78487763514c4a1a5c2ad3446e0325770b4ce7"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2d40fb8be8710b302ac5",
+  "source": {
+   "code": "275A"
+  },
+  "target": {
+   "code": "4689"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.hanwa-ex.com/featured/company-profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "23f0fbba670ae443927e2a7a9a78487763514c4a1a5c2ad3446e0325770b4ce7"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "13958759c755d4a9710d",
+  "source": {
+   "code": "5949"
+  },
+  "target": {
+   "code": "7201"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.unipres.co.jp/company/info/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "04c097d00ce05867df46c35ba3f0a1e0ed17881b22cd02dcbcc9260ecf339a2e"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "979f447401369eb4e4b3",
+  "source": {
+   "code": "5949"
+  },
+  "target": {
+   "code": "7222"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.unipres.co.jp/company/info/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "04c097d00ce05867df46c35ba3f0a1e0ed17881b22cd02dcbcc9260ecf339a2e"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "55cff11fadf3f4d932f0",
+  "source": {
+   "code": "5949"
+  },
+  "target": {
+   "code": "7267"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.unipres.co.jp/company/info/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "04c097d00ce05867df46c35ba3f0a1e0ed17881b22cd02dcbcc9260ecf339a2e"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1dc98cd22b6afd9a4752",
+  "source": {
+   "code": "5949"
+  },
+  "target": {
+   "code": "7211"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.unipres.co.jp/company/info/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "04c097d00ce05867df46c35ba3f0a1e0ed17881b22cd02dcbcc9260ecf339a2e"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "059caa04b27cca57ca72",
+  "source": {
+   "code": "5949"
+  },
+  "target": {
+   "code": "7261"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.unipres.co.jp/company/info/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "04c097d00ce05867df46c35ba3f0a1e0ed17881b22cd02dcbcc9260ecf339a2e"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a1c6ab7d7e5ccf9676fa",
+  "source": {
+   "code": "5949"
+  },
+  "target": {
+   "code": "7270"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.unipres.co.jp/company/info/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "04c097d00ce05867df46c35ba3f0a1e0ed17881b22cd02dcbcc9260ecf339a2e"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d9559f0bdedafedb0ee9",
+  "source": {
+   "code": "5949"
+  },
+  "target": {
+   "code": "7203"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.unipres.co.jp/company/info/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "04c097d00ce05867df46c35ba3f0a1e0ed17881b22cd02dcbcc9260ecf339a2e"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "4a9ef7ade0091a73b165",
+  "source": {
+   "code": "5949"
+  },
+  "target": {
+   "code": "7269"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.unipres.co.jp/company/info/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "04c097d00ce05867df46c35ba3f0a1e0ed17881b22cd02dcbcc9260ecf339a2e"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1b1945f958cefeb6bd4c",
+  "source": {
+   "code": "5949"
+  },
+  "target": {
+   "code": "7202"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.unipres.co.jp/company/info/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "04c097d00ce05867df46c35ba3f0a1e0ed17881b22cd02dcbcc9260ecf339a2e"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0556e5e6dad0c1749d33",
+  "source": {
+   "code": "5949"
+  },
+  "target": {
+   "code": "7259"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.unipres.co.jp/company/info/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "04c097d00ce05867df46c35ba3f0a1e0ed17881b22cd02dcbcc9260ecf339a2e"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "296da78b52debf4b27fa",
+  "source": {
+   "code": "5949"
+  },
+  "target": {
+   "code": "7220"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.unipres.co.jp/company/info/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "04c097d00ce05867df46c35ba3f0a1e0ed17881b22cd02dcbcc9260ecf339a2e"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "10f5f485010d2d98c87f",
+  "source": {
+   "code": "4274"
+  },
+  "target": {
+   "code": "6479"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://hosoya-pyro.co.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d0d02a4bc01f479c6c1d119b0529a9879a73a4cb9bb12a57ee4d0b16fd70295c"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7752d58fe4c34731c995",
+  "source": {
+   "code": "4274"
+  },
+  "target": {
+   "code": "6702"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://hosoya-pyro.co.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d0d02a4bc01f479c6c1d119b0529a9879a73a4cb9bb12a57ee4d0b16fd70295c"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "16e01996a2b1c895d4de",
+  "source": {
+   "code": "4274"
+  },
+  "target": {
+   "code": "4403"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://hosoya-pyro.co.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d0d02a4bc01f479c6c1d119b0529a9879a73a4cb9bb12a57ee4d0b16fd70295c"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "fa5d2474d689bb66e39d",
+  "source": {
+   "code": "4274"
+  },
+  "target": {
+   "code": "6367"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://hosoya-pyro.co.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d0d02a4bc01f479c6c1d119b0529a9879a73a4cb9bb12a57ee4d0b16fd70295c"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f5809ecf16186616154a",
+  "source": {
+   "code": "4274"
+  },
+  "target": {
+   "code": "6701"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://hosoya-pyro.co.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d0d02a4bc01f479c6c1d119b0529a9879a73a4cb9bb12a57ee4d0b16fd70295c"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0d77ff30b05c1bc5d023",
+  "source": {
+   "code": "4274"
+  },
+  "target": {
+   "code": "7270"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://hosoya-pyro.co.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d0d02a4bc01f479c6c1d119b0529a9879a73a4cb9bb12a57ee4d0b16fd70295c"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7b814a23e946b1b5bc6b",
+  "source": {
+   "code": "4274"
+  },
+  "target": {
+   "code": "7011"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://hosoya-pyro.co.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d0d02a4bc01f479c6c1d119b0529a9879a73a4cb9bb12a57ee4d0b16fd70295c"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d2822fc3c7b9a82f1619",
+  "source": {
+   "code": "4274"
+  },
+  "target": {
+   "code": "7012"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://hosoya-pyro.co.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d0d02a4bc01f479c6c1d119b0529a9879a73a4cb9bb12a57ee4d0b16fd70295c"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "13efe3db09026e8db58f",
+  "source": {
+   "code": "4274"
+  },
+  "target": {
+   "code": "6208"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://hosoya-pyro.co.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d0d02a4bc01f479c6c1d119b0529a9879a73a4cb9bb12a57ee4d0b16fd70295c"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c9caf62929d723fe3416",
+  "source": {
+   "code": "4274"
+  },
+  "target": {
+   "code": "7224"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://hosoya-pyro.co.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d0d02a4bc01f479c6c1d119b0529a9879a73a4cb9bb12a57ee4d0b16fd70295c"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b09fbd983349f2d994a2",
+  "source": {
+   "code": "4274"
+  },
+  "target": {
+   "code": "4275"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://hosoya-pyro.co.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d0d02a4bc01f479c6c1d119b0529a9879a73a4cb9bb12a57ee4d0b16fd70295c"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "41d34f44a2543a76dd64",
+  "source": {
+   "code": "4274"
+  },
+  "target": {
+   "code": "9201"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://hosoya-pyro.co.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d0d02a4bc01f479c6c1d119b0529a9879a73a4cb9bb12a57ee4d0b16fd70295c"
+  },
+  "topic": "公式会社概要の主な取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6c1ad09f5355300e59bf",
+  "source": {
+   "code": "5644"
+  },
+  "target": {
+   "code": "7203"
+  },
+  "relation_type": "transaction_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.metalart.co.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "9d38b0e5836f18bc837a77f11ae8f6bbe181c35185be755fe1ced3e641b4f677"
+  },
+  "topic": "公式会社概要の主要取引先一覧（取引規模・継続の確認は対象外）",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
  }
 ]
