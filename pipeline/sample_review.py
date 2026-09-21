@@ -19,9 +19,9 @@ import edinet_tables as et  # noqa: E402
 from config import EDINET_CACHE, PUBLIC_DIR  # noqa: E402
 
 
-def load_shard(pub: Path, relation_id: str, size: int) -> dict:
+def load_shard(pub: Path, relation_id: str, size: int, template: str = "evidence/{shard}.json") -> dict:
     shard = f"{int(relation_id[1:]) // size:04d}"
-    return json.loads((pub / "evidence" / f"{shard}.json").read_text(encoding="utf-8")).get(relation_id, {})
+    return json.loads((pub / template.replace("{shard}", shard)).read_text(encoding="utf-8")).get(relation_id, {})
 
 
 def show_edinet_row(ev: dict) -> None:
@@ -65,7 +65,7 @@ def main() -> int:
         if args.only and rid != args.only:
             continue
         print(f"=== {rid} [{item['stratum']}] {item['source']} -> {item['target']} ({item['relation_type']}) ratio={item['ratio']}")
-        detail = load_shard(pub, rid, size)
+        detail = load_shard(pub, rid, size, m5["evidence_shards"]["path"])
         for ev in detail.get("evidence", []):
             print(f"  - {ev.get('source')} {ev.get('property') or ''} doc={ev.get('doc_id') or ''} as_of={ev.get('as_of')} cls={ev.get('classification') or ''}"
                   f" dir={ev.get('direction_source') or ''} url={ev.get('url') or ''}")

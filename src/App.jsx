@@ -356,7 +356,7 @@ export default function App() {
       {visited.has('graph') && <ViewPane active={view === 'graph'}><GraphView centerCode={centerCode} setCenterCode={setCenterCode} onShowInTable={showInTable} /></ViewPane>}
       {visited.has('table') && <ViewPane active={view === 'table'}><RelationTable request={tableRequest} /></ViewPane>}
       {visited.has('stats') && <ViewPane active={view === 'stats'}><StatsView onSelectCompany={selectAndShowGraph} /></ViewPane>}
-      <footer className="app-footer"><span>収録 {STATS.companies.toLocaleString()}社 · 確定 {STATS.relations.toLocaleString()}関係{STATS.byStatus.needs_review ? ` · 要確認 ${STATS.byStatus.needs_review.toLocaleString()}` : ''}</span><span>データ生成 {META.generatedAt} · 自動抽出を含む／最新の上場状況・関係を保証しません</span></footer>
+      <footer className="app-footer"><span>収録 {STATS.companies.toLocaleString()}社 · 判定済み {STATS.relations.toLocaleString()}関係{STATS.byStatus.needs_review ? ` · 要確認 ${STATS.byStatus.needs_review.toLocaleString()}` : ''}</span><span>データ生成 {META.generatedAt} · 信頼度が低い項目・未確認情報を含みます／正確な情報はJPX公式等でご確認ください</span></footer>
     </div>
   );
 }

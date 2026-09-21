@@ -9,7 +9,7 @@
 | ファイル | 役割 |
 | --- | --- |
 | `config.py` | パス・URL・関係タイプ定義 |
-| `fetch_jpx.py` | JPX 上場銘柄一覧 → `data_raw/jpx_listed.json` |
+| `prepare_independent_companies.py` | 独立ソースの企業スナップショットを検証 |
 | `fetch_edinet_codes.py` | EDINET コードリスト → `data_raw/edinet_codes.json` |
 | `fetch_wikidata.py` / `apply_org_flags.py` | Wikidata の QID 対応・資本/グループ関係 → `data_raw/wikidata_*.json` |
 | `fetch_edinet_filings.py` | EDINET API v2 から有価証券報告書を取得し、関係会社・大株主・主要顧客・役員の状況・経営上の重要な契約等・事業の内容の**生 HTML ブロック**を `data_raw/edinet_blocks/<docID>.json.gz` にキャッシュ（要 `EDINET_API_KEY`。種別を追加した場合は不足分だけ再取得して既存キャッシュに追加） |
@@ -36,7 +36,7 @@ python make_viz_data.py                                                # public/
 ```
 
 `EDINET_API_KEY` は環境変数または `~/.persona/.env` から読む。JPX・EDINETコード・Wikidata の
-再取得は `fetch_jpx.py` 等を個別に実行する（`data_raw/sources.json` の取得日を更新すること）。
+再取得は各独立ソースの取得処理を個別に実行する（`data_raw/sources.json` の取得日を更新すること）。
 
 テスト: リポジトリ直下で `python3 -m unittest discover -s pipeline/tests`。
 
@@ -126,7 +126,7 @@ python make_viz_data.py                                                # public/
 - 関係: `status`（confirmed / needs_review / historical）、`review_reasons`、`verification`（corrections.json で
   原本照合したものだけ verified）。
 - `make_viz_data.py` は本体 `public/M5_company_relations.json`（evidence は出所・種別・基準日の要約）と
-  `public/evidence/<shard>.json`（関係 1,000 件ごとの構造化項目・出典と比率の履歴）に分ける。詳細パネルが必要なシャードだけ取得する。
+  `public/data/<版ID>/evidence/<shard>.json`（関係 1,000 件ごとの構造化項目・出典と比率の履歴）に分ける。詳細パネルが必要なシャードだけ取得する。
 - 大株主の状況の注記に写された大量保有報告書の表は `property: large_holding_report`（比率 kind
   `share_large_holding`）として大株主本表と区別する。
 
@@ -155,3 +155,22 @@ python make_viz_data.py                                                # public/
   同じエンティティに統合される。全体マップでは会員が 2 社以上のグループをハブ（点線の二重円）として描く。
 - 再取得と再生成: `python fetch_edinet_filings.py fetch`（新しい種別だけ取得。全書類で約 4 時間）→
   `python fetch_group_members.py` → `parse_edinet_filings.py` → `build_masters.py` → `make_viz_data.py`。
+
+## 公開前の追加検査
+
+- 法人格だけ・文章が混入したエンティティは、入力済みキャッシュも含め統合の最終段階で隔離します。
+- `ir_crawl/data/ir_relations.json` と `poc_results.json` はローカル原本です。Gitへ追加しないでください。
+  再生成には前者が必要です。欠損したままIR関係を落として生成することはできません。
+- `compare_company_sources.py` はJPX Excelと独立ソースの照合専用です。照合用Excelと差分結果は
+  `data_raw/jpx_comparison/` に置き、本番名簿の補完や絞り込みには使用しません。読み取りにはopenpyxlが必要です。
+- 名簿・関係・詳細から算出した版IDを本体に埋め、詳細を `data/<版ID>/evidence/` に保存します。
+  既存版は上書きせず、クライアントは版が異なる応答を表示しません。固定URL時代の詳細は削除し、
+  古い画面には取得エラーと再読み込み案内を出します。古い版の削除時も他の版への転送は禁止です。
+- `npm run build` は実際のバンドル対象の著作権・許諾文を `THIRD_PARTY_NOTICES.txt` に同梱します。
+  許諾文が欠ける依存が見つかればビルドは失敗します。バージョン指定の補足は `build/licenses/` を参照してください。
+
+### 独立ソース企業マスター（2026-09-21）
+
+通常の生成は `data_raw/independent_companies.json` のレビュー済みスナップショットを利用します。`prepare_independent_companies.py` で検証し、`build_masters.py` に入力します。`fetch_jpx.py` は本番パイプラインから外しました。JPXは比較専用であり、不足値をJPXから埋めません。スナップショットの更新時は出典URL・資料日・不一致/未確認フラグを維持し、上場廃止や新規上場の発効日も確認してください。`run.sh` は独立スナップショットを自動更新しません。
+
+名称・33業種・未確認の市場区分を含むため、UIは注意文とJPX公式への確認リンクを表示します。17業種・規模区分は空欄です。地方市場やPRO市場も収録対象となります。

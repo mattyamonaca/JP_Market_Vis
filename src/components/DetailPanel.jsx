@@ -13,6 +13,7 @@ import {
   loadRelationDetail,
   nodeName,
   relationStatus,
+  relationStatusLabel,
 } from '../data/graph.js';
 
 const SOURCE_JA = {
@@ -94,7 +95,12 @@ function CompanyDetail({ info, refObj }) {
     );
   }
   return (
-    <Section title="上場企業">
+    <Section title="収録企業">
+      {info.data_quality && <div role="note" style={{ padding: 10, marginBottom: 12, background: "#fff8e1", color: "#654b00", fontSize: 12 }}>
+        情報元の違い・更新時期・自動抽出により、信頼度が低い項目があります。
+        {info.data_quality.needs_review?.length > 0 && <div>不一致・未確認：{info.data_quality.needs_review.map(k => ({name:"名称", industry_33:"33業種", market_segment:"市場区分", listing_scope:"上場対象・基準日"}[k] ?? k)).join("、")}</div>}
+        正確な上場状況・市場区分・業種は、<ExternalLink href="https://www.jpx.co.jp/markets/statistics-equities/misc/01.html">JPX公式の最新情報</ExternalLink>をご自身で確認してください。地方市場は各取引所の公式情報をご確認ください。
+      </div>}
       <Field label="名称" value={info.name} />
       <Field label="正式名称" value={info.name_edinet} />
       <Field label="読み" value={info.name_kana} />
@@ -103,8 +109,8 @@ function CompanyDetail({ info, refObj }) {
       <Field label="証券コード" value={info.securities_code} />
       <Field label="市場区分" value={SEGMENT_JA[info.market_segment]} />
       <Field label="33業種" value={info.industry_33} />
-      <Field label="17業種" value={info.industry_17} />
-      <Field label="規模区分" value={info.scale_category} />
+
+
       <Field label="法人番号" value={info.corporate_number} />
       <Field label="EDINET" value={info.edinet_code} />
       <Field label="所在地" value={info.address} />
@@ -223,9 +229,9 @@ export function RelationDetail({ relation }) {
       <Section title={`関係 ${relation.relation_id}`}>
         <div style={{ marginBottom: 8 }}>
           <Badge color={color}>{CATEGORY_JA[relation.category]} / {typeDef.ja ?? relation.relation_type}</Badge>
-          <Badge color={STATUS_COLORS[status] ?? '#475569'} title={status === 'confirmed' ? '出所の記載どおりに抽出できた関係。内容の真偽を保証するものではありません' : status === 'needs_review' ? '出所の記載から関係タイプ・方向を確定できない関係' : '後続の開示で過去の状態になった関係'}>{STATUS_JA[status]}</Badge>
+          <Badge color={STATUS_COLORS[status] ?? '#475569'} title={status === 'confirmed' ? '抽出ルールによる判定を通過した関係。人手による原本照合の有無は別に表示します' : status === 'needs_review' ? '出所の記載から関係タイプ・方向を確定できない関係' : '後続の開示で過去の状態になった関係'}>{relationStatusLabel(relation)}</Badge>
           <Badge color={verification?.status === 'verified' ? STATUS_COLORS.confirmed : '#475569'} title="抽出結果を人手で原本と照合したかどうか">
-            {verification?.status === 'verified' ? `原本で検証済み${verification.on ? `（${verification.on}）` : ''}` : '未検証（自動抽出）'}
+            {verification?.status === 'verified' ? `原本照合済み${verification.on ? `（${verification.on}）` : ''}` : '未検証（自動抽出）'}
           </Badge>
         </div>
         {status === 'needs_review' && relation.review_reasons?.length > 0 && (
@@ -250,11 +256,11 @@ export function RelationDetail({ relation }) {
       </Section>
       <Section title={`資料から抽出した情報・出典 ${evidence.length} 件`}>
         {loadState === 'loading' && detail === null && META.evidenceShards && <div style={{ fontSize: 12, color: 'var(--text-2)', marginBottom: 6 }}>原本情報を読み込み中…</div>}
-        {loadState === 'error' && <div role="alert" style={{ fontSize: 12, color: 'var(--danger)', marginBottom: 6 }}>原本情報を取得できませんでした。通信状況を確認してください。</div>}
+        {loadState === 'error' && <div role="alert" style={{ fontSize: 12, color: 'var(--danger)', marginBottom: 6 }}>原本情報を取得できませんでした。通信状況を確認し、ページを再読み込みしてください。</div>}
         <p style={{ fontSize: 12, color: 'var(--text-2)', lineHeight: 1.6 }}>JP Market Visが資料から抽出・整理した項目です。原文の引用ではありません。個別の条件や詳細は出典リンクから原本をご確認ください。</p>
         {evidence.map((ev, i) => <EvidenceCard key={i} ev={ev} />)}
         <div style={{ fontSize: 12, color: 'var(--text-2)', lineHeight: 1.6 }}>
-          「一次開示」は出所の種別で、抽出が正しいことを意味しません。「原本で検証済み」は人手で照合した関係にだけ付きます。
+          「一次開示」は出所の種別で、抽出が正しいことを意味しません。「原本照合済み」は人手で照合した関係にだけ付きます。
         </div>
       </Section>
     </>

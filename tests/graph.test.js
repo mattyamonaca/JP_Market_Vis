@@ -103,3 +103,16 @@ test('personnel, group and alliance categories are populated on the global map',
   assert.ok(personnel.attributes.persons[0].name);
   assert.ok(graph.GLOBAL_GRAPH.nodes.some((n) => n.kind === 'group'), 'a group hub node exists');
 });
+
+test('status labels distinguish machine judgement and source verification', () => {
+  assert.equal(graph.relationStatusLabel({ status: 'confirmed' }), '自動判定');
+  assert.equal(graph.relationStatusLabel({ status: 'confirmed', verification: { status: 'verified' } }), '原本照合済み');
+  assert.equal(graph.relationStatusLabel({ status: 'needs_review', verification: { status: 'verified' } }), '要確認');
+});
+
+test('mismatched detail versions fail closed instead of showing another relation', async () => {
+  const oldFetch = globalThis.fetch;
+  globalThis.fetch = async () => ({ ok: true, json: async () => ({ R0000001: { dataset_id: 'another-version', evidence: [{ source: 'wrong' }] } }) });
+  try { await assert.rejects(graph.loadRelationDetail({ relation_id: 'R0000001' }), /データ版が一致しません/); }
+  finally { globalThis.fetch = oldFetch; }
+});

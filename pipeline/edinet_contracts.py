@@ -98,6 +98,8 @@ def companies_in(text: str, with_cue: bool = False):
     text = CONJ_RE.sub("、", text)
     for m in COMPANY_RE.finditer(text):
         name = clean_company(m.group(0))
+        if et.name_problem(name):
+            continue
         # 法人格・記号を除いて 2 文字以上残らない断片（「.Ltd.」など）は採らない
         core = re.sub(r"株式会社|㈱|（株）|\(株\)|有限公司|Inc\.?|Corp\.?|Corporation|Co\.?,?\.?|Ltd\.?|LLC|GmbH|Limited|Company|[\s.,・&＆]", "", name)
         if not name or SELF_RE.match(name) or len(core) < 2:
@@ -155,7 +157,7 @@ def extract_contracts(raw_block: str, filer_name: str | None = None) -> list[dic
                 party = re.sub(r"\s+", " ", cell("party")).strip() or None
                 cleaned = clean_company(cp)
                 # 法人格を除いて 2 文字以上残る名前だけ（「Ltd.」のような法人格だけの断片は採らない）
-                fallback = [cleaned] if HINT_RE.search(cp) and not STOP_RE.match(cleaned) and len(re.sub(
+                fallback = [cleaned] if not et.name_problem(cleaned) and HINT_RE.search(cp) and not STOP_RE.match(cleaned) and len(re.sub(
                     r"株式会社|㈱|（株）|\(株\)|Inc\.?|Corp\.?|Ltd\.?|LLC|Co\.,?|Limited|Company|Corporation|[\s.,]", "", cleaned)) >= 2 else []
                 for name in (companies_in(cp) or fallback):
                     rows.append({

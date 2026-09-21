@@ -9,6 +9,7 @@ import {
   STATUS_JA,
   nodeName,
   relationStatus,
+  relationStatusLabel,
 } from '../data/graph.js';
 import { filterRelations } from '../data/relationFilter.js';
 import { RelationDetail } from './DetailPanel.jsx';
@@ -152,7 +153,7 @@ export default function RelationTable({ request = null }) {
                       {ratio != null ? `${(ratio * 100).toFixed(1)}%` : '—'}
                     </td>
                     <td style={{ whiteSpace: 'nowrap' }}>
-                      <span style={{ color: STATUS_COLORS[relationStatus(rel)] ?? 'var(--text-2)', fontWeight: 600 }}>{STATUS_JA[relationStatus(rel)] ?? relationStatus(rel)}</span>
+                      <span style={{ color: STATUS_COLORS[relationStatus(rel)] ?? 'var(--text-2)', fontWeight: 600 }}>{relationStatusLabel(rel)}</span>
                       {rel.verification?.status === 'verified' && <span title="原本で検証済み" style={{ color: 'var(--status-confirmed)', marginLeft: 4 }}>✓</span>}
                     </td>
                     <td style={{ color: 'var(--text-2)' }}>

@@ -52,3 +52,40 @@ class PublicFactsTest(unittest.TestCase):
                                    'source': {'url': 'https://example.com', 'title': '表題'}})
         self.assertEqual(out, {'status': 'verified', 'on': '2026-09-20',
                               'source': {'url': 'https://example.com'}})
+
+class DatasetVersionTest(unittest.TestCase):
+    def test_changed_identity_gets_new_path_and_old_version_is_immutable(self):
+        import json
+        import tempfile
+        from unittest.mock import patch
+        import make_viz_data as viz
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            masters = root / 'masters'; masters.mkdir()
+            public = root / 'public'
+            m4 = {'companies': {'A': {'name': 'A'}, 'B': {'name': 'B'}, 'C': {'name': 'C'}}}
+            m5 = {'master_id': 'M5', 'version': 'test', 'relation_types': {}, 'entities': {}, 'relations': [{
+                'relation_id': 'R0000001', 'source': {'type': 'listed', 'key': 'A'},
+                'target': {'type': 'listed', 'key': 'B'}, 'relation_type': 'ownership',
+                'category': 'capital', 'directed': True, 'attributes': {},
+                'evidence': [{'source': 'edinet', 'doc_id': 'DOC-B'}]}]}
+            (masters / 'M4_companies.json').write_text(json.dumps(m4))
+            def generate():
+                (masters / 'M5_company_relations.json').write_text(json.dumps(m5))
+                with patch.object(viz, 'MASTERS_DIR', masters), patch.object(sys, 'argv', ['make_viz_data', '--out', str(public)]):
+                    viz.main()
+                return json.loads((public / 'M5_company_relations.json').read_text())
+            first = generate()
+            old_path = public / first['evidence_shards']['path'].replace('{shard}', '0000')
+            old_bytes = old_path.read_bytes()
+            m5['relations'][0]['target']['key'] = 'C'
+            m5['relations'][0]['evidence'][0]['doc_id'] = 'DOC-C'
+            second = generate()
+            self.assertNotEqual(first['dataset_id'], second['dataset_id'])
+            self.assertNotEqual(first['evidence_shards']['path'], second['evidence_shards']['path'])
+            self.assertEqual(old_bytes, old_path.read_bytes())
+            current = json.loads((public / second['evidence_shards']['path'].replace('{shard}', '0000')).read_text())
+            self.assertEqual(current['R0000001']['dataset_id'], second['dataset_id'])
+            self.assertEqual(json.loads((public / 'M4_companies.json').read_text())['dataset_id'], second['dataset_id'])
+            self.assertFalse((public / 'evidence').exists())
+            self.assertEqual(generate()['dataset_id'], second['dataset_id'])

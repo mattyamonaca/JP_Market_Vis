@@ -28,7 +28,8 @@ def size(path):
     return path.stat().st_size / 1e6
 def gz(path):
     return len(gzip.compress(path.read_bytes(), 6)) / 1e6
-shards = sorted((pub / "evidence").glob("*.json"))
+m5 = json.loads((pub / "M5_company_relations.json").read_text(encoding="utf-8"))
+shards = sorted(pub.glob(m5["evidence_shards"]["path"].replace("{shard}", "*")))
 gen_date = (a.get("generated_at") or "")[:10]
 md = f"""# 公開データの再生成と監査（Issue #3）— 2026-09-09（最終再生成 {gen_date}）
 

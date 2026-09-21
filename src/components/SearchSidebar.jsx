@@ -57,7 +57,7 @@ export default function SearchSidebar({ selectedCode, onSelect }) {
               )}
             </div>
             <div style={{ fontSize: 12, color: 'var(--text-2)', marginTop: 2 }}>
-              {code} ・ {SEGMENT_JA[company.market_segment]} ・ {company.industry_17}
+              {code} ・ {SEGMENT_JA[company.market_segment]} ・ {company.industry_33}
             </div>
           </button>
         ))}

@@ -328,6 +328,10 @@ def name_problem(name: str | None) -> str | None:
         return "label"
     if is_label_only(n):
         return "classification_label"
+    if re.fullmatch(r"(?:股份|股分)?有限公司|有限責任公司", n):
+        return "legal_form_only"
+    if re.search(r"取締役会において|(?:子会社|関連会社)である|(?:締結|合意|決議|取得|開催)しました", n):
+        return "sentence_fragment"
     if not _LEGAL_RE.sub("", n).strip() or re.fullmatch(_LATIN_LEGAL_SUFFIX, n):
         return "legal_form_only"
     if not re.search(r"[A-Za-z぀-ヿ一-鿿Ａ-Ｚａ-ｚ]", n):

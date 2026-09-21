@@ -14,6 +14,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import shutil
 import sys
@@ -151,19 +152,34 @@ def main() -> int:
         "entities": m5["entities"],
         "relations": slim_rels,
     }
+    # 本体・名簿・詳細のどれが変わっても別の配信先にする。
+    digest = hashlib.sha256()
+    for payload in (m4, m5_slim, shards):
+        digest.update(json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode())
+    revision = digest.hexdigest()[:24]
+    m4["dataset_id"] = m5_slim["dataset_id"] = revision
+    m5_slim["evidence_shards"]["path"] = f"data/{revision}/evidence/{{shard}}.json"
+    for payload in shards.values():
+        for detail in payload.values():
+            detail["dataset_id"] = revision
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "M4_companies.json").write_text(
         json.dumps(m4, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     (out_dir / "M5_company_relations.json").write_text(
         json.dumps(m5_slim, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    ev_dir = out_dir / "evidence"
-    if ev_dir.exists():
-        shutil.rmtree(ev_dir)
-    ev_dir.mkdir()
+    # 旧クライアントが固定URLを要求した場合は404にし、別関係の出典を返さない。
+    legacy_dir = out_dir / "evidence"
+    if legacy_dir.exists():
+        shutil.rmtree(legacy_dir)
+    ev_dir = out_dir / "data" / revision / "evidence"
+    ev_dir.mkdir(parents=True, exist_ok=True)
     total_ev = 0
     for shard, payload in shards.items():
         p = ev_dir / f"{shard}.json"
-        p.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+        text = json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+        if p.exists() and p.read_text(encoding="utf-8") != text:
+            raise RuntimeError(f"Immutable dataset changed: {p}")
+        p.write_text(text, encoding="utf-8")
         total_ev += p.stat().st_size
 
     def mb(p: Path) -> str:

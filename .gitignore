@@ -9,3 +9,10 @@ dist/
 # 開発用の確認結果・レビュー記録はリポジトリに含めない
 qa/
 reviews/
+
+# 収集原文・比較用データはローカルに保存し、公開しない
+pipeline/ir_crawl/data/ir_relations.json
+pipeline/ir_crawl/data/poc_results.json
+pipeline/data_raw/jpx_listed.json
+pipeline/data_raw/jpx_comparison/
+outputs/

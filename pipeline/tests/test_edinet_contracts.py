@@ -66,3 +66,11 @@ class ContractParserTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+class PublicNameGuardTest(unittest.TestCase):
+    def test_foreign_legal_form_and_sentence_fragments_are_not_companies(self):
+        import edinet_tables as et
+        for name in ['股份有限公司', '有限公司', '20日開催の取締役会においてソニーグループ株式会社', '100％連結子会社であるパナソニック コネクト㈱']:
+            self.assertIsNotNone(et.name_problem(name), name)
+        for name in ['台湾扣具工業股份有限公司', 'パナソニック コネクト㈱', '株式会社88']:
+            self.assertIsNone(et.name_problem(name), name)

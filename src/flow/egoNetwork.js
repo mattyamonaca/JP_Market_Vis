@@ -126,7 +126,7 @@ export function buildEgoNetwork(centerCode, { categoryFilter = null, maxNeighbor
         label: center.name,
         code: centerCode,
         segment: center.market_segment,
-        industry: center.industry_17,
+        industry: center.industry_33,
         degree: degreeOf(centerRef),
         ref: centerRef,
       },

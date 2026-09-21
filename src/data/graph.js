@@ -11,6 +11,9 @@ async function readData(name) {
 const [m4, m5] = await Promise.all([
   readData('M4_companies.json'), readData('M5_company_relations.json'),
 ]);
+if (!m4.dataset_id || m4.dataset_id !== m5.dataset_id) {
+  throw new Error('データの更新中です。再読み込みしてください。');
+}
 
 export const COMPANIES = m4.companies;
 export const ENTITIES = m5.entities;
@@ -22,15 +25,19 @@ export const META = {
   generatedAt: m5.generated_at,
   statusValues: m5.status_values ?? null,
   evidenceShards: m5.evidence_shards ?? null,
+  datasetId: m5.dataset_id,
 };
 
 // 関係の状態（Issue #3/#5）。旧データには status がないため confirmed 扱い
 export const STATUS_JA = {
-  confirmed: '確定',
+  confirmed: '判定済み（自動・原本照合）',
   needs_review: '要確認',
   historical: '過去',
 };
 export const relationStatus = (rel) => rel.status ?? 'confirmed';
+export const relationStatusLabel = (rel) => relationStatus(rel) === 'confirmed'
+  ? (rel.verification?.status === 'verified' ? '原本照合済み' : '自動判定')
+  : STATUS_JA[relationStatus(rel)] ?? relationStatus(rel);
 // 全体マップ・ランキング・統計の「確定関係」= status が confirmed のもの
 export const CURRENT_RELATIONS = RELATIONS.filter((rel) => relationStatus(rel) === 'confirmed');
 
@@ -57,7 +64,11 @@ export async function loadRelationDetail(relation) {
     }));
   }
   const payload = await shardCache.get(shard);
-  return payload[relation.relation_id] ?? null;
+  const detail = payload[relation.relation_id];
+  if (!detail || detail.dataset_id !== META.datasetId) {
+    throw new Error('出典のデータ版が一致しません。再読み込みしてください。');
+  }
+  return detail;
 }
 
 // 白背景上の配色（Issue #23）。グラフの線・ノードには中間色、文字・バッジには白に対して 4.5:1 以上の濃い色を使う
@@ -89,6 +100,7 @@ export const CATEGORY_JA = {
 };
 
 export const SEGMENT_JA = {
+  unknown: '未確認',
   prime: 'プライム',
   standard: 'スタンダード',
   growth: 'グロース',
@@ -184,32 +196,15 @@ export const STATS = (() => {
 // 企業検索（名称・英文名・別名・ヨミ・証券コードの部分一致）。索引の作り方は search.js
 export const searchCompanies = createSearcher(COMPANIES, (code) => degreeOf({ type: 'listed', key: code }));
 
-// 17業種 → 色（全体マップのノード配色）
-// 17業種 → 色（全体マップのノード配色）。彩度を抑えたくすみ系で、白背景でも輪郭（同色を暗くしたリング）で識別する（Issue #28）
-export const INDUSTRY_COLORS = {
-  '食品': '#c26f6f',
-  'エネルギー資源': '#c98a5c',
-  '建設・資材': '#c1a35a',
-  '素材・化学': '#9aa855',
-  '医薬品': '#6ea87b',
-  '自動車・輸送機': '#5e9c8f',
-  '鉄鋼・非鉄': '#6a9aa6',
-  '機械': '#6b8fbb',
-  '電機・精密': '#7b85c6',
-  '情報通信・サービスその他': '#8f7dba',
-  '電力・ガス': '#a97db2',
-  '運輸・物流': '#b779a0',
-  '商社・卸売': '#ba7889',
-  '小売': '#c47f76',
-  '銀行': '#8a8e9c',
-  '金融（除く銀行）': '#a49b85',
-  '不動産': '#a08a58',
-  'その他': '#9aa0a8',
-  'グループ': '#5b6472', // 企業グループのハブ（全体マップ）
-};
-
-export function industryColor(industry17) {
-  return INDUSTRY_COLORS[industry17] ?? '#9aa0a8';
+// 独立ソースの33業種を表示用の色に割り当てる（17業種への変換ではない）。
+const INDUSTRY_PALETTE = ['#c26f6f', '#c98a5c', '#c1a35a', '#9aa855', '#6ea87b', '#5e9c8f', '#6a9aa6', '#6b8fbb', '#7b85c6', '#8f7dba', '#a97db2', '#b779a0', '#ba7889', '#c47f76', '#8a8e9c', '#a49b85', '#a08a58'];
+export const INDUSTRY_COLORS = Object.fromEntries(
+  [...new Set(Object.values(COMPANIES).map(c => c.industry_33).filter(Boolean))].sort().map((name, i) => [name, INDUSTRY_PALETTE[i % INDUSTRY_PALETTE.length]])
+);
+INDUSTRY_COLORS['その他'] = '#9aa0a8';
+INDUSTRY_COLORS['グループ'] = '#5b6472';
+export function industryColor(industry) {
+  return INDUSTRY_COLORS[industry] ?? '#9aa0a8';
 }
 
 // 全体マップ用: 両端が上場企業のエッジのみで構成したネットワーク
@@ -249,7 +244,7 @@ export const GLOBAL_GRAPH = (() => {
   for (const [code, d] of deg) {
     const c = COMPANIES[code];
     if (c) {
-      nodes.push({ id: code, name: c.name, industry: c.industry_17 ?? 'その他', segment: c.market_segment, degree: d });
+      nodes.push({ id: code, name: c.name, industry: c.industry_17 ?? c.industry_33 ?? 'その他', segment: c.market_segment, degree: d });
       continue;
     }
     const e = ENTITIES[code];

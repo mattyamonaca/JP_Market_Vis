@@ -5,7 +5,7 @@ cd "$(dirname "$0")"
 if [[ ! -d .venv ]]; then python3 -m venv .venv; fi
 source .venv/bin/activate
 pip install -q -r requirements.txt
-python -u fetch_jpx.py
+python -u prepare_independent_companies.py
 python -u fetch_edinet_codes.py
 python -u fetch_wikidata.py
 python -u fetch_edinet_filings.py list

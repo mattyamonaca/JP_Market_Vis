@@ -1,7 +1,7 @@
 """fetch/parse 結果を統合し M4_companies.json / M5_company_relations.json（フル版）を生成する。
 
 入力（data_raw/）:
-  jpx_listed.json, edinet_codes.json, wikidata_mapping.json, wikidata_relations.json,
+  independent_companies.json, edinet_codes.json, wikidata_mapping.json, wikidata_relations.json,
   wikidata_personnel.json, edinet_relations.json(.gz), ir_crawl/data/ir_relations.json,
   sources.json（各入力の取得日）
 出力（data_processed/masters/）:
@@ -88,7 +88,7 @@ def source_dates() -> dict:
 # M4
 # ---------------------------------------------------------------------------
 
-def build_m4(jpx: list[dict], edinet: dict[str, dict], wd_mapping: list[dict]) -> dict:
+def build_m4(independent: list[dict], edinet: dict[str, dict], wd_mapping: list[dict]) -> dict:
     qid_by_cn = {m["corporate_number"]: m["qid"] for m in wd_mapping if m.get("corporate_number")}
     qid_by_ticker: dict[str, str] = {}
     qid_by_name: dict[str, str] = {}
@@ -114,7 +114,7 @@ def build_m4(jpx: list[dict], edinet: dict[str, dict], wd_mapping: list[dict]) -
         lambda code, rec, cn: qid_by_ticker.get(code),
         lambda code, rec, cn: rec["name"] and qid_by_name.get(normalize_name(rec["name"])),
     ):
-        for rec in jpx:
+        for rec in independent:
             code = rec["securities_code"]
             if code in qid_assign:
                 continue
@@ -126,7 +126,7 @@ def build_m4(jpx: list[dict], edinet: dict[str, dict], wd_mapping: list[dict]) -
 
     alias_dict = load_aliases()
     companies: dict[str, dict] = {}
-    for rec in jpx:
+    for rec in independent:
         code = rec["securities_code"]
         ed = edinet.get(code, {})
         aliases = list((alias_dict["listed"].get(code) or {}).get("aliases", []))
@@ -140,8 +140,10 @@ def build_m4(jpx: list[dict], edinet: dict[str, dict], wd_mapping: list[dict]) -
             "aliases": aliases,
             "name_en": ed.get("name_en"),
             "securities_code": code,
-            "corporate_number": ed.get("corporate_number"),
-            "edinet_code": ed.get("edinet_code"),
+            "corporate_number": rec.get("corporate_number") or ed.get("corporate_number"),
+            "edinet_code": rec.get("edinet_code") or ed.get("edinet_code"),
+            "field_sources": rec.get("field_sources", {}),
+            "data_quality": rec.get("data_quality", {}),
             "market_segment": rec["market_segment"],
             "industry_33": rec["industry_33"],
             "industry_17": rec["industry_17"],
@@ -156,7 +158,7 @@ def build_m4(jpx: list[dict], edinet: dict[str, dict], wd_mapping: list[dict]) -
         "version": VERSION,
         "generated_at": GENERATED_AT,
         "source": {
-            "jpx": "JPX 東証上場銘柄一覧 (data_j.xls)",
+            "independent": "EDINETコード一覧・企業公開資料（JPXは照合のみ）",
             "edinet": "EDINET コードリスト（金融庁）",
             "wikidata": "Wikidata SPARQL (P414/P249/P3225)",
         },
@@ -268,6 +270,15 @@ class RelationBuilder:
 
     def finalize(self) -> tuple[dict, list[dict]]:
         """ID を投入順に依存しない形で確定する（再取得順序が変わっても同じ出力になる）。"""
+        # 古い抽出キャッシュや別の取得元にも適用する最終防壁。
+        # 実在企業を特定できない断片は推測で補完せず、ローカルの隔離記録に残す。
+        import edinet_tables as et
+        for key, rel in list(self.relations.items()):
+            bad = [(ref, et.name_problem(self.entities[ref["key"]]["name"]))
+                   for ref in (rel["source"], rel["target"]) if ref["type"] == "entity"]
+            if any(problem for _, problem in bad):
+                self.reject(rel, "invalid_entity_name", "finalize")
+                del self.relations[key]
         # 参照されている entity だけを、正規化名→法人番号→QID の順で並べ直して ID を振り直す
         used = {r["key"] for rel in self.relations.values() for r in (rel["source"], rel["target"])
                 if r["type"] == "entity"}
@@ -1048,7 +1059,7 @@ def resolve_superseded_refs(relations: list[dict]) -> None:
 def main() -> int:
     dates = source_dates()
     d = lambda name: (dates.get(name) or {}).get("retrieved")  # noqa: E731
-    jpx = load("jpx_listed.json")
+    independent = load("independent_companies.json")
     edinet_codes = load("edinet_codes.json")
     wd_mapping = load("wikidata_mapping.json")
     wd_relations = load("wikidata_relations.json")
@@ -1056,9 +1067,11 @@ def main() -> int:
     personnel = load("wikidata_personnel.json", required=False) or []
     groups = load("group_members.json", required=False) or []
     ir_path = BASE_DIR / "ir_crawl" / "data" / "ir_relations.json"
-    ir_rows = json.loads(ir_path.read_text(encoding="utf-8")) if ir_path.exists() else []
+    if not ir_path.exists():
+        raise RuntimeError("ローカルのIR収集原本が必要です。ir_crawlで取得してください。原本をGitへ追加しないでください。")
+    ir_rows = json.loads(ir_path.read_text(encoding="utf-8"))
 
-    m4 = build_m4(jpx, edinet_codes, wd_mapping)
+    m4 = build_m4(independent, edinet_codes, wd_mapping)
     builder = RelationBuilder(m4["companies"])
     add_wikidata_relations(builder, wd_relations, d("wikidata_relations.json"))
     add_personnel_relations(builder, personnel, d("wikidata_personnel.json"))
