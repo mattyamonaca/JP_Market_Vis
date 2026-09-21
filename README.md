@@ -1,7 +1,5 @@
 # JP Market Vis — 日本の上場企業マップ
 
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
-
 公開情報から、日本の上場企業同士の**資本・取引・提携・人的（役員兼任）・グループ**の関係を集め、ブラウザで探索できるようにした静的 Web アプリです。
 
 **東証プライム・スタンダード・グロースの内国株式 3,734 社を対象に、確定関係 88,813 件（上場企業間は約 11,000 件）を収録しています。** 各関係には出所（有価証券報告書の書類 ID・Wikidata の項目・公表資料の URL）、基準日、根拠文を付け、画面から原本へたどれます。
@@ -18,9 +16,7 @@ HTML・JavaScript・CSS・JSON だけで動作し、外部 API・バックエン
 |---|---|
 | サイトの使い方・収録データの概要・注意点 | この README |
 | データをどう取得・解析・名寄せしているか、関係タイプの判定規則 | [pipeline/README.md](pipeline/README.md) |
-| どこまで確かめられているか（自動監査とサンプル判定） | [2026-09-20 の再生成レポート](reviews/2026-09-20-regeneration/REPORT.md)、[2026-09-09 の再生成レポート](reviews/2026-09-09-regeneration/REPORT.md) |
 | 原本で確認した訂正の記録 | [pipeline/corrections.json](pipeline/corrections.json) |
-| 実際のブラウザ操作での確認結果（スクリーンショット付き） | [qa/results/](qa/results/) の日付の新しいディレクトリ |
 | 出所別・信頼度別の件数 | 画面の「統計・データ」 |
 
 ## 可視化サイトの使い方
@@ -168,7 +164,7 @@ Tab で検索欄・カテゴリボタン・マップ領域・拡大縮小ボタ�
 - 地方単独上場、ETF、REIT 等は対象外です。非上場の関係先はエンティティとして名寄せしていますが、法人番号や QID がない名前は表記ゆれが残ることがあります。
 - 自動抽出・名寄せ・LLM による IR 抽出を含み、誤り・欠落・古い関係が残る可能性があります。正誤の全件確認は実施していません。関係がない表示は、現実に関係がないことを意味しません。
 - 親子関係は議決権の過半数だけでなく連結上の実質支配を含む定義です。役員兼任は提出日現在の記載で、その後の退任は反映されません。提携は「経営上の重要な契約等」に記載されたものに限ります。
-- 監査の方法と結果（既知の訂正ケース、層化サンプルの判定、見つかった誤りの型）は再生成レポートを参照してください。2026-09-20 のレポートでは、新設した出所のサンプル判定は根拠文の読み合わせで行っており、人手で原本 PDF と照合したものではないことを明記しています。
+- 再生成のたびに `pipeline/audit.py` で参照整合性・既知の訂正ケース・出所×カテゴリの層化サンプルを確認しています。原本で確認した訂正は `pipeline/corrections.json` に記録し、生成時に適用します。2026 年 9 月に追加した人的・提携・グループのサンプル判定は根拠文の読み合わせで行っており、人手で原本 PDF と照合したものではありません。
 
 ## 開発
 
@@ -193,7 +189,6 @@ npm run preview
 | `src/components/GlobalMap.jsx` | 全体マップ（react-force-graph-2d / Canvas） |
 | `src/App.jsx`、`src/components/` | 関係グラフ（React Flow）・関係一覧・統計・詳細パネル |
 | `pipeline/` | データ生成パイプライン（取得・解析・統合・公開データ生成・監査） |
-| `qa/run_qa.mjs` | Playwright による実操作の確認 |
 
 ## GitHub Pages
 
@@ -213,27 +208,7 @@ python3 fetch_group_members.py                 # グループ広報団体の会�
 python3 parse_edinet_filings.py                # キャッシュを解析（約 15 分、オフライン）
 python3 build_masters.py                       # 各出所を統合して M4/M5 を生成
 python3 make_viz_data.py                       # public/ へ出力
-python3 audit.py --old <旧 M5> --old-m4 <旧 M4> --out ../reviews/<日付>-regeneration   # 監査とサンプル抽出
+python3 audit.py --old <旧 M5> --old-m4 <旧 M4> --out <出力先>   # 旧データとの差分監査とサンプル抽出
 ```
 
 `public/M4_companies.json` と `public/M5_company_relations.json`、`public/evidence/` は同じスナップショットの組で置き換え、`npm test` と `npm run build` を実行します。README の件数・生成日も更新してください。取得・解析・名寄せ・関係タイプの判定規則、IR 抽出の根拠判定、比率や訂正の扱いは [pipeline/README.md](pipeline/README.md) にまとめています。
-
-## 実操作の確認
-
-`qa/run_qa.mjs` が Playwright とローカルの Chrome で、PC（1440×900）・200% 拡大相当・タッチ（390×844、エミュレーション）・キーボード・ロード画面のシナリオを実行し、`qa/results/<日付>/` にスクリーンショット・結果 JSON・レポートを残します。
-
-```sh
-npm run dev                    # 別ターミナル
-npm i -D --no-save playwright
-node qa/run_qa.mjs             # http://localhost:5184/JP_Market_Vis/ を対象
-```
-
-`QA_LABEL=issue-23` のように付けると出力先が `qa/results/<日付>-issue-23/` になります。不合格があると終了コード 1 で終わります。
-
-## ライセンス
-
-本プロジェクトのコード・文書は **Apache License 2.0** です（[LICENSE](LICENSE)）。収録データ・引用元（JPX、EDINET、Wikidata、各グループ広報団体・各社の公表資料）には各提供元の利用条件が適用されます。
-
-## 経緯
-
-既存の `persona_project/visualize/company_relations_vis` を移植し、React 18 / Vite 6 / React Flow の構成とデータを継承しました。全体マップを初期画面にし、検索・表示調整・モバイル用レイアウト・ロード／エラー表示・一覧ページ送りを追加しています。全体マップは一時 react-force-graph-3d の 3D 表示にしましたが、視点操作が分かりづらいため react-force-graph-2d の平面表示に戻しました。データ生成パイプラインも同プロジェクトから移管し、2026 年 9 月に有価証券報告書の再取得・再解析と、人的・グループ・提携の拡充を行いました。

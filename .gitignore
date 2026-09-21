@@ -5,3 +5,7 @@ dist/
 .env.*
 !.env.example
 *.log
+
+# 開発用の確認結果・レビュー記録はリポジトリに含めない
+qa/
+reviews/
