@@ -50,3 +50,14 @@ test('mergeRatio keeps detail breakdown and never invents a total for indirect-o
   assert.equal(mergeRatio(null, null, 0.4).value, 0.4);
   assert.equal(mergeRatio(null, null, null), null);
 });
+
+test('retired officer evidence and persons are explicitly distinguished from current ties', () => {
+  const out = renderToString(React.createElement(EvidenceCard, { ev: { source: 'issuer_website', support_status: 'historical' } }));
+  assert.match(out, /過去/);
+  const r = { ...relation({ persons: [{ name: '退任者', roles: { '8267': '取締役' }, status: 'historical', valid_until: '2026-06-24' }, { name: '要確認者', roles: {}, status: 'needs_review' }] }), relation_type: 'interlocking_director' };
+  const detail = renderToString(React.createElement(RelationDetail, { relation: r }));
+  assert.match(detail, /退任済み/);
+  assert.match(detail, /2026-06-24/);
+  assert.match(detail, /現任か要確認/);
+  assert.doesNotMatch(detail, /人手/);
+});

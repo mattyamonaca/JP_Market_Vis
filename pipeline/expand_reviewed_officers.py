@@ -35,7 +35,7 @@ def expand_reviewed_officers(records):
             for side in ("source", "target"):
                 code = row[side]["code"]
                 role = row["roles"].get(code, "")
-                if re.search(r"取締役|監査役|執行役", role):
+                if re.search(r"取締役|監査役|執行役(?!員)", role):
                     roles[code].add(role)
                     supports[code].append(row["id"])
         # Conflicting role labels need individual review, not an arbitrary pick.

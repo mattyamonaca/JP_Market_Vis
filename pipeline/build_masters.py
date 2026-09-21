@@ -690,7 +690,7 @@ def add_officer_relations(builder: RelationBuilder, edinet_rows: list[dict], ret
         ev.pop("table_ref", None)
         # A current adviser or consultant is not necessarily an officer.
         # Keep the source statement, but do not promote it to officer overlap.
-        role_is_officer = all(re.search(r"取締役|監査役|執行役", row.get(k) or "")
+        role_is_officer = all(re.search(r"取締役|監査役|執行役(?!員)", row.get(k) or "")
                               for k in ("role_at_filer", "role_at_counterparty"))
         status = "confirmed" if role_is_officer else "needs_review"
         ev["support_status"] = status
@@ -954,6 +954,7 @@ def apply_corrections(builder: RelationBuilder, corrections: dict) -> list[dict]
 
     action:
       set_status   : status / review_reasons を変更（要確認への隔離、確認済みへの昇格）
+      set_person_status : 兼任者ごとに退任・要確認を記録。他の現任者による関係は保持
       retype       : relation_type と方向（swap）を変更。元の evidence は保持し、検証 evidence を追加
       set_ratio    : 比率の現在値を検証済み値にし、抽出値は history に残す
       supersede    : 旧関係を status=historical（valid_until=as_of）にし、新関係を追加
@@ -992,6 +993,29 @@ def apply_corrections(builder: RelationBuilder, corrections: dict) -> list[dict]
                     rel["review_reasons"].append(r)
             rel["verification"] = verification
             rel["evidence"].append(ver_evidence)
+        elif action == "set_person_status":
+            person_key = _SPACES.sub("", c["person"])
+            persons = rel["attributes"].get("persons", [])
+            matches = [p for p in persons if _SPACES.sub("", p["name"]) == person_key]
+            if rel["relation_type"] != "interlocking_director" or not matches:
+                entry["note"] = "対象の兼任者が見つからない"
+                log.append(entry)
+                continue
+            if c["status"] not in ("historical", "needs_review"):
+                raise ValueError("set_person_status only accepts historical or needs_review")
+            for person in matches:
+                person.update(status=c["status"], valid_until=c.get("as_of"))
+            for ev in rel["evidence"]:
+                if _SPACES.sub("", ev.get("person") or "") == person_key:
+                    ev["support_status"] = c["status"]
+            # The correction proves retirement/uncertainty, not a current tie.
+            rel["evidence"].append({**ver_evidence, "person": c["person"],
+                                    "support_status": c["status"],
+                                    "reviewer": c.get("verified_by")})
+            if all(p.get("status") in ("historical", "needs_review") for p in persons):
+                rel["status"] = ("needs_review" if any(p.get("status") == "needs_review" for p in persons)
+                                 else "historical")
+            rel.setdefault("person_verifications", []).append({"person": c["person"], **verification})
         elif action == "retype":
             new_type = c.get("relation_type", rel["relation_type"])
             s, t = rel["source"], rel["target"]

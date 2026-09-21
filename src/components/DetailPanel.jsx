@@ -220,6 +220,7 @@ export function EvidenceCard({ ev }) {
         </span>
       </div>
       {ev.support_status === 'needs_review' && <Field label="根拠の判定" value="要確認（確定関係の裏付け件数には含めません）" />}
+      {ev.support_status === 'historical' && <Field label="根拠の判定" value="過去の関係（現在の関係の裏付け件数には含めません）" />}
       <Field label="基準日" value={dateOrUnknown(ev.as_of)} />
       <Field label="公表日" value={dateOrUnknown(ev.published ?? ev.date)} />
       <Field label="取得日" value={dateOrUnknown(ev.retrieved)} />
@@ -277,8 +278,8 @@ export function RelationDetail({ relation }) {
       <Section title={`関係 ${relation.relation_id}`}>
         <div style={{ marginBottom: 8 }}>
           <Badge color={color}>{CATEGORY_JA[relation.category]} / {typeDef.ja ?? relation.relation_type}</Badge>
-          <Badge color={STATUS_COLORS[status] ?? '#475569'} title={status === 'confirmed' ? '抽出ルールによる判定を通過した関係。人手による原本照合の有無は別に表示します' : status === 'needs_review' ? '出所の記載から関係タイプ・方向を確定できない関係' : '後続の開示で過去の状態になった関係'}>{relationStatusLabel(relation)}</Badge>
-          <Badge color={verification?.status === 'verified' ? STATUS_COLORS.confirmed : '#475569'} title="抽出結果を人手で原本と照合したかどうか">
+          <Badge color={STATUS_COLORS[status] ?? '#475569'} title={status === 'confirmed' ? '抽出ルールによる判定を通過した関係。個別の原本照合の有無は別に表示します' : status === 'needs_review' ? '出所の記載から関係タイプ・方向を確定できない関係' : '後続の開示で過去の状態になった関係'}>{relationStatusLabel(relation)}</Badge>
+          <Badge color={verification?.status === 'verified' ? STATUS_COLORS.confirmed : '#475569'} title="抽出結果を原本と個別に照合したかどうか。照合者は根拠ごとに表示">
             {verification?.status === 'verified' ? `原本照合済み${verification.on ? `（${verification.on}）` : ''}` : '未検証（自動抽出）'}
           </Badge>
         </div>
@@ -297,7 +298,7 @@ export function RelationDetail({ relation }) {
         {relation.attributes?.deal_status && <Field label="状態" value={{ agreed: '合意・予定', executed: '実行済み' }[relation.attributes.deal_status] ?? relation.attributes.deal_status} />}
         {relation.attributes?.event_year && <Field label="時点" value={`${relation.attributes.event_year}年の出来事（公表日とは別）`} />}
         {relation.attributes?.person && <Field label="人物" value={relation.attributes.person} />}
-        {relation.attributes?.persons?.length > 0 && <Field label="兼任者" value={relation.attributes.persons.map((p) => `${p.name}（${Object.entries(p.roles ?? {}).map(([code, role]) => `${nodeName({ type: 'listed', key: code })}: ${role}`).join('、')}）`).join(' ／ ')} />}
+        {relation.attributes?.persons?.length > 0 && <Field label="兼任者" value={relation.attributes.persons.map((p) => `${p.name}${p.status === 'historical' ? `［退任済み${p.valid_until ? `・${p.valid_until}` : ''}］` : p.status === 'needs_review' ? '［現任か要確認］' : ''}（${Object.entries(p.roles ?? {}).map(([code, role]) => `${nodeName({ type: 'listed', key: code })}: ${role}`).join('、')}）`).join(' ／ ')} />}
         {relation.attributes?.contract_date && <Field label="契約年月" value={relation.attributes.contract_date} />}
         {relation.attributes?.contract_kind && <Field label="契約の種類" value={relation.attributes.contract_kind} />}
         {relation.attributes?.member_via && <Field label="会員会社" value={`${relation.attributes.member_via}（上場親会社として表示）`} />}
@@ -308,7 +309,7 @@ export function RelationDetail({ relation }) {
         <p style={{ fontSize: 12, color: 'var(--text-2)', lineHeight: 1.6 }}>JP Market Visが資料から抽出・整理した項目です。原文の引用ではありません。個別の条件や詳細は出典リンクから原本をご確認ください。</p>
         {evidence.map((ev, i) => <EvidenceCard key={i} ev={ev} />)}
         <div style={{ fontSize: 12, color: 'var(--text-2)', lineHeight: 1.6 }}>
-          「一次開示」は出所の種別で、抽出が正しいことを意味しません。「原本照合済み」は人手で照合した関係にだけ付きます。
+          「一次開示」は出所の種別で、抽出が正しいことを意味しません。「原本照合済み」は個別に照合した関係に付きます。AIによる照合は根拠ごとに明記します。
         </div>
       </Section>
     </>

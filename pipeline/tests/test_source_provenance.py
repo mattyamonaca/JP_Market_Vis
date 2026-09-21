@@ -37,6 +37,15 @@ class Provenance(unittest.TestCase):
         self.assertEqual(rel["status"], "needs_review")
         self.assertEqual(contribution([rel])["edinet_supported"], 0)
 
+    def test_nonstatutory_executive_officer_alone_does_not_prove_officer_overlap(self):
+        for role, expected in [("常務執行役員", "needs_review"), ("常務執行役", "confirmed"), ("取締役兼執行役員", "confirmed")]:
+            with self.subTest(role=role):
+                b = RelationBuilder(COMPANIES)
+                add_officer_relations(b, [{"kind": "officers", "filer_sec_code": "0001", "counterparty_name": "乙株式会社",
+                    "person": "山田太郎", "role_at_filer": "社外取締役", "role_at_counterparty": role,
+                    "doc_id": "TEST", "submit_date": "2026-01-01"}], "2026-09-21")
+                self.assertEqual(next(iter(b.relations.values()))["status"], expected)
+
     def test_missing_or_changed_excerpt_is_not_confirmed(self):
         for checks in ({}, {row_key(ROW): {"status": "excerpt_not_found"}}):
             b = RelationBuilder(COMPANIES)

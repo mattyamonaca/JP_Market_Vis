@@ -17,7 +17,7 @@ ap.add_argument('--limit',type=int,default=100000)
 ap.add_argument('--pages',type=int,default=12)
 ap.add_argument('--workers',type=int,default=8)
 ap.add_argument('--extend',action='store_true',help='Discover additional pages from cached HTML without fetching cached pages again')
-ap.add_argument('--focus',choices=['company','news','governance'],default='company')
+ap.add_argument('--focus',choices=['company','news','governance','meeting'],default='company')
 args=ap.parse_args()
 from pathlib import Path
 from urllib.parse import urljoin,urlsplit,urldefrag
@@ -34,6 +34,9 @@ strong=re.compile(r'大株主|株主構成|株式の状況|役員一覧|役員�
 if args.focus == 'news':
  kw=re.compile(r'ニュース|リリース|お知らせ|提携|共同開発|共同研究|共同実証|協業|/news|/press|/release',re.I)
  strong=re.compile(r'提携|共同開発|共同研究|共同実証|協業|共同出資',re.I)
+elif args.focus == 'meeting':
+ kw=re.compile(r'株主総会|招集|株主・投資家|IRライブラリ|/meeting|/soukai|/ir/?$|/investors/?$|/stock|/library',re.I)
+ strong=re.compile(r'株主総会|招集|/meeting|/soukai',re.I)
 elif args.focus == 'governance':
  kw=re.compile(r'ガバナンス|governance|株主総会|/meeting|/ir/?$|/investors/?$',re.I)
  strong=re.compile(r'ガバナンス|governance',re.I)

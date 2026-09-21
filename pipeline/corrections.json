@@ -1,5 +1,5 @@
 {
- "_comment": "原本で確認した訂正・検証（Issue #3）。build_masters.py が統合後に適用し、data_processed/masters/corrections_applied.json に前後の状態を記録する。match の name: は法人格を除いた正規化名で照合。action: set_status / retype / set_ratio / supersede / remove。",
+ "_comment": "原本で確認した訂正・検証（Issue #3）。build_masters.py が統合後に適用し、data_processed/masters/corrections_applied.json に前後の状態を記録する。match の name: は法人格を除いた正規化名で照合。action: set_status / set_person_status / retype / set_ratio / supersede / remove。",
  "relations": [
   {
    "id": "sony-sfg-spinoff-2025-10-01",
@@ -457,6 +457,884 @@
     "title": "新光商事・レスター 資本業務提携の解消"
    },
    "reason": "両社は2026年5月15日付で資本業務提携の終了合意書を締結。株式保有の有無とは区別し、提携関係を過去の状態として扱う。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm-retirement-1802-2613-20260921",
+   "match": {
+    "source": "listed:1802",
+    "target": "listed:2613",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_status",
+   "status": "historical",
+   "as_of": "2025-06-25",
+   "source": {
+    "url": "https://ir.obayashi.co.jp/ja/ir/ir-news/auto_20260527549568/pdfFile.pdf",
+    "published": null,
+    "title": "2026年5月28日 第122回定時株主総会招集ご通知 （4,581KB）"
+   },
+   "reason": "水谷英滋：J-オイルミルズの役員を2025年6月25日に退任した旨を後続の株主総会資料で確認。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm-retirement-1802-8410-20260921",
+   "match": {
+    "source": "listed:1802",
+    "target": "listed:8410",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_status",
+   "status": "historical",
+   "as_of": "2025-06-23",
+   "source": {
+    "url": "https://ir.obayashi.co.jp/ja/ir/ir-news/auto_20260527549568/pdfFile.pdf",
+    "published": null,
+    "title": "2026年5月28日 第122回定時株主総会招集ご通知 （4,581KB）"
+   },
+   "reason": "黒田由貴子：セブン銀行の役員を2025年6月23日に退任した旨を後続の株主総会資料で確認。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm-retirement-1847-3154-20260921",
+   "match": {
+    "source": "listed:1847",
+    "target": "listed:3154",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_status",
+   "status": "historical",
+   "as_of": "2025-09-26",
+   "source": {
+    "url": "https://www.ichiken.co.jp/cms_cL3vf6K5/wp-content/uploads/2026/05/irinfo260601_01.pdf",
+    "published": null,
+    "title": "第100回定時株主総会招集ご通知及び株主総会資料"
+   },
+   "reason": "武内秀明：メディアスホールディングスの社外取締役（監査等委員）を2025年9月26日に退任した旨を確認。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm-retirement-1861-7740-20260921",
+   "match": {
+    "source": "listed:1861",
+    "target": "listed:7740",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_status",
+   "status": "historical",
+   "as_of": null,
+   "source": {
+    "url": "https://www.kumagaigumi.co.jp/ir/uploads/ir_20260527_1_1.pdf",
+    "published": null,
+    "title": "第89期定時株主総会招集ご通知"
+   },
+   "reason": "奈良正哉：タムロンの社外取締役（監査等委員）を2026年3月に退任した旨を確認。退任日は資料に日単位の記載がない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm-retirement-2702-3231-20260921",
+   "match": {
+    "source": "listed:2702",
+    "target": "listed:3231",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_status",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.nomura-re-hd.co.jp/ir/pdf/asm260527_1.pdf",
+    "published": null,
+    "title": "定時株主総会招集ご通知"
+   },
+   "reason": "高橋鉄：野村不動産ホールディングスの2026年定時株主総会終結時に退任予定と記載。後続の就任状況を確認するまで現任の兼任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm-retirement-3529-6250-20260921",
+   "match": {
+    "source": "listed:3529",
+    "target": "listed:6250",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_status",
+   "status": "historical",
+   "as_of": "2026-03-27",
+   "source": {
+    "url": "https://www.atsugi.co.jp/assets/img/uploads/calender_tsuuchi_2026.pdf",
+    "published": null,
+    "title": "(1358KB) 招集通知・報告書"
+   },
+   "reason": "赤塚孝江：やまびこの社外取締役を2026年3月27日に退任した旨を確認。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm-retirement-4543-8058-20260921",
+   "match": {
+    "source": "listed:4543",
+    "target": "listed:8058",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_status",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.terumo.co.jp/sites/g/files/qlpvch151/files/document/2026-06/NoticeofConvocation_111_260626_J.pdf",
+    "published": null,
+    "title": "第111期定時株主総会招集ご通知 (PDF 3.4 MB)"
+   },
+   "reason": "小木曾麻里：三菱商事の2026年6月の定時株主総会終結時に退任予定と記載。後続資料で確認するまで現任の兼任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm-retirement-4543-9984-20260921",
+   "match": {
+    "source": "listed:4543",
+    "target": "listed:9984",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_status",
+   "status": "historical",
+   "as_of": "2025-06-27",
+   "source": {
+    "url": "https://www.terumo.co.jp/sites/g/files/qlpvch151/files/document/2026-06/NoticeofConvocation_111_260626_J.pdf",
+    "published": null,
+    "title": "第111期定時株主総会招集ご通知 (PDF 3.4 MB)"
+   },
+   "reason": "宇野総一郎：ソフトバンクグループの社外監査役を2025年6月27日に退任した旨を確認。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm-retirement-4554-6806-20260921",
+   "match": {
+    "source": "listed:4554",
+    "target": "listed:6806",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_status",
+   "status": "historical",
+   "as_of": null,
+   "source": {
+    "url": "https://www.fujipharma.jp/__upload/Notice_61th_AGM.pdf",
+    "published": null,
+    "title": "招集ご通知"
+   },
+   "reason": "荒木由季子：ヒロセ電機の社外取締役（監査等委員）を2025年6月に退任した旨を確認。退任日の記載は月単位。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm-retirement-1332-4970-20260921",
+   "match": {
+    "source": "listed:1332",
+    "target": "listed:4970",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_status",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.toyogosei.co.jp/news/meeting_76-1.pdf",
+    "published": null,
+    "title": "第76回 定時株主総会 招集ご通知"
+   },
+   "reason": "松尾時雄：ニッスイの社外取締役を2026年6月25日に退任予定と記載。後続資料で確認するまで現任の兼任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm-retirement-5020-5401-20260921",
+   "match": {
+    "source": "listed:5020",
+    "target": "listed:5401",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_status",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.hd.eneos.co.jp/ir/stock/meeting/pdf/e_hd_jp_r_gmi_fy2026.pdf",
+    "published": null,
+    "title": "第16回定時株主総会招集ご通知 3.33MB"
+   },
+   "reason": "冨田哲郎：日本製鉄の社外取締役を2026年6月23日に退任予定と記載。後続資料で確認するまで現任の兼任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm-retirement-5992-6470-20260921",
+   "match": {
+    "source": "listed:5992",
+    "target": "listed:6470",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_status",
+   "status": "historical",
+   "as_of": "2025-12-31",
+   "source": {
+    "url": "https://www.chkk.co.jp/ir/item/103syosyu.pdf",
+    "published": null,
+    "title": "定時株主総会招集ご通知および株主総会資料（PDF：1.82MB）"
+   },
+   "reason": "加藤貴己：中央発條の監査役を2025年12月31日に辞任した旨を確認。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm-retirement-5992-7283-20260921",
+   "match": {
+    "source": "listed:5992",
+    "target": "listed:7283",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_status",
+   "status": "historical",
+   "as_of": "2025-12-31",
+   "source": {
+    "url": "https://www.chkk.co.jp/ir/item/103syosyu.pdf",
+    "published": null,
+    "title": "定時株主総会招集ご通知および株主総会資料（PDF：1.82MB）"
+   },
+   "reason": "加藤貴己：中央発條の監査役を2025年12月31日に辞任した旨を確認。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-1802-6622-3499d308-20260921",
+   "match": {
+    "source": "listed:1802",
+    "target": "listed:6622",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "注連浩行",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://ir.obayashi.co.jp/ja/ir/ir-news/auto_20260527549568/pdfFile.pdf",
+    "published": null,
+    "title": "2026年5月28日 第122回定時株主総会招集ご通知 （4,581KB）"
+   },
+   "reason": "注連浩行：2026年6月24日退任予定の記載を確認。実施済みの後続資料を確認するまで現任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-3232-9041-3018cd30-20260921",
+   "match": {
+    "source": "listed:3232",
+    "target": "listed:9041",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "笠松宏行",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://holdings.sanco.co.jp/ir/stock/meeting/20-kabunushisokai-1.pdf",
+    "published": null,
+    "title": "第20期定時株主総会招集ご通知"
+   },
+   "reason": "笠松宏行：2026年6月19日取締役退任・常務執行役員就任予定の記載を確認。実施済みの後続資料を確認するまで現任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-8244-9041-3018cd30-20260921",
+   "match": {
+    "source": "listed:8244",
+    "target": "listed:9041",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "笠松宏行",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://holdings.sanco.co.jp/ir/stock/meeting/20-kabunushisokai-1.pdf",
+    "published": null,
+    "title": "第20期定時株主総会招集ご通知"
+   },
+   "reason": "笠松宏行：2026年6月19日取締役退任・常務執行役員就任予定の記載を確認。実施済みの後続資料を確認するまで現任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-5992-6470-63dd06d7-20260921",
+   "match": {
+    "source": "listed:5992",
+    "target": "listed:6470",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "加藤貴己",
+   "status": "historical",
+   "as_of": "2025-12-31",
+   "source": {
+    "url": "https://www.taihonet.co.jp/assets/media/2026/05/20260528_120tuchi.pdf",
+    "published": null,
+    "title": "第120回定時株主総会招集ご通知及び株主総会資料"
+   },
+   "reason": "加藤貴己：2025年12月31日監査役辞任の記載を確認。退任した法人を含む兼任関係に反映。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-6470-7283-63dd06d7-20260921",
+   "match": {
+    "source": "listed:6470",
+    "target": "listed:7283",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "加藤貴己",
+   "status": "historical",
+   "as_of": "2025-12-31",
+   "source": {
+    "url": "https://www.taihonet.co.jp/assets/media/2026/05/20260528_120tuchi.pdf",
+    "published": null,
+    "title": "第120回定時株主総会招集ご通知及び株主総会資料"
+   },
+   "reason": "加藤貴己：2025年12月31日監査役辞任の記載を確認。退任した法人を含む兼任関係に反映。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-5036-6857-775ed86a-20260921",
+   "match": {
+    "source": "listed:5036",
+    "target": "listed:6857",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "占部利充",
+   "status": "historical",
+   "as_of": "2025-12-18",
+   "source": {
+    "url": "https://www.advantest.com/document/ja/investors/ir-library/report/Convocation_84th_jp.pdf",
+    "published": null,
+    "title": "第84回定時株主総会 招集ご通知"
+   },
+   "reason": "占部利充：2025年12月18日社外取締役退任の記載を確認。退任した法人を含む兼任関係に反映。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-2914-5029-014f8973-20260921",
+   "match": {
+    "source": "listed:2914",
+    "target": "listed:5029",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "庄司哲也",
+   "status": "historical",
+   "as_of": "2025-06-26",
+   "source": {
+    "url": "https://www.kanadevia.com:443/ir/stock/pdf/129soukai_info.pdf",
+    "published": null,
+    "title": "第129回定時株主総会 招集ご通知 [PDF:3,638KB]"
+   },
+   "reason": "庄司哲也：2025年6月26日社外取締役退任の記載を確認。退任した法人を含む兼任関係に反映。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-5029-7004-014f8973-20260921",
+   "match": {
+    "source": "listed:5029",
+    "target": "listed:7004",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "庄司哲也",
+   "status": "historical",
+   "as_of": "2025-06-26",
+   "source": {
+    "url": "https://www.kanadevia.com:443/ir/stock/pdf/129soukai_info.pdf",
+    "published": null,
+    "title": "第129回定時株主総会 招集ご通知 [PDF:3,638KB]"
+   },
+   "reason": "庄司哲也：2025年6月26日社外取締役退任の記載を確認。退任した法人を含む兼任関係に反映。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-5029-9301-014f8973-20260921",
+   "match": {
+    "source": "listed:5029",
+    "target": "listed:9301",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "庄司哲也",
+   "status": "historical",
+   "as_of": "2025-06-26",
+   "source": {
+    "url": "https://www.kanadevia.com:443/ir/stock/pdf/129soukai_info.pdf",
+    "published": null,
+    "title": "第129回定時株主総会 招集ご通知 [PDF:3,638KB]"
+   },
+   "reason": "庄司哲也：2025年6月26日社外取締役退任の記載を確認。退任した法人を含む兼任関係に反映。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-4307-7004-0beab9a7-20260921",
+   "match": {
+    "source": "listed:4307",
+    "target": "listed:7004",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "坂田信以",
+   "status": "historical",
+   "as_of": "2025-06-20",
+   "source": {
+    "url": "https://www.kanadevia.com:443/ir/stock/pdf/129soukai_info.pdf",
+    "published": null,
+    "title": "第129回定時株主総会 招集ご通知 [PDF:3,638KB]"
+   },
+   "reason": "坂田信以：2025年6月20日社外取締役退任の記載を確認。退任した法人を含む兼任関係に反映。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-7849-8850-6d7991e2-20260921",
+   "match": {
+    "source": "listed:7849",
+    "target": "listed:8850",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "直井保",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://starts-pub.jp/wp-content/uploads/2026/03/ShoshuTsuchi20260324.pdf",
+    "published": null,
+    "title": "2026年定時株主総会招集通知"
+   },
+   "reason": "直井保：2026年3月の本株主総会終結時に監査役辞任予定の記載を確認。実施済みの後続資料を確認するまで現任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-1893-7995-ebce38a6-20260921",
+   "match": {
+    "source": "listed:1893",
+    "target": "listed:7995",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "高橋秀法",
+   "status": "historical",
+   "as_of": "2025-06-24",
+   "source": {
+    "url": "https://www.valqua.co.jp/wp-content/uploads/pdf/ir/il_1_202606.pdf",
+    "published": null,
+    "title": "招集ご通知"
+   },
+   "reason": "高橋秀法：2025年6月24日社外取締役退任の記載を確認。退任した法人を含む兼任関係に反映。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-4997-7995-e24224ae-20260921",
+   "match": {
+    "source": "listed:4997",
+    "target": "listed:7995",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "戸井川岩夫",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.valqua.co.jp/wp-content/uploads/pdf/ir/il_1_202606.pdf",
+    "published": null,
+    "title": "招集ご通知"
+   },
+   "reason": "戸井川岩夫：2026年6月17日社外取締役退任予定の記載を確認。実施済みの後続資料を確認するまで現任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-2914-6098-c8dac798-20260921",
+   "match": {
+    "source": "listed:2914",
+    "target": "listed:6098",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "長嶋由紀子",
+   "status": "historical",
+   "as_of": "2026-03-25",
+   "source": {
+    "url": "https://www.sumitomocorp.com/-/media/Files/hq/ir/stock/doc/ir/2025/158_j_shoshututi.pdf",
+    "published": null,
+    "title": "招集ご通知 (PDF/2218KB)"
+   },
+   "reason": "長嶋由紀子：2026年3月25日社外取締役退任の記載を確認。退任した法人を含む兼任関係に反映。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-2914-8053-c8dac798-20260921",
+   "match": {
+    "source": "listed:2914",
+    "target": "listed:8053",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "長嶋由紀子",
+   "status": "historical",
+   "as_of": "2026-03-25",
+   "source": {
+    "url": "https://www.sumitomocorp.com/-/media/Files/hq/ir/stock/doc/ir/2025/158_j_shoshututi.pdf",
+    "published": null,
+    "title": "招集ご通知 (PDF/2218KB)"
+   },
+   "reason": "長嶋由紀子：2026年3月25日社外取締役退任の記載を確認。退任した法人を含む兼任関係に反映。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-5142-8133-70924264-20260921",
+   "match": {
+    "source": "listed:5142",
+    "target": "listed:8133",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "岩本昌子",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.itcenex.com:443/ja/ir/stockholder/general_meeting/mp9tgh000000297p-att/20260522a.pdf",
+    "published": null,
+    "title": "第66回定時株主総会招集ご通知 (PDF 2.10 MB)"
+   },
+   "reason": "岩本昌子：2026年6月社外取締役退任予定の記載を確認。実施済みの後続資料を確認するまで現任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-6952-7731-cdc38dc1-20260921",
+   "match": {
+    "source": "listed:6952",
+    "target": "listed:7731",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "千葉通子",
+   "status": "historical",
+   "as_of": "2025-06-27",
+   "source": {
+    "url": "https://www.mitsuifudosan.co.jp/corporate/ir/shareholder/meeting/pdf/s_114_260522.pdf",
+    "published": null,
+    "title": "第114回定時株主総会招集ご通知 （2.72MB）"
+   },
+   "reason": "千葉通子：2025年6月27日社外取締役退任の記載を確認。退任した法人を含む兼任関係に反映。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-6952-8801-cdc38dc1-20260921",
+   "match": {
+    "source": "listed:6952",
+    "target": "listed:8801",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "千葉通子",
+   "status": "historical",
+   "as_of": "2025-06-27",
+   "source": {
+    "url": "https://www.mitsuifudosan.co.jp/corporate/ir/shareholder/meeting/pdf/s_114_260522.pdf",
+    "published": null,
+    "title": "第114回定時株主総会招集ご通知 （2.72MB）"
+   },
+   "reason": "千葉通子：2025年6月27日社外取締役退任の記載を確認。退任した法人を含む兼任関係に反映。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-8601-9708-3334dc32-20260921",
+   "match": {
+    "source": "listed:8601",
+    "target": "listed:9708",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "日比野隆司",
+   "status": "historical",
+   "as_of": "2025-06-24",
+   "source": {
+    "url": "https://www.mitsuifudosan.co.jp/corporate/ir/shareholder/meeting/pdf/s_114_260522.pdf",
+    "published": null,
+    "title": "第114回定時株主総会招集ご通知 （2.72MB）"
+   },
+   "reason": "日比野隆司：2025年6月24日社外取締役退任の記載を確認。退任した法人を含む兼任関係に反映。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-9142-9686-9cf8943e-20260921",
+   "match": {
+    "source": "listed:9142",
+    "target": "listed:9686",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "田中卓",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.jrkyushu.co.jp/company/ir/stock/meeting/__icsFiles/afieldfile/2026/05/18/no39teijikabunushisoukai_1.pdf",
+    "published": null,
+    "title": "第39回定時株主総会招集ご通知"
+   },
+   "reason": "田中卓：2026年6月相談役就任予定（取締役としての現任確認が必要）の記載を確認。実施済みの後続資料を確認するまで現任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-7512-8267-06e630de-20260921",
+   "match": {
+    "source": "listed:7512",
+    "target": "listed:8267",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "西松正人",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.aeon-hokkaido.jp/control-panel/wp-content/uploads/2026/04/news_20260409_4.pdf",
+    "published": "2026-04-09",
+    "title": "イオン北海道 役員人事に関するお知らせ"
+   },
+   "reason": "西松正人：2026年5月21日定時株主総会終結時に監査役退任予定。実施確認まで現任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-7512-8278-06e630de-20260921",
+   "match": {
+    "source": "listed:7512",
+    "target": "listed:8278",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "西松正人",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.aeon-hokkaido.jp/control-panel/wp-content/uploads/2026/04/news_20260409_4.pdf",
+    "published": "2026-04-09",
+    "title": "イオン北海道 役員人事に関するお知らせ"
+   },
+   "reason": "西松正人：2026年5月21日定時株主総会終結時に監査役退任予定。実施確認まで現任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-7512-9946-06e630de-20260921",
+   "match": {
+    "source": "listed:7512",
+    "target": "listed:9946",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "西松正人",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.aeon-hokkaido.jp/control-panel/wp-content/uploads/2026/04/news_20260409_4.pdf",
+    "published": "2026-04-09",
+    "title": "イオン北海道 役員人事に関するお知らせ"
+   },
+   "reason": "西松正人：2026年5月21日定時株主総会終結時に監査役退任予定。実施確認まで現任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-1812-9984-ea44f424-20260921",
+   "match": {
+    "source": "listed:1812",
+    "target": "listed:9984",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "飯島彰己",
+   "status": "historical",
+   "as_of": "2026-06-24",
+   "source": {
+    "url": "https://group.softbank/news/press/20260624",
+    "published": "2026-06-24",
+    "title": "ソフトバンクグループ 人事異動ならびに取締役・監査役・執行役員の体制について"
+   },
+   "reason": "飯島彰己：2026年4月28日の退任予定公表と6月24日の実施済み役員体制を照合。ソフトバンクグループ取締役退任を反映。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-4502-9984-ea44f424-20260921",
+   "match": {
+    "source": "listed:4502",
+    "target": "listed:9984",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "飯島彰己",
+   "status": "historical",
+   "as_of": "2026-06-24",
+   "source": {
+    "url": "https://group.softbank/news/press/20260624",
+    "published": "2026-06-24",
+    "title": "ソフトバンクグループ 人事異動ならびに取締役・監査役・執行役員の体制について"
+   },
+   "reason": "飯島彰己：2026年4月28日の退任予定公表と6月24日の実施済み役員体制を照合。ソフトバンクグループ取締役退任を反映。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-8031-9984-ea44f424-20260921",
+   "match": {
+    "source": "listed:8031",
+    "target": "listed:9984",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "飯島彰己",
+   "status": "historical",
+   "as_of": "2026-06-24",
+   "source": {
+    "url": "https://group.softbank/news/press/20260624",
+    "published": "2026-06-24",
+    "title": "ソフトバンクグループ 人事異動ならびに取締役・監査役・執行役員の体制について"
+   },
+   "reason": "飯島彰己：2026年4月28日の退任予定公表と6月24日の実施済み役員体制を照合。ソフトバンクグループ取締役退任を反映。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-3635-9984-702f67ac-20260921",
+   "match": {
+    "source": "listed:3635",
+    "target": "listed:9984",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "襟川恵子",
+   "status": "historical",
+   "as_of": "2026-06-24",
+   "source": {
+    "url": "https://group.softbank/news/press/20260624",
+    "published": "2026-06-24",
+    "title": "ソフトバンクグループ 人事異動ならびに取締役・監査役・執行役員の体制について"
+   },
+   "reason": "襟川恵子：2026年4月28日の退任予定公表と6月24日の実施済み役員体制を照合。ソフトバンクグループ取締役退任を反映。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-9042-9602-645e917a-20260921",
+   "match": {
+    "source": "listed:9042",
+    "target": "listed:9602",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "島谷能成",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.toho.co.jp/sustainability/governance/directors/",
+    "published": null,
+    "title": "東宝 役員一覧（2026年5月28日現在）"
+   },
+   "reason": "島谷能成：2026年2月末の取締役名簿に記載があるが、5月28日の現任名簿には記載がない。現任としての兼任確認が必要。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "officer-status-9602-9701-645e917a-20260921",
+   "match": {
+    "source": "listed:9602",
+    "target": "listed:9701",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "島谷能成",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.toho.co.jp/sustainability/governance/directors/",
+    "published": null,
+    "title": "東宝 役員一覧（2026年5月28日現在）"
+   },
+   "reason": "島谷能成：2026年2月末の取締役名簿に記載があるが、5月28日の現任名簿には記載がない。現任としての兼任確認が必要。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "namesake-7214-9682-interlocking_director-20260921",
+   "match": {
+    "source": "listed:7214",
+    "target": "listed:9682",
+    "relation_type": "interlocking_director"
+   },
+   "action": "remove",
+   "source": {
+    "url": "https://dream-tkd-school.com/law/",
+    "title": "株式会社DTS 特定商取引法に基づく表記",
+    "published": null
+   },
+   "reason": "岡本依子が代表取締役を務めるDTSは大阪市北区のテコンドースクール運営法人。上場企業9682ではない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "namesake-4243-9248-interlocking_director-20260921",
+   "match": {
+    "source": "listed:4243",
+    "target": "listed:9248",
+    "relation_type": "interlocking_director"
+   },
+   "action": "remove",
+   "source": {
+    "url": "https://www.pdt-g.co.jp/Portals/0/IR/Shareholdermeeting/2025.09/20251205PDTG_01.pdf",
+    "title": "第4回定時株主総会招集ご通知[2,387KB]",
+    "published": null
+   },
+   "reason": "兼職先は東京都千代田区鍛冶町の情報システム会社ニックス（NICS）。上場企業4243とは別法人。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "namesake-9248-4243-parent_subsidiary-20260921",
+   "match": {
+    "source": "listed:9248",
+    "target": "listed:4243",
+    "relation_type": "parent_subsidiary"
+   },
+   "action": "remove",
+   "source": {
+    "url": "https://www.pdt-g.co.jp/Portals/0/IR/Shareholdermeeting/2025.09/20251205PDTG_01.pdf",
+    "title": "第4回定時株主総会招集ご通知[2,387KB]",
+    "published": null
+   },
+   "reason": "100%子会社ニックスの所在地は東京都千代田区鍛冶町一丁目5番7号。プラスチック製品の上場企業4243とは別法人。",
    "verified_by": "codex_primary_source_review",
    "verified_on": "2026-09-21"
   }

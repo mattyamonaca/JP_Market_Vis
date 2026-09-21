@@ -41,3 +41,10 @@ class ReviewedOfficerExpansionTests(unittest.TestCase):
         rows = [office_pair("A", "B"), office_pair("A", "C")]
         rows[1]["roles"]["C"] = "顧問"
         self.assertEqual(expand_reviewed_officers(rows), [])
+
+    def test_executive_employee_is_not_statutory_executive(self):
+        rows = [office_pair("A", "B"), office_pair("A", "C")]
+        rows[1]["roles"]["C"] = "常務執行役員"
+        self.assertEqual(expand_reviewed_officers(rows), [])
+        rows[1]["roles"]["C"] = "常務執行役"
+        self.assertEqual(len(expand_reviewed_officers(rows)), 1)
