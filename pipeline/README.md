@@ -119,12 +119,14 @@ python make_viz_data.py                                                # public/
 - evidence: `source`（edinet / wikidata / ir_disclosure / official_release）、`source_tier`（primary / secondary /
   llm_extraction。出所の種別で抽出の正しさとは別）、`as_of`（基準日。有報は期末、大株主は「…現在」の日付、IR は公表日）、
   `published`（提出日・公表日）、`retrieved`（取得日）、`url`（EDINET 閲覧画面 / Wikidata / リリース）、`doc_id`、
-  `classification` と `classification_source`、`direction_source`、`raw_name`、`quote`（切り詰めない）、`extraction`。
-  不明な項目は null のまま公開し、UI が「不明」と表示する。
+  `classification` と `classification_source`、`direction_source`、`raw_name`、`extraction`（判定コードのみ）。
+  `facts` に人物・役職・契約会社・契約年月・団体・合意／実行状態・言及年を格納する。未取得項目は省略し、
+  UI で必要に応じ「不明」「未確認」と表示する。`quote`・`relationship_note`・`note`・`extraction.cue` と
+  比率の `raw` はローカルのフル版にのみ保持し、公開版では除外する。関係全体の分類や比率を個々の出典の事実として転記しない。
 - 関係: `status`（confirmed / needs_review / historical）、`review_reasons`、`verification`（corrections.json で
   原本照合したものだけ verified）。
 - `make_viz_data.py` は本体 `public/M5_company_relations.json`（evidence は出所・種別・基準日の要約）と
-  `public/evidence/<shard>.json`（関係 1,000 件ごとの全文と比率の履歴）に分ける。詳細パネルが必要なシャードだけ取得する。
+  `public/evidence/<shard>.json`（関係 1,000 件ごとの構造化項目・出典と比率の履歴）に分ける。詳細パネルが必要なシャードだけ取得する。
 - 大株主の状況の注記に写された大量保有報告書の表は `property: large_holding_report`（比率 kind
   `share_large_holding`）として大株主本表と区別する。
 

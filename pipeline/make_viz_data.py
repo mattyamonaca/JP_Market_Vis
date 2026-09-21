@@ -1,12 +1,12 @@
 """フル版 M4/M5（data_processed/masters）から公開アプリ用データを public/ に生成する。
 
 旧 make_viz_data.py は evidence を先頭 2 件・引用 80 文字に切り詰め、date/retrieved を落としていた（Issue #5）。
-本版は判断材料を落とさない代わりに、初回読み込みが重くならないよう 2 層に分ける:
+本版は原文を再配信せず、構造化された抽出情報と出典を 2 層に分ける:
 
   public/M5_company_relations.json
       関係の本体。evidence は要約（出所・出所種別・基準日・検証状態）だけを持つ。
   public/evidence/<shard>.json
-      関係IDごとの evidence 全文（基準日・提出日・取得日・原本URL・書類ID・分類と抽出根拠・引用）と
+      関係IDごとの出典・抽出項目（原本URL・書類ID・資料内の位置・分類・役職・契約年月等）と
       比率の履歴。詳細パネルを開いたときに該当シャードだけを取得する（1 シャード = 1,000 関係）。
 
 比率は互換のため数値 `ownership_ratio` / `sales_ratio` を残し、意味付きの構造は `ownership` / `sales` に入れる。
@@ -25,15 +25,34 @@ SHARD_SIZE = 1000
 
 EVIDENCE_KEYS = (
     "source", "source_tier", "confidence", "property", "doc_id", "url", "as_of", "published", "retrieved",
-    "classification", "classification_source", "direction_source", "relationship_note", "quote", "raw_name",
-    "person", "verification", "note", "deal_status", "event_year", "extraction", "filer_sec_code",
+    "classification", "classification_source", "direction_source", "raw_name", "table_ref",
+    "verification", "filer_sec_code",
 )
-RATIO_KEYS = ("value", "kind", "scope", "direct", "indirect", "raw", "as_of", "doc_id", "status", "note", "verified",
+FACT_KEYS = ("person", "role_at_filer", "role_at_counterparty", "contracting_party", "contract_date",
+             "organization", "deal_status", "event_year")
+RATIO_KEYS = ("value", "kind", "scope", "direct", "indirect", "as_of", "doc_id", "status", "verified",
               "has_older_values", "conflict_same_period", "conflicting_values")
 
 
 def full_evidence(ev: dict) -> dict:
-    return {k: ev[k] for k in EVIDENCE_KEYS if ev.get(k) not in (None, "", [], {})}
+    # 許可した項目だけを出力する。自由文や将来追加されるフィールドは自動公開しない。
+    out = {k: ev[k] for k in EVIDENCE_KEYS if ev.get(k) not in (None, "", [], {})}
+    facts = {k: ev[k] for k in FACT_KEYS if ev.get(k) not in (None, "", [], {})}
+    if facts:
+        out["facts"] = facts
+    # cue は原文断片。判定コードは維持するが、原文断片は配信しない。
+    extraction = {k: ev["extraction"][k] for k in ("reasons", "llm_type", "retyped_from", "suggested_type")
+                  if ev.get("extraction", {}).get(k) not in (None, "", [], {})}
+    if extraction:
+        out["extraction"] = extraction
+    return out
+
+
+def public_verification(value: dict) -> dict:
+    out = {k: value[k] for k in ("status", "on", "as_of", "by") if value.get(k) is not None}
+    source = value.get("source") or {}
+    out["source"] = {k: source[k] for k in ("url", "published") if source.get(k)}
+    return out
 
 
 def summary_evidence(ev: dict) -> dict:
@@ -95,9 +114,12 @@ def main() -> int:
                 if isinstance(raw_attrs["sales_amount"], dict) else raw_attrs["sales_amount"]
             if isinstance(raw_attrs["sales_amount"], dict) and raw_attrs["sales_amount"].get("unit"):
                 attrs["sales_amount"]["unit"] = raw_attrs["sales_amount"]["unit"]
-        for k in ("person", "persons", "deal_status", "event_year", "contract_date", "contract_note", "member_via"):
+        for k in ("person", "persons", "deal_status", "event_year", "contract_date", "member_via"):
             if raw_attrs.get(k) is not None:
                 attrs[k] = raw_attrs[k]
+        # この2値は統合処理の固定ラベル。自由記述の契約説明は通さない。
+        if raw_attrs.get("contract_note") in ("合弁契約", "相互ライセンス"):
+            attrs["contract_kind"] = raw_attrs["contract_note"]
         rel = {
             "relation_id": r["relation_id"],
             "source": r["source"],
@@ -114,13 +136,14 @@ def main() -> int:
                 rel[k] = r[k]
         if r.get("verification"):
             rel["verification"] = {kk: r["verification"].get(kk) for kk in ("status", "on", "as_of")}
-            detail["verification"] = r["verification"]
+            detail["verification"] = public_verification(r["verification"])
         slim_rels.append(rel)
         shards.setdefault(shard_of(r["relation_id"]), {})[r["relation_id"]] = detail
 
     m5_slim = {
         "master_id": m5["master_id"],
         "version": m5["version"],
+        "evidence_format": "structured-facts-v1",
         "generated_at": m5.get("generated_at"),
         "status_values": m5.get("status_values"),
         "evidence_shards": {"path": "evidence/{shard}.json", "size": SHARD_SIZE},

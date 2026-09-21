@@ -5,7 +5,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 const originalFetch = globalThis.fetch;
 globalThis.fetch = async (url) => ({ ok: true, json: async () => JSON.parse(await readFile(new URL(`../public${url}`, import.meta.url), 'utf8')) });
-const { RelationDetail, mergeRatio } = await import('../src/components/DetailPanel.jsx');
+const { RelationDetail, EvidenceCard, mergeRatio } = await import('../src/components/DetailPanel.jsx');
 globalThis.fetch = originalFetch;
 
 const relation = (attributes) => ({
@@ -15,6 +15,21 @@ const relation = (attributes) => ({
 });
 // 初期描画（シャード取得前・取得失敗時と同じ状態）を SSR で確認する
 const html = (attrs) => renderToString(React.createElement(RelationDetail, { relation: relation(attrs) }));
+
+test('evidence shows extracted facts and provenance without rendering legacy quotations', () => {
+  const out = renderToString(React.createElement(EvidenceCard, { ev: {
+    source: 'edinet', published: '2025-06-20', as_of: '2025-03-31',
+    doc_id: 'S1', url: 'https://example.com/report', table_ref: 'table0/row2',
+    quote: 'HIDDEN_QUOTE', relationship_note: 'HIDDEN_NOTE', note: 'HIDDEN_MEMO',
+    extraction: { cue: 'HIDDEN_CUE' },
+    facts: { deal_status: 'agreed', contract_date: '2025-02', person: '人物名', role_at_counterparty: '社外取締役' },
+  } }));
+  for (const text of ['合意・予定', '2025-02', '2025-06-20', '2025-03-31', '社外取締役', 'table0/row2', 'https://example.com/report']) assert.ok(out.includes(text));
+  assert.doesNotMatch(out, /HIDDEN_|実行済み/);
+  const missing = renderToString(React.createElement(EvidenceCard, { ev: { source: 'ir_disclosure' } }));
+  assert.match(missing, /未確認/);
+  assert.doesNotMatch(missing, /実行済み/);
+});
 
 test('known ratio in the core file is shown before the evidence shard loads', () => {
   const out = html({ ownership_ratio: 0.672, ownership: { kind: 'voting', scope: 'total', as_of: '2026-02-28' } });

@@ -137,7 +137,6 @@ function RatioDetail({ label, summary, detail, fallback }) {
         <Field label="内訳" value={[r.direct != null && `直接 ${pct(r.direct)}`, r.indirect != null && `間接 ${pct(r.indirect)}`].filter(Boolean).join(' ／ ')} />
       )}
       <Field label="基準日" value={dateOrUnknown(r.as_of)} />
-      {r.raw && <Field label="原文" value={r.raw} />}
       {r.verified && <Field label="検証" value="原本で確認済みの値" />}
       {r.conflicting_values?.length > 0 && <Field label="競合する値" value={r.conflicting_values.map((v) => pct(v)).join(' ／ ')} />}
       {r.conflict_same_period && <Field label="注意" value="同じ時点で異なる値の記載があります（履歴を確認してください）" />}
@@ -158,7 +157,8 @@ function RatioDetail({ label, summary, detail, fallback }) {
   );
 }
 
-function EvidenceCard({ ev }) {
+export function EvidenceCard({ ev }) {
+  const facts = ev.facts ?? {};
   const tier = evidenceTier(ev);
   const url = ev.url;
   const originalLabel = ev.source === 'edinet' ? 'EDINET で原本を開く' : ev.source === 'wikidata' ? 'Wikidata の項目を開く' : '公表資料を開く';
@@ -179,20 +179,17 @@ function EvidenceCard({ ev }) {
         <Field label="原本の分類" value={`${ev.classification}${ev.classification_source ? `（${{ section: '節見出し', row: 'ラベル行', column: '区分列', prefix: '行頭の表記', note: '注記', header: '見出しセル' }[ev.classification_source] ?? ev.classification_source}から）` : ''}`} />
       )}
       {ev.direction_source && <Field label="方向の根拠" value={{ cell: 'セル内の所有／被所有表記', header: '列見出し', classification: '分類（親会社・その他の関係会社）', default: '既定（提出会社が所有）' }[ev.direction_source] ?? ev.direction_source} />}
-      {ev.raw_name && <Field label="原文名" value={ev.raw_name} />}
-      {ev.relationship_note && <Field label="関係内容" value={ev.relationship_note} />}
-      {ev.quote && <Field label="根拠文" value={`「${ev.quote}」`} />}
-      {ev.extraction?.cue && <Field label="手がかり" value={ev.extraction.cue} />}
+      {ev.raw_name && <Field label="資料上の相手名" value={ev.raw_name} />}
+      {ev.table_ref && <Field label="資料内の位置" value={ev.table_ref} />}
       {ev.extraction?.reasons?.length > 0 && <Field label="要確認理由" value={ev.extraction.reasons.map((r) => reasonLabel(`ir:${r}`)).join('、')} />}
       {ev.extraction?.retyped_from && <Field label="読み替え" value={`LLM の分類 ${RELATION_TYPES[ev.extraction.retyped_from]?.ja ?? ev.extraction.retyped_from} → 根拠文に基づき変更`} />}
-      {ev.deal_status && <Field label="状態" value={{ agreed: '合意・予定', executed: '実行済み' }[ev.deal_status] ?? ev.deal_status} />}
-      {ev.event_year && <Field label="時点" value={`${ev.event_year}年の出来事に言及`} />}
-      {ev.person && <Field label="人物" value={ev.person} />}
-      {(ev.role_at_filer || ev.role_at_counterparty) && <Field label="役職" value={[ev.role_at_filer && `提出会社: ${ev.role_at_filer}`, ev.role_at_counterparty && `相手: ${ev.role_at_counterparty}`].filter(Boolean).join(' ／ ')} />}
-      {ev.contracting_party && <Field label="契約会社" value={ev.contracting_party} />}
-      {ev.contract_date && <Field label="契約年月" value={ev.contract_date} />}
-      {ev.organization && <Field label="団体" value={ev.organization} />}
-      {ev.note && <Field label="備考" value={ev.note} />}
+      {(ev.source === 'ir_disclosure' || ev.property === 'contracts' || facts.deal_status) && <Field label="実行状態" value={{ agreed: '合意・予定', executed: '実行済み' }[facts.deal_status] ?? '未確認'} />}
+      {facts.event_year && <Field label="時点" value={`${facts.event_year}年の出来事に言及`} />}
+      {facts.person && <Field label="人物" value={facts.person} />}
+      {(facts.role_at_filer || facts.role_at_counterparty) && <Field label="役職" value={[facts.role_at_filer && `提出会社: ${facts.role_at_filer}`, facts.role_at_counterparty && `相手: ${facts.role_at_counterparty}`].filter(Boolean).join(' ／ ')} />}
+      {facts.contracting_party && <Field label="契約会社" value={facts.contracting_party} />}
+      {facts.contract_date && <Field label="契約年月" value={facts.contract_date} />}
+      {facts.organization && <Field label="団体" value={facts.organization} />}
       {url ? (
         <Field label="原本" value={<>{ev.doc_id && <span style={{ color: 'var(--text-2)', marginRight: 6 }}>{ev.doc_id}</span>}<ExternalLink href={url}>{originalLabel} ↗</ExternalLink></>} />
       ) : (
@@ -235,7 +232,6 @@ export function RelationDetail({ relation }) {
           <Field label="要確認理由" value={relation.review_reasons.map(reasonLabel).join('、')} />
         )}
         {status === 'historical' && <Field label="有効期限" value={`${relation.valid_until ?? '不明'} まで${relation.superseded_by ? `（後続: ${relation.superseded_by}）` : ''}`} />}
-        {verification?.note && <Field label="検証メモ" value={verification.note} />}
         {verification?.source?.url && <Field label="検証の根拠" value={<ExternalLink href={verification.source.url}>{verification.source.title ?? verification.source.url} ↗</ExternalLink>} />}
         <Field label="From" value={nodeName(relation.source)} />
         <Field label="To" value={nodeName(relation.target)} />
@@ -249,12 +245,13 @@ export function RelationDetail({ relation }) {
         {relation.attributes?.person && <Field label="人物" value={relation.attributes.person} />}
         {relation.attributes?.persons?.length > 0 && <Field label="兼任者" value={relation.attributes.persons.map((p) => `${p.name}（${Object.entries(p.roles ?? {}).map(([code, role]) => `${nodeName({ type: 'listed', key: code })}: ${role}`).join('、')}）`).join(' ／ ')} />}
         {relation.attributes?.contract_date && <Field label="契約年月" value={relation.attributes.contract_date} />}
-        {relation.attributes?.contract_note && <Field label="契約の種類" value={relation.attributes.contract_note} />}
+        {relation.attributes?.contract_kind && <Field label="契約の種類" value={relation.attributes.contract_kind} />}
         {relation.attributes?.member_via && <Field label="会員会社" value={`${relation.attributes.member_via}（上場親会社として表示）`} />}
       </Section>
-      <Section title={`エビデンス（出所） ${evidence.length} 件`}>
+      <Section title={`資料から抽出した情報・出典 ${evidence.length} 件`}>
         {loadState === 'loading' && detail === null && META.evidenceShards && <div style={{ fontSize: 12, color: 'var(--text-2)', marginBottom: 6 }}>原本情報を読み込み中…</div>}
         {loadState === 'error' && <div role="alert" style={{ fontSize: 12, color: 'var(--danger)', marginBottom: 6 }}>原本情報を取得できませんでした。通信状況を確認してください。</div>}
+        <p style={{ fontSize: 12, color: 'var(--text-2)', lineHeight: 1.6 }}>JP Market Visが資料から抽出・整理した項目です。原文の引用ではありません。個別の条件や詳細は出典リンクから原本をご確認ください。</p>
         {evidence.map((ev, i) => <EvidenceCard key={i} ev={ev} />)}
         <div style={{ fontSize: 12, color: 'var(--text-2)', lineHeight: 1.6 }}>
           「一次開示」は出所の種別で、抽出が正しいことを意味しません。「原本で検証済み」は人手で照合した関係にだけ付きます。

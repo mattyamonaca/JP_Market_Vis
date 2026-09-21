@@ -42,7 +42,7 @@ export const TIER_JA = {
 };
 export const evidenceTier = (ev) => ev.tier ?? ev.source_tier ?? ({ edinet: 'primary', official_release: 'primary', group_site: 'primary', wikidata: 'secondary', ir_disclosure: 'llm_extraction' }[ev.source] ?? null);
 
-// エビデンス全文（基準日・原本URL・抽出根拠・引用・比率の履歴）は関係IDごとのシャードに分けて配信する。
+// 構造化された抽出情報（基準日・原本URL・役職・契約年月・比率の履歴）は関係IDごとのシャードに分けて配信する。
 // 詳細パネルを開いたときだけ取得し、メモリにキャッシュする。旧データ（シャードなし）は本体の evidence をそのまま返す。
 const shardCache = new Map();
 export async function loadRelationDetail(relation) {
