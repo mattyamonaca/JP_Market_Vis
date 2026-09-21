@@ -23,6 +23,7 @@ export default function GlobalMap({ onSelectCompany }) {
   const hoverRef = useRef(null);
   const tickCount = useRef(0);
   const [pinnedCount, setPinnedCount] = useState(0);
+  const [layoutFrozen, setLayoutFrozen] = useState(false);
   const [size, setSize] = useState({ w: 800, h: 600 });
   const [activeCategories, setActiveCategories] = useState(new Set(AVAILABLE_CATEGORIES));
   const [minDegree, setMinDegree] = useState(1);
@@ -55,7 +56,7 @@ export default function GlobalMap({ onSelectCompany }) {
   // 終了まで続く長さの tween にして負けないようにする（自動の収め直しは即時適用なので競合しない）
   const fitEndsAt = useRef(0);
   const userTween = (ms) => Math.max(ms, fitEndsAt.current - Date.now() + 50);
-  useEffect(() => { hoverRef.current = null; setHoverNode(null); setPinnedCount(0); tickCount.current = 0; userAdjusted.current = false; }, [data]);
+  useEffect(() => { hoverRef.current = null; setHoverNode(null); setPinnedCount(0); setLayoutFrozen(false); tickCount.current = 0; userAdjusted.current = false; }, [data]);
   // 離れた小さな塊が全体を押し広げないよう、反発力の届く距離を制限する
   useEffect(() => { fgRef.current?.d3Force('charge')?.distanceMax(500); }, [data]);
   // 収める対象: 中心部（関係数 3 以上）。フィルタ後に低次数のノードしか残らない場合は表示中の全ノード
@@ -186,6 +187,8 @@ export default function GlobalMap({ onSelectCompany }) {
   }, [redraw]);
   // 移動した円は離した場所に固定し、重なりをほどいた状態を保つ。背景のパンとはライブラリが区別する。
   const onNodeDrag = useCallback(() => {
+    // ライブラリは移動のたびに全体の物理計算を再開する。手動配置では計算を止め、つかんだ円と接続線だけ動かす。
+    setLayoutFrozen(true);
     userAdjusted.current = true;
     if (wrapRef.current) wrapRef.current.style.cursor = 'grabbing';
   }, []);
@@ -197,6 +200,7 @@ export default function GlobalMap({ onSelectCompany }) {
   const releaseNodes = () => {
     for (const node of data.nodes) { delete node.fx; delete node.fy; }
     setPinnedCount(0);
+    setLayoutFrozen(false);
     userAdjusted.current = true;
     fgRef.current?.d3ReheatSimulation();
     redraw();
@@ -253,7 +257,8 @@ export default function GlobalMap({ onSelectCompany }) {
           backgroundColor="#ffffff" nodeId="id" nodeLabel={noLabel}
           nodeCanvasObject={drawNode} nodePointerAreaPaint={paintPointerArea}
           linkColor={linkColor} linkWidth={0.8}
-          warmupTicks={50} cooldownTicks={100}
+          warmupTicks={50} cooldownTicks={layoutFrozen ? 0 : 35} cooldownTime={1200}
+          d3AlphaDecay={0.06} d3AlphaMin={0.01} d3VelocityDecay={0.65}
           enableNodeDrag={true} minZoom={0.05} maxZoom={20} autoPauseRedraw={!drawing}
           onRenderFramePre={onRenderFramePre} onRenderFramePost={drawLabels}
           onEngineTick={onEngineTick} onEngineStop={onEngineStop} onZoom={onZoom}
