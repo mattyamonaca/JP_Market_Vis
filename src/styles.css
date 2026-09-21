@@ -131,7 +131,7 @@ button:hover:not(:disabled) { filter: brightness(.96); }
 .map-canvas { position: relative; flex: 1; min-width: 0; overflow: hidden; background: var(--bg); }
 .map-caption { position: absolute; top: 16px; left: 20px; z-index: 2; pointer-events: none; color: var(--text-2); font-size: 12px; line-height: 1.7; background: rgba(255, 255, 255, .88); padding: 6px 10px; border-radius: 6px; }
 .map-caption strong { font-weight: 600; color: var(--text); font-size: 13px; }
-.map-tools { position: absolute; bottom: 18px; right: 18px; display: flex; gap: 6px; z-index: 2; }
+.map-tools { position: absolute; bottom: 18px; right: 18px; max-width: calc(100% - 36px); display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; z-index: 2; }
 .map-tools button { background: rgba(255, 255, 255, .92); }
 .map-tools button[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); background: var(--accent-bg); }
 .map-hover { position: absolute; top: 16px; right: 16px; z-index: 2; background: rgba(255, 255, 255, .95); border: 1px solid var(--border-strong); border-radius: 8px; padding: 12px 14px; pointer-events: none; max-width: 250px; font-size: 14px; }

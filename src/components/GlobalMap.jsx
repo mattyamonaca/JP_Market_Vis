@@ -22,6 +22,7 @@ export default function GlobalMap({ onSelectCompany }) {
   const fittedRef = useRef(null);
   const hoverRef = useRef(null);
   const tickCount = useRef(0);
+  const [pinnedCount, setPinnedCount] = useState(0);
   const [size, setSize] = useState({ w: 800, h: 600 });
   const [activeCategories, setActiveCategories] = useState(new Set(AVAILABLE_CATEGORIES));
   const [minDegree, setMinDegree] = useState(1);
@@ -54,7 +55,7 @@ export default function GlobalMap({ onSelectCompany }) {
   // 終了まで続く長さの tween にして負けないようにする（自動の収め直しは即時適用なので競合しない）
   const fitEndsAt = useRef(0);
   const userTween = (ms) => Math.max(ms, fitEndsAt.current - Date.now() + 50);
-  useEffect(() => { hoverRef.current = null; setHoverNode(null); tickCount.current = 0; userAdjusted.current = false; }, [data]);
+  useEffect(() => { hoverRef.current = null; setHoverNode(null); setPinnedCount(0); tickCount.current = 0; userAdjusted.current = false; }, [data]);
   // 離れた小さな塊が全体を押し広げないよう、反発力の届く距離を制限する
   useEffect(() => { fgRef.current?.d3Force('charge')?.distanceMax(500); }, [data]);
   // 収める対象: 中心部（関係数 3 以上）。フィルタ後に低次数のノードしか残らない場合は表示中の全ノード
@@ -171,7 +172,7 @@ export default function GlobalMap({ onSelectCompany }) {
     setHoverNode(node || null);
     const el = wrapRef.current, fg = fgRef.current;
     if (el) {
-      el.style.cursor = node ? (node.kind === 'group' ? 'default' : 'pointer') : 'grab';
+      el.style.cursor = 'grab';
       el.dataset.hover = node ? node.id : '';
       el.dataset.hoverKind = node?.kind ?? (node ? 'listed' : '');
       // ホバー中のノードの画面上の中心と半径（見た目と当たり判定の一致確認用）
@@ -183,6 +184,23 @@ export default function GlobalMap({ onSelectCompany }) {
     }
     redraw();
   }, [redraw]);
+  // 移動した円は離した場所に固定し、重なりをほどいた状態を保つ。背景のパンとはライブラリが区別する。
+  const onNodeDrag = useCallback(() => {
+    userAdjusted.current = true;
+    if (wrapRef.current) wrapRef.current.style.cursor = 'grabbing';
+  }, []);
+  const onNodeDragEnd = useCallback((node) => {
+    node.fx = node.x; node.fy = node.y;
+    setPinnedCount(data.nodes.filter((n) => n.fx != null && n.fy != null).length);
+    onNodeHover(node);
+  }, [data, onNodeHover]);
+  const releaseNodes = () => {
+    for (const node of data.nodes) { delete node.fx; delete node.fy; }
+    setPinnedCount(0);
+    userAdjusted.current = true;
+    fgRef.current?.d3ReheatSimulation();
+    redraw();
+  };
   // クリック（ドラッグせずに離した場合だけライブラリが発火する）で見た目どおりの企業を開く
   const onNodeClick = useCallback((node) => { if (node.kind !== 'group') onSelectCompany(node.id); }, [onSelectCompany]);
 
@@ -228,24 +246,25 @@ export default function GlobalMap({ onSelectCompany }) {
         </details>
       </aside>
       <div ref={wrapRef} className="map-canvas" tabIndex={0} role="group"
-        aria-label="上場企業間ネットワーク。ドラッグで移動、スクロールで拡大縮小。矢印キーで移動、＋／−で拡大縮小、0 で全体を表示できます。企業をクリックすると関係グラフを開きます。"
+        aria-label="上場企業間ネットワーク。円をドラッグして配置を変更、背景をドラッグしてマップを移動。スクロールで拡大縮小。矢印キーで移動、＋／−で拡大縮小、0 で全体を表示できます。企業をクリックすると関係グラフを開きます。"
         onKeyDown={onKeyDown} onWheelCapture={markAdjusted} onPointerDownCapture={markAdjusted} onTouchStartCapture={markAdjusted}>
-        <div className="map-caption"><strong>上場企業間ネットワーク</strong><br />縁の色：業種（点線の二重円は企業グループ） ／ 円の大きさ：関係数<br />ドラッグで移動 · スクロール／ピンチで拡大縮小 · 企業を選択して詳細へ</div>
+        <div className="map-caption"><strong>上場企業間ネットワーク</strong><br />縁の色：業種（点線の二重円は企業グループ） ／ 円の大きさ：関係数<br />円をドラッグして配置変更 · 背景をドラッグして移動 · スクロール／ピンチで拡大縮小 · 企業を選択して詳細へ</div>
         <ForceGraph2D ref={fgRef} width={size.w} height={size.h} graphData={data}
           backgroundColor="#ffffff" nodeId="id" nodeLabel={noLabel}
           nodeCanvasObject={drawNode} nodePointerAreaPaint={paintPointerArea}
           linkColor={linkColor} linkWidth={0.8}
           warmupTicks={50} cooldownTicks={100}
-          enableNodeDrag={false} minZoom={0.05} maxZoom={20} autoPauseRedraw={!drawing}
+          enableNodeDrag={true} minZoom={0.05} maxZoom={20} autoPauseRedraw={!drawing}
           onRenderFramePre={onRenderFramePre} onRenderFramePost={drawLabels}
           onEngineTick={onEngineTick} onEngineStop={onEngineStop} onZoom={onZoom}
           onNodeHover={onNodeHover} onNodeClick={onNodeClick}
+          onNodeDrag={onNodeDrag} onNodeDragEnd={onNodeDragEnd}
         />
         {!data.nodes.length && <div className="map-empty" role="status"><strong>表示できる企業がありません</strong><span>カテゴリを選択するか、最小関係数を下げてください。</span><button type="button" className="reset-button" style={{ pointerEvents: 'auto' }} onClick={resetFilters}>初期状態に戻す</button></div>}
         {hoverNode && (hoverNode.kind === 'group'
           ? <div className="map-hover"><strong>{hoverNode.name}</strong><small>企業グループ{hoverNode.organization ? ` · ${hoverNode.organization}の会員会社一覧に基づく` : ''}</small><small>会員の上場企業 {hoverNode.degree}社（子会社が会員の場合は上場親会社）</small></div>
           : <div className="map-hover"><strong>{hoverNode.name}</strong><small>{hoverNode.id} · {hoverNode.industry}</small><small>選択カテゴリで上場企業と {hoverNode.degree}関係（非表示の相手を含む）</small></div>)}
-        <div className="map-tools"><button onClick={() => zoomBy(1.4)} aria-label="拡大">＋</button><button onClick={() => zoomBy(1 / 1.4)} aria-label="縮小">−</button><button onClick={() => fit()}>全体を表示</button></div>
+        <div className="map-tools">{pinnedCount > 0 && <button onClick={releaseNodes}>ノードの固定を解除（{pinnedCount}）</button>}<button onClick={() => zoomBy(1.4)} aria-label="拡大">＋</button><button onClick={() => zoomBy(1 / 1.4)} aria-label="縮小">−</button><button onClick={() => fit()}>全体を表示</button></div>
       </div>
     </div>
   );
