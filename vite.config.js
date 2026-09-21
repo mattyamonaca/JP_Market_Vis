@@ -1,10 +1,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { versionedData } from './build/versionedData.js';
 import { thirdPartyNotices } from './build/thirdPartyNotices.js';
 
 export default defineConfig({
   base: '/JP_Market_Vis/',
-  plugins: [react(), thirdPartyNotices()],
+  plugins: [react(), versionedData(), thirdPartyNotices()],
   server: {
     port: 5184,
   },

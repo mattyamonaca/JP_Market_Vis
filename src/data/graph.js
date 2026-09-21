@@ -3,17 +3,18 @@ import { createSearcher } from './search.js';
 // M4/M5 の読み込みとグラフインデックス構築（モジュールロード時に一度だけ実行）
 // データは大きい（M5 ~32MB）ためバンドルせず public/ から実行時 fetch する。
 // top-level await でモジュール解決をデータ取得まで待たせ、以降は同期的に参照できる。
+import { loadDataset } from './loadDataset.js';
+
 async function readData(name) {
   const response = await fetch(`${import.meta.env?.BASE_URL ?? '/'}${name}`);
   if (!response.ok) throw new Error(`データを取得できませんでした (${response.status})`);
   return response.json();
 }
-const [m4, m5] = await Promise.all([
-  readData('M4_companies.json'), readData('M5_company_relations.json'),
-]);
-if (!m4.dataset_id || m4.dataset_id !== m5.dataset_id) {
-  throw new Error('データの更新中です。再読み込みしてください。');
-}
+const [m4, m5] = await loadDataset(
+  (...args) => fetch(...args),
+  import.meta.env?.BASE_URL ?? '/',
+  typeof __DATASET_ID__ === 'undefined' ? null : __DATASET_ID__,
+);
 
 export const COMPANIES = m4.companies;
 export const ENTITIES = m5.entities;
