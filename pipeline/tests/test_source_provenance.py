@@ -24,6 +24,15 @@ class Provenance(unittest.TestCase):
         self.assertIsNone(b.resolve_listed(name="神戸物産合同会社"))
         self.assertEqual(b.resolve_listed(name="神戸物産(株)"), "0001")
 
+    def test_exact_nonlisted_legal_name_is_not_merged_with_listed_parent(self):
+        b = RelationBuilder({"9435": {"name": "株式会社光通信"}, "0001": {"name": "甲株式会社"}})
+        self.assertEqual(b.resolve_listed(name="株式会社光通信"), "9435")
+        refs = [b.resolve_node(name=n) for n in ["光通信株式会社", "光通信(株)", "光通信㈱"]]
+        self.assertTrue(all(r["type"] == "entity" for r in refs))
+        self.assertEqual(refs[0], refs[1])
+        self.assertEqual(refs[1], refs[2])
+        self.assertIn("子会社", b.entities[refs[0]["key"]]["name"])
+
     def test_shared_brand_does_not_identify_the_legal_counterparty(self):
         self.assertFalse(mentions("Alpha Japanとの業務提携を開始", "Alpha Global Holdings"))
         self.assertTrue(mentions("乙株式会社と業務提携を開始", "乙株式会社"))

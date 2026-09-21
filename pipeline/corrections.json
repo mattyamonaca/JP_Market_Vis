@@ -1337,6 +1337,437 @@
    "reason": "100%子会社ニックスの所在地は東京都千代田区鍛冶町一丁目5番7号。プラスチック製品の上場企業4243とは別法人。",
    "verified_by": "codex_primary_source_review",
    "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm2-person-1d4e20925945223bb63c",
+   "match": {
+    "source": "listed:1802",
+    "target": "listed:8410",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "黒田由貴子",
+   "status": "historical",
+   "as_of": "2025-06-23",
+   "source": {
+    "url": "https://www.sekisuihouse.co.jp/company/financial/library/ir_document/_227230/2025_kessan/shotsu_75.pdf",
+    "published": null,
+    "title": "第75回定時株主総会招集ご通知"
+   },
+   "reason": "黒田由貴子：セブン銀行の社外取締役を2025年6月23日に退任。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm2-person-7a61bf215b0007e7325d",
+   "match": {
+    "source": "listed:1928",
+    "target": "listed:8410",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "黒田由貴子",
+   "status": "historical",
+   "as_of": "2025-06-23",
+   "source": {
+    "url": "https://www.sekisuihouse.co.jp/company/financial/library/ir_document/_227230/2025_kessan/shotsu_75.pdf",
+    "published": null,
+    "title": "第75回定時株主総会招集ご通知"
+   },
+   "reason": "黒田由貴子：セブン銀行の社外取締役を2025年6月23日に退任。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm2-person-8dbf67c9e52e2c6f6498",
+   "match": {
+    "source": "listed:4716",
+    "target": "listed:8410",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "黒田由貴子",
+   "status": "historical",
+   "as_of": "2025-06-23",
+   "source": {
+    "url": "https://www.sekisuihouse.co.jp/company/financial/library/ir_document/_227230/2025_kessan/shotsu_75.pdf",
+    "published": null,
+    "title": "第75回定時株主総会招集ご通知"
+   },
+   "reason": "黒田由貴子：セブン銀行の社外取締役を2025年6月23日に退任。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm2-person-2a4d5de737ecd5f1f645",
+   "match": {
+    "source": "listed:2288",
+    "target": "listed:5367",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "西村元昭",
+   "status": "historical",
+   "as_of": "2025-06-20",
+   "source": {
+    "url": "https://www.marudai.jp/user/image/corporate/ir/material/pdf/convocation_260601_1.pdf",
+    "published": null,
+    "title": "第78回定時株主総会招集ご通知及び株主総会資料"
+   },
+   "reason": "西村元昭：重要な兼職の変更表で2025年6月20日付でニッカトーの社外取締役（監査等委員）の記載が終了。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm2-person-5f07fca03b505aa93371",
+   "match": {
+    "source": "listed:3182",
+    "target": "listed:7043",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "和田健吾",
+   "status": "historical",
+   "as_of": "2026-03-25",
+   "source": {
+    "url": "https://www.oisix.co.jp/wp-content/uploads/2026/07/1763b24403e4ab555cb43d73c707357a.pdf",
+    "published": null,
+    "title": "第29期定時株主総会招集ご通知"
+   },
+   "reason": "和田健吾：アルーの社外監査役を2026年3月25日に退任。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm2-person-41bcda40a351a455664a",
+   "match": {
+    "source": "listed:6047",
+    "target": "listed:7043",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "和田健吾",
+   "status": "historical",
+   "as_of": "2026-03-25",
+   "source": {
+    "url": "https://www.oisix.co.jp/wp-content/uploads/2026/07/1763b24403e4ab555cb43d73c707357a.pdf",
+    "published": null,
+    "title": "第29期定時株主総会招集ご通知"
+   },
+   "reason": "和田健吾：アルーの社外監査役を2026年3月25日に退任。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm2-person-4baeda4e610e24337b3f",
+   "match": {
+    "source": "listed:6445",
+    "target": "listed:8511",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "田中恭代",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.jsf.co.jp/ja/ir/stock-rating/meeting/main/01/teaserItems1/0/tableContents/01/multiFileUpload20/link/116AGMnoticeJ.pdf",
+    "published": null,
+    "title": "第116回 定時株主総会招集ご通知"
+   },
+   "reason": "田中恭代：ジャノメの社外取締役を2026年6月に退任予定。後続資料の確認まで現任の兼任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm2-person-f4c458c7b31191a88d98",
+   "match": {
+    "source": "listed:6902",
+    "target": "listed:8511",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "櫛田誠希",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.jsf.co.jp/ja/ir/stock-rating/meeting/main/01/teaserItems1/0/tableContents/01/multiFileUpload20/link/116AGMnoticeJ.pdf",
+    "published": null,
+    "title": "第116回 定時株主総会招集ご通知"
+   },
+   "reason": "櫛田誠希：デンソーの社外取締役を2026年6月に退任予定。後続資料の確認まで現任の兼任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm2-person-e6c3abc6f005ed3a2d96",
+   "match": {
+    "source": "listed:8566",
+    "target": "listed:9107",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "原澤敦美",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.kline.co.jp/ja/ir/stock/meeting/main/014/teaserItems1/03/linkList/0/link/158kabunushi_shoshu.pdf",
+    "published": null,
+    "title": "招集ご通知"
+   },
+   "reason": "原澤敦美：リコーリースの社外取締役を2026年6月に退任予定。後続資料の確認まで現任の兼任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm2-person-4ac10739f8d8e6839881",
+   "match": {
+    "source": "listed:8566",
+    "target": "listed:9219",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "原澤敦美",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.kline.co.jp/ja/ir/stock/meeting/main/014/teaserItems1/03/linkList/0/link/158kabunushi_shoshu.pdf",
+    "published": null,
+    "title": "招集ご通知"
+   },
+   "reason": "原澤敦美：リコーリースの社外取締役を2026年6月に退任予定。後続資料の確認まで現任の兼任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm2-person-550807932f7cd4a63eea",
+   "match": {
+    "source": "listed:7231",
+    "target": "listed:9201",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "久保伸介",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.kline.co.jp/ja/ir/stock/meeting/main/014/teaserItems1/03/linkList/0/link/158kabunushi_shoshu.pdf",
+    "published": null,
+    "title": "招集ご通知"
+   },
+   "reason": "久保伸介：日本航空の社外監査役を2026年6月に退任予定。後続資料の確認まで現任の兼任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm2-person-d56d5ff8e095fbddd497",
+   "match": {
+    "source": "listed:9107",
+    "target": "listed:9201",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "久保伸介",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://www.kline.co.jp/ja/ir/stock/meeting/main/014/teaserItems1/03/linkList/0/link/158kabunushi_shoshu.pdf",
+    "published": null,
+    "title": "招集ご通知"
+   },
+   "reason": "久保伸介：日本航空の社外監査役を2026年6月に退任予定。後続資料の確認まで現任の兼任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm2-person-27d2d1c0e15d52151114",
+   "match": {
+    "source": "listed:9107",
+    "target": "listed:9219",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "原澤敦美",
+   "status": "historical",
+   "as_of": null,
+   "source": {
+    "url": "https://www.kline.co.jp/ja/ir/stock/meeting/main/014/teaserItems1/03/linkList/0/link/158kabunushi_shoshu.pdf",
+    "published": null,
+    "title": "招集ご通知"
+   },
+   "reason": "原澤敦美：ギックスの社外監査役を2025年9月に退任。日単位の退任日は未確認。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "namesake-basic-1420-519A-20260921",
+   "match": {
+    "source": "listed:1420",
+    "target": "listed:519A",
+    "relation_type": "interlocking_director"
+   },
+   "action": "remove",
+   "source": {
+    "url": "https://www.basic7.com/company/aboutus/",
+    "published": null,
+    "title": "株式会社ベーシック（田原祐子代表・1998年設立）会社概要"
+   },
+   "reason": "田原祐子の兼職先は1998年設立の人材育成会社ベーシック。2004年設立・秋山勝代表の上場会社519A（https://basicinc.jp/company）とは別法人。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "namesake-basic-519A-8020-20260921",
+   "match": {
+    "source": "listed:519A",
+    "target": "listed:8020",
+    "relation_type": "interlocking_director"
+   },
+   "action": "remove",
+   "source": {
+    "url": "https://www.basic7.com/company/aboutus/",
+    "published": null,
+    "title": "株式会社ベーシック（田原祐子代表・1998年設立）会社概要"
+   },
+   "reason": "田原祐子の兼職先は1998年設立の人材育成会社ベーシック。2004年設立・秋山勝代表の上場会社519A（https://basicinc.jp/company）とは別法人。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "namesake-basic-519A-8367-20260921",
+   "match": {
+    "source": "listed:519A",
+    "target": "listed:8367",
+    "relation_type": "interlocking_director"
+   },
+   "action": "remove",
+   "source": {
+    "url": "https://www.basic7.com/company/aboutus/",
+    "published": null,
+    "title": "株式会社ベーシック（田原祐子代表・1998年設立）会社概要"
+   },
+   "reason": "田原祐子の兼職先は1998年設立の人材育成会社ベーシック。2004年設立・秋山勝代表の上場会社519A（https://basicinc.jp/company）とは別法人。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm2-person-f78a8bae593d56ddd47a",
+   "match": {
+    "source": "listed:4521",
+    "target": "listed:8252",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "松本洋明",
+   "status": "needs_review",
+   "as_of": null,
+   "source": {
+    "url": "https://files.0101maruigroup.co.jp/assets/fcb3f6f785e64150a816739a2f2f6d10/f2178926833f4a00b629ef3964df9912/%E7%AC%AC90%E5%9B%9E%E5%AE%9A%E6%99%82%E6%A0%AA%E4%B8%BB%E7%B7%8F%E4%BC%9A%E6%8B%9B%E9%9B%86%E3%81%94%E9%80%9A%E7%9F%A5.pdf",
+    "published": null,
+    "title": "第90回定時株主総会招集ご通知"
+   },
+   "reason": "松本洋明：科研製薬の社外監査役を2026年6月に退任予定。後続資料の確認まで現任の兼任として表示しない。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm2-person-560c3621b1011eecbdbf",
+   "match": {
+    "source": "listed:3064",
+    "target": "listed:8058",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "鷺谷万里",
+   "status": "historical",
+   "as_of": "2026-03-26",
+   "source": {
+    "url": "https://www.mizuho-ls.co.jp/ja/ir/stock_rating/meeting/main/04/teaserItems1/00/linkList/00/link/57_Notice.pdf",
+    "published": null,
+    "title": "第57回定時株主総会招集ご通知"
+   },
+   "reason": "鷺谷万里：MonotaROの社外取締役を2026年3月26日に退任。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm2-person-6fa65d891c2c130eaed8",
+   "match": {
+    "source": "listed:3064",
+    "target": "listed:8425",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "鷺谷万里",
+   "status": "historical",
+   "as_of": "2026-03-26",
+   "source": {
+    "url": "https://www.mizuho-ls.co.jp/ja/ir/stock_rating/meeting/main/04/teaserItems1/00/linkList/00/link/57_Notice.pdf",
+    "published": null,
+    "title": "第57回定時株主総会招集ご通知"
+   },
+   "reason": "鷺谷万里：MonotaROの社外取締役を2026年3月26日に退任。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm2-person-e69ab7131f81aebf5f8d",
+   "match": {
+    "source": "listed:3064",
+    "target": "listed:9889",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "鷺谷万里",
+   "status": "historical",
+   "as_of": "2026-03-26",
+   "source": {
+    "url": "https://www.mizuho-ls.co.jp/ja/ir/stock_rating/meeting/main/04/teaserItems1/00/linkList/00/link/57_Notice.pdf",
+    "published": null,
+    "title": "第57回定時株主総会招集ご通知"
+   },
+   "reason": "鷺谷万里：MonotaROの社外取締役を2026年3月26日に退任。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm2-person-9e64b40334c40441d9d3",
+   "match": {
+    "source": "listed:8058",
+    "target": "listed:9889",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "鷺谷万里",
+   "status": "historical",
+   "as_of": "2025-06-17",
+   "source": {
+    "url": "https://www.mizuho-ls.co.jp/ja/ir/stock_rating/meeting/main/04/teaserItems1/00/linkList/00/link/57_Notice.pdf",
+    "published": null,
+    "title": "第57回定時株主総会招集ご通知"
+   },
+   "reason": "鷺谷万里：JBCCホールディングスの社外取締役を2025年6月17日に退任。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
+  },
+  {
+   "id": "agm2-person-41a0666325c4f81c9c26",
+   "match": {
+    "source": "listed:8425",
+    "target": "listed:9889",
+    "relation_type": "interlocking_director"
+   },
+   "action": "set_person_status",
+   "person": "鷺谷万里",
+   "status": "historical",
+   "as_of": "2025-06-17",
+   "source": {
+    "url": "https://www.mizuho-ls.co.jp/ja/ir/stock_rating/meeting/main/04/teaserItems1/00/linkList/00/link/57_Notice.pdf",
+    "published": null,
+    "title": "第57回定時株主総会招集ご通知"
+   },
+   "reason": "鷺谷万里：JBCCホールディングスの社外取締役を2025年6月17日に退任。",
+   "verified_by": "codex_primary_source_review",
+   "verified_on": "2026-09-21"
   }
  ]
 }

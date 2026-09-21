@@ -160,6 +160,10 @@ class AliasIndex:
             for alias in spec.get("aliases", []):
                 add_alias(alias, code)
                 self.reasons.setdefault(code, {})[alias] = spec.get("reason", "alias")
+        self.entity_exact: dict[str, tuple[str, str | None]] = {}
+        for ent in self.aliases.get("exact_entities", []):
+            for alias in ent["aliases"]:
+                self.entity_exact[official_literal_key(alias)] = (ent["canonical"], ent.get("reason"))
         self.entity_canonical: dict[str, str] = {}  # match_key(別名) → canonical 名
         self.entity_reason: dict[str, str] = {}
         for ent in self.aliases["entities"]:
@@ -177,6 +181,8 @@ class AliasIndex:
         normalized = unicodedata.normalize("NFKC", name).strip()
         non_stock = r"(?:有限会社|合同会社|合資会社|合名会社|\(有\)|\(同\))"
         if re.search(r"^" + non_stock + r"|" + non_stock + r"$", normalized):
+            return None, None
+        if official_literal_key(name) in self.entity_exact:
             return None, None
         key = match_key(name)
         exact = self.official_exact.get(official_literal_key(name))
@@ -201,6 +207,9 @@ class AliasIndex:
 
     def canonical_entity_name(self, name: str) -> tuple[str, str | None]:
         """非上場名を確認済み別名辞書で正規名に寄せる。(正規名, 理由)。辞書にない名前はそのまま。"""
+        exact = self.entity_exact.get(official_literal_key(name))
+        if exact:
+            return exact
         canon = self.entity_canonical.get(match_key(name))
         if canon and canon != name:
             return canon, self.entity_reason.get(canon)

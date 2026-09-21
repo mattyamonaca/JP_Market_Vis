@@ -211,5 +211,18 @@
    "reason": "同一法人の法人格表記ゆれ（三井物産の公表で SA と 社 が併用）",
    "source": "https://www.mitsui.com/jp/ja/release/2026/1253452_15330.html"
   }
+ ],
+ "exact_entities": [
+  {
+   "canonical": "光通信株式会社（株式会社光通信の有価証券保有子会社）",
+   "aliases": [
+    "光通信株式会社",
+    "光通信(株)",
+    "光通信㈱"
+   ],
+   "reason": "前株の上場法人「株式会社光通信」と、後株の完全子会社「光通信株式会社」を区別。株主総会資料の関連当事者表で子会社・直接100%・有価証券の保有管理を確認。",
+   "source": "https://www.hikari.co.jp/assets/pdf/ir/250605_2.pdf",
+   "verified_on": "2026-09-21"
+  }
  ]
 }

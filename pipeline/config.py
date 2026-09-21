@@ -97,6 +97,12 @@ RELATION_TYPES = {
         "ja": "主要仕入先",
         "description": "source=仕入側, target=供給側",
     },
+    "banking_partner": {
+        "category": "transaction",
+        "directed": True,
+        "ja": "取引金融機関（公式掲載）",
+        "description": "企業公式の会社概要に記載された取引銀行・金融機関。source=掲載企業, target=金融機関。借入の有無・融資額・主力行の順位は推定しない。",
+    },
     "main_bank": {
         "category": "transaction",
         "directed": True,
