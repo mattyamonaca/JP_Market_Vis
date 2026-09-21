@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import CompanySources from './CompanySources.jsx';
 import {
   CATEGORY_TEXT_COLORS,
   CATEGORY_JA,
@@ -102,8 +103,11 @@ function CompanyDetail({ info, refObj }) {
         正確な上場状況・市場区分・業種は、<ExternalLink href="https://www.jpx.co.jp/markets/statistics-equities/misc/01.html">JPX公式の最新情報</ExternalLink>をご自身で確認してください。地方市場は各取引所の公式情報をご確認ください。
       </div>}
       <Field label="名称" value={info.name} />
-      <Field label="正式名称" value={info.name_edinet} />
-      <Field label="読み" value={info.name_kana} />
+      {info.name_edinet && info.name_edinet !== info.name && <>
+        <Field label="EDINET掲載名" value={info.name_edinet} />
+        <div style={{ fontSize: 11, color: "var(--text-2)", marginBottom: 8 }}>参考情報です。旧名称の場合があります。</div>
+      </>}
+      <Field label="EDINET読み" value={info.name_kana} />
       <Field label="別名" value={info.aliases?.length ? info.aliases.join('、') : null} />
       <Field label="英文名" value={info.name_en} />
       <Field label="証券コード" value={info.securities_code} />
@@ -115,6 +119,7 @@ function CompanyDetail({ info, refObj }) {
       <Field label="EDINET" value={info.edinet_code} />
       <Field label="所在地" value={info.address} />
       <Field label="Wikidata" value={info.wikidata_qid && <ExternalLink href={`https://www.wikidata.org/wiki/${info.wikidata_qid}`}>{info.wikidata_qid}</ExternalLink>} />
+      <CompanySources sources={info.field_sources} collectedOn={info.data_quality?.as_of} />
     </Section>
   );
 }
