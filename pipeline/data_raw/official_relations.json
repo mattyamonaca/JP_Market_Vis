@@ -139308,5 +139308,994 @@
    "by": "codex_primary_source_review",
    "on": "2026-09-22"
   }
+ },
+ {
+  "id": "358e38eb278ae8b7648d",
+  "source": {
+   "code": "6027"
+  },
+  "target": {
+   "code": "2440"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサイン",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cloudsign.jp/case/2020/05/11/gnavi-telework/",
+   "published": "2020-05-11",
+   "origin": "independent_primary_website",
+   "sha256": "b9f5c814d2dfeaad49da8043130143067b13f6a900f34a23e98c1d2fa320e817"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "65db3c0aa32083a8aafb",
+  "source": {
+   "code": "6027"
+  },
+  "target": {
+   "code": "3967"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサイン Salesforce版",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cloudsign.jp/case/2021/12/14/eltes/",
+   "published": "2021-12-14",
+   "origin": "independent_primary_website",
+   "sha256": "37abc426f4eb89d194ad4128574db1f27522943041b7296859464bbc90e7a404"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a50bcda26e40d18cd505",
+  "source": {
+   "code": "6027"
+  },
+  "target": {
+   "code": "6054"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサイン",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cloudsign.jp/case/2018/07/31/livesense/",
+   "published": "2018-07-31",
+   "origin": "independent_primary_website",
+   "sha256": "7d1f6e4c71c2e6a4177e2a3e0efdeb264ec2a5a777303487e96a816917728155"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7f18f4592ca4f8af9ae7",
+  "source": {
+   "code": "6027"
+  },
+  "target": {
+   "code": "9142"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサイン",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cloudsign.jp/case/2025/02/18/jrkyushu/",
+   "published": "2025-02-18",
+   "origin": "independent_primary_website",
+   "sha256": "5d20661bdd93f932558edc8d2149ecc4d92f10bb507661098586afda0e5be981"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3bf8c49416ee1770d0bc",
+  "source": {
+   "code": "6027"
+  },
+  "target": {
+   "code": "4331"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサイン レビュー",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cloudsign.jp/case/2025/01/24/tgn/",
+   "published": "2025-01-24",
+   "origin": "independent_primary_website",
+   "sha256": "216605f494a389b3e6ccb6cf5c5b55ee5fee1dda686794993b3737973c87628a"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5039c1c3f407f0544317",
+  "source": {
+   "code": "6027"
+  },
+  "target": {
+   "code": "6535"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサイン",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cloudsign.jp/case/2024/11/11/i-mobile/",
+   "published": "2024-11-11",
+   "origin": "independent_primary_website",
+   "sha256": "ea082c475e9242038179519079be8631473c24365d86b6de89e1dc8a70a84e34"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "05264a43c6a24dcd0f5a",
+  "source": {
+   "code": "6027"
+  },
+  "target": {
+   "code": "4479"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサイン",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cloudsign.jp/case/2024/10/31/makuake/",
+   "published": "2024-10-31",
+   "origin": "independent_primary_website",
+   "sha256": "74ec4b8bf9f1f6d4a556c9816166e5d73b66cda7b4152a389f488152533c08c8"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2abcd74b3b8d730b9ff5",
+  "source": {
+   "code": "6027"
+  },
+  "target": {
+   "code": "9434"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサイン",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cloudsign.jp/case/2022/09/27/softbank/",
+   "published": "2022-09-27",
+   "origin": "independent_primary_website",
+   "sha256": "b0d00a2faeb510f1976d2db68caf2a917afeda9eadf1ccabe5451b7c8910b3fe"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "10b42af60a5c80920974",
+  "source": {
+   "code": "6027"
+  },
+  "target": {
+   "code": "3900"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサイン",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cloudsign.jp/case/2022/09/20/crowdworks-2/",
+   "published": "2022-09-20",
+   "origin": "independent_primary_website",
+   "sha256": "32667a303b7ea830f3b51ef600ae51b0deb2d657dd2b28dd7a54af2265cbc2b3"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9f30d4a579279d70dca1",
+  "source": {
+   "code": "6027"
+  },
+  "target": {
+   "code": "4461"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサイン",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cloudsign.jp/case/2021/10/26/dks/",
+   "published": "2021-10-26",
+   "origin": "independent_primary_website",
+   "sha256": "0ad4d9632a4ac73020f4fbb6f3d29ba15b71fe2e7f45be5a929d13a3536e2eba"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b1380b6484036c106de7",
+  "source": {
+   "code": "6027"
+  },
+  "target": {
+   "code": "8060"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサイン",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cloudsign.jp/case/2021/10/12/canonmarketingjapan/",
+   "published": "2021-10-12",
+   "origin": "independent_primary_website",
+   "sha256": "3655a99a4f3d12c392dba54650a36a69b43122e7cca851b7e5082a44d81bc323"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "cb759f7f051ac75876b3",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "471A"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/nsg-inc/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "a3970854ea63c6289597e911d3119bf567d1d69eecd672736e48f5f20a7f2d7d"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1c5d5e298fd3fc59a18f",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "4434"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE Tadrill",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/serverworks/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "3438ff9f39a48f396b6e6921edbd8b7bbc981356d59e954f58c48a82ce47f9b5"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f23a66fd290eb80c34b4",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "9686"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/toyo-tec/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "dafd7745d4b7b9dac7f466f1f5396369df1b3df19855b1680843831ddc8f7c3b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "65968d1766da1e29d72f",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "7981"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/takara-standard/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7d39ded6594e3033c8dc0a276748a3761b3489efa948c6fa608dd1d9ec04af65"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1b5497a227106550b7b2",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "2282"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/nipponham/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "3777514719c1fb348d7be4b93133ecb739be3eed5b5289e6dcba4b804e820e3b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5c8b3805af7419554e34",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "331A"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/medix/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6ddfc0202fbbd367d58563962ac7f07de8729b24e8d85861f78c6fa6a673cf67"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "fdfdfd172682f8f4c2c4",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "4415"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/broad_enterprise/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2de230e145c55f10aa16dd0e939b96dfd8b1720d9aacff6b8d338edb6a89f5d2"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1dc84d62c70e6a426720",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "1878"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/daitokentaku/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "3b6a368cea720b6c8092ca1ab67c273d7b55f54400dcdee8984b36ac32483e64"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "8e40542f4c7535b19649",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "9828"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/genkiglobaldining/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "658a3fb6ade6cc800d050f853ae1b07079dceb9efcea66312e400f5a68455be8"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "21882242d3240dab8db8",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "7269"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/suzuki/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "5cbd181bd7c0a812ecff970c9df45e7a8a32a10cbe48aceef3c6621b6c328f52"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c7cc8db0619101f73f91",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "3002"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/gunze/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "fe0cc192b9b27c5234717c3805e628b5cb98a4f41cc0455a42353ad3fe789787"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2443b519dd768ca01b46",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "6181"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/tameny/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "b15a0c843b30e359b420c87306589e97c5fc4661aa76649ad6dec1f13cd950c3"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7e8378d743e2c0a4ad10",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "9008"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/keio/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "0d34efacdd022db3776557470f5378d9b9d25e9bb47dc60521e3a60553dab7f5"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c96a7593cc4f00f1c517",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "6113"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/amada/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ffd7a49cdc7fc9b0c1edb99b737864c50b562e935671ebff9381436a3c241c85"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d22cb4b4d0881941eb9e",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "8439"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/century/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "aa09debdfa411bf548d2c3b23d126651e8f5afb073d69d86f3a5378fb2412bc9"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6a39f4ad882ac2885b94",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "9543"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/shizuokagas/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "1fb5a784706979c40cee492c8940f5a00634edf5553bdfd31d4163944e77f6ea"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "08caf7aff37cca275290",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "7952"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/kawai/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "80f4715b82348e5ac0625be4bce7de778b404a9512dd8e2f8f01d0affc31f5b9"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "8d832dc7db2de2d53f96",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "2928"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/rizap/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "491428a9bda974260e5c1b12947b81828e1bdce58a4f48ddbecaf22279b261af"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7b59e2e1160ebdfaf0cb",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "8157"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/tsuzuki/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "f7d845f74057212b18a7205f22b61d3b3f35f766c308d926107de68b62fbbfb4"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f00c676d583f93b83ee2",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "5943"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/noritz/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "161f7d35e6801369c684e9f2ef1d616a317f4666a26947733e49296d908f8fa5"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b5d2506b82b4fb0e731f",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "4228"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/sekisuiplastics/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "cb27d9ef62c51ca37f18342083c608b00e88d292ad4efdae8c3f08c131ed03c2"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d3b5b3152717831df70e",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "4819"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/dg/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "dce10b32fb02416e654043eb744c7fa0b28c9e2b82493266559b010e702597f1"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "dcaf0ee550e6bff375f3",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "4951"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/st/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "9b7669fdb59b4e54bbd85cf078207d85ff513eac0041e7ba93169efd8c88d230"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3d2d49e636802ece6969",
+  "source": {
+   "code": "4475"
+  },
+  "target": {
+   "code": "2173"
+  },
+  "relation_type": "product_adoption",
+  "product": "HENNGE One",
+  "as_of": null,
+  "document": {
+   "url": "https://hennge.com/jp/service/one/case/hakuten/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "3c2968014d68451c1191bf415d949eb610db44d67e3a65245ab6404292faabf9"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d53d36fc482d68588ab0",
+  "source": {
+   "code": "6027"
+  },
+  "target": {
+   "code": "7049"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサイン",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cloudsign.jp/case/2018/11/21/shikigaku/",
+   "published": "2018-11-21",
+   "origin": "independent_primary_website",
+   "sha256": "64b23dfb7feebde67cca0cae6e2c5316f99b4de953e7f1d7ee01707a665a5555"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d9ee614e9dd57bc83ff2",
+  "source": {
+   "code": "6027"
+  },
+  "target": {
+   "code": "1959"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサイン",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cloudsign.jp/case/2026/06/01/kraftia/",
+   "published": "2026-06-01",
+   "origin": "independent_primary_website",
+   "sha256": "4b73e63f5a784d7b8d1697919fbd27849bf1b8f94a7084f711c135816d7fac58"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ad31052cb65e920fbea4",
+  "source": {
+   "code": "6027"
+  },
+  "target": {
+   "code": "3800"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサイン",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cloudsign.jp/case/2023/07/26/unirita/",
+   "published": "2023-07-26",
+   "origin": "independent_primary_website",
+   "sha256": "22e23fd6275a6a8f8c5f1cca0426f8b7b12cd2280cd87056b84045253a2493bf"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "98c264d7452375bc5782",
+  "source": {
+   "code": "6027"
+  },
+  "target": {
+   "code": "7035"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサイン SCAN",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cloudsign.jp/case/2023/06/02/andfactory/",
+   "published": "2023-06-02",
+   "origin": "independent_primary_website",
+   "sha256": "1852ef97b4db806d58c88ad02ffeb969f3f28fa36ca3adfeadea10a16885db17"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1638fbea614ae4479f1b",
+  "source": {
+   "code": "6027"
+  },
+  "target": {
+   "code": "4350"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサイン",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cloudsign.jp/case/2022/12/23/medical-system-network/",
+   "published": "2022-12-23",
+   "origin": "independent_primary_website",
+   "sha256": "98fa9d6c4f461343d037ed41103221feeb505904562c1921cee78ba9f4b766f1"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2236c4bcb4434a46ba18",
+  "source": {
+   "code": "6027"
+  },
+  "target": {
+   "code": "2206"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサイン",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cloudsign.jp/case/2022/10/05/glico/",
+   "published": "2022-10-05",
+   "origin": "independent_primary_website",
+   "sha256": "d3429d81aeb07a711830f69a9a70760a4b05ecce7a83d6988c4d80a4005a4f93"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "fd501613b5798f92ddee",
+  "source": {
+   "code": "6027"
+  },
+  "target": {
+   "code": "7752"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサイン",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cloudsign.jp/case/2025/11/04/ricoh-2/",
+   "published": "2025-11-04",
+   "origin": "independent_primary_website",
+   "sha256": "1b364831b7066406550df791da5c20c81292b97b38b47b3f76f5c7f189dd3b71"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5e1e739e087c0275597e",
+  "source": {
+   "code": "6027"
+  },
+  "target": {
+   "code": "4415"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサイン・クラウドサイン MAKE for kintone",
+  "as_of": null,
+  "document": {
+   "url": "https://www.cloudsign.jp/case/2025/07/29/broad-e/",
+   "published": "2025-07-29",
+   "origin": "independent_primary_website",
+   "sha256": "55b589da474513f992cadbdabb9b9433d32f2fc579c5d8ae922151823f694a94"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
  }
 ]
