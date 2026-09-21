@@ -85,7 +85,7 @@ def _norm(s: str | None) -> str:
 
 
 def mentions(text: str, name: str | None) -> bool:
-    """根拠文に相手（法人格を除いた名称、または英字略称）が出ているか。"""
+    """根拠文に相手の名称（法人格を除く完全名）が出ているか。"""
     if not name:
         return False
     t = match_key(text)
@@ -95,20 +95,10 @@ def mentions(text: str, name: str | None) -> bool:
     short = re.sub(r"\s+", "", base_name(name))
     if len(short) >= 2 and short.lower() in _norm(text).lower():
         return True
-    # 「（以下、日立）」「（以下、トヨタ社）」のような略称定義
-    for m in re.finditer(r"以下[、,]?\s*「?([^」）)]{1,12})」?\s*[）)]", _norm(text)):
-        k = match_key(m.group(1))
-        if k and k in b:
-            return True
-    # 欧文名は先頭の固有語（4 文字以上、一般語を除く）で照合（"Ceva Santé Animale SA" → "Ceva"）
-    tokens = [t for t in re.split(r"[\s,.]+", base_name(name)) if len(t) >= 4 and t.lower() not in _GENERIC_TOKENS]
-    if tokens and re.match(r"^[A-Za-z]", tokens[0]) and tokens[0].lower() in _norm(text).lower():
-        return True
+    # A shared prefix is not a legal-entity match (e.g. Ceva Japan vs
+    # Ceva Santé Animale). Abbreviations need separately checked aliases;
+    # an arbitrary definition for another party in the excerpt is not enough.
     return False
-
-
-_GENERIC_TOKENS = {"group", "holdings", "holding", "international", "global", "japan", "america", "asia", "europe",
-                   "technology", "technologies", "systems", "solutions", "industries", "company", "corporation"}
 
 
 THIRD_PARTY_RE = re.compile(r"(が|により|によって|を存続会社とする)(設立|出資|保有|買収|運営|取得|吸収合併)(した|する|している|され|を|$|。|、|\s)")
@@ -269,6 +259,18 @@ def validate(row: dict, filer_names: list[str] | None = None) -> dict:
             if m and (SELF_RE.search(m.group(1)) or re.search(r"子会社|グループ会社|当社グループ", m.group(1))) \
                     and not mentions(m.group(1), cp):
                 direction = "out"
+    # Public schema defines major_customer as >=10% of consolidated revenue.
+    # Product adoption / a supply contract alone says nothing about materiality.
+    if resolved_type == "major_customer":
+        ratios = [float(x) for x in re.findall(r"(\d+(?:\.\d+)?)\s*[%％]", quote)]
+        if not (re.search(r"連結売上|consolidated (?:sales|revenue)", quote, re.I)
+                and any(10 <= x <= 100 for x in ratios)):
+            reasons.append("major_customer_materiality_unproven")
+    # joint_venture is investor -> JV, not an undirected co-investor pair.
+    # Existing LLM rows do not identify which party is the JV with sufficient
+    # precision; require an explicit reviewed correction rather than guessing.
+    if resolved_type == "joint_venture":
+        reasons.append("joint_venture_target_unverified")
     status = "confirmed" if not reasons else "needs_review"
     out = {"status": status, "reasons": reasons, "cue": cue, "direction": direction,
            "resolved_type": resolved_type}

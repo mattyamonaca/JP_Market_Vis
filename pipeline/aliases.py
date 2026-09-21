@@ -148,6 +148,12 @@ class AliasIndex:
         """名称 → (証券コード, 照合方法)。見つからなければ (None, None)。"""
         if not name:
             return None, None
+        # Japanese non-stock legal forms cannot identify a currently listed
+        # stock corporation merely because the brand name matches.
+        normalized = unicodedata.normalize("NFKC", name).strip()
+        non_stock = r"(?:有限会社|合同会社|合資会社|合名会社|\(有\)|\(同\))"
+        if re.search(r"^" + non_stock + r"|" + non_stock + r"$", normalized):
+            return None, None
         key = match_key(name)
         code = self.listed_key.get(key)
         if code:

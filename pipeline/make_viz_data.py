@@ -27,7 +27,7 @@ SHARD_SIZE = 1000
 EVIDENCE_KEYS = (
     "source", "source_tier", "confidence", "property", "doc_id", "url", "as_of", "published", "retrieved",
     "classification", "classification_source", "direction_source", "raw_name", "table_ref",
-    "verification", "filer_sec_code",
+    "verification", "filer_sec_code", "support_status", "record_id", "reviewer", "origin",
 )
 FACT_KEYS = ("person", "role_at_filer", "role_at_counterparty", "contracting_party", "contract_date",
              "organization", "deal_status", "event_year")
@@ -38,6 +38,9 @@ RATIO_KEYS = ("value", "kind", "scope", "direct", "indirect", "as_of", "doc_id",
 def full_evidence(ev: dict) -> dict:
     # 許可した項目だけを出力する。自由文や将来追加されるフィールドは自動公開しない。
     out = {k: ev[k] for k in EVIDENCE_KEYS if ev.get(k) not in (None, "", [], {})}
+    if ev.get("source_check"):
+        out["source_check"] = {k: ev["source_check"][k] for k in
+                               ("status", "checked_at", "sha256", "http_status", "final_url") if k in ev["source_check"]}
     facts = {k: ev[k] for k in FACT_KEYS if ev.get(k) not in (None, "", [], {})}
     if facts:
         out["facts"] = facts
@@ -62,6 +65,10 @@ def summary_evidence(ev: dict) -> dict:
         out["as_of"] = ev["as_of"]
     if ev.get("verification"):
         out["verification"] = ev["verification"]
+    if ev.get("support_status"):
+        out["support_status"] = ev["support_status"]
+    if ev.get("origin"):
+        out["origin"] = ev["origin"]
     return out
 
 

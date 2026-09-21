@@ -1,10 +1,12 @@
 import React from 'react';
+import { sourceContribution } from '../data/sourceContribution.js';
 import {
   CATEGORY_COLORS,
   CATEGORY_JA,
   HUB_RANKING,
   META,
   RELATION_TYPES,
+  CURRENT_RELATIONS,
   SEGMENT_JA,
   STATS,
   STATUS_COLORS,
@@ -12,6 +14,8 @@ import {
   TIER_COLORS,
   TIER_JA,
 } from '../data/graph.js';
+
+const contribution = sourceContribution(CURRENT_RELATIONS);
 
 // 白基調（Issue #23）: 数値は本文色で統一し、色はバーとカテゴリの識別にだけ使う
 function Card({ label, value, sub }) {
@@ -75,6 +79,12 @@ export default function StatsView({ onSelectCompany }) {
         />
       </div>
 
+      <div className="card" style={{ padding: 18, marginBottom: 20 }}>
+        <div style={{ fontSize: 14, fontWeight: 700 }}>全体図への情報源別の寄与</div>
+        <p style={{ fontSize: 13 }}>EDINET：{contribution.edinet.toLocaleString()}件 ／ その他：{contribution.other.toLocaleString()}件（うち両方の裏付け：{contribution.both.toLocaleString()}件）</p>
+        <div style={{ fontSize: 12, color: 'var(--text-2)' }}>上場企業間の判定済み関係を、各情報源につき1件として集計します。出典が複数あっても重複加算せず、要確認の抽出根拠は含めません。資料の公表時点・抽出精度はそれぞれ異なります。</div>
+      </div>
+
       <div
         style={{
           display: 'grid',
@@ -99,7 +109,7 @@ export default function StatsView({ onSelectCompany }) {
           title="エビデンス出所（判定済み）"
           items={sourceItems}
           colorOf={() => '#0ea5e9'}
-          labelOf={(k) => ({ wikidata: 'Wikidata', edinet: 'EDINET 有報', ir_disclosure: '企業IR（LLM抽出）', official_release: '公式開示（原本確認）', group_site: 'グループ広報団体の会員一覧' }[k] ?? k)}
+          labelOf={(k) => ({ wikidata: 'Wikidata', edinet: 'EDINET 有報', ir_disclosure: '企業IR（LLM抽出）', official_release: '公式開示（原本確認）', issuer_website: '企業公式サイト（原本確認）', group_site: 'グループ広報団体の会員一覧' }[k] ?? k)}
         />
         <BarList
           title="出所の種別（抽出の正しさとは別）"

@@ -16,6 +16,7 @@ class PublicFactsTest(unittest.TestCase):
             'table_ref': 'table0/row2', 'quote': '転載しない文章',
             'relationship_note': '転載しない説明', 'note': '転載しない備考',
             'new_unreviewed_field': '将来のフィールドも漏らさない',
+            'source_check': {'status': 'excerpt_found', 'sha256': 'abc', 'quote': '転載しない文章'},
             'contract_date': '2025-02', 'deal_status': 'agreed',
             'person': '氏名', 'role_at_counterparty': '社外取締役',
             'extraction': {'cue': '原文断片', 'reasons': ['unknown_direction'], 'retyped_from': 'ownership'},
@@ -31,6 +32,7 @@ class PublicFactsTest(unittest.TestCase):
         for key in ('quote', 'relationship_note', 'note', 'new_unreviewed_field'):
             self.assertNotIn(key, out)
         self.assertNotIn('cue', out['extraction'])
+        self.assertEqual(out['source_check'], {'status': 'excerpt_found', 'sha256': 'abc'})
         self.assertEqual(ev, before)  # 検証用原本は変更しない
         self.assertNotIn('facts', full_evidence({'source': 'wikidata'}))
 

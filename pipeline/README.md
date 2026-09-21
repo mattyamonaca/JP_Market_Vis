@@ -174,3 +174,15 @@ python make_viz_data.py                                                # public/
 通常の生成は `data_raw/independent_companies.json` のレビュー済みスナップショットを利用します。`prepare_independent_companies.py` で検証し、`build_masters.py` に入力します。`fetch_jpx.py` は本番パイプラインから外しました。JPXは比較専用であり、不足値をJPXから埋めません。スナップショットの更新時は出典URL・資料日・不一致/未確認フラグを維持し、上場廃止や新規上場の発効日も確認してください。`run.sh` は独立スナップショットを自動更新しません。
 
 名称・33業種・未確認の市場区分を含むため、UIは注意文とJPX公式への確認リンクを表示します。17業種・規模区分は空欄です。地方市場やPRO市場も収録対象となります。
+
+## IR根拠の検証とEDINET以外の情報源
+
+[2026-09-21の信頼性監査・追加結果](IR_RELIABILITY_REVIEW_2026-09-21.md)に、確認基準、未達の件数目標、情報源ごとの制約を記載しています。
+
+- `audit_ir_sources.py`: IR抽出の本文照合。本文一致と関係の意味の確認は別です。追加依存は `requirements-audit.txt`。
+- `discover_issuer_sources.py`: 公式サイト候補の調査。候補を自動承認しません。
+- `data_raw/ir_source_checks.json`: 元の抽出行のハッシュに結び付いた検証メタデータ。原文引用を含みません。検証がないIR抽出は要確認になります。
+- `data_raw/official_relations.json`: 当事者・関係・時点を資料と個別照合した事実。AI照合であることを明記します。
+- `source_contribution.py`: 確認済み上場企業間の関係を情報源ごとに重複排除して集計。企業サイト上の有報転載はEDINET由来です。
+
+取得した全文・PDF・引用抜粋・未確認候補は `outputs/` などの無視対象に保存し、公開ファイルやGit履歴に追加しないでください。

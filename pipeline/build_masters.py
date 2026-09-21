@@ -313,7 +313,7 @@ class RelationBuilder:
 
 
 def _same_evidence(a: dict, b: dict) -> bool:
-    keys = ("source", "property", "doc_id", "url", "as_of", "person")
+    keys = ("source", "property", "doc_id", "url", "as_of", "person", "support_status")
     return all(a.get(k) == b.get(k) for k in keys)
 
 
@@ -680,8 +680,17 @@ def add_officer_relations(builder: RelationBuilder, edinet_rows: list[dict], ret
             "note": "提出会社の有価証券報告書「役員の状況」に記載された、役員が現任で務める他社の役職（提出日現在）",
         })
         ev.pop("table_ref", None)
+        # A current adviser or consultant is not necessarily an officer.
+        # Keep the source statement, but do not promote it to officer overlap.
+        role_is_officer = all(re.search(r"取締役|監査役|執行役", row.get(k) or "")
+                              for k in ("role_at_filer", "role_at_counterparty"))
+        status = "confirmed" if role_is_officer else "needs_review"
+        ev["support_status"] = status
+        if not role_is_officer:
+            ev["confidence"] = "low"
         rel = builder.add({"type": "listed", "key": filer_code}, {"type": "listed", "key": code},
-                          "interlocking_director", {}, ev)
+                          "interlocking_director", {}, ev, status=status,
+                          reasons=[] if role_is_officer else ["officer_role_unproven"])
         if rel is None:
             continue
         persons = rel["attributes"].setdefault("persons", [])
@@ -814,11 +823,13 @@ def add_group_relations(builder: RelationBuilder, groups: list[dict]) -> None:
             builder.entities[tk].setdefault("kind", "group")
 
 
-def add_ir_relations(builder: RelationBuilder, ir_rows: list[dict], retrieved: str | None) -> None:
+def add_ir_relations(builder: RelationBuilder, ir_rows: list[dict], retrieved: str | None,
+                     source_checks: dict | None = None) -> None:
     """IR 抽出行の投入（Issue #6）。根拠文の検証（ir_validate）に通った行だけ confirmed にし、
     根拠が不足する行は needs_review として理由を残す。"""
     import edinet_tables as et
     from ir_validate import validate
+    from ir_source_checks import check_for
 
     n = 0
     by_type: dict[str, int] = {}
@@ -874,6 +885,16 @@ def add_ir_relations(builder: RelationBuilder, ir_rows: list[dict], retrieved: s
             attrs["event_year"] = event_year
         status = verdict["status"]
         reasons = [f"ir:{r}" for r in verdict.get("reasons") or []]
+        # A lexical match inside an LLM-generated excerpt is not proof that the
+        # excerpt exists in the cited release. Keep failed/missing checks apart
+        # from semantic classification, and never call a fetch failure a lie.
+        if source_checks is not None:
+            check = check_for(row, source_checks)
+            evidence["source_check"] = check
+            if check["status"] != "excerpt_found":
+                status = "needs_review"
+                reasons.append(f"ir:source_{check['status']}")
+        evidence["support_status"] = status
         builder.add(source, target, rel_type, attrs, evidence, status=status, reasons=reasons)
         n += 1
         by_type[rel_type] = by_type.get(rel_type, 0) + 1
@@ -950,6 +971,7 @@ def apply_corrections(builder: RelationBuilder, corrections: dict) -> list[dict]
             "url": (c.get("source") or {}).get("url"), "as_of": c.get("as_of"),
             "published": (c.get("source") or {}).get("published"), "retrieved": c.get("verified_on"),
             "note": c.get("reason"), "verification": "verified",
+            "origin": (c.get("source") or {}).get("origin", "independent_primary_release"),
         }
         before = {"relation_type": rel["relation_type"], "status": rel["status"],
                   "source": rel["source"], "target": rel["target"],
@@ -1078,7 +1100,10 @@ def main() -> int:
     add_edinet_relations(builder, edinet_rows, d("edinet_blocks"))
     add_officer_relations(builder, edinet_rows, d("edinet_blocks"))
     add_contract_relations(builder, edinet_rows, d("edinet_blocks"))
-    add_ir_relations(builder, ir_rows, d("ir_crawl/data/ir_relations.json"))
+    add_ir_relations(builder, ir_rows, d("ir_crawl/data/ir_relations.json"),
+                     load("ir_source_checks.json", required=False) or {})
+    from official_relations import add_official_relations
+    add_official_relations(builder, load("official_relations.json", required=False) or [])
     add_group_relations(builder, groups)
     corrections = json.loads(CORRECTIONS_PATH.read_text(encoding="utf-8")) if CORRECTIONS_PATH.exists() else {}
     correction_log = apply_corrections(builder, corrections)
@@ -1099,6 +1124,8 @@ def main() -> int:
             "wikidata": "Wikidata SPARQL (資本: P355/P749/P127/P1830; グループ: P463; 役員兼任: P169/P488 等)",
             "edinet": "EDINET API v2 有価証券報告書（関係会社の状況・大株主の状況・主要な顧客・役員の状況・経営上の重要な契約等）",
             "ir_disclosure": "各社IRサイトのプレスリリースを LLM(moonshot-v1-32k) で構造化 (confidence=low)",
+            "official_release": "企業公式資料の当事者・関係分類を個別照合した事実（有報転載は origin で識別）",
+            "issuer_website": "企業公式サイトの株主情報・役員情報等と個別照合した事実（有価証券報告書の転載を除く）",
             "group_site": "企業グループ広報団体（三菱広報委員会・三井広報委員会・住友グループ広報委員会・みどり会）の公式サイトの会員会社一覧",
         },
         "status_values": {

@@ -172,6 +172,7 @@ export const STATS = (() => {
     byCategory[rel.category] = (byCategory[rel.category] ?? 0) + 1;
     if (rel.source.type === 'listed' && rel.target.type === 'listed') listedToListed += 1;
     for (const ev of rel.evidence) {
+      if ((ev.support_status ?? 'confirmed') !== 'confirmed') continue;
       bySource[ev.source] = (bySource[ev.source] ?? 0) + 1;
       const tier = evidenceTier(ev) ?? 'unknown';
       byTier[tier] = (byTier[tier] ?? 0) + 1;

@@ -1,0 +1,5 @@
+-r requirements.txt
+beautifulsoup4>=4.12
+pypdf[crypto]>=5
+fonttools>=4
+truststore>=0.10

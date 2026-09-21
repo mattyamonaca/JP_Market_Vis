@@ -85,6 +85,12 @@ RELATION_TYPES = {
         "ja": "主要販売先",
         "description": "連結売上10%以上の顧客（有報開示）。source=販売側, target=顧客",
     },
+    "transaction_partner": {
+        "category": "transaction",
+        "directed": False,
+        "ja": "取引先（公式掲載）",
+        "description": "企業公式サイトが取引先・販売先・納入先として掲載した関係。売買の方向、現在の取引継続、売上比率10%以上は保証しない。",
+    },
     "major_supplier": {
         "category": "transaction",
         "directed": True,

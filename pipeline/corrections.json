@@ -105,7 +105,8 @@
    "source": {
     "url": "https://data.swcms.net/file/olc-corp/dam/jcr:73e1beec-a607-4b30-8db3-3e1776dfb872/S100VY55.pdf#page=9",
     "title": "オリエンタルランド 2025年3月期有価証券報告書 9ページ（関係会社の状況）",
-    "published": "2025-06-26"
+    "published": "2025-06-26",
+    "origin": "edinet_republication"
    },
    "reason": "京成電鉄はOLCの「その他の関係会社」（被所有20.14%、うち間接0.07%）。旧データの「OLC→京成 親会社-子会社」は方向・分類とも誤り",
    "verified_by": "manual",
@@ -127,7 +128,8 @@
    "source": {
     "url": "https://data.swcms.net/file/olc-corp/dam/jcr:73e1beec-a607-4b30-8db3-3e1776dfb872/S100VY55.pdf#page=9",
     "title": "オリエンタルランド 2025年3月期有価証券報告書 9ページ",
-    "published": "2025-06-26"
+    "published": "2025-06-26",
+    "origin": "edinet_republication"
    },
    "reason": "Wikidata の親組織（P749）由来。有報では京成は議決権20.14%のその他の関係会社で、親会社ではない",
    "verified_by": "manual",
@@ -145,7 +147,8 @@
    "source": {
     "url": "https://data.swcms.net/file/olc-corp/dam/jcr:73e1beec-a607-4b30-8db3-3e1776dfb872/S100VY55.pdf#page=9",
     "title": "オリエンタルランド 2025年3月期有価証券報告書 9ページ",
-    "published": "2025-06-26"
+    "published": "2025-06-26",
+    "origin": "edinet_republication"
    },
    "reason": "旧データ R0044475 の逆転関係。再生成では生成されないはずだが、生成された場合は削除する",
    "verified_by": "manual",
@@ -203,7 +206,8 @@
    "source": {
     "url": "https://corporate.m3.com/assets.ctfassets.net/1pwj74siywcy/6GPm0JnjRttAQMNiT0UiI/889e683ead0b8bc31c7000bf8323313a/20250625_FY24Q4_yuho_J.pdf",
     "title": "エムスリー 2025年3月期有価証券報告書（関係会社の状況）",
-    "published": "2025-06-25"
+    "published": "2025-06-25",
+    "origin": "edinet_republication"
    },
    "reason": "ソニーグループはエムスリーの「その他の関係会社」（被所有33.9%）。旧データの「エムスリー→ソニー 親会社」は方向が逆",
    "verified_by": "manual",
@@ -221,7 +225,8 @@
    "source": {
     "url": "https://corporate.m3.com/assets.ctfassets.net/1pwj74siywcy/6GPm0JnjRttAQMNiT0UiI/889e683ead0b8bc31c7000bf8323313a/20250625_FY24Q4_yuho_J.pdf",
     "title": "エムスリー 2025年3月期有価証券報告書",
-    "published": "2025-06-25"
+    "published": "2025-06-25",
+    "origin": "edinet_republication"
    },
    "reason": "旧データの逆転関係。生成された場合は削除する",
    "verified_by": "manual",

@@ -23,6 +23,7 @@ const SOURCE_JA = {
   edinet: 'EDINET 有価証券報告書',
   ir_disclosure: '企業IRリリース（LLM抽出）',
   official_release: '公式開示（原本確認）',
+  issuer_website: '企業公式サイト（原本確認）',
   group_site: 'グループ広報団体の会員一覧（公式サイト）',
 };
 
@@ -31,6 +32,7 @@ const RATIO_KIND_JA = { voting: '議決権', share: '株式数', share_large_hol
 const SCOPE_JA = { total: '合計', indirect_only: '間接のみ（合計不明）', unresolved: '同じ時点の記載が食い違い（未確定）' };
 const REASON_JA = {
   unclassified: '関係会社の分類が原本で不明',
+  officer_role_unproven: '顧問・相談役等の記載のみで、両社の役員兼任を確認できない',
   direction_conflict: '分類と所有方向の記載が矛盾',
   'ir:no_quote': '根拠文なし',
   'ir:counterparty_not_in_quote': '根拠文に相手が出てこない',
@@ -41,6 +43,13 @@ const REASON_JA = {
   'ir:third_party_statement': '提出会社が当事者でない記述',
   'ir:direction_unclear': 'どちらが主体か不明（対等な合併・統合など）',
   'ir:counterparty_is_own_subsidiary': '相手が提出会社自身の子会社として記述されている',
+  'ir:major_customer_materiality_unproven': '主要販売先の基準（連結売上10%以上）を確認できない',
+  'ir:joint_venture_target_unverified': '出資先の合弁会社と共同出資者を区別できない',
+  'ir:source_not_checked': '引用元との照合が未実施',
+  'ir:source_excerpt_not_found': '取得した本文で抽出根拠の一致を確認できない',
+  'ir:source_excerpt_too_short': '抽出根拠が短く出典を照合できない',
+  'ir:source_fetch_failed': '出典を再取得できず照合できない',
+  'ir:source_reviewed_document': '資料上の当事者・関係分類を個別照合',
   wikidata_parent_below_control: 'Wikidata の親組織だが、有報では支配関係ではない',
   insufficient_evidence: '原本確認の結果、根拠不足',
 };
@@ -209,9 +218,12 @@ export function EvidenceCard({ ev }) {
           {ev.verification === 'verified' && <Badge color={STATUS_COLORS.confirmed}>原本確認</Badge>}
         </span>
       </div>
+      {ev.support_status === 'needs_review' && <Field label="根拠の判定" value="要確認（確定関係の裏付け件数には含めません）" />}
       <Field label="基準日" value={dateOrUnknown(ev.as_of)} />
       <Field label="公表日" value={dateOrUnknown(ev.published ?? ev.date)} />
       <Field label="取得日" value={dateOrUnknown(ev.retrieved)} />
+      {ev.origin === 'edinet_republication' && <Field label="元資料" value="有価証券報告書（企業サイト掲載）。寄与度ではEDINET由来として集計" />}
+      {ev.reviewer === 'codex_primary_source_review' && <Field label="確認方法" value="AIによる資料との個別照合" />}
       {ev.property && <Field label="項目" value={{ affiliated: '関係会社の状況', shareholder: '大株主の状況', large_holding_report: '大量保有報告書（大株主の状況の注記）', customer: '主要な顧客' }[ev.property] ?? ev.property} />}
       {ev.classification && (
         <Field label="原本の分類" value={`${ev.classification}${ev.classification_source ? `（${{ section: '節見出し', row: 'ラベル行', column: '区分列', prefix: '行頭の表記', note: '注記', header: '見出しセル' }[ev.classification_source] ?? ev.classification_source}から）` : ''}`} />
@@ -220,6 +232,8 @@ export function EvidenceCard({ ev }) {
       {ev.raw_name && <Field label="資料上の相手名" value={ev.raw_name} />}
       {ev.table_ref && <Field label="資料内の位置" value={ev.table_ref} />}
       {ev.extraction?.reasons?.length > 0 && <Field label="要確認理由" value={ev.extraction.reasons.map((r) => reasonLabel(`ir:${r}`)).join('、')} />}
+      {ev.source_check && <Field label="本文照合" value={ev.source_check.status === 'excerpt_found' ? '抽出根拠と本文の文字列一致を確認（関係の正しさは未検証）' : reasonLabel(`ir:source_${ev.source_check.status}`)} />}
+      {ev.source_check?.checked_at && <Field label="照合日" value={ev.source_check.checked_at.slice(0, 10)} />}
       {ev.extraction?.retyped_from && <Field label="読み替え" value={`LLM の分類 ${RELATION_TYPES[ev.extraction.retyped_from]?.ja ?? ev.extraction.retyped_from} → 根拠文に基づき変更`} />}
       {(ev.source === 'ir_disclosure' || ev.property === 'contracts' || facts.deal_status) && <Field label="実行状態" value={{ agreed: '合意・予定', executed: '実行済み' }[facts.deal_status] ?? '未確認'} />}
       {facts.event_year && <Field label="時点" value={`${facts.event_year}年の出来事に言及`} />}
