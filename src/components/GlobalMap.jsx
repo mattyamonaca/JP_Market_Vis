@@ -115,7 +115,7 @@ export default function GlobalMap({ onSelectCompany }) {
       ctx.setLineDash([ring * 1.5, ring * 1.5]); ctx.lineWidth = ring * 0.8; ctx.stroke(); ctx.setLineDash([]);
       return;
     }
-    if (r * scale < 2) {
+    if (!hover && r * scale < 2) {
       // 画面上 2px 未満の円は白い中身も縁も見えないので、縁の色の点として 1 回の塗りで済ませる（全体表示の大半）
       ctx.beginPath(); ctx.arc(node.x, node.y, r, 0, Math.PI * 2); ctx.fillStyle = color; ctx.fill();
       return;
@@ -161,12 +161,41 @@ export default function GlobalMap({ onSelectCompany }) {
       ctx.fillStyle = 'rgba(255, 255, 255, .85)'; ctx.fillRect(box.x0, box.y0, w, font + pad);
       ctx.fillStyle = '#0f172a'; ctx.fillText(node.name, node.x, y);
     }
-  }, [size]);
+    // 最後にホバー中の円と名前を重ね、他の円・ラベルに隠されないようにする。
+    if (hoverNode && Number.isFinite(hoverNode.x) && !offScreen(hoverNode, nodeRadius(hoverNode.degree) * HOVER_SCALE)) {
+      ctx.save();
+      drawNode(hoverNode, ctx, scale);
+      const r = nodeRadius(hoverNode.degree) * HOVER_SCALE;
+      const inside = insideLayout(r * scale, hoverNode.name, (text) => widthAt12(ctx, text));
+      ctx.textAlign = 'center';
+      if (inside) {
+        ctx.textBaseline = 'middle'; ctx.font = `600 ${inside.font / scale}px sans-serif`;
+        ctx.fillStyle = '#0f172a';
+        const step = inside.font * 1.3 / scale, y0 = hoverNode.y - step * (inside.lines.length - 1) / 2;
+        inside.lines.forEach((line, i) => ctx.fillText(line, hoverNode.x, y0 + step * i));
+      } else {
+        ctx.textBaseline = 'bottom'; ctx.font = `600 ${font}px sans-serif`;
+        const y = hoverNode.y - r - 3 / scale, w = ctx.measureText(hoverNode.name).width + pad * 2;
+        ctx.fillStyle = '#ffffff'; ctx.fillRect(hoverNode.x - w / 2, y - font - pad / 2, w, font + pad);
+        ctx.fillStyle = '#0f172a'; ctx.fillText(hoverNode.name, hoverNode.x, y);
+      }
+      ctx.restore();
+    }
+  }, [size, drawNode]);
+  // 当たり判定も最後にホバー中の円を重ね、表示と選択対象を一致させる。
+  const hoverPointerColor = useRef(null);
   // 当たり判定は描いた円と同じ半径（ホバー中は拡大後）
   const paintPointerArea = useCallback((node, color, ctx) => {
-    const r = nodeRadius(node.degree) * (node === hoverRef.current ? HOVER_SCALE : 1);
-    if (offScreen(node, r)) return;
-    ctx.beginPath(); ctx.arc(node.x, node.y, r, 0, Math.PI * 2); ctx.fillStyle = color; ctx.fill();
+    const nodes = dataRef.current.nodes, hover = hoverRef.current;
+    if (node === nodes[0]) hoverPointerColor.current = null;
+    const paint = (n, c) => {
+      const r = nodeRadius(n.degree) * (n === hover ? HOVER_SCALE : 1);
+      if (offScreen(n, r)) return;
+      ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, Math.PI * 2); ctx.fillStyle = c; ctx.fill();
+    };
+    paint(node, color);
+    if (node === hover) hoverPointerColor.current = color;
+    if (node === nodes[nodes.length - 1] && hover && hoverPointerColor.current) paint(hover, hoverPointerColor.current);
   }, []);
   const onNodeHover = useCallback((node) => {
     hoverRef.current = node || null;
