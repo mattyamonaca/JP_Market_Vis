@@ -133558,5 +133558,2236 @@
    "by": "reviewed_same_document_offices",
    "on": "2026-09-22"
   }
+ },
+ {
+  "id": "96c32c96a4c3ed38980c",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "6501"
+  },
+  "relation_type": "product_adoption",
+  "product": "Re:lvis",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/case/relvis_hitachi-g.html",
+   "published": "2026-04-10",
+   "origin": "independent_primary_website",
+   "sha256": "38972a69447ee089220c2bab7be2e12ed99699f9baedea7473ff64e592cee6d6"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a3950f76cef9cf01f2e7",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "9993"
+  },
+  "relation_type": "product_adoption",
+  "product": "CCR・AOF",
+  "as_of": null,
+  "document": {
+   "url": "https://terasu.biprogy.com/article/fo-yamazawa/",
+   "published": "2025-08-13",
+   "origin": "independent_primary_website",
+   "sha256": "f3ade972d7d065a6072c9924befac6fc60ab0453933ece9b814310a48e5a0205"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1c575b5a3a14844f61c6",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "8360"
+  },
+  "relation_type": "product_adoption",
+  "product": "BankVision on Azure",
+  "as_of": null,
+  "document": {
+   "url": "https://terasu.biprogy.com/article/yamanashibank-bankvision/",
+   "published": "2024-08-09",
+   "origin": "independent_primary_website",
+   "sha256": "df980b212f8236c4bf35b09e88719dd6ee7f2a92be0cf8bf62c747c7a01ea5e1"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "99d4534fe3fd26b35138",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "9509"
+  },
+  "relation_type": "product_adoption",
+  "product": "スピード開発の導入支援",
+  "as_of": null,
+  "document": {
+   "url": "https://terasu.biprogy.com/article/hepco-dx/",
+   "published": "2024-05-24",
+   "origin": "independent_primary_website",
+   "sha256": "44abdfc211b21a9a55215f2bf5be3516e22d95982ae4b2d13d37bbacfe334e7f"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "60af1ac73d8c53a0391a",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "9369"
+  },
+  "relation_type": "product_adoption",
+  "product": "受領書回収システム構築支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/case/logistics_krs.html",
+   "published": "2023-09-20",
+   "origin": "independent_primary_website",
+   "sha256": "70e12ee02d4ad4ce1003e7ffad588144336a945213ccebc5faf9dce77d4549f3"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "19e482191ab20a3d89e3",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "9831"
+  },
+  "relation_type": "product_adoption",
+  "product": "LearningCast",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/case/yamada_holdings.html",
+   "published": "2023-06-09",
+   "origin": "independent_primary_website",
+   "sha256": "8a6d723607791aa6c79921b336d21ceaefe3e002d06381dd2363016b9bf4c042"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "acf925cf300d89c1e7c0",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "8370"
+  },
+  "relation_type": "product_adoption",
+  "product": "BankVision on Azure",
+  "as_of": null,
+  "document": {
+   "url": "https://terasu.biprogy.com/article/kiyobank-bankvision/",
+   "published": "2023-05-31",
+   "origin": "independent_primary_website",
+   "sha256": "42074dcfa9076d534ffcbcee2790707fd6128081eb69257a9e49fca5deb90758"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d4a056a9c932c79ca98c",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "6473"
+  },
+  "relation_type": "product_adoption",
+  "product": "MAJESTY導入支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/case/jtekt.html",
+   "published": "2023-05-10",
+   "origin": "independent_primary_website",
+   "sha256": "b791befe167e22c62dd931fd9fc193e5ae5a8844873a1bd58c90d7aba4f05786"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7c88d6e04bbd26f51841",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "9502"
+  },
+  "relation_type": "product_adoption",
+  "product": "Citrix XenApp導入支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/case/thinclient_chuden.html",
+   "published": "2023-03-15",
+   "origin": "independent_primary_website",
+   "sha256": "de68644e5d5c06b6eea01f6cafc25bce7d099eb428da5c925896eba2ce919a61"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "15fbd2c93a7320095ec7",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "9934"
+  },
+  "relation_type": "product_adoption",
+  "product": "CLOUDForesight",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/case/cloudforesight_inaba.html",
+   "published": "2022-05-20",
+   "origin": "independent_primary_website",
+   "sha256": "e8dc231fea5084477fad3ea52740326a553087a32faaac9992ec24e57b2d9ff0"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "66ae8943daf3c2a22223",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "9534"
+  },
+  "relation_type": "product_adoption",
+  "product": "CLOUDForesight utility on AWS",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/case/cloudforesight_hokkaido-gas.html",
+   "published": "2021-04-01",
+   "origin": "independent_primary_website",
+   "sha256": "5327817f39baf6c8ec8e448e452f2bf81b5b558754ca42a23105fab85623f5bd"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e6bb8bda207712baf7db",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "8370"
+  },
+  "relation_type": "product_adoption",
+  "product": "Microsoft 365導入支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/case/microsoft_kiyobank.html",
+   "published": "2021-02-15",
+   "origin": "independent_primary_website",
+   "sha256": "23002195fbde51e7e6763389aa81ff18a0229efb110a36b1f397432844596633"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bd31f96c1bde8a2f315b",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "9513"
+  },
+  "relation_type": "product_adoption",
+  "product": "災害ネット",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/case/disaster-net_jpower.html",
+   "published": "2020-07-10",
+   "origin": "independent_primary_website",
+   "sha256": "2494182b8535785316527f82bb6b41c5746873591472dfcf11151e3d408869b9"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "02792a4f9357ab1bbade",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "7267"
+  },
+  "relation_type": "product_adoption",
+  "product": "smart oasis",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/pdf/news/nr_180719_honda_smartoasis.pdf",
+   "published": "2018-07-19",
+   "origin": "independent_primary_website",
+   "sha256": "17f72123d13f3aaaa01bfcb66faf654c8635f67b8a74386620eb4ec9a1dbd032"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b0559a28d2a2cee3c575",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "9543"
+  },
+  "relation_type": "product_adoption",
+  "product": "Office 365・Intune導入支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/case/microsoft_shizgas.html",
+   "published": "2018-03-14",
+   "origin": "independent_primary_website",
+   "sha256": "44748d174cabacf22a4c22ba87b87201b9821b8593fd5c8257431024572e6f14"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bf7270115c19ab50686d",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "7201"
+  },
+  "relation_type": "product_adoption",
+  "product": "smart oasis for Carsharing",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/case/outsourcing_nissan01.html",
+   "published": "2017-12-11",
+   "origin": "independent_primary_website",
+   "sha256": "776528961d04ab21da599a082444f3007cd96daa823b1f8f4bc6bde899f42605"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5a22e4f8d1e992ac515f",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "4523"
+  },
+  "relation_type": "product_adoption",
+  "product": "OpenApproval・OpenTrusty",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/case/opentrusty_eisai.html",
+   "published": "2017-09-29",
+   "origin": "independent_primary_website",
+   "sha256": "44a3ff02973e555029921907186afac421fca7aa8373383e6d1ebcf9a299a942"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "4867ff10e3a9fb77be54",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "8398"
+  },
+  "relation_type": "product_adoption",
+  "product": "POWER EGG",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/pdf/news/pr_160801_power_egg.pdf",
+   "published": "2016-08-01",
+   "origin": "independent_primary_website",
+   "sha256": "4b18f7fa5c301bbddaa9c8423db39d95ed34ab3dab033af378a529397dc93ce7"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "30660a456c629781ead6",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "9021"
+  },
+  "relation_type": "product_adoption",
+  "product": "指令記録配信システム構築支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/uploads/clubunisys-westjr02_20150513.pdf",
+   "published": "2016-05-13",
+   "origin": "independent_primary_website",
+   "sha256": "790ac26bf6e8e06e0c3fc74a97d0c6e0f14f1085b71cf2d9d8a1e4c99f7b7c4f"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "dac8307eda4cb373e1d3",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "4902"
+  },
+  "relation_type": "product_adoption",
+  "product": "経営情報IT基盤構築支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/uploads/clubunisys-konicaminolta_inc_20140825.pdf",
+   "published": "2014-08-25",
+   "origin": "independent_primary_website",
+   "sha256": "d35743c552d0d6454a83ec6af6bc16f6481705d8e120585e86673cfaeb07c5fc"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "da506923ac8732ddb12d",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "9009"
+  },
+  "relation_type": "product_adoption",
+  "product": "踏切監視サービス",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/uploads/clubunisys-keisei_20131001.pdf",
+   "published": "2013-10-04",
+   "origin": "independent_primary_website",
+   "sha256": "5d11b5de294403186d2422cd3152443b3417025fe3c741823481e124743b6022"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9a0e13f25917e1534418",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "9023"
+  },
+  "relation_type": "product_adoption",
+  "product": "ファイルサーバ構築支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/uploads/clubunisys-tokyometro_20130510.pdf",
+   "published": "2013-05-10",
+   "origin": "independent_primary_website",
+   "sha256": "e8faf6240bf2feeaf7074e9806256b23fef09d2e49e411fe0be15329b8b051f0"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6172b5db5b5c353866b5",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "2802"
+  },
+  "relation_type": "product_adoption",
+  "product": "U-Cloud",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/uploads/clubunisys-ajinomoto_20121214.pdf",
+   "published": "2012-12-14",
+   "origin": "independent_primary_website",
+   "sha256": "f4367419f4cc1405316cd8c1cd9d532fe7301408b0fa5e8272e08f12875075d6"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d1b0862c48cbea433083",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "8165"
+  },
+  "relation_type": "product_adoption",
+  "product": "MiningPro21",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/uploads/clubunisys-sensyukai_20111216.pdf",
+   "published": "2011-12-21",
+   "origin": "independent_primary_website",
+   "sha256": "d632b7a3fc36e282b0c28615b38f2ba660806c1ec2eb2129c50e25f47b8e7aa7"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2b9acb4479a68898357c",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "8360"
+  },
+  "relation_type": "product_adoption",
+  "product": "BankVision",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/uploads/clubunisys-yamanashi_20110322.pdf",
+   "published": "2011-03-22",
+   "origin": "independent_primary_website",
+   "sha256": "934364783630d1c9fe45e32bb01a99833b73701d4a8f09faa28a6780965378a8"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bf7f587062afe96a1e65",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "8395"
+  },
+  "relation_type": "product_adoption",
+  "product": "BankVision",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/uploads/clubunisys-sagabank_20100922.pdf",
+   "published": "2010-09-22",
+   "origin": "independent_primary_website",
+   "sha256": "a6c961a08ddbf8c94c239b957139266159947c5827d8c579fe5d321e31f57e9c"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "50dfedc6f7ed30376b46",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "8370"
+  },
+  "relation_type": "product_adoption",
+  "product": "BankVision",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/uploads/clubunisys-bankvision_kiyobank_20100922.pdf",
+   "published": "2010-09-22",
+   "origin": "independent_primary_website",
+   "sha256": "fdd31be353cbcba340b394b511d9e24eaaecdaac966488177aa170af5ace9130"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b7773c27f034b075e5c7",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "8398"
+  },
+  "relation_type": "product_adoption",
+  "product": "BankVision",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/uploads/clubunisys-bankvision_tsukuba_20100331.pdf",
+   "published": "2010-03-31",
+   "origin": "independent_primary_website",
+   "sha256": "150eb7781d8dc3e8a9eaf6a6d1bf39786f5199b9e53e1d94c787fc3d8701e355"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1f428e41e1b0961b8430",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "4912"
+  },
+  "relation_type": "product_adoption",
+  "product": "CAESAR開発支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/uploads/clubunisys-lion_20100129.pdf",
+   "published": "2010-01-29",
+   "origin": "independent_primary_website",
+   "sha256": "1a17636969d50abf87e98d4c8b75948c9e590a6c872f9bef53c964257367dd55"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "cc3a3d0018823985fa95",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "7731"
+  },
+  "relation_type": "product_adoption",
+  "product": "原価計算システム構築支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/uploads/clubunisys-nikon_20091006.pdf",
+   "published": "2009-10-06",
+   "origin": "independent_primary_website",
+   "sha256": "2cf21569c01424761f2c706af1e9ed2e92340a10817f8e0f7bb6f7f4cee15f8a"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1dfc82137ba42fdbcf00",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "7581"
+  },
+  "relation_type": "product_adoption",
+  "product": "MartSolution",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/case/microsoft_saizeriya.html",
+   "published": "2009-08-01",
+   "origin": "independent_primary_website",
+   "sha256": "c3dae09bfa973f4dffeb65a7d4f67883869108838bc27b4680aea1952642699c"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "de4fe6bc0a3253966188",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "3002"
+  },
+  "relation_type": "product_adoption",
+  "product": "情報セキュリティ実装・運用評価サービス",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/case/security_gunze.html",
+   "published": "2009-06-01",
+   "origin": "independent_primary_website",
+   "sha256": "badc31b200747e4f182397fa19246ed14396b46e7a51be0f3768992f53bf837a"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3f9552bd455e3ab2b079",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "8194"
+  },
+  "relation_type": "product_adoption",
+  "product": "MartSolution",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/uploads/clubunisys-lifecorp_20080516.pdf",
+   "published": "2008-05-16",
+   "origin": "independent_primary_website",
+   "sha256": "7794c545b41f79e6f18fca410736b282f751abc79413fa44a758e032a9945a59"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "438cff0d576090ba7b41",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "4568"
+  },
+  "relation_type": "product_adoption",
+  "product": "SharePointポータル構築支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/case/microsoft_daiichisankyo.html",
+   "published": "2008-04-01",
+   "origin": "independent_primary_website",
+   "sha256": "41049a2898d4b50dd8f692d51a4fc88fec790d0307d2d360ba64901e717a6806"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d1f2a4cb917fefed6f1c",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "2801"
+  },
+  "relation_type": "product_adoption",
+  "product": "オープン移行サービス・ES7000",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/case/es_miyagi_kikkoman.html",
+   "published": "2007-10-30",
+   "origin": "independent_primary_website",
+   "sha256": "f8b66ac15785af2318b17df8530c004e140c53f8d8a12342ecb20ea3dfe93f5f"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7b6e2c87bb7b0f9009f0",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "8368"
+  },
+  "relation_type": "product_adoption",
+  "product": "BankVision",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/case/es_hyakugoginko.html",
+   "published": "2007-10-30",
+   "origin": "independent_primary_website",
+   "sha256": "99bad6be0bfeafb9dbdb54aecd518206a95cf94e1f8a94b052d0c51eb00238ab"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bc0bffd17270fc067b12",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "8273"
+  },
+  "relation_type": "product_adoption",
+  "product": "ES7000・基幹システム構築支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/case/es_izumi.html",
+   "published": "2007-10-30",
+   "origin": "independent_primary_website",
+   "sha256": "a41db61b937044ccb23e0ff0e789da030a5e6cae8332ca247830a38206134104"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "26744457516e47f845f4",
+  "source": {
+   "code": "8056"
+  },
+  "target": {
+   "code": "8142"
+  },
+  "relation_type": "product_adoption",
+  "product": "ES7000・Sagent",
+  "as_of": null,
+  "document": {
+   "url": "https://www.biprogy.com/solution/case/es_toho.html",
+   "published": "2004-11-04",
+   "origin": "independent_primary_website",
+   "sha256": "847a2b0dbc1dd9f8345d7a4b4f22eb93450b81b39e9b958fdc5c4f55b40091fc"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c9daf6637e3856d20227",
+  "source": {
+   "code": "6501"
+  },
+  "target": {
+   "code": "6302"
+  },
+  "relation_type": "product_adoption",
+  "product": "SAP S/4HANA移行支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.hitachi.co.jp/products/it/industry/case/2404_shi/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "912b3d61358bd1f40530386b262b541729594c0e33c9e247d018ea5cf7308356"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1d6dc3953cc0608db35a",
+  "source": {
+   "code": "6501"
+  },
+  "target": {
+   "code": "2871"
+  },
+  "relation_type": "product_adoption",
+  "product": "SAP S/4HANA移行支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.hitachi.co.jp/products/it/industry/case/1902_nichirei/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2ebb33ffe1304effad970c7b9b9674cdbd0cdab5e07d59c81d1708d2b897de08"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6de1bc8f0a0ee54a0470",
+  "source": {
+   "code": "6501"
+  },
+  "target": {
+   "code": "8001"
+  },
+  "relation_type": "product_adoption",
+  "product": "SAP S/4HANA移行支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.hitachi.co.jp/products/it/industry/case/1901_itochu/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "8d99a54d909bdc95171f6a5c6f34a24c032c0e1a921cac3e349ec7ddc45c7433"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "cdef3d3599689cb83828",
+  "source": {
+   "code": "6501"
+  },
+  "target": {
+   "code": "6302"
+  },
+  "relation_type": "product_adoption",
+  "product": "ERP on SAP HANA導入支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.hitachi.co.jp/products/it/industry/case/1601_shi/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "fa2d39594843e539b5af4d65b100bf6ee08f88ce3bc24e1605d99a6f163a3efa"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3447be13e89aba8c7698",
+  "source": {
+   "code": "6501"
+  },
+  "target": {
+   "code": "4023"
+  },
+  "relation_type": "product_adoption",
+  "product": "HITRY/Global・グローバルAMOサービス",
+  "as_of": null,
+  "document": {
+   "url": "https://www.hitachi.co.jp/products/it/industry/case/1503_kureha/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "792391d237074a4a2579fb5aff9e8db4c5ec8a2c8cb0eda849581f5f2d20a92d"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ff97682719e145873667",
+  "source": {
+   "code": "6501"
+  },
+  "target": {
+   "code": "4005"
+  },
+  "relation_type": "product_adoption",
+  "product": "SAP EHS Management構築支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.hitachi.co.jp/products/it/industry/case/0908_sumitomo_chem/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "cadc60f292bf6b71ac89cbfa9f456ff34e2d64b86ebdf6b1190eeaa71ab09523"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "37e238dd8a940c6a9ff9",
+  "source": {
+   "code": "6501"
+  },
+  "target": {
+   "code": "6718"
+  },
+  "relation_type": "product_adoption",
+  "product": "TWX-21環境情報交換サービス",
+  "as_of": null,
+  "document": {
+   "url": "https://www.hitachi.co.jp/products/it/industry/case/1110_aiphone/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "646b15201f98ae78beecbf99a8999668272e3cbd1b2edf7b7a7ba70667ad504e"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "33e31e19c08ea830c431",
+  "source": {
+   "code": "6501"
+  },
+  "target": {
+   "code": "7011"
+  },
+  "relation_type": "product_adoption",
+  "product": "TWX-21 MRO集中購買サービス",
+  "as_of": null,
+  "document": {
+   "url": "https://www.hitachi.co.jp/products/it/industry/case/1108_mhi/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "4ad5fe5afaaa08e66ba70ddd80507126ebf282c8b04146d27aabfdee5702b77c"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "98dfd98b7e7aef33e582",
+  "source": {
+   "code": "6501"
+  },
+  "target": {
+   "code": "9531"
+  },
+  "relation_type": "product_adoption",
+  "product": "在庫評価コンサルティングサービス・SCPLAN",
+  "as_of": null,
+  "document": {
+   "url": "https://www.hitachi.co.jp/products/it/industry/case/0802_tokyogas/index.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "46d83590749b137913d86eb23e2490d0cc7ab49618cdc8563b52fe00896eca36"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bcab15785d02de4f083a",
+  "source": {
+   "code": "7752"
+  },
+  "target": {
+   "code": "6923"
+  },
+  "relation_type": "product_adoption",
+  "product": "RICOH Collaboration Board",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ricoh.co.jp/case/2509-stanley-electric",
+   "published": "2025-09-19",
+   "origin": "independent_primary_website",
+   "sha256": "1478f36626441262ec1053e5ef76e5a90413ba2ee54abac9d8aa9f9d2cf60f48"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "cc4004662043c81cf9f4",
+  "source": {
+   "code": "7752"
+  },
+  "target": {
+   "code": "3101"
+  },
+  "relation_type": "product_adoption",
+  "product": "リコーデジタルサイネージ",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ricoh.co.jp/case/2503-toyobo",
+   "published": "2025-03-25",
+   "origin": "independent_primary_website",
+   "sha256": "2b72c6f9ed7e1e7395cbe3f814162129587ca029372486aa67cd3ce5bd8380f6"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e6a7375ec312ba9a9ab3",
+  "source": {
+   "code": "7752"
+  },
+  "target": {
+   "code": "4461"
+  },
+  "relation_type": "product_adoption",
+  "product": "RICOH Contract Workflow Service",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ricoh.co.jp/case/2203-dks",
+   "published": "2024-08-21",
+   "origin": "independent_primary_website",
+   "sha256": "e608c7d174ae757941d91cfe34f8ae9a98db67c2a11ab8577444870625bb710a"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d0bd76a8ad620b21e32c",
+  "source": {
+   "code": "7752"
+  },
+  "target": {
+   "code": "4552"
+  },
+  "relation_type": "product_adoption",
+  "product": "RICOH カンタンセキュアプリント for Cloud",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ricoh.co.jp/case/2406-jcrpharm",
+   "published": "2024-06-25",
+   "origin": "independent_primary_website",
+   "sha256": "b3e628eba2c133ab841c556e374ee42b252ccddf104bc86982ef4aada5f39293"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b7e77dfb24c341664faf",
+  "source": {
+   "code": "7752"
+  },
+  "target": {
+   "code": "2908"
+  },
+  "relation_type": "product_adoption",
+  "product": "リコーデジタルサイネージ",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ricoh.co.jp/case/2405-fujicco",
+   "published": "2024-05-20",
+   "origin": "independent_primary_website",
+   "sha256": "424bdda68da77fe857153609cee324e7eee088bb39988357be3848599116c296"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c086f2b19fa193b309eb",
+  "source": {
+   "code": "7752"
+  },
+  "target": {
+   "code": "4951"
+  },
+  "relation_type": "product_adoption",
+  "product": "RICOH Contract Workflow Service",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ricoh.co.jp/case/2403-st-c",
+   "published": "2024-03-19",
+   "origin": "independent_primary_website",
+   "sha256": "5be55481fbcd42a5a5591673d9a8f8279e8a467747acfd791bded07137e9a298"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "584139c96a91e3a541e3",
+  "source": {
+   "code": "7752"
+  },
+  "target": {
+   "code": "7727"
+  },
+  "relation_type": "product_adoption",
+  "product": "RICOH 受領請求書サービス",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ricoh.co.jp/case/2311-oval",
+   "published": "2023-11-13",
+   "origin": "independent_primary_website",
+   "sha256": "b7cf3db9772d9c9a8225923386edc224c6c1f679617b709711d05dd194420e70"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3adbe78fb791357c4dd1",
+  "source": {
+   "code": "7752"
+  },
+  "target": {
+   "code": "2120"
+  },
+  "relation_type": "product_adoption",
+  "product": "RICOH Contract Workflow Service",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ricoh.co.jp/case/2310-lifull",
+   "published": "2023-10-26",
+   "origin": "independent_primary_website",
+   "sha256": "35a89204ad1db22b6abc56aed102a1fba92abbe54197a452e6961cb8f229f6fc"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "be11e9dcf75cf2cf2c44",
+  "source": {
+   "code": "7752"
+  },
+  "target": {
+   "code": "7972"
+  },
+  "relation_type": "product_adoption",
+  "product": "RICOH Portable Monitor",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ricoh.co.jp/case/2308-itoki",
+   "published": "2023-09-15",
+   "origin": "independent_primary_website",
+   "sha256": "df7022e314b6fe715ec2c903f7d8b0a8764a3ef044caebeb0f657af916d6cf80"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1b56f3d6234cdbf70b54",
+  "source": {
+   "code": "7752"
+  },
+  "target": {
+   "code": "4667"
+  },
+  "relation_type": "product_adoption",
+  "product": "RICOH 証憑電子保存サービス",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ricoh.co.jp/case/2303-aisantec",
+   "published": "2023-03-22",
+   "origin": "independent_primary_website",
+   "sha256": "9f5b6a7d323d039e40518022471f41f054cee92679ad71413192d735b9505780"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bccea4596231cc630f15",
+  "source": {
+   "code": "7752"
+  },
+  "target": {
+   "code": "6250"
+  },
+  "relation_type": "product_adoption",
+  "product": "リコーデジタルサイネージ",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ricoh.co.jp/case/2302-yamabiko",
+   "published": "2023-02-20",
+   "origin": "independent_primary_website",
+   "sha256": "5d73a94264438b24f1fc580888bb3082fd213cf1f5cda6791ef78bc0fa32470c"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "4aec13e8c088e257a83a",
+  "source": {
+   "code": "7752"
+  },
+  "target": {
+   "code": "4519"
+  },
+  "relation_type": "product_adoption",
+  "product": "RICOH Contract Workflow Service",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ricoh.co.jp/case/2203-chugai-pharm",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "4df3a1fbf776bf25bf56ada7fe29ce11db7cad7b6a5f0af8e43c97ee03e74ef0"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "303a9c7d74152349def0",
+  "source": {
+   "code": "7752"
+  },
+  "target": {
+   "code": "4490"
+  },
+  "relation_type": "product_adoption",
+  "product": "RICOH Cloud OCR for 請求書",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ricoh.co.jp/case/2008-visasq",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "874e4a768785cb6ae35ca18c16a705eb1806b815f937281ac3ad5e859b8db0de"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "adc301d16c87630953ef",
+  "source": {
+   "code": "7752"
+  },
+  "target": {
+   "code": "4667"
+  },
+  "relation_type": "product_adoption",
+  "product": "RICOH Cloud OCR for 請求書",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ricoh.co.jp/case/2006-aisan",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "b183976512ac2c7d44879480e575422ec4a4becd4e8f53e017a157f317c3ec17"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "639cf3e477da70989e88",
+  "source": {
+   "code": "7752"
+  },
+  "target": {
+   "code": "7976"
+  },
+  "relation_type": "product_adoption",
+  "product": "RICOH インタラクティブホワイトボード",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ricoh.co.jp/case/2003-mpuni",
+   "published": "2020-04-07",
+   "origin": "independent_primary_website",
+   "sha256": "b8e08d67be370ad3235cb552f4573f40d27a5b686e94844feee3be6a74ec8636"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "cb59850552eb15c03b94",
+  "source": {
+   "code": "7752"
+  },
+  "target": {
+   "code": "2209"
+  },
+  "relation_type": "product_adoption",
+  "product": "RICOH カンタンストレージ活用シリーズ",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ricoh.co.jp/case/1810_imurayag",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "eb02baa10467479356aa8a8e676e5176b5462e2a1e88b7a1dd9de0d94d4ca37c"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1479bea794db467f7437",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "9744"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 連結会計",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/14785/",
+   "published": "2026-08-31",
+   "origin": "independent_primary_website",
+   "sha256": "e4a627d0e7cc21983a917817e688dcb61173166de00caf551a49434a7d9647d2"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "674a134f54d2e1be9ade",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "8584"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 連結会計",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/14372/",
+   "published": "2026-04-24",
+   "origin": "independent_primary_website",
+   "sha256": "991b09658f7ae73af4778c0e2dfbabe39ab62a8cf1b1441e7332aed0bcf50962"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ee956c2943180dbc1cc4",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "3030"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 経費",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/13694/",
+   "published": "2025-10-10",
+   "origin": "independent_primary_website",
+   "sha256": "4d562b7fe0a9fe665a7c6def8c032ea6f2873462aabd438a1f4746e8127e2bce"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "4176a6c0f8beb5bcc8d4",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "1852"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 連結会計",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/13639/",
+   "published": "2025-09-17",
+   "origin": "independent_primary_website",
+   "sha256": "cbc31a05ea90f4bd0af24132327618c5a68e5273744b15817c96cb814f21236a"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f1904c843f6a8e4d695f",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "9534"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 経費",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/13501/",
+   "published": "2025-09-11",
+   "origin": "independent_primary_website",
+   "sha256": "2c069793519c42769919a4b920ba9d19b4b074d4b649e4115dcba5b99ef17026"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "8dbfd08c632d018a981b",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "7970"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 請求書発行",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/13521/",
+   "published": "2025-09-10",
+   "origin": "independent_primary_website",
+   "sha256": "389f1ec9d5ca408576087d968521bfc1eafed9a43f252453f671f9d6c6407303"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c51b4d0133c6c2836fdd",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "3133"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 経費",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/13281/",
+   "published": "2025-09-09",
+   "origin": "independent_primary_website",
+   "sha256": "cf83c127d20dad8d3b7428f9d44b599bd373fd7e0f80a0b0cbc91fc28c617386"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1d42c96d80ce720d82b1",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "6787"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 請求書発行",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/13245/",
+   "published": "2025-09-05",
+   "origin": "independent_primary_website",
+   "sha256": "ccef9019235ada2b170d36edddc29a5134769b2b36610ff938975750d08ac17d"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f0f88759b42067df8ab4",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "263A"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 会計Plus・経費・給与・年末調整",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/12712/",
+   "published": "2025-04-08",
+   "origin": "independent_primary_website",
+   "sha256": "ba5c0f130c8ba9bca5ea538a82e095140f3e5a78af3a5579315ed3fe87c10bba"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9b522ced181dc9d47382",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "9974"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 契約",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/12397/",
+   "published": "2025-03-05",
+   "origin": "independent_primary_website",
+   "sha256": "8266c4b789c10f56dc5f344613951f629813df6a68642d4dee8955d1140bf0f4"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7dd273d69448e75aec05",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "9252"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 会計Plus・請求書Plus・経費・債務支払",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/12370/",
+   "published": "2025-03-03",
+   "origin": "independent_primary_website",
+   "sha256": "258d59aa7877ed30937a3e73802ffe284c3e697cd82e95b1824a6de245ea3b29"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5fe75f3b19a20ccb2ec2",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "1899"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 経費",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/11262/",
+   "published": "2024-10-29",
+   "origin": "independent_primary_website",
+   "sha256": "565eef994a663d03c113012c3f06a46b4831461cf687b320b82fb27e0de6823e"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "88b5a455efd92e428c7f",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "6454"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 経費・債務支払",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/11235/",
+   "published": "2024-10-24",
+   "origin": "independent_primary_website",
+   "sha256": "2209cc90293126c196d0582fd556d65878fe9d643f2b421e29abf619f299b96b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d4b2eae4aaabc42a92fa",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "2301"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 請求書発行・経費",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/11188/",
+   "published": "2024-10-21",
+   "origin": "independent_primary_website",
+   "sha256": "c7d5dd01d2cbfed5d2122b45e5e3b53d43aad336b639da0e8319070ebfa73592"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "8c00f29d49bd4fbe8789",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "3396"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 経費・債務支払",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/11104/",
+   "published": "2024-09-27",
+   "origin": "independent_primary_website",
+   "sha256": "e5f2ab1aacf0f692fe40191055cf492ec431c49ae450cea4eb9e00714c45f3f5"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1ef5cf0c6721811f7aba",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "9035"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 経費・債務支払",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/11046/",
+   "published": "2024-08-26",
+   "origin": "independent_primary_website",
+   "sha256": "8a398a8f7e5cda870e52948b998f24736210d0ae1263abe609fca2d5b3c2948b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "434eddfc362d588cf128",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "325A"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 会計Plus・請求書・経費・固定資産・勤怠・給与・年末調整",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/10023/",
+   "published": "2023-11-10",
+   "origin": "independent_primary_website",
+   "sha256": "d02bbd87a19a9bec00c45bbefc85cf6ba3cd963000aa88deb83dccfc7b5f4e0b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e1ba4c338d12f0f8cb27",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "4056"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 会計・連結会計",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/9561/",
+   "published": "2023-08-01",
+   "origin": "independent_primary_website",
+   "sha256": "80a7e92574a012a99d7d78f6be43150f6c04d0fc304591b3afe62a8e479ec88e"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b954f863e9d1b937e7eb",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "4484"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 会計Plus・経費・債務支払",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/9443/",
+   "published": "2023-07-28",
+   "origin": "independent_primary_website",
+   "sha256": "e2333f697f12d3beb4218325385f88e0aae6f4c1cc3b6cc1d3d1ed5230b4057b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e4af777bbf9afc4b95de",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "2175"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 固定資産",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/9355/",
+   "published": "2023-05-22",
+   "origin": "independent_primary_website",
+   "sha256": "bba8b75fef2db7a46ce1b076f92b040dcf234bb456cf339105dc8d5ef99ebe15"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ff842142c48a9ea0f989",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "9560"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 契約",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/9181/",
+   "published": "2023-03-14",
+   "origin": "independent_primary_website",
+   "sha256": "b07d7abc0df2c3557343c3ce1adb5230db6d9190841b0ae754e49a545b81225a"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bf6bf9d17155a9d1f05e",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "6276"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 会計Plus・請求書・経費・給与・年末調整・社会保険",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/8866/",
+   "published": "2022-12-07",
+   "origin": "independent_primary_website",
+   "sha256": "800f19645099bf941961bd963c0b913ad3e45589ea058b67936c3cc168971a7b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "8da4efdf1b7149322bc7",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "9337"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 会計Plus・請求書・経費",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/8387/",
+   "published": "2022-09-12",
+   "origin": "independent_primary_website",
+   "sha256": "a092fded215291e47ad5031cd98bd47af3950ffa1cc2121db1fa111cb68291ac"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5fc7f667e1ed2cefd6dd",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "442A"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 会計・会計Plus・経費・債務支払・給与・社会保険",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/8001/",
+   "published": "2022-07-29",
+   "origin": "independent_primary_website",
+   "sha256": "b364f3a78cd2d5be0b75def3eaae1245136b9b5e2cd13dac35abf8a56ac5636b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0e336e0b8aa3a48c6e1c",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "9238"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 会計Plus",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/7558/",
+   "published": "2022-05-17",
+   "origin": "independent_primary_website",
+   "sha256": "2b1ac4ae4417fb4de14804b4adedba875c63b0ccec5a4f29c03e39315faedac7"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "276d29ffcf7732299156",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "4424"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 経費",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/6634/",
+   "published": "2021-09-06",
+   "origin": "independent_primary_website",
+   "sha256": "0f7feb8e60b8817be5591c12866ecbc47d8a0393f71316b4a04a0c7017569e65"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7a566f608033753eae63",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "4432"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 給与",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/6869/",
+   "published": "2021-08-30",
+   "origin": "independent_primary_website",
+   "sha256": "1f7db52bc151f75c6938bad7b7ed7ad24741d797acead78bc67abc1cc939017d"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "273f25edac72a91a44b2",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "4014"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 会計Plus・請求書・経費・勤怠・給与",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/5750/",
+   "published": "2020-09-11",
+   "origin": "independent_primary_website",
+   "sha256": "6bc0e77544016aa7ec7759632a92dcf7b447394834cffa838afb0bedb537acdd"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e78c2d04066652f068c0",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "7110"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 会計Plus・経費・給与",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/5524/",
+   "published": "2020-08-21",
+   "origin": "independent_primary_website",
+   "sha256": "e20a49d9dfc43e9ef8dc7354d4101692781f6801cbdd0f533124708b241b3e69"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5aeffad07f9228d89942",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "7061"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 会計Plus",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/5487/",
+   "published": "2020-08-03",
+   "origin": "independent_primary_website",
+   "sha256": "cb2819480ff7a362379dd2c03d11005645baf394c91fb488c045f103cc67d8bf"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f50ccb89c7072bfcbad5",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "9561"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 会計・勤怠・給与",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/4639/",
+   "published": "2019-12-06",
+   "origin": "independent_primary_website",
+   "sha256": "e9d9222aa85cbc1694d113ecb07d20e3ca2c104355e14d9f6a23cf8167cce4a5"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "40c329f2d4939e736ba3",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "5621"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 経費",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/3064/",
+   "published": "2018-08-31",
+   "origin": "independent_primary_website",
+   "sha256": "828343054c542cd9a7747373ab0d6d7028e9cdf451af17a945493aacf1223e70"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2d73855a3e31891d4b4c",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "3991"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 会計",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/128/",
+   "published": "2017-07-06",
+   "origin": "independent_primary_website",
+   "sha256": "a74c4952502214c62eddfcc36edfec3ddcc26fb8732cdcdbcc4d1427921ea4ab"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "364817c573d9b18308f1",
+  "source": {
+   "code": "3994"
+  },
+  "target": {
+   "code": "4490"
+  },
+  "relation_type": "product_adoption",
+  "product": "マネーフォワード クラウド 会計",
+  "as_of": null,
+  "document": {
+   "url": "https://biz.moneyforward.com/case/106/",
+   "published": "2017-07-06",
+   "origin": "independent_primary_website",
+   "sha256": "3af2304d71f907db08576619a20d58c82b89c4a89cca49a7f371b596202cdb3d"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
  }
 ]
