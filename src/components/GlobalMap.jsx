@@ -105,16 +105,6 @@ export default function GlobalMap({ onSelectCompany }) {
     const r = nodeRadius(node.degree) * (hover ? HOVER_SCALE : 1);
     if (offScreen(node, r)) return;
     const color = industryColor(node.industry);
-    if (node.kind === 'group') {
-      // 企業グループのハブ: 白い円にグループ色の縁と、その外側に点線のリング（企業ではないことを示す）
-      const ring = ringWidth(r, hover);
-      ctx.beginPath(); ctx.arc(node.x, node.y, r - ring / 2 - ring, 0, Math.PI * 2);
-      ctx.fillStyle = '#ffffff'; ctx.fill();
-      ctx.lineWidth = ring; ctx.strokeStyle = color; ctx.stroke();
-      ctx.beginPath(); ctx.arc(node.x, node.y, r - ring / 2, 0, Math.PI * 2);
-      ctx.setLineDash([ring * 1.5, ring * 1.5]); ctx.lineWidth = ring * 0.8; ctx.stroke(); ctx.setLineDash([]);
-      return;
-    }
     if (!hover && r * scale < 2) {
       // 画面上 2px 未満の円は白い中身も縁も見えないので、縁の色の点として 1 回の塗りで済ませる（全体表示の大半）
       ctx.beginPath(); ctx.arc(node.x, node.y, r, 0, Math.PI * 2); ctx.fillStyle = color; ctx.fill();
@@ -140,19 +130,19 @@ export default function GlobalMap({ onSelectCompany }) {
       // 円の中に書く企業名の配置（null なら入らない）。画面内のノードだけ計算する
       const inside = insideLayout(nodeRadius(node.degree) * (hover ? HOVER_SCALE : 1) * scale, node.name, (text) => widthAt12(ctx, text));
       if (inside) {
-        ctx.font = `${hover || node.kind === 'group' ? 600 : 500} ${inside.font / scale}px sans-serif`;
+        ctx.font = `${hover ? 600 : 500} ${inside.font / scale}px sans-serif`;
         const step = inside.font * 1.3 / scale, y0 = node.y - step * (inside.lines.length - 1) / 2;
         inside.lines.forEach((line, i) => ctx.fillText(line, node.x, y0 + step * i));
         const r = nodeRadius(node.degree) * (hover ? HOVER_SCALE : 1);
         placed.push({ x0: node.x - r, x1: node.x + r, y0: node.y - r, y1: node.y + r });
-      } else if ((node.kind === 'group' && node.degree >= 3) || showsLabel(node.degree, scale, hover)) candidates.push(node);
+      } else if (showsLabel(node.degree, scale, hover)) candidates.push(node);
     }
-    candidates.sort((a, b) => (b === hoverNode) - (a === hoverNode) || (b.kind === 'group') - (a.kind === 'group') || b.degree - a.degree);
+    candidates.sort((a, b) => (b === hoverNode) - (a === hoverNode) || b.degree - a.degree);
     ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
     for (const node of candidates) {
       const hover = node === hoverNode;
       const r = nodeRadius(node.degree) * (hover ? HOVER_SCALE : 1);
-      ctx.font = `${hover || node.kind === 'group' || node.degree >= LABEL_MIN_DEGREE ? 600 : 400} ${font}px sans-serif`;
+      ctx.font = `${hover || node.degree >= LABEL_MIN_DEGREE ? 600 : 400} ${font}px sans-serif`;
       const y = node.y - r - 3 / scale;
       const w = ctx.measureText(node.name).width + pad * 2;
       const box = { x0: node.x - w / 2, x1: node.x + w / 2, y0: y - font - pad / 2, y1: y + pad / 2 };
@@ -235,7 +225,7 @@ export default function GlobalMap({ onSelectCompany }) {
     redraw();
   };
   // クリック（ドラッグせずに離した場合だけライブラリが発火する）で見た目どおりの企業を開く
-  const onNodeClick = useCallback((node) => { if (node.kind !== 'group') onSelectCompany(node.id); }, [onSelectCompany]);
+  const onNodeClick = useCallback((node) => { onSelectCompany(node.id); }, [onSelectCompany]);
 
   return (
     <div className="map-view">
@@ -263,9 +253,9 @@ export default function GlobalMap({ onSelectCompany }) {
             const title = unavailable
               ? (avail.total === 0 ? 'このカテゴリは現在のデータに収録されていません（関係がないことを意味しません）' : '上場企業同士の関係が収録されていないため全体マップでは選べません')
               : `上場企業間 ${avail.listed.toLocaleString()}件（全体 ${avail.total.toLocaleString()}件）`;
-            return <button key={key} aria-pressed={active} aria-disabled={unavailable} disabled={unavailable} title={title} onClick={() => toggleCategory(key)} style={{ color: active ? color : 'var(--text-2)', border: `1px solid ${active ? color : 'var(--border-strong)'}`, background: active ? color + '14' : 'var(--bg)', opacity: unavailable ? 0.55 : 1, cursor: unavailable ? 'not-allowed' : 'pointer' }}>{label}<small>{unavailable ? '未収録' : avail.listed.toLocaleString()}</small></button>;
+            return <button key={key} aria-pressed={active} aria-disabled={unavailable} disabled={unavailable} title={title} onClick={() => toggleCategory(key)} style={{ color: active ? color : 'var(--text-2)', border: `1px solid ${active ? color : 'var(--border-strong)'}`, background: active ? color + '14' : 'var(--bg)', opacity: unavailable ? 0.55 : 1, cursor: unavailable ? 'not-allowed' : 'pointer' }}>{label}<small>{unavailable ? (avail.total ? '個別で表示' : '未収録') : avail.listed.toLocaleString()}</small></button>;
           })}</div>
-          {AVAILABLE_CATEGORIES.length < Object.keys(CATEGORY_JA).length && <p className="control-note">「未収録」は収集していないカテゴリです。関係がないことを意味しません。</p>}
+          {AVAILABLE_CATEGORIES.length < Object.keys(CATEGORY_JA).length && <p className="control-note">グループ所属は個別企業の関係図・関係一覧で確認できます。「未収録」は関係がないことを意味しません。</p>}
         </section>
         <section className="control-section">
           <label className="range-caption" htmlFor="min-degree">最小関係数 <strong>{minDegree}</strong></label>
@@ -281,7 +271,7 @@ export default function GlobalMap({ onSelectCompany }) {
       <div ref={wrapRef} className="map-canvas" tabIndex={0} role="group"
         aria-label="上場企業間ネットワーク。円をドラッグして配置を変更、背景をドラッグしてマップを移動。スクロールで拡大縮小。矢印キーで移動、＋／−で拡大縮小、0 で全体を表示できます。企業をクリックすると関係グラフを開きます。"
         onKeyDown={onKeyDown} onWheelCapture={markAdjusted} onPointerDownCapture={markAdjusted} onTouchStartCapture={markAdjusted}>
-        <div className="map-caption"><strong>上場企業間ネットワーク</strong><br />縁の色：業種（点線の二重円は企業グループ） ／ 円の大きさ：関係数<br />円をドラッグして配置変更 · 背景をドラッグして移動 · スクロール／ピンチで拡大縮小 · 企業を選択して詳細へ</div>
+        <div className="map-caption"><strong>上場企業間ネットワーク</strong><br />縁の色：業種 ／ 円の大きさ：関係数<br />円をドラッグして配置変更 · 背景をドラッグして移動 · スクロール／ピンチで拡大縮小 · 企業を選択して詳細へ</div>
         <ForceGraph2D ref={fgRef} width={size.w} height={size.h} graphData={data}
           backgroundColor="#ffffff" nodeId="id" nodeLabel={noLabel}
           nodeCanvasObject={drawNode} nodePointerAreaPaint={paintPointerArea}
@@ -295,9 +285,7 @@ export default function GlobalMap({ onSelectCompany }) {
           onNodeDrag={onNodeDrag} onNodeDragEnd={onNodeDragEnd}
         />
         {!data.nodes.length && <div className="map-empty" role="status"><strong>表示できる企業がありません</strong><span>カテゴリを選択するか、最小関係数を下げてください。</span><button type="button" className="reset-button" style={{ pointerEvents: 'auto' }} onClick={resetFilters}>初期状態に戻す</button></div>}
-        {hoverNode && (hoverNode.kind === 'group'
-          ? <div className="map-hover"><strong>{hoverNode.name}</strong><small>企業グループ{hoverNode.organization ? ` · ${hoverNode.organization}の会員会社一覧に基づく` : ''}</small><small>会員の上場企業 {hoverNode.degree}社（子会社が会員の場合は上場親会社）</small></div>
-          : <div className="map-hover"><strong>{hoverNode.name}</strong><small>{hoverNode.id} · {hoverNode.industry}</small><small>選択カテゴリで上場企業と {hoverNode.degree}関係（非表示の相手を含む）</small></div>)}
+        {hoverNode && <div className="map-hover"><strong>{hoverNode.name}</strong><small>{hoverNode.id} · {hoverNode.industry}</small><small>選択カテゴリで上場企業と {hoverNode.degree}関係（非表示の相手を含む）</small></div>}
         <div className="map-tools">{pinnedCount > 0 && <button onClick={releaseNodes}>ノードの固定を解除（{pinnedCount}）</button>}<button onClick={() => zoomBy(1.4)} aria-label="拡大">＋</button><button onClick={() => zoomBy(1 / 1.4)} aria-label="縮小">−</button><button onClick={() => fit()}>全体を表示</button></div>
       </div>
     </div>

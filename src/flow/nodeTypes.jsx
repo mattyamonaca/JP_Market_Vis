@@ -73,7 +73,7 @@ export function EntityNode({ data }) {
       <Handle type="target" position={Position.Top} style={{ opacity: 0 }} />
       <Handle type="source" position={Position.Bottom} style={{ opacity: 0 }} />
       <div style={{ fontSize: 12, fontWeight: 500, color: 'var(--text)' }}>{data.label}</div>
-      <div style={{ fontSize: 12, color: 'var(--text-2)', marginTop: 2 }}>非上場</div>
+      <div style={{ fontSize: 12, color: 'var(--text-2)', marginTop: 2 }}>{data.kind === 'group' ? '企業グループ' : '非上場'}</div>
     </div>
   );
 }

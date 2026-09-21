@@ -13,6 +13,7 @@ import {
   evidenceTier,
   loadRelationDetail,
   nodeName,
+  neighborsOf,
   relationStatus,
   relationStatusLabel,
 } from '../data/graph.js';
@@ -82,7 +83,32 @@ function ExternalLink({ href, children }) {
   return <a href={href} target="_blank" rel="noreferrer" style={{ color: 'var(--accent)' }}>{children}</a>;
 }
 
-function CompanyDetail({ info, refObj }) {
+function groupRelations(ref) {
+  return neighborsOf(ref).filter(({ relation }) => relation.relation_type === 'corporate_group' && relationStatus(relation) === 'confirmed');
+}
+
+function GroupMembers({ groupRef, onSelectCompany }) {
+  const members = [...new Map(groupRelations(groupRef).filter(n => n.other.type === 'listed').map(n => [n.other.key, n.other])).values()];
+  return <div style={{ fontSize: 12 }}>
+    <p>収録している所属企業 {members.length}社。子会社の会員資格を通じて掲載している場合があります。同一グループへの所属は、企業間の資本関係を意味しません。</p>
+    {members.map(ref => <button key={ref.key} className="company-row" onClick={() => onSelectCompany?.(ref.key)}>{nodeName(ref)}（{ref.key}） ↗</button>)}
+  </div>;
+}
+
+function CompanyGroups({ companyRef, onSelectCompany }) {
+  const groups = [...new Map(groupRelations(companyRef).filter(n => n.other.type === 'entity').map(n => [n.other.key, n.other])).values()];
+  if (!groups.length) return null;
+  return <section aria-label="グループ関係" style={{ marginTop: 16 }}>
+    <h3 style={{ fontSize: 12 }}>グループ関係</h3>
+    {groups.map(ref => <details key={ref.key} style={{ fontSize: 12, marginBottom: 8 }}><summary style={{ cursor: 'pointer' }}>{nodeName(ref)}</summary><GroupMembers groupRef={ref} onSelectCompany={onSelectCompany} /></details>)}
+  </section>;
+}
+
+function CompanyDetail({ info, refObj, onSelectCompany }) {
+  if (refObj.type === 'entity' && info.kind === 'group') return <>
+    <Section title="企業グループ"><Field label="名称" value={info.name} /><Field label="確認元団体" value={info.organization} /><Field label="出典" value={info.url && <ExternalLink href={info.url}>会員一覧 ↗</ExternalLink>} /></Section>
+    <GroupMembers groupRef={refObj} onSelectCompany={onSelectCompany} />
+  </>;
   if (refObj.type === 'entity') {
     return (
       <>
@@ -119,6 +145,7 @@ function CompanyDetail({ info, refObj }) {
       <Field label="EDINET" value={info.edinet_code} />
       <Field label="所在地" value={info.address} />
       <Field label="Wikidata" value={info.wikidata_qid && <ExternalLink href={`https://www.wikidata.org/wiki/${info.wikidata_qid}`}>{info.wikidata_qid}</ExternalLink>} />
+      <CompanyGroups companyRef={refObj} onSelectCompany={onSelectCompany} />
       <CompanySources sources={info.field_sources} collectedOn={info.data_quality?.as_of} />
     </Section>
   );
@@ -272,7 +299,7 @@ export function RelationDetail({ relation }) {
   );
 }
 
-export default function DetailPanel({ selection, onClose }) {
+export default function DetailPanel({ selection, onClose, onSelectCompany }) {
   if (!selection) return null;
   return (
     <div className="detail-panel" role="region" aria-label="企業・関係の詳細" style={{ width: 320, minWidth: 320, height: '100%', overflowY: 'auto', borderLeft: '1px solid var(--border)', padding: 16 }}>
@@ -280,7 +307,7 @@ export default function DetailPanel({ selection, onClose }) {
         <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--text)' }}>詳細</span>
         <button onClick={onClose} style={{ background: 'none', border: 'none', color: 'var(--text-2)', cursor: 'pointer', fontSize: 14 }}>✕ 閉じる</button>
       </div>
-      {selection.kind === 'node' && <CompanyDetail info={selection.info} refObj={selection.ref} />}
+      {selection.kind === 'node' && <CompanyDetail info={selection.info} refObj={selection.ref} onSelectCompany={onSelectCompany} />}
       {selection.kind === 'edge' && <RelationDetail relation={selection.relation} />}
     </div>
   );

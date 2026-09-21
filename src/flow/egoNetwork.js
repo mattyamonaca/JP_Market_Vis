@@ -139,6 +139,7 @@ export function buildEgoNetwork(centerCode, { categoryFilter = null, maxNeighbor
         position: positions.get(nb.key) ?? { x: 0, y: 0 },
         data: {
           label: nodeName(nb.ref),
+          kind: info?.kind,
           code: nb.ref.type === 'listed' ? nb.ref.key : null,
           segment: nb.ref.type === 'listed' ? info?.market_segment : null,
           ref: nb.ref,

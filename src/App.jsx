@@ -312,7 +312,7 @@ function GraphView({ centerCode, setCenterCode, onShowInTable }) {
           />
         </ReactFlow>
       </div>
-      <DetailPanel selection={selection} onClose={() => setSelection(null)} />
+      <DetailPanel selection={selection} onClose={() => setSelection(null)} onSelectCompany={handleSidebarSelect} />
     </div>
   );
 }
