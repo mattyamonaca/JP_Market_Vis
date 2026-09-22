@@ -140297,5 +140297,4996 @@
    "by": "codex_primary_source_review",
    "on": "2026-09-22"
   }
+ },
+ {
+  "id": "bda6351a91b7e698b6f7",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "2327"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF Cloud for Salesforce",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1484.html",
+   "published": "2026-05-22",
+   "origin": "independent_primary_website",
+   "sha256": "619e0ac6b6bc1c03997e362310e86fed26139cc6de31c6ffed0a6035ce00c58b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e912c1c9d9c5a68fac0e",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "3131"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard・Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/155.html",
+   "published": "2017-06-05",
+   "origin": "independent_primary_website",
+   "sha256": "1c775fa4969168bf01da50163bd7581d59e8b696ddbd6d8d12ea12e1e211adb7"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "acf348e5d86f5d913e9c",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "7482"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF・SVF Transact",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1569.html",
+   "published": "2026-08-07",
+   "origin": "independent_primary_website",
+   "sha256": "3f6bdc36aa8996b41ee830ee554f53a10ebc94168f30c73f0c07a32b3cc4afd3"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5820925899641c05a5c1",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "3181"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard・Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/158.html",
+   "published": "2017-08-05",
+   "origin": "independent_primary_website",
+   "sha256": "34cb1adb555fe73f972c8672f09a04133f010e502e4f7699d35a1933adb43f84"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3da6fb8a7a0bd9478aa9",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "7073"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF Cloud for Salesforce",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/159.html",
+   "published": "2017-08-10",
+   "origin": "independent_primary_website",
+   "sha256": "9f97e8bd65a741add2bb700bc1741c63295fcbb5c70edd794de2473a2fbfbda5"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "869cdb4fc136a2b7f9d1",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "1925"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/160.html",
+   "published": "2017-09-01",
+   "origin": "independent_primary_website",
+   "sha256": "f17dc87dc40ced39b8bffb24daeab114c6d9b4d7c72902d64fcdfb6175400dcb"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c5ed450816f5168b7179",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "3900"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF Cloud for Salesforce",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/161.html",
+   "published": "2017-09-05",
+   "origin": "independent_primary_website",
+   "sha256": "1aeec003909242e8ad829fddae8f5fd893a3eff36721047abe19d1b2f24742e9"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "65e226d9dcea04b87554",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "6104"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/170.html",
+   "published": "2018-01-15",
+   "origin": "independent_primary_website",
+   "sha256": "14e9ce58422dc5f1200f1ab5147480ca25c442710c3b7f58bd394c234b72f362"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ddf56a7c80a18f8372ed",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "5410"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF・invoiceAgent 文書管理",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/171.html",
+   "published": "2018-01-20",
+   "origin": "independent_primary_website",
+   "sha256": "6584bbb241012b1eb5c9b0a5162b29480f86c1cf360fd66544a0ed306b7a241f"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "8fba574c2819b3bf19e0",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "7297"
+  },
+  "relation_type": "product_adoption",
+  "product": "Dr.Sum・MotionBoard",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/172.html",
+   "published": "2018-02-10",
+   "origin": "independent_primary_website",
+   "sha256": "b5fdf6339396f26a10af409b106e5b335b9ebaf6adbe4280b3c1fb3d713db43a"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6b2cd6425d6be5a39175",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "9433"
+  },
+  "relation_type": "product_adoption",
+  "product": "VyNDEX",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/174.html",
+   "published": "2018-04-01",
+   "origin": "independent_primary_website",
+   "sha256": "d66c2b5c39610b6007751d5bb7428e545bc520c6199da8bab0383f38152c3289"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7232baebff815deb6b20",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "7727"
+  },
+  "relation_type": "product_adoption",
+  "product": "Dr.Sum・MotionBoard・SVF",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/180.html",
+   "published": "2018-08-01",
+   "origin": "independent_primary_website",
+   "sha256": "e0764c2e4438f39dbbc4bff83dcff9dc9b3630f26ecaf640dceabbf4181c33a1"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1293f3607f7147149556",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "7261"
+  },
+  "relation_type": "product_adoption",
+  "product": "SPAIS・invoiceAgent 文書管理・Report Director Enterprise",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/183.html",
+   "published": "2019-05-28",
+   "origin": "independent_primary_website",
+   "sha256": "0777b4577901dd991fde62575cd5c71fb5ee0157b5b04d53162bd879485ead56"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b9fdc7284259f99dc9f0",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "6501"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard Cloud for Salesforce",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/184.html",
+   "published": "2019-05-30",
+   "origin": "independent_primary_website",
+   "sha256": "05c2ce36cd4ce873ec3d1bc4d60b1fa10758ea4e02a3e1917365bd0347ece9f6"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "716907798c16798eb289",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "3557"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard Cloud for Salesforce",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/185.html",
+   "published": "2019-06-04",
+   "origin": "independent_primary_website",
+   "sha256": "360344025bf88348d9d3b40fb33f1aae7a434549c325454ce9498e48cc877dde"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2a44e89c4257f9588952",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "6278"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/188.html",
+   "published": "2019-07-17",
+   "origin": "independent_primary_website",
+   "sha256": "77dcf5b93ac375fa260c803e0c103238b77bc4d6c3fb56f497f837d6480da16f"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "dd7fd757ba276efcdbf2",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "9104"
+  },
+  "relation_type": "product_adoption",
+  "product": "invoiceAgent 文書管理",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1221.html",
+   "published": "2025-02-17",
+   "origin": "independent_primary_website",
+   "sha256": "933640225111246cb864a30049bac7f529f6be6eedc2a1cfe95802e155f7946b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "763f12e4bf3b448478b8",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "6349"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard Cloud for Salesforce",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/124.html",
+   "published": "2015-05-01",
+   "origin": "independent_primary_website",
+   "sha256": "8bb33bfa8ef249d25e38102e8fc06e4734a5dbaa7b17a46b2315b6b601d69255"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0d76cb55edca0f34c003",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "1925"
+  },
+  "relation_type": "product_adoption",
+  "product": "SPAIS",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1242.html",
+   "published": "2025-02-10",
+   "origin": "independent_primary_website",
+   "sha256": "421e6db72f2c40356066f8fcfa2ed11fcc6804a9a4ff588996f7e29207be774a"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6389a9b7499ebc82ce4f",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "9534"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1252.html",
+   "published": "2025-08-27",
+   "origin": "independent_primary_website",
+   "sha256": "9dfd29a99888eb1933fd6b02aa0eec20ac92ed8d50dc0b83d06ea1c4e6345173"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "96b07836bd740326e705",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "5940"
+  },
+  "relation_type": "product_adoption",
+  "product": "invoiceAgent 文書管理・invoiceAgent 電子取引",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1291.html",
+   "published": "2025-05-13",
+   "origin": "independent_primary_website",
+   "sha256": "c973a962a45eb8ececfa5ff3e842cf7d9e4f5ebf9fe89c660608e557a704b1c7"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e2a9670cc01de06ff535",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "7453"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard Cloud",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/136.html",
+   "published": "2016-03-01",
+   "origin": "independent_primary_website",
+   "sha256": "8cd891ed7f27082aee98ce76c9f312fbfaef0e3fa201c02f02b80b1ad7dc6ff5"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "4de2a44d3eaea97290c1",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "8344"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard・Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1380.html",
+   "published": "2025-10-02",
+   "origin": "independent_primary_website",
+   "sha256": "8b65c180518e331d2fab345aca3de6ba26a9bd9f3910cd9b2ec9e60eb1334efc"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "55634a73481ce4b3b599",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "5975"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1399.html",
+   "published": "2025-10-17",
+   "origin": "independent_primary_website",
+   "sha256": "d11aa900a2e85bf3e6f8603837dfc3ada722c179c1b5e5438dff2273409e6321"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1dafee55dfbd18759daf",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "1803"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/14.html",
+   "published": "2007-04-22",
+   "origin": "independent_primary_website",
+   "sha256": "ad3515877c67cdd3078205420faf2fd407f2bdd4f23ad047279bdfe7bcce58cc"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9874242e0c6a1f02536b",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "6724"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF Cloud",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1400.html",
+   "published": "2025-12-23",
+   "origin": "independent_primary_website",
+   "sha256": "97866385203f8f4c2d209076ab0592d5177d4ae2628a79016e2a4d9536870775"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "55e7d17650fc4e4554c3",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "6504"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard・Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1409.html",
+   "published": "2026-01-16",
+   "origin": "independent_primary_website",
+   "sha256": "70b3666f7c2612168adace8d579838de116cd8d6fc945245d1f852d8b5bc7677"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f9a28346942888b564a4",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "6971"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1418.html",
+   "published": "2025-12-17",
+   "origin": "independent_primary_website",
+   "sha256": "e178d939c29d574c26aa7b170c6a8b751ab0383f1e15784f45426d175a372f4c"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ef5f6e3769479cb6f020",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "8111"
+  },
+  "relation_type": "product_adoption",
+  "product": "Dr.Sum・MotionBoard",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1431.html",
+   "published": "2026-02-03",
+   "origin": "independent_primary_website",
+   "sha256": "3d3d678a6bfb1273d215352a0a03b19a431db4da6b9a20d4eb7bef9b6486efb4"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "14cd6bcaa7e1cff84981",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "9434"
+  },
+  "relation_type": "product_adoption",
+  "product": "VyNDEX",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/201.html",
+   "published": "2020-06-11",
+   "origin": "independent_primary_website",
+   "sha256": "39d99c09025c91e7670de7a88592e684ce41f1f5302c96d9cd3b67a6d2f348b7"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b6f0d61de180404db9db",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "9006"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard Cloud・Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/208.html",
+   "published": "2020-07-09",
+   "origin": "independent_primary_website",
+   "sha256": "16db9e73f44cbd03bc5fa6c88bbe1d5943ba3ee76c3b8b7103e51204489b6a4e"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0aff2bc18c197e4703c3",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "5201"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF Cloud for Salesforce・VyNDEX",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/209.html",
+   "published": "2020-09-17",
+   "origin": "independent_primary_website",
+   "sha256": "a21373fc1c93df939866e9464821434a66668a20ef48f43492e6b586be314af3"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ae348e99592ac797c810",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "8001"
+  },
+  "relation_type": "product_adoption",
+  "product": "SPAIS・invoiceAgent 文書管理・Report Director Enterprise",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/210.html",
+   "published": "2020-08-25",
+   "origin": "independent_primary_website",
+   "sha256": "9a0a1c988c3529d3b6eae00cf07de9e6d78649b39d22284de9b927c35d6b0441"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c129eab5dc85e13d44e7",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "8303"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard Cloud for Salesforce",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/213.html",
+   "published": "2020-10-09",
+   "origin": "independent_primary_website",
+   "sha256": "de9b23b883f00e93b0e7e676fc0b7a910dda08addb8c76f72585b4a7b084f1a8"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "cce45effb1542e77b6eb",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "9605"
+  },
+  "relation_type": "product_adoption",
+  "product": "Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/22.html",
+   "published": "2007-12-22",
+   "origin": "independent_primary_website",
+   "sha256": "ea700dbae6f3d686a2a007d6c1a7e0296d42166f823367a49804036bba891ed4"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "77df86edc044606c4f66",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "4371"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard Cloud for Salesforce・VyNDEX",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/222.html",
+   "published": "2021-03-23",
+   "origin": "independent_primary_website",
+   "sha256": "be80d56e6ab4d2fff377c69f6ce96085681602239d4319bf8ed5d9f1a0396e1c"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "aa4df6e243243f68692e",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "4681"
+  },
+  "relation_type": "product_adoption",
+  "product": "invoiceAgent 文書管理",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/223.html",
+   "published": "2021-06-14",
+   "origin": "independent_primary_website",
+   "sha256": "ef4e939aba31d38ef4ed6b743cbd676c337503e0b50446957603c447d9d7ddc9"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "db442a73f70f5fb07b75",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "9678"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF・Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/23.html",
+   "published": "2007-12-23",
+   "origin": "independent_primary_website",
+   "sha256": "97f07b55777defa0b39f49ac119c06b03519ff104a9b82be76cdc6cbce37bcb6"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9a8d8d0adcdff72cbad8",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "9832"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF・invoiceAgent 文書管理",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/26.html",
+   "published": "2019-03-29",
+   "origin": "independent_primary_website",
+   "sha256": "d63b3f0eff5a4f1524c2fec0c2925d641e04019bb1194d8c03846e374075539c"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "74a96bf6f60ac16eca9a",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "3768"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/29.html",
+   "published": "2008-09-29",
+   "origin": "independent_primary_website",
+   "sha256": "213676e6f79716cd8072091990373f4d376b61b5f81ebbd849443a6bb9c4cde8"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bd5177a9b2234f0877f5",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "8001"
+  },
+  "relation_type": "product_adoption",
+  "product": "invoiceAgent 文書管理・invoiceAgent TransPrint",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/300.html",
+   "published": "2021-05-12",
+   "origin": "independent_primary_website",
+   "sha256": "0473c90444573d713de51603a18a452806201d472dc423907fbbc0ae5cedc1b0"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ab649b5620bf5780bb4d",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "1803"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard・Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1028.html",
+   "published": "2023-12-15",
+   "origin": "independent_primary_website",
+   "sha256": "65ae4e1c9f48dc0e5c96ac1fff2736cda1956d3ee5a3a49be109274dd8d6fc66"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "30a3ebaf2497f2958760",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "3915"
+  },
+  "relation_type": "product_adoption",
+  "product": "invoiceAgent 文書管理",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1036.html",
+   "published": "2024-01-31",
+   "origin": "independent_primary_website",
+   "sha256": "a1f68afd001496fd7fd4cd6f7f071d4d538bcf8cb18691626b0c0c2a00608109"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6aaa85b6857761b0bc44",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "9904"
+  },
+  "relation_type": "product_adoption",
+  "product": "Dr.Sum・MotionBoard",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/106.html",
+   "published": "2014-03-01",
+   "origin": "independent_primary_website",
+   "sha256": "fc229d29db20b9eafe8045fc7bbd0ef5377e456305625aae35040e3ea4a9caac"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9488905794a64fd81493",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "6367"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF・invoiceAgent 文書管理・invoiceAgent 電子取引",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1066.html",
+   "published": "2024-02-07",
+   "origin": "independent_primary_website",
+   "sha256": "0971628410805dc03d17dfb53cca7b5b0dc95dc02d6d3335f312701d3af92184"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d13c3bafc525473cdb70",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "9534"
+  },
+  "relation_type": "product_adoption",
+  "product": "Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/107.html",
+   "published": "2014-04-01",
+   "origin": "independent_primary_website",
+   "sha256": "4d54f67a6ec6c24ad19be56052d4243905de8426c22fbf13681e6e040342d445"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5a46ab433cfac8aa15a4",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "8336"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1071.html",
+   "published": "2024-02-29",
+   "origin": "independent_primary_website",
+   "sha256": "36aaacdc5452899154edb2b8b76be4ed564d3d2824100fc68d01b5c743944ec9"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c9fc16d6ed6c1700164d",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "7995"
+  },
+  "relation_type": "product_adoption",
+  "product": "Dr.Sum Cloud",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1076.html",
+   "published": "2024-03-27",
+   "origin": "independent_primary_website",
+   "sha256": "888d514a55e1d8f97e7c10a91f8dbbc0a3973e7adc613a53a0f5425e39a48b6a"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f380bd0af68170cebeb5",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "2130"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard Cloud for Salesforce",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1077.html",
+   "published": "2024-03-05",
+   "origin": "independent_primary_website",
+   "sha256": "8b7d6f5565bbfcd4e6e9ba9c4f6db5a07d423a8b711c4ae5e216cdf8f317ca4b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e3ff3d8b1bfabf2ed352",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "2678"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard for Salesforce",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/108.html",
+   "published": "2014-06-01",
+   "origin": "independent_primary_website",
+   "sha256": "239e87862fba4e5698d6bcf7e7f607235adacbdd1ace001740f22a017639ac2f"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "98b308e81556d0d7b94c",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "4471"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF・invoiceAgent 文書管理・invoiceAgent 電子取引",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1091.html",
+   "published": "2024-04-02",
+   "origin": "independent_primary_website",
+   "sha256": "b1b3c1fec89f25984eb8bb9731fcbc067d125e7bab6618be61d4675ced8d545b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b5f7513803521086b80d",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "4912"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF・Report Director Enterprise",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/111.html",
+   "published": "2014-09-01",
+   "origin": "independent_primary_website",
+   "sha256": "76651ad57106082ebd0b8e8c87a4c5774a2e3af2b1d0d16ca81f23995208d5c1"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d420b5bb7893c7112dc9",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "4615"
+  },
+  "relation_type": "product_adoption",
+  "product": "Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/114.html",
+   "published": "2014-10-05",
+   "origin": "independent_primary_website",
+   "sha256": "6d1b7776ae993e00cf3d8bc974cd6530b9efaefc841ccf81d7c399590a61aae5"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9f7700aeee209ea267e5",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "4187"
+  },
+  "relation_type": "product_adoption",
+  "product": "Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/115.html",
+   "published": "2014-11-01",
+   "origin": "independent_primary_website",
+   "sha256": "19db4a8d280cd2864cb041e7f9763083f06ab2eb585e5194cdeefbdcda8a7425"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "061886317f77a64f19a9",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "6902"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/117.html",
+   "published": "2014-12-01",
+   "origin": "independent_primary_website",
+   "sha256": "945e825ade43d64fc18b3b82c867a69c280af3c718eaaff9c2bed5cbc79c5847"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b423e2d47e0472aca463",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "2874"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF・invoiceAgent 文書管理・invoiceAgent 電子取引",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/1205.html",
+   "published": "2024-11-25",
+   "origin": "independent_primary_website",
+   "sha256": "b9e53515cebe42babf7c17ee291d8de8779f2bb3e24149289565c04b1fd2e033"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6085efe00b406034ee54",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "7184"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/595.html",
+   "published": "2022-08-25",
+   "origin": "independent_primary_website",
+   "sha256": "b9f6a1a0e1cc9268501067a9b96cf9a1f7db70c03b3d47e716241a50edb895ce"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6fe04efdbb50dbeb0ab9",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "9024"
+  },
+  "relation_type": "product_adoption",
+  "product": "invoiceAgent TransPrint",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/596.html",
+   "published": "2022-08-25",
+   "origin": "independent_primary_website",
+   "sha256": "71a0094e23f20a9066aa7127e2a81bc8c4176cf118f95c82be913e03324b9bbc"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "89f7d1fac22746b2630e",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "1861"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF・Report Director Enterprise",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/6.html",
+   "published": "2006-11-18",
+   "origin": "independent_primary_website",
+   "sha256": "62733ad4fba36ad52f8f641604c17b16f747a2457c930e7d669cc085bf114efb"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1e80ff78be353dbf17d4",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "1766"
+  },
+  "relation_type": "product_adoption",
+  "product": "Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/62.html",
+   "published": "2010-05-01",
+   "origin": "independent_primary_website",
+   "sha256": "69e7795346fc542e605061b57d19343ab33352a992030d924d3a2bd2eb87496c"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0449d98768f9f333661e",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "8194"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/71.html",
+   "published": "2011-02-05",
+   "origin": "independent_primary_website",
+   "sha256": "9c629a3d9bb03d4cd324d7c753c813228e545def0b069f9db089cd2b5f31c106"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e19c4af60d22ef7817c5",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "3289"
+  },
+  "relation_type": "product_adoption",
+  "product": "Dr.Sum Cloud",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/765.html",
+   "published": "2023-01-30",
+   "origin": "independent_primary_website",
+   "sha256": "00e1e47c25cefca904912e9d3693bcb2ea661068828ffdfb92a3a9b9d7403586"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "dd2e48cbd28eff1a0082",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "1802"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard Cloud",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/766.html",
+   "published": "2023-02-01",
+   "origin": "independent_primary_website",
+   "sha256": "3212c29e440e146748efa9e9fdc8b054e6d91a26d1caeba6f5863d22e173460f"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "294fd80d8b77a9a339a8",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "7951"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/784.html",
+   "published": "2023-01-19",
+   "origin": "independent_primary_website",
+   "sha256": "8d60248d84d69033cabb44951fcc1f2a789d09612add852caff4ed4c0ac5e8bd"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "6495ffb07834ad00c151",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "2267"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/8.html",
+   "published": "2006-11-20",
+   "origin": "independent_primary_website",
+   "sha256": "9f312a7aa3b49cc3a2fe0e27378b3edab038b83f8c105522e796e85ac4b2c5b4"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "16e1f543f35356c06532",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "6278"
+  },
+  "relation_type": "product_adoption",
+  "product": "invoiceAgent 文書管理",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/837.html",
+   "published": "2023-03-16",
+   "origin": "independent_primary_website",
+   "sha256": "e35136c58f9cfa35894af487aa6661dba8c234c845142f4e10625230a21d4851"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bd051effd1a3d617f1cf",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "4008"
+  },
+  "relation_type": "product_adoption",
+  "product": "Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/84.html",
+   "published": "2012-09-10",
+   "origin": "independent_primary_website",
+   "sha256": "846c6042820a96638dbe6654ba6b00baf31e3b0c68c8e1ff3e65bc502e9354c4"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3ee56fac9f3c89c8f84e",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "4041"
+  },
+  "relation_type": "product_adoption",
+  "product": "Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/86.html",
+   "published": "2012-10-01",
+   "origin": "independent_primary_website",
+   "sha256": "2fe177c8ad184ea57d0679579365fbd16d24bed683389d1dcba26115bfc28d7d"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "45558f01872eaa867724",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "8830"
+  },
+  "relation_type": "product_adoption",
+  "product": "invoiceAgent 文書管理",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/861.html",
+   "published": "2023-05-09",
+   "origin": "independent_primary_website",
+   "sha256": "b61be26a89a75a9726c0b64e68c86c29dd4999fdebcd0f1b5056ca0682ab0114"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a33645475f8399dd378e",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "8101"
+  },
+  "relation_type": "product_adoption",
+  "product": "invoiceAgent TransPrint",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/311.html",
+   "published": "2021-07-05",
+   "origin": "independent_primary_website",
+   "sha256": "e87babfd2811c7d451d346e78c05924caea84a5b33689759c05244943e0cd46c"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "eb64e945faf1261bee9c",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "5334"
+  },
+  "relation_type": "product_adoption",
+  "product": "Dr.Sum・MotionBoard",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/317.html",
+   "published": "2021-08-19",
+   "origin": "independent_primary_website",
+   "sha256": "d99c23248a6e7fcdc4bf992bdef017552e4f2a08be3d41bba632465fffb44413"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a6bfc33df493ca4fd2f5",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "6750"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/414.html",
+   "published": "2022-02-02",
+   "origin": "independent_primary_website",
+   "sha256": "545bf0b05ef87c40c3eb4cdbfc28ebe8254398484c1b48e5affd75ae5ba04e7f"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "75d91ab3f8d472e4ad2a",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "9503"
+  },
+  "relation_type": "product_adoption",
+  "product": "Report Director Enterprise",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/44.html",
+   "published": "2009-06-08",
+   "origin": "independent_primary_website",
+   "sha256": "2ef76fd939ae762b13e007bb8dc080bde000482dc0f75823cc612f0d8d712842"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "91006dce2d357748b6b8",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "3640"
+  },
+  "relation_type": "product_adoption",
+  "product": "invoiceAgent",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/512.html",
+   "published": "2022-04-25",
+   "origin": "independent_primary_website",
+   "sha256": "c485c8bf018c74e784ddac6f23c9aa3425ea09aa23c6e59de9c91eefa78da276"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "567099ade669fbd523e0",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "4519"
+  },
+  "relation_type": "product_adoption",
+  "product": "Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/52.html",
+   "published": "2009-11-01",
+   "origin": "independent_primary_website",
+   "sha256": "5b918888cc064d79338600798be523d77f17702f9d75a28cdf7c6cef92fd3a80"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c41a46fea9ef3c85652a",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "2002"
+  },
+  "relation_type": "product_adoption",
+  "product": "Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/53.html",
+   "published": "2009-11-05",
+   "origin": "independent_primary_website",
+   "sha256": "60ff3a4078c94ce2e474e97d8cf99963c3791aca99bae33527304106f78fb9d8"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0e2d1ab0975fa4fe5a16",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "3396"
+  },
+  "relation_type": "product_adoption",
+  "product": "invoiceAgent TransPrint",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/532.html",
+   "published": "2022-05-17",
+   "origin": "independent_primary_website",
+   "sha256": "31f3771f66a760ab5e3ef0948ec27ae6e6f20914b166745746458cb53109faa0"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f318ea807bb222c51d95",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "4021"
+  },
+  "relation_type": "product_adoption",
+  "product": "Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/54.html",
+   "published": "2009-11-10",
+   "origin": "independent_primary_website",
+   "sha256": "420e05ac3d0f6fe10c78a0d444ad346e655d225b09019f24802023a448f51408"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1fc3b3835aa7c158ca3a",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "3457"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard Cloud for Salesforce",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/541.html",
+   "published": "2022-05-20",
+   "origin": "independent_primary_website",
+   "sha256": "10fd869f25d35d77d3b000038d35d52c6e9e21b7af9b8caa288b0a949e9e5977"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "17f9ecc00126e0c48fb2",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "3185"
+  },
+  "relation_type": "product_adoption",
+  "product": "Dr.Sum EA",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/55.html",
+   "published": "2009-12-01",
+   "origin": "independent_primary_website",
+   "sha256": "d8d33f4aa48dd313f6e2d2e17fef72c880845c8b36f3780427f3281b86d996e2"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7c5e3a20dd8e4ac85cee",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "8358"
+  },
+  "relation_type": "product_adoption",
+  "product": "invoiceAgent AI OCR",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/569.html",
+   "published": "2022-07-04",
+   "origin": "independent_primary_website",
+   "sha256": "58bf3df570c0c69e1263304a9cc0aad4ae72abc57fd54887965b24f4257293d7"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ef5cc78b7f6c1adda048",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "4631"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/91.html",
+   "published": "2013-06-01",
+   "origin": "independent_primary_website",
+   "sha256": "f8ebe75db03f04c116a42b6d16b87e3f407c260ba19a11a3282c289be881c005"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2e3a06366d07d69a04f5",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "7630"
+  },
+  "relation_type": "product_adoption",
+  "product": "invoiceAgent 電子取引",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/918.html",
+   "published": "2023-07-07",
+   "origin": "independent_primary_website",
+   "sha256": "1bcaa99e90f0128ba4668c3e11e46cf8b2c29b0c169cb24448cc7bc303395e98"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "55216b4b4c51d03de9cf",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "8007"
+  },
+  "relation_type": "product_adoption",
+  "product": "Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/94.html",
+   "published": "2013-08-01",
+   "origin": "independent_primary_website",
+   "sha256": "a60037ba5578b906bea529ac98238382b204037eb6554d4b644ff6d8dedd3959"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5a6e0740e79accaa624c",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "7951"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/96.html",
+   "published": "2013-08-05",
+   "origin": "independent_primary_website",
+   "sha256": "61e739cdb97e9d304f79a9c7c473edbe75bc3132757467ae0dbca80a619ae507"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "aac06a5e46a6fd31614d",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "6366"
+  },
+  "relation_type": "product_adoption",
+  "product": "invoiceAgent 文書管理",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/982.html",
+   "published": "2023-11-06",
+   "origin": "independent_primary_website",
+   "sha256": "c0c6bcc3a790bdee83d94bf5f01cb60a5ba8309e9aa45f1267740d67dbed84e6"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "aa5a44786461b88f18e4",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "8015"
+  },
+  "relation_type": "product_adoption",
+  "product": "SPAIS・invoiceAgent 電子取引",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/989.html",
+   "published": "2023-10-26",
+   "origin": "independent_primary_website",
+   "sha256": "9113ae10d88053de74227912e80f2fe602b2130537299c7fd9522e8be336807a"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e5966811805ee26d59fc",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "3947"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF for System i",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/product/usecase/99.html",
+   "published": "2013-11-05",
+   "origin": "independent_primary_website",
+   "sha256": "d910d0bbdbc64e5577e7a5900fa6d4e90dd3148292274ac0fe0378c565939f1c"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3191a18f08a1318f0c48",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "3181"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard・Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/nest/successstory/article/1672.html",
+   "published": "2022-12-26",
+   "origin": "independent_primary_website",
+   "sha256": "fbe3771468485eb6bc0db55267a68b8d63ed44e3351cad9579f4334c4c2a3fdd"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b56870f5e1af5eb7c8ec",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "6787"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard・Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/nest/successstory/article/1693.html",
+   "published": "2023-09-18",
+   "origin": "independent_primary_website",
+   "sha256": "9ab0e6cd788841571bed1855d61181ddf9cd34ad09237c6cd2ddc79b86bfd7ab"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "8a8dab907c989943fa01",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "6436"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard・MotionBoard Cloud・Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/nest/successstory/article/1694.html",
+   "published": "2023-12-20",
+   "origin": "independent_primary_website",
+   "sha256": "b1321be060768f913552c0d10aed2998a99045f70c307f789a36d9bb6d97233c"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2cc978d99da188554316",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "8337"
+  },
+  "relation_type": "product_adoption",
+  "product": "invoiceAgent 文書管理・invoiceAgent 電子取引・invoiceAgent AI OCR・SVF Cloud",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/nest/successstory/article/1697.html",
+   "published": "2024-10-10",
+   "origin": "independent_primary_website",
+   "sha256": "04cafde2bfd484a4607291412b6d1ac6e01ec256516ead39697c58b06d8e2e05"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e3a0b514e4190a395e9f",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "8337"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard・Dr.Sum",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/nest/successstory/article/1698.html",
+   "published": "2024-10-10",
+   "origin": "independent_primary_website",
+   "sha256": "319ff1c53f7c432e40b6f4e7d9cbf9daa073725b935e9a0ad5ba3e6ff2cf30fc"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "4a3c1c58a8cea7451810",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "4627"
+  },
+  "relation_type": "product_adoption",
+  "product": "invoiceAgent・dejiren",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/nest/successstory/article/1699.html",
+   "published": "2025-05-07",
+   "origin": "independent_primary_website",
+   "sha256": "ef3d1cb8d9a12662e243e7b54dbad76f9ef9dccc2e5c14dbe6859d1751d217cf"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "67404ed550b98bd4693f",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "5208"
+  },
+  "relation_type": "product_adoption",
+  "product": "MotionBoard",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/nest/successstory/article/1705.html",
+   "published": "2026-05-14",
+   "origin": "independent_primary_website",
+   "sha256": "417ac712bc9faf83cff2fdbea75ec848941a20e99bcb3ccef0ff0a0875f3267d"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "610dc7080c711b7a67e3",
+  "source": {
+   "code": "4432"
+  },
+  "target": {
+   "code": "8015"
+  },
+  "relation_type": "product_adoption",
+  "product": "SVF Archiver・SVF Transact",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wingarc.com/nest/successstory/article/1707.html",
+   "published": "2026-05-21",
+   "origin": "independent_primary_website",
+   "sha256": "3531eba0dd2d88eac272b2b0324388071c0b1fd6b1d295260242f63d9f1f28e0"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ccececbdaa38b71f8251",
+  "source": {
+   "code": "1663"
+  },
+  "target": {
+   "code": "8331"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.k-and-o-energy.co.jp/corporate/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "5f3393c53f59fc2b68e95c0a7a9b81ad7ff95d40dd70af3bb97784387ed9c82c"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d652957cf6833938e171",
+  "source": {
+   "code": "1766"
+  },
+  "target": {
+   "code": "8522"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.token.co.jp/corporate/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "abecdec909ad43774ed6359a15b75f45fcdf348808187ddcda3a79c26e19249b"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "42662ddc49b66bb98a2b",
+  "source": {
+   "code": "1999"
+  },
+  "target": {
+   "code": "8398"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.saita-hd.co.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "f4e9b6361d5379b4bf74b74b5e600304b5cd645f64643d67e3c7a9d37129bb4e"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7ac87ed6a421f92f7b40",
+  "source": {
+   "code": "212A"
+  },
+  "target": {
+   "code": "8361"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://fiteasy.co.jp/company/about/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "757c69b4f10a66d40478d644daf4b404f890bfd6c9a73ad53cce6dc98de0e543"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "83a0eccd4458c5b5ec18",
+  "source": {
+   "code": "2292"
+  },
+  "target": {
+   "code": "8381"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.sfoods.co.jp/company03.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "b3d4f91c0416b365d8d051db529ba6d3a45543d0eb3398d46bcf274ebf7d0661"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9c4bffb7da27056c900f",
+  "source": {
+   "code": "2551"
+  },
+  "target": {
+   "code": "8381"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.marusanai.co.jp/company/profile/about/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "366b9c5280ac5c6279da40cf10727754b2b0ee765044d35dee1f1af185ff8091"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d49e83b9e8db60742196",
+  "source": {
+   "code": "2551"
+  },
+  "target": {
+   "code": "8383"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.marusanai.co.jp/company/profile/about/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "366b9c5280ac5c6279da40cf10727754b2b0ee765044d35dee1f1af185ff8091"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "93647ac56378055c2160",
+  "source": {
+   "code": "255A"
+  },
+  "target": {
+   "code": "8344"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.gltechno.co.jp/company/profile.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2f16f0db57eaf7a255f94ec2603b1c3f2648f33a5c5cb89b56034886386c83ff"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "02b47ad46855c70d1dbb",
+  "source": {
+   "code": "2689"
+  },
+  "target": {
+   "code": "8381"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.olbadvx.jp/corporate/about.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "09e05384e9296cecb7edd7c343091eb52d69505d15246cf55960b03ce443a0cf"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9b22dc9758d7f2a643ef",
+  "source": {
+   "code": "2778"
+  },
+  "target": {
+   "code": "8361"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://palemo.co.jp/corporate",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "567d62095a1d07478bfd692af4bd07180dcd2b38d72ba6e9bab5c7e183ab8b06"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9aae79a81b22e4652a55",
+  "source": {
+   "code": "3068"
+  },
+  "target": {
+   "code": "8304"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.wdi.co.jp/company",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "921ac1f150210156ac2140f761c71ef26ea4d3d98e9030f5acc187cc06687f7c"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7765e14237c486ee823f",
+  "source": {
+   "code": "3286"
+  },
+  "target": {
+   "code": "8395"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://trust-hd.co.jp/company/about_us/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "0f887743b49a12e8b17e1e15ed9224079e63237a8f4b18761002a0a42aa1dc08"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "109c25f1a32be42cc0f9",
+  "source": {
+   "code": "3358"
+  },
+  "target": {
+   "code": "8398"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://ys-food.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "3722e9145a0ee94500fae242b753119d3379f71ff5ea4855049dd4a9c8094331"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b8119c12090f1d43203d",
+  "source": {
+   "code": "3388"
+  },
+  "target": {
+   "code": "8359"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.meijidenki.co.jp/ja/company/outline.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "f68f5d5e5aba093f19536607e010503e15f8c6fa499635381ac11490968d7c12"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0ec8659d06508b41d905",
+  "source": {
+   "code": "3388"
+  },
+  "target": {
+   "code": "8522"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.meijidenki.co.jp/ja/company/outline.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "f68f5d5e5aba093f19536607e010503e15f8c6fa499635381ac11490968d7c12"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7ddeabb74ef0c278085d",
+  "source": {
+   "code": "3395"
+  },
+  "target": {
+   "code": "8388"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.saint-marc-hd.com/hd/company_info/ci/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ac2c2f3d205b1bb23de65840aedff3caa455eb106c8d84ebd491c21309f6a7e6"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "48ad2d479d3a386b37e5",
+  "source": {
+   "code": "3465"
+  },
+  "target": {
+   "code": "8334"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://ki-group.co.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "45047b795d505aca81a1f54df40c6c29545552d466c1208a2a2d4ed0810f54bb"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "569fa0c66e15d27e7f84",
+  "source": {
+   "code": "3465"
+  },
+  "target": {
+   "code": "8304"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://ki-group.co.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "45047b795d505aca81a1f54df40c6c29545552d466c1208a2a2d4ed0810f54bb"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a4dce6dc243d3911e966",
+  "source": {
+   "code": "3465"
+  },
+  "target": {
+   "code": "8336"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://ki-group.co.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "45047b795d505aca81a1f54df40c6c29545552d466c1208a2a2d4ed0810f54bb"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b7884c373b9f81b681a5",
+  "source": {
+   "code": "3640"
+  },
+  "target": {
+   "code": "8359"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ndensan.co.jp/company/about.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "fdae3b351ee0f9a878c929d2dc2f2c34f83af988099c9b01c78cb5b9a97cf481"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2086dc237916e8bd48a3",
+  "source": {
+   "code": "3678"
+  },
+  "target": {
+   "code": "8388"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://mediado.jp/about/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "c8fc04fc2eaac8acc81a24cd87fd97d62c0fbf6142709806c99e0d810ba1e35f"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1fe171628f6a19294ef8",
+  "source": {
+   "code": "3680"
+  },
+  "target": {
+   "code": "8336"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.hottolink.co.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "0bf20da0e29eca70422781cbed26cbace5ede79e5bde1ab1b99dc16df56146b6"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9b9b7a0f96b24cba8940",
+  "source": {
+   "code": "4275"
+  },
+  "target": {
+   "code": "8334"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.carlit.co.jp/corporate/about.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "36cd5837c179b2430a5c53d632dd92a21a11258f35aaaf0d4a8e70eb75402b30"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1ecbbb8b1d851729fa43",
+  "source": {
+   "code": "4465"
+  },
+  "target": {
+   "code": "8366"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.niitaka.co.jp/company/outline.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2c1c98418f6e14fe2e3311999619fc049f85a9df86b6e6def597fe7ee952d847"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "74c913650936284abc5b",
+  "source": {
+   "code": "6384"
+  },
+  "target": {
+   "code": "8360"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.showashinku.co.jp/corporate/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "6ad8dad4f566d6913ed35ee7ba0e14ac5f57a9a1f96d6d63c1fac195a4bd564f"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "904f8eceb73f36e9b6d4",
+  "source": {
+   "code": "6439"
+  },
+  "target": {
+   "code": "8522"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://nakachuko.co.jp/company",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7fe662ba212bd9c0b952188cf06129fe99a282513a00b638e92c6754fbf521f5"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "4f6db7c12e0bf5aa7cdd",
+  "source": {
+   "code": "7062"
+  },
+  "target": {
+   "code": "8360"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://fureasu.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "e799c0cf828aed194d4c77aa995de48467791b32da91fbd90d79e52f7adfb506"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "4e6d40326f50172bd716",
+  "source": {
+   "code": "7135"
+  },
+  "target": {
+   "code": "8522"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.jcraft-hd.co.jp/company/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d4f94d7ed9d0aefccfe7cf40b869fb0934b4fdbe1a16c26059ddaf5c40139b93"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "204cdd7713685fc6402a",
+  "source": {
+   "code": "7172"
+  },
+  "target": {
+   "code": "8331"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.jia-ltd.com/aboutus/corporate/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "5e0d88d72d94d2aca7d52e8cfe3f6202f78b071afffeccca760a1b90cc511049"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9dee96941a7bce2748ec",
+  "source": {
+   "code": "7472"
+  },
+  "target": {
+   "code": "8359"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.toba.co.jp/company/outline.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "cf2028059f8c610b989af5cf576e2d0af91498f9d9c340016ca05a38010eb3f6"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e6b3b920a88a8a42386c",
+  "source": {
+   "code": "7510"
+  },
+  "target": {
+   "code": "8366"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.takebishi.co.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "b8ebbd11a6feb758a7c349ea1ca8ea49d7f71e8c15ce1da55367f1dcfc75d163"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "edb502b6c75a85f12e77",
+  "source": {
+   "code": "7607"
+  },
+  "target": {
+   "code": "8522"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.shinwa-jpn.co.jp/company/overview.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2d2fc7ef92a800218a009a45109ff5ee4844db58824052fb22394f8dc72f3d0e"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a01567da6b093bb852cf",
+  "source": {
+   "code": "7715"
+  },
+  "target": {
+   "code": "8359"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.naganokeiki.co.jp/company/summary.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "48e3646db6d2c47dbe6107d49865df2ced1801434452935147acdb3bbefb373c"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3e7e93621b35142ca1fa",
+  "source": {
+   "code": "7722"
+  },
+  "target": {
+   "code": "8360"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.kokusaikk.co.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "894fe66677c1b3183c2663d355f3917dd2b29d75524335d2a029f09e73816e43"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "aec292dc374af16fbdb4",
+  "source": {
+   "code": "7878"
+  },
+  "target": {
+   "code": "8360"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.kohsai-qq.co.jp/about/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "a65ab333811ce0747e893e8898dedcf4d27f22f592524570403d7565a2698987"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c66e1b3e86556d41252f",
+  "source": {
+   "code": "8039"
+  },
+  "target": {
+   "code": "8341"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.tsukiji-uoichiba.co.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ae38375971a3821632e698583d9af8e00e7c34a8746de94f29b8e0848d798e84"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "84355d813e2619c3d8b1",
+  "source": {
+   "code": "8039"
+  },
+  "target": {
+   "code": "8345"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.tsukiji-uoichiba.co.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ae38375971a3821632e698583d9af8e00e7c34a8746de94f29b8e0848d798e84"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "28ffd6aa40d1780fe0ea",
+  "source": {
+   "code": "8039"
+  },
+  "target": {
+   "code": "8387"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.tsukiji-uoichiba.co.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ae38375971a3821632e698583d9af8e00e7c34a8746de94f29b8e0848d798e84"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e6cf92b475e1dbb5762a",
+  "source": {
+   "code": "8039"
+  },
+  "target": {
+   "code": "8416"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.tsukiji-uoichiba.co.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ae38375971a3821632e698583d9af8e00e7c34a8746de94f29b8e0848d798e84"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b3c6741c63fd2d3d0d31",
+  "source": {
+   "code": "8143"
+  },
+  "target": {
+   "code": "8386"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.lapine.co.jp/company/about.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "829a21e32dcbb57062e9ffb8f9c2f19e389b84638d346b5310e30904d83b13ac"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "307b53ed70c728937a88",
+  "source": {
+   "code": "8708"
+  },
+  "target": {
+   "code": "8341"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.aizawa-group.jp/company/outline.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "9b7c04d53a86b07b61456ba75213b2f969b7a214a71de99e20cfba358b58fdb6"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ee97b80ceacea70ad8cd",
+  "source": {
+   "code": "8860"
+  },
+  "target": {
+   "code": "8370"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.fuji-jutaku.co.jp/corporate/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "aa2f036bdb628af5a3febe8d5268e627ebb4ade05ae183675a4bf3cb8e96cc92"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a41a22cf342a38bb29cc",
+  "source": {
+   "code": "8935"
+  },
+  "target": {
+   "code": "8331"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.fjnext-hd.co.jp/corporate/corporate_profile.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "3caa15361fd22cbafa891aec5ece6330a1116e751dce82cd042f960e61ee1ccf"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5dc4bc65ee12c94756c7",
+  "source": {
+   "code": "9090"
+  },
+  "target": {
+   "code": "8331"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.az-com-maruwa-hd.co.jp/corporate/about/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "5a6ae5d4dfe1d4b3a80f81c0eff2f16ee5e03e604ab2ffb99e729461994ec5ab"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "cedab89fb23d3b06640d",
+  "source": {
+   "code": "9421"
+  },
+  "target": {
+   "code": "8331"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.njhd.jp/company/outline/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "76e442fbaf3071c61d6fde43232a605a1b5fa6eb8477e5d7e53c02fbc85fad6c"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "770de5a3d224fd71d0a6",
+  "source": {
+   "code": "9446"
+  },
+  "target": {
+   "code": "8361"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://sakai-holdings.co.jp/about/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7c5265c63c861463857053c4b5a736c69bdc19b30c02f1278ae23ef1e888cc66"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bc91d083902429278546",
+  "source": {
+   "code": "9446"
+  },
+  "target": {
+   "code": "8522"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://sakai-holdings.co.jp/about/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7c5265c63c861463857053c4b5a736c69bdc19b30c02f1278ae23ef1e888cc66"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "06047303dc9c1f253e67",
+  "source": {
+   "code": "9446"
+  },
+  "target": {
+   "code": "8368"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://sakai-holdings.co.jp/about/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7c5265c63c861463857053c4b5a736c69bdc19b30c02f1278ae23ef1e888cc66"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "792443722b060d509151",
+  "source": {
+   "code": "9450"
+  },
+  "target": {
+   "code": "8524"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.fibergate.co.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "9400cd6d3d1cdb90c874e76582bb6bc85a3c41a44a87da4dae10fedba875902d"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f779699eb03a08948905",
+  "source": {
+   "code": "9450"
+  },
+  "target": {
+   "code": "8341"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.fibergate.co.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "9400cd6d3d1cdb90c874e76582bb6bc85a3c41a44a87da4dae10fedba875902d"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "dd6a481d6f0166a25743",
+  "source": {
+   "code": "9450"
+  },
+  "target": {
+   "code": "8303"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.fibergate.co.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "9400cd6d3d1cdb90c874e76582bb6bc85a3c41a44a87da4dae10fedba875902d"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "404f1208bdd83484ce82",
+  "source": {
+   "code": "9450"
+  },
+  "target": {
+   "code": "8331"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.fibergate.co.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "9400cd6d3d1cdb90c874e76582bb6bc85a3c41a44a87da4dae10fedba875902d"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ff1a4eddb761108dc7ce",
+  "source": {
+   "code": "9450"
+  },
+  "target": {
+   "code": "8336"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.fibergate.co.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "9400cd6d3d1cdb90c874e76582bb6bc85a3c41a44a87da4dae10fedba875902d"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "10b99955411ec512777d",
+  "source": {
+   "code": "9450"
+  },
+  "target": {
+   "code": "8343"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.fibergate.co.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "9400cd6d3d1cdb90c874e76582bb6bc85a3c41a44a87da4dae10fedba875902d"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "8d62d42bbd8f291c3a35",
+  "source": {
+   "code": "9663"
+  },
+  "target": {
+   "code": "8524"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://group.nagawa.co.jp/company/outline.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "8ad9384e4e2f6aef25561fdf0a1f2993cb2ebdeb8142227a05c98f6ce6e9c2ae"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ae3dc000576f4d67e46c",
+  "source": {
+   "code": "9663"
+  },
+  "target": {
+   "code": "8336"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://group.nagawa.co.jp/company/outline.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "8ad9384e4e2f6aef25561fdf0a1f2993cb2ebdeb8142227a05c98f6ce6e9c2ae"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3fd641251b41d0bf540e",
+  "source": {
+   "code": "9753"
+  },
+  "target": {
+   "code": "8337"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.ikic.co.jp/company/outline.html",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "49ec9823f32328282bee89f6dfc73c7d95cc364e36c6e07dad35cea7cd113482"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a2955e33e28f13b0d7b5",
+  "source": {
+   "code": "9902"
+  },
+  "target": {
+   "code": "8386"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.nichiden.com/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "70081a24d4f49128abfd8fee557a088791ca5850785e4a21ab55f61dd6471f18"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "cdd257bb8b3d7ca7a571",
+  "source": {
+   "code": "9941"
+  },
+  "target": {
+   "code": "8366"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.taiyo-bussan.co.jp/profiles/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2940d9d3c041570135b8e4ee73814a39c3b8a6f578b565d5bf3adf0e9ce68432"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "943377c02525d247e820",
+  "source": {
+   "code": "9941"
+  },
+  "target": {
+   "code": "8386"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.taiyo-bussan.co.jp/profiles/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2940d9d3c041570135b8e4ee73814a39c3b8a6f578b565d5bf3adf0e9ce68432"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "764c4d0fa6d16c419871",
+  "source": {
+   "code": "9996"
+  },
+  "target": {
+   "code": "8341"
+  },
+  "relation_type": "banking_partner",
+  "as_of": null,
+  "document": {
+   "url": "https://www.satoh-web.co.jp/company/profile/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "29e33faca2e282542b9e0044a422e82a58bd4c4a90d65d7ce8fb7e9d5cc05736"
+  },
+  "topic": "会社概要の取引金融機関一覧。借入や融資額を推定せず、金融持株会社へ読み替えない。",
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0c8dd379808ffbc9bb47",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "8393"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's NEO",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/10226/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "92b89caa9d76a6eb5e3fb6a84f820b7d65c5a055dbbf7dbc431c52a95f16a4a4"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "20c70a6f4be29b175eb0",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "7481"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's NEO・AppSuite",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/9361/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "067f545a25fd7cb39d4e95a87f5b24faf83888acc8d86762ea0245930ec0f4c5"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0492d9d20d0f82ad43f5",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "3640"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's NEO",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/8437/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "04d244d95157224d47b01e73bebded5bfb667dbb189ec4f24897abc6635c3bcc"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "85060e6bc0cf4f69e326",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "1801"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's NEO",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/1285/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "13e9b312921e4c20e66d2248a7bd7a0aafaad068df601ac980f3438cdd9ce1c7"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5c68bcb34dfcd9a12b04",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "7081"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's NEO",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/1492/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "f71c1b3add7918cc802e1dc58c3917c070dc158de1810811b72038f005a38090"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "be9d79517c58cd6f851b",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "8150"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's NEO",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/4835/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "097b1cdc8fd6b37654bdf13330fdd833712d041c9bc77d8278607c5505654903"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f3a3e1847f2e3d0ad250",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "6571"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's NEO",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/4552/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "b0b3d919394a0c3ff8f4c5b97766f5a4c08b1f558cefb5f6e5bdf3d8206c74ff"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5db488a4dd882799390a",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "7180"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's NEO",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/3724/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "62535a707c92ace32ed7fb9ee4332220dea02bd5bfb599ff803c5c5b1a0fefc2"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "454704231a5d0401a194",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "4735"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's NEO・AppSuite",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/8280/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "57b7e9454f3b5b46b838eb50a14f8d16fb336d4d2c7485bc0b41b88592432721"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "b08a616b04d27ea5d789",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "9446"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's NEO",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/8147/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "38214022e2166146208dedb333af382eeda63724e2cb22c8c260ee3fae6cb126"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e34532619ff9317b3026",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "8039"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/1706/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "fed003abd7e6e38c8c7096e5eb0db799da955cd6e2d105e6fc5c87a6829df618"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "733d8b444bd2d8465e64",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "6871"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/3447/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "ed12759ac308eff31f9042578eb10b44243387f82e96f92a0ea28842c9a8e580"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "05e1d74ade55d1c09b69",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "4368"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/3467/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "909c077d43f8823033d550af66fe9888fa59df9c0e4c0ac271798de68ded6826"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "8cf6846c557c36b81ff3",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "9827"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/12260/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "26c1cf063b46083b94083400c153851a2561598843bcd85f0a96f9d8608d5a63"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "1385bd4eac9cafcecb11",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "8237"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's NEO",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/12210/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "bbcd08caa0f38ace60dd4adb2f5b0c9c2cf868da5d785a23d5b69268d4ef7377"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "609105e8f56b5ef30aba",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "8194"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's NEO",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/11534/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "26f2c34eec1fb60815316f4b94c22343e3f569bbaee320dd3fd44579db392986"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f8c931355e71e83d2cdd",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "4657"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's NEO・AppSuite",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/users/media/appsuite/7284/",
+   "published": "2022-01-31",
+   "origin": "independent_primary_website",
+   "sha256": "68bf02cd7b2df8566a0549a7de1ac163e30ad1c0776120e05fa80977618f4445"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "0115c96b3088b2ed938a",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "4203"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's NEO・AppSuite",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/13714/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "8b5e9cd491be8c8e1dece0b1308f27e92db3871c753492560f6f6a0b8a677f3e"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9391104624dd852cb716",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "7057"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's NEO",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/5653/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "da144b69ede02cada958d9ce1a55f485e712a3a2706b2f5bbb221b97d5138635"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e6730a1812a72667561f",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "9028"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/421/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "9d066b215f453d5db85327514f401fe70cfcfef294b35bf0db133b4c84bfb241"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "36060091a89721bf7585",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "8563"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/361/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "8f1f51c4173161017a45cf34390837c29d0fcffdb6aa573a198e408a4dc2caf4"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d1d802628336056e6075",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "8381"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's NEO・AppSuite",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/18803/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "2e284a70131a3ce6e23aa7ae9be014bcc1a32744bd88e27729ca17cead542628"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "2606b2ee86d078ed3aa4",
+  "source": {
+   "code": "3921"
+  },
+  "target": {
+   "code": "4627"
+  },
+  "relation_type": "product_adoption",
+  "product": "desknet's NEO・AppSuite",
+  "as_of": null,
+  "document": {
+   "url": "https://www.desknets.com/neo/casestudy/15731/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "0502d63097c775716ff3269a0d8d8c276fcb37fd7de9379b404b004a6aa62a5d"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "50b005bc09f1f52eab61",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "3660"
+  },
+  "relation_type": "product_adoption",
+  "product": "Salesforce SFA・販売管理システム構築支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.terrasky.co.jp/case/salesforce_istyle.php",
+   "published": "2026-07-03",
+   "origin": "independent_primary_website",
+   "sha256": "50365f37298855e8527fec78d6aabfb0d73dec3362405e67f3e299b4e69bcd51"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "292b11a35ef52107b10c",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "7806"
+  },
+  "relation_type": "product_adoption",
+  "product": "Agentforce Service導入支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.terrasky.co.jp/case/salesforce_mtg.php",
+   "published": "2026-06-25",
+   "origin": "independent_primary_website",
+   "sha256": "88f2d5c7294fba037751429ab6dab8b515e177a17ab75d9b8c839342d7dc4da2"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d2060af16bd1534fc1e9",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "3955"
+  },
+  "relation_type": "product_adoption",
+  "product": "mitoco・SkyVisualEditor",
+  "as_of": null,
+  "document": {
+   "url": "https://www.mitoco.net/case/mitoco-imura",
+   "published": "2026-06-22",
+   "origin": "independent_primary_website",
+   "sha256": "9d56f79afe18b9d65ddf8840d15f4ce553bbb8327b96d57e864edbf2f3759418"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7978e1934b097ecdaa08",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "6503"
+  },
+  "relation_type": "product_adoption",
+  "product": "CoEアドバイザリーサービス",
+  "as_of": null,
+  "document": {
+   "url": "https://www.terrasky.co.jp/case/mitsubishielectric_coe.php",
+   "published": "2024-02-29",
+   "origin": "independent_primary_website",
+   "sha256": "812928939113d46cf645adb210a8b753e970649a63768d6ecb11f2f0fc7fc7ad"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c12497f36ed575857b36",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "5201"
+  },
+  "relation_type": "product_adoption",
+  "product": "Salesforce導入・CoE構築支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.terrasky.co.jp/case/post_44.php",
+   "published": "2021-02-26",
+   "origin": "independent_primary_website",
+   "sha256": "d8bd7ca36c211adb8ca729e3d17989159437479457b66f5c152d779d82fc553a"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d389c6ad428bbb29a020",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "7780"
+  },
+  "relation_type": "product_adoption",
+  "product": "Salesforce Service Cloud導入支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.terrasky.co.jp/case/salesforce_menicon.php",
+   "published": "2021-08-26",
+   "origin": "independent_primary_website",
+   "sha256": "70eedd3eea3da6f108789ad240b5d00a32c53a113a5568a44c4bef8aefaefcc3"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "62ba9c78e3d2ef454db0",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "4375"
+  },
+  "relation_type": "product_adoption",
+  "product": "mitoco X Powered by DataSpider Cloud",
+  "as_of": null,
+  "document": {
+   "url": "https://www.mitoco.net/case/mitocoX-safie",
+   "published": "2020-09-01",
+   "origin": "independent_primary_website",
+   "sha256": "dc1947ca3a78d701e25f5abc23944affb790ceb259349ae138d3a7e6bc4f6251"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "5bbf5d632782de706a47",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "7981"
+  },
+  "relation_type": "product_adoption",
+  "product": "mitoco X Powered by DataSpider Cloud",
+  "as_of": null,
+  "document": {
+   "url": "https://www.mitoco.net/case/mitocoX-takara-standard",
+   "published": "2020-01-14",
+   "origin": "independent_primary_website",
+   "sha256": "1a725f2d1ca39da94ab4de0ad5b557b5e948f119b5aec8df39106f5ed7bfcd27"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "676d13b8534b5d40ce14",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "8424"
+  },
+  "relation_type": "product_adoption",
+  "product": "Salesforce Sales Cloud導入支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.terrasky.co.jp/case/salesforce_fgl.php",
+   "published": "2024-09-06",
+   "origin": "independent_primary_website",
+   "sha256": "165fd3e6351542f778ac4221c670b26ed1dd9a5a12dcc0343cb6977aa4755728"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e1b6a5e6dfc2b80a174e",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "1929"
+  },
+  "relation_type": "product_adoption",
+  "product": "mitoco",
+  "as_of": null,
+  "document": {
+   "url": "https://www.mitoco.net/case/mitoco-nittoc",
+   "published": "2024-06-06",
+   "origin": "independent_primary_website",
+   "sha256": "567ab45d20cb957df2d79e5f4e1162de53f051b2f018a1c9760e46fb835dde5e"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d4477608ea5653774e0e",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "9327"
+  },
+  "relation_type": "product_adoption",
+  "product": "mitocoアシスタント",
+  "as_of": null,
+  "document": {
+   "url": "https://www.mitoco.net/case/assistant-elogit",
+   "published": "2024-02-19",
+   "origin": "independent_primary_website",
+   "sha256": "5b43457c1f54073b0015b2a537f43c0119bde380322801d4edb8c112e7b24be2"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ede5dea1e71631cfe7de",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "9832"
+  },
+  "relation_type": "product_adoption",
+  "product": "AWSへの会計システム移行支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.terrasky.co.jp/case/aws_autobacs.php",
+   "published": "2018-03-20",
+   "origin": "independent_primary_website",
+   "sha256": "a2102bb77eed673bf6ddd1c15d3ad9b063d2e9c9cb54eb9a9e0bdb06ec25611f"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "7bd74f8b53f0e6ce32bd",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "6361"
+  },
+  "relation_type": "product_adoption",
+  "product": "SkyOnDemand",
+  "as_of": null,
+  "document": {
+   "url": "https://www.terrasky.co.jp/case/post_33.php",
+   "published": "2017-11-30",
+   "origin": "independent_primary_website",
+   "sha256": "122e0969d5859c3914c5b91f3b522c8954d0a327c6aa4b443f63bcd972e45e3a"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "98bb07baa703a6b08da9",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "4475"
+  },
+  "relation_type": "product_adoption",
+  "product": "DataSpider Cloud",
+  "as_of": null,
+  "document": {
+   "url": "https://www.terrasky.co.jp/case/dataspidercloud_hennge.php",
+   "published": "2018-09-20",
+   "origin": "independent_primary_website",
+   "sha256": "8125724aa621682ad08bcd45c086255028443fd68ff5a2fd14d5222c25691490"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9646a5a18d87d61ff03c",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "148A"
+  },
+  "relation_type": "product_adoption",
+  "product": "DataSpider Cloud",
+  "as_of": null,
+  "document": {
+   "url": "https://www.terrasky.co.jp/case/dataspidercloud-hatchwork.php",
+   "published": "2019-01-09",
+   "origin": "independent_primary_website",
+   "sha256": "22b57824c775985edf68ebad1e25dee10b40024ef650ee0bc2e4953e892d5728"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "60ff0aa3a77bc94650b8",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "8151"
+  },
+  "relation_type": "product_adoption",
+  "product": "Salesforceコミュニティ基盤構築支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.terrasky.co.jp/case/post_32.php",
+   "published": "2017-11-27",
+   "origin": "independent_primary_website",
+   "sha256": "89cede6fbf68751f71feacc74a724a526173f4d2214b692ab1dd4d8675cd751c"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "3f08417efd0fcbe5bf57",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "6184"
+  },
+  "relation_type": "product_adoption",
+  "product": "DataSpider Cloud",
+  "as_of": null,
+  "document": {
+   "url": "https://www.terrasky.co.jp/case/dataspidercloud-kamakurashinsho.php",
+   "published": "2019-11-13",
+   "origin": "independent_primary_website",
+   "sha256": "b1bac24654de16244700cf8bedcdffd8d5cf9be07c39e89c68588765cc1f8cb5"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "18a4e5cdb35c983c1440",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "4478"
+  },
+  "relation_type": "product_adoption",
+  "product": "Salesforceを利用した融資サービス基盤開発支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.terrasky.co.jp/case/freee-salesforce.php",
+   "published": "2019-10-11",
+   "origin": "independent_primary_website",
+   "sha256": "2b31b640093bb8f99b49f7626fdc4dbae3645c8910711aee722a4937ebccf63b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e0a2fb4e3d058870b965",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "7912"
+  },
+  "relation_type": "product_adoption",
+  "product": "AppExchangeアプリ開発支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.terrasky.co.jp/case/salesforce-dnp.php",
+   "published": "2019-08-06",
+   "origin": "independent_primary_website",
+   "sha256": "e6004a6aa75d0558781bb086d9aa8cb9487a16ce2d66732c5bb22bca03d0e88f"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "41147dc3960d0ced1dec",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "7203"
+  },
+  "relation_type": "product_adoption",
+  "product": "DataSpider Cloud・システム基盤構築支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.terrasky.co.jp/case/dataspidercloud-toyota.php",
+   "published": "2019-08-22",
+   "origin": "independent_primary_website",
+   "sha256": "81d87013addd262fc84fa5e01a74734f179e0060965e49a65db58212a7493f60"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "a125b0102ff85ec13f49",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "6869"
+  },
+  "relation_type": "product_adoption",
+  "product": "CRMシステム刷新・PMO支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.terrasky.co.jp/case/salesforce_sysmex.php",
+   "published": "2022-02-07",
+   "origin": "independent_primary_website",
+   "sha256": "fb66df4ab79d0d16a9eddca3162e3e5130177edbfd568846dd046df4491b9203"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "07959bf20e8a19856dcd",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "8133"
+  },
+  "relation_type": "product_adoption",
+  "product": "Salesforce B2B Commerce導入支援",
+  "as_of": null,
+  "document": {
+   "url": "https://www.terrasky.co.jp/case/salesforce_itcenex.php",
+   "published": "2023-09-28",
+   "origin": "independent_primary_website",
+   "sha256": "f7b8b5e9702a92a6a0e4cb7204085793d567262ec6b800ba8d4dfa8742fbda8e"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "c9b5400fa8b5e9f5c479",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "9715"
+  },
+  "relation_type": "product_adoption",
+  "product": "SkyVisualEditor",
+  "as_of": null,
+  "document": {
+   "url": "https://info.skyvisualeditor.com/case/transcosmos",
+   "published": "2022-07-05",
+   "origin": "independent_primary_website",
+   "sha256": "b94353ae2af366f62484b5bfc49c6cabb565ae5f55e12d1c8ac0653fc4117fb2"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "83f442e9c8f8e7c76460",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "9025"
+  },
+  "relation_type": "product_adoption",
+  "product": "SkyVisualEditor",
+  "as_of": null,
+  "document": {
+   "url": "https://info.skyvisualeditor.com/case/konoike",
+   "published": "2023-01-23",
+   "origin": "independent_primary_website",
+   "sha256": "9653f706d9795fec3fb26aaaa9554550d78bac7ebfb160ccf5903734df4690ac"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "44ab3c8fbe088321ab62",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "4043"
+  },
+  "relation_type": "product_adoption",
+  "product": "mitoco・SkyVisualEditor",
+  "as_of": null,
+  "document": {
+   "url": "https://www.mitoco.net/case/tokuyama",
+   "published": "2022-08-16",
+   "origin": "independent_primary_website",
+   "sha256": "3043ddaf91509de4f5680736b7074cc81430c6bf6d3970c76e48169f08ccb48a"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "9cc64e41bed087994655",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "9433"
+  },
+  "relation_type": "product_adoption",
+  "product": "SkyVisualEditor",
+  "as_of": null,
+  "document": {
+   "url": "https://info.skyvisualeditor.com/case/kddi",
+   "published": "2016-06-22",
+   "origin": "independent_primary_website",
+   "sha256": "5a332f598250029bcac1092739b27000a6c62f346b75ef16215bd93f4e271f5b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f3860a2da1aaf88fc4cc",
+  "source": {
+   "code": "3915"
+  },
+  "target": {
+   "code": "3967"
+  },
+  "relation_type": "product_adoption",
+  "product": "クラウドサインSalesforce版の導入支援",
+  "as_of": null,
+  "document": {
+   "url": "https://cloudsign-for-salesforce.jp/casestudy/posts/eltes",
+   "published": "2021-11-16",
+   "origin": "independent_primary_website",
+   "sha256": "60fbbdb046bdb2f862c900fe0fe1d25f9f862bac03b3cb572b26101223e2f317"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "bc3566bf16b326ca7173",
+  "source": {
+   "code": "4412"
+  },
+  "target": {
+   "code": "9201"
+  },
+  "relation_type": "product_adoption",
+  "product": "Buddycom",
+  "as_of": null,
+  "document": {
+   "url": "https://buddycom.net/case/case69/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "c4e0e68219ddb7427234eafe8898d5d2aa05b3a31a5b9386e10b3634a916c291"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "8d55ebccbbdcd2edf0b1",
+  "source": {
+   "code": "4412"
+  },
+  "target": {
+   "code": "9206"
+  },
+  "relation_type": "product_adoption",
+  "product": "Buddycom",
+  "as_of": null,
+  "document": {
+   "url": "https://buddycom.net/old-case/case19/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7d470f1682832e1eb72eb0a1760380bc70e74098abe6f1f0d06d1daa007889fa"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "e23fa3dae806e6de1241",
+  "source": {
+   "code": "4412"
+  },
+  "target": {
+   "code": "9022"
+  },
+  "relation_type": "product_adoption",
+  "product": "Buddycom",
+  "as_of": null,
+  "document": {
+   "url": "https://buddycom.net/old-case/case07/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "4f1681dc276f894f1a1fc607206f978a766de2f84b06e2726d9270b4ffdb592b"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "da390554ab5a2d8caf18",
+  "source": {
+   "code": "4412"
+  },
+  "target": {
+   "code": "9020"
+  },
+  "relation_type": "product_adoption",
+  "product": "Buddycom",
+  "as_of": null,
+  "document": {
+   "url": "https://buddycom.net/old-case/case13/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "1baf10a93f9cfca83a8583673caa1d0752710bc2011fdb95126f29709e787c69"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "ae8f1dfc0fe3ae61d9be",
+  "source": {
+   "code": "4412"
+  },
+  "target": {
+   "code": "7752"
+  },
+  "relation_type": "product_adoption",
+  "product": "Buddycom",
+  "as_of": null,
+  "document": {
+   "url": "https://buddycom.net/old-case/case33/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "d14f1ffe48b885db1134eaf6b5f2cf66059d8b1938b28262194d26249bfe56bb"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "59edafe8820fd9b1741c",
+  "source": {
+   "code": "4412"
+  },
+  "target": {
+   "code": "7453"
+  },
+  "relation_type": "product_adoption",
+  "product": "Buddycom",
+  "as_of": null,
+  "document": {
+   "url": "https://buddycom.net/old-case/case44/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "f2c7e7313f6eef98c7067e042f5496f990f5b24d245decdb1f6f8be268d8bf85"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "f04b6b71b320dead0c09",
+  "source": {
+   "code": "4412"
+  },
+  "target": {
+   "code": "6062"
+  },
+  "relation_type": "product_adoption",
+  "product": "Buddycom",
+  "as_of": null,
+  "document": {
+   "url": "https://buddycom.net/old-case/case39/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "7314ce43bb4053d5af20c5fb36df7b99330508c8effbcdbcfc0f87f8f8c311db"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "d114be1698d42d29ecba",
+  "source": {
+   "code": "4412"
+  },
+  "target": {
+   "code": "8609"
+  },
+  "relation_type": "product_adoption",
+  "product": "Buddycom",
+  "as_of": null,
+  "document": {
+   "url": "https://buddycom.net/old-case/case02/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "0319d86edc08f319b16a432644010afbb04ef3e63a6659770797f408e73cd907"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "66a9372e58b5589707e0",
+  "source": {
+   "code": "4412"
+  },
+  "target": {
+   "code": "5406"
+  },
+  "relation_type": "product_adoption",
+  "product": "Buddycom",
+  "as_of": null,
+  "document": {
+   "url": "https://buddycom.net/case/case-88/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "a02e4a079568b441bddcd1e012b45fb75ad57d296e502050942c30f66d153acc"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
+ },
+ {
+  "id": "37f83bb64d35ca980370",
+  "source": {
+   "code": "4412"
+  },
+  "target": {
+   "code": "3191"
+  },
+  "relation_type": "product_adoption",
+  "product": "Buddycom",
+  "as_of": null,
+  "document": {
+   "url": "https://buddycom.net/case/case-89/",
+   "published": null,
+   "origin": "independent_primary_website",
+   "sha256": "599f3a803c5e65cf7307586332c1bd7d7c7abb61468b8b7a8c1e2a504e0105ad"
+  },
+  "review": {
+   "status": "source_checked",
+   "by": "codex_primary_source_review",
+   "on": "2026-09-22"
+  }
  }
 ]
